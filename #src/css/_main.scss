@@ -1,0 +1,65 @@
+/* Body settings */
+body {
+	// max-width: $page-max-width+px;
+	// margin: 0 auto; //REQ! if max-width
+	font-family: Arial;
+	font-size: $font-size-default;
+	color: #222;
+	background-color: #bde;
+	&._locked {overflow: hidden;} //REQ!
+
+	// Variables for JS manipulations:
+	--header-position: 0px; //REQ!
+	--header-offset: 0px; //REQ!
+	--header-height: 0px; //REQ!
+	--footer-height: 0px; //REQ!
+	--media-mobile: #{$mobile}; //REQ!
+	--timer-menu: #{$timer-menu}; //REQ!
+	--timer-modal: #{$timer-modal}; //REQ!
+}
+.container {
+	width: 100%; //REQ!
+	max-width: $container-width+px; //REQ!
+	min-width: calc($page-min-width - (100vw - 100%)); //REQ!
+	margin: 0 auto; //REQ!
+	padding: 0 $container-padding+px;
+}
+
+
+/* Modules */
+// @import "modules/accordion_css";
+// @import "modules/accordion_js";
+@import "modules/footer";
+// @import "modules/form";
+@import "modules/header";
+// @import "modules/input_checkbox";
+// @import "modules/input_radio";
+// @import "modules/input_range_colored";
+// @import "modules/input_range_double";
+// @import "modules/loadscreen";
+// @import "modules/modal";
+// @import "modules/pagination";
+// @import "modules/popup";
+// @import "modules/select";
+// @import "modules/spoiler";
+// @import "modules/tabs";
+// @import "modules/up_button";
+// @import "modules/video_player";
+
+
+/* WordPress admin-bar position fix */
+#wpadminbar {position: fixed !important;} //REQ! if WordPress
+
+
+/* Main content */
+.main {
+	margin-top: calc(var(--header-offset) + var(--header-height)); //REQ! if header 'position' is 'fixed' or 'absolute'
+	min-height: calc(100vh - var(--header-offset) - var(--header-height) - var(--footer-height)); // makes footer sticky to bottom
+	// Section margins Example:
+	// &__section {
+	// 	.page-home & {margin-top: 67px;}
+	// 	.page-about & {margin-top: 10px;}
+	// }
+}
+
+// Place other styles here
