@@ -1,3 +1,5 @@
+@import "../colors";
+
 .header {
 	// Set position absolute if header is static, else set fixed
 	position: fixed; //REQ!
@@ -8,7 +10,7 @@
 	width: 100%; //REQ!
 	padding: 10px 0;
 	// font-size: 0;
-	background-color: lightseagreen;
+	background-color: $color-5;
 	&__print-address, &__print-address-qr {display: none;} //REQ!
 }
 

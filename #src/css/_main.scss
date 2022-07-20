@@ -1,10 +1,12 @@
+@import "colors";
+
 /* Body settings */
 body {
 	// max-width: $page-max-width+px;
 	// margin: 0 auto; //REQ! if max-width
 	font-family: Arial;
 	font-size: $font-size-default;
-	color: #222;
+	color: $color-4;
 	background-color: #bde;
 	&._locked {overflow: hidden;} //REQ!
 
