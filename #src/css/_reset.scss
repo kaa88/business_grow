@@ -8,3 +8,6 @@ button, input, textarea {font-family: inherit;}
 button, input[type="submit"], input[type="reset"] {cursor: pointer;}
 input::-ms-clear {display: none;}
 ul {list-style: none;}
+
+/* WordPress admin-bar position fix */
+#wpadminbar {position: fixed !important;}

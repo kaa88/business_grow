@@ -439,7 +439,7 @@ function watchFiles() {
 			f(undefined, fixPath(path));
 		});
 	}
-	gulp.watch([path.watch.css], css).on('change', browsersync.reload);
+	gulp.watch([path.watch.css], css);//.on('change', browsersync.reload);
 	gulp.watch([path.watch.js], js);
 	conditionalWatch(gulp.watch([path.watch.html]), html);
 	conditionalWatch(gulp.watch([path.watch.data]), data);

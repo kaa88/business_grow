@@ -25,16 +25,16 @@ const mobileSwitchWidth = parseFloat(getComputedStyle(document.body).getProperty
 //////////////////////////////////////////////////
 
 // JS Media Queries //
-@@include('front/js_media_queries.js')
-jsMediaQueries.init({
-	breakpoints: {
-		568: () => {},
-		782: () => {
-			header.mobileViewService(); // required by Header module
-		},
-		1228: () => {},
-	}
-})
+// @ @include('front/js_media_queries.js')
+// jsMediaQueries.init({
+// 	breakpoints: {
+// 		568: () => {},
+// 		782: () => {
+// 			header.mobileViewService(); // required by Header module
+// 		},
+// 		1228: () => {},
+// 	}
+// })
 
 //////////////////////////////////////////////////
 

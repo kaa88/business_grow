@@ -92,7 +92,7 @@ const header = {
 	},
 	mobileViewService: function() {
 		this.menu.toggle();
-		this.menu.hideOnViewChange();
+		// this.menu.hideOnViewChange();
 		// this.hidingHeader.calc();
 	},
 
@@ -164,9 +164,9 @@ const header = {
 			// this func prevents menu blinking on mobile view switch
 			if (this.isLoaded) {
 				let that = this;
-				this.menuElem.style.display = 'none';
+				this.menuElem.style.visibility = 'hidden';
 				setTimeout(() => {
-					that.menuElem.style.display = '';
+					that.menuElem.style.visibility = '';
 					that.root.calcHeaderHeight();
 				}, that.timeout)
 			}

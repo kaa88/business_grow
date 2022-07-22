@@ -10,7 +10,7 @@
 // Gilroy
 // @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;1,400&display=swap');
 @import "fontscript";
-$font-1: Gilroy;
+$font-1: Gilroy, Geneva, Arial, sans-serif;
 // Fonts test
 // h1 {
 // 	font-family: $font-1;
@@ -23,7 +23,7 @@ $font-1: Gilroy;
 $font-size-default: 16px; //px
 $page-min-width: 320px; //px
 $page-max-width: 1920;
-$container-base-width: 1200;
+$container-base-width: 1303;
 $container-padding: 15;
 $container-width: $container-padding * 2 + $container-base-width;
 
@@ -55,7 +55,6 @@ $timer-tabs: 0.8s;
 
 //////////////////////////////////////////////////
 
-@import "_globs";
 @import "_main";
 @import "_404";
 @import "_print";

@@ -7,7 +7,7 @@ get_template_part('parts/header');
 	'descr': 'Description',
 	'robots': 'noindex, nofollow',
 })
-<!-- <script id="header-menu-options">
+<script id="header-menu-options">
 	// список пунктов меню в header.html
 	// наличие и порядок устанавливаются в массиве 'links'
 	// 'activeLink' добавляет класс 'this-page'
@@ -15,43 +15,44 @@ get_template_part('parts/header');
 	
 	let headerMenuOptions = {
 	// 	links: ['home','products','about','contacts'],
-	// 	activeLink: 'home'
+		activeLink: 'home'
 	}
-</script> -->
+</script>
 
 
 <main class="main page-home">
 
-	<section class="main__section section">
-		<div class="section__container container">
+	<a class="text-button-with-arrow" href="#">
+		<span class="text-button-with-arrow__text"><span>получить бесплатную консультацию</span></span>
+		<span class="text-button-with-arrow__arrow">
+			<i class="icon-arrow"></i>
+		</span>
+	</a>
+	<a class="text-button-with-arrow text-button-with-arrow--rounded" href="#">
+		<span class="text-button-with-arrow__text"><span>едем дальше</span></span>
+		<span class="text-button-with-arrow__arrow">
+			<i class="icon-arrow"></i>
+		</span>
+	</a>
 
-			<h1 class="g-h1">content section1</h1>
-			<h1 class="g-h1">content section2</h1>
-			<h1 class="g-h1">content section3</h1>
-			<h1 class="g-h1">content section4</h1>
-			<h1 class="g-h1">content section5</h1>
-			<h1 class="g-h1">content section</h1>
-			<h1 class="g-h1">content section</h1>
-			<h1 class="g-h1">content section</h1>
-			<h1 class="g-h1">content section</h1>
-			<h1 class="g-h1">content section</h1>
-			<h1 class="g-h1">content section</h1>
-			<h1 class="g-h1">content section</h1>
-			<h1 class="g-h1">content section</h1>
-			<h1 class="g-h1">content section</h1>
-			<h1 class="g-h1">content section</h1>
-			<h1 class="g-h1">content section</h1>
-			<h1 class="g-h1">content section</h1>
-			<h1 class="g-h1">content section</h1>
-			<h1 class="g-h1">content section</h1>
-			<h1 class="g-h1">content section</h1>
-			<h1 class="g-h1">content section</h1>
-			<h1 class="g-h1">content section</h1>
-			<h1 class="g-h1">content section</h1>
-			<h1 class="g-h1">content section</h1>
+	<a class="feedback-button" href="#">
+		обратная связь
+	</a>
+	<a class="feedback-button feedback-button--clipped" href="#">
+		обратная связь
+	</a>
 
+	<a class="video-button" href="#">
+		<i class="icon-play">></i>
+	</a>
+	
+
+	<div class="decor-triangle">
+		<div class="decor-triangle__container">
+			<img src="media/img/main.png" srcset="media/img/image@2x.jpg 2x" alt="" loading="lazy">
+			<div class="decor-triangle__inner"></div>
 		</div>
-	</section>
+	</div>
 
 </main>
 

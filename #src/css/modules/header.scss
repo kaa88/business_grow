@@ -2,7 +2,7 @@
 
 .header {
 	// Set position absolute if header is static, else set fixed
-	position: fixed; //REQ!
+	// position: fixed; //REQ!
 	// position: absolute; //REQ!
 	top: var(--header-position); //REQ!
 	left: 0; //REQ!
@@ -176,8 +176,35 @@
 }
 
 .logo {
-	&__link, &__link:visited {
-		font-size: 40px;
+	font-size: 16px;
+	&__link {
+		display: flex;
+		flex-direction: column;
+		position: relative;
+	}
+	&__text {
+		margin-left: em(13);
+		font-size: em(24);
+		line-height: 1;
+		font-weight: 300;
+	}
+	&__text-colored {
+		font-weight: 800;
+		font-size: em(28);
+		line-height: 1;
+		letter-spacing: 0.3em;
+		background: $gradient-2;
+		background-clip: text;
+		color: transparent;
+	}
+	&__line {
+		position: absolute;
+		bottom: em(3.5);
+		right: 0;
+		display: inline-block;
+		width: em(2);
+		height: em(41.2);
+		background-image: linear-gradient(to bottom, $color-5 em(2), transparent em(2), transparent em(4), $color-5 em(4), $color-5 em(6), transparent em(6), transparent em(8), $color-5 em(8), $color-5 em(10), transparent em(10), transparent em(12), $color-5 em(12), $color-5 em(14), transparent em(14), transparent em(16), $color-5 em(16));
 	}
 }
 
