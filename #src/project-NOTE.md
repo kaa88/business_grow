@@ -3,7 +3,8 @@ Used: New site template v3.02
 # Project NOTE
 
 ### TO DO:
-из-за чего-то виснет дев тулс браузера
+- из-за чего-то виснет дев тулс браузера
+- неправильная расстановка стилей для :visited, надо проверить
 
 
 ### Template changes:
@@ -13,3 +14,7 @@ Used: New site template v3.02
 - WordPress admin-bar position fix перенес в reset
 - import globs перенес в _main
 - jsMediaQueries в описании убрать mobile, перенести в mobileswitchwidth
+- в header.js вынести настройку hideOnViewChangе
+- header.html подкорректировать описание и исправить ссылки (поменять index.html на /)
+- новый стиль light build
+- в header добавить max-width: $page-max-width+px; так как он fixed и не реагирует на ширину body

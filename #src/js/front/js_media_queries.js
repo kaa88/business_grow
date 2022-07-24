@@ -1,8 +1,6 @@
 /* 
 	Module checks window resizing and runs funcs on breakpoints.
 	There is 1 more index than number of breakpoints (from 0px to 1st breakpoint).
-	Some modules use 'mobile' variable to check mobile or desktop view, 
-	make sure it matches with CSS.
 
 	Useful output:
 	- jsMediaQueries.stateIndex

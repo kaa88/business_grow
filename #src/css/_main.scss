@@ -2,8 +2,9 @@
 
 /* Body settings */
 body {
-	// max-width: $page-max-width+px;
+	max-width: $page-max-width+px;
 	// margin: 0 auto; //REQ! if max-width
+	margin-left: 68px;
 	font-family: $font-1;
 	font-size: $font-size-default;
 	color: $color-3;

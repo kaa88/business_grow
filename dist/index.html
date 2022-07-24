@@ -67,7 +67,7 @@ get_template_part('parts/header');
 					menu
 					optional elems
 
-	Схема 2+ этажа:
+	Схема 2 и больше этажей:
 	header
 		turn-off
 		print-address
@@ -102,43 +102,26 @@ get_template_part('parts/header');
 	<div class="header__print-address">address.com</div>
 
 	<div class="header-level header-level--mobile scroll-lock-item-p">
-		<div class="container">
+		<!-- <div class="container"> -->
 
 			<div class="header-level__logo logo">
 				<a class="logo__link" href="/">
 					<span class="logo__text">Business</span>
 					<span class="logo__text-colored">GROW</span>
+					<span class="logo__up"></span>
 					<span class="logo__line"></span>
 				</a>
 			</div>
 			<div class="header-menu-open-btn"><span>=</span></div>
 
-		</div>
+		<!-- </div> -->
 	</div>
 
 	<div class="header-menu-hide-wrapper">
 		<div class="header-menu-close-btn"><span>X</span></div>
 
-		<!-- <div class="header-level header-level--top scroll-lock-item-pm">
-			<div class="container">
-				<nav class="header-level__pagelinks pagelinks">
-					<a class="account-nav__link" href="#">главная</a>
-					<a class="account-nav__link" href="#">источник знаний</a>
-					<a class="account-nav__link" href="#">кейсы</a>
-				</nav>
-			</div>
-		</div> -->
-
-		<!-- <div class="header-level header-level--middle scroll-lock-item-pm">
-			<div class="container">
-				<span class="header-level__search search">search</span>
-				<span class="header-level__cart cart">cart</span>
-				<span class="header-level__wishlist wishlist">wishlist</span>
-			</div>
-		</div> -->
-
-		<div class="header-level header-level--bottom scroll-lock-item-pm">
-			<div class="container">
+		<div class="header-level header-level--top scroll-lock-item-pm">
+			<!-- <div class="container"> -->
 				<nav class="header-level__header-menu header-menu">
 					<ul class="header-menu__items">
 						<li class="header-menu__item" data-name="home">
@@ -152,7 +135,27 @@ get_template_part('parts/header');
 						</li>
 					</ul>
 				</nav>
-			</div>
+			<!-- </div> -->
+		</div>
+
+		<div class="header-level header-level--middle scroll-lock-item-pm">
+			<!-- <div class="container"> -->
+				<a class="feedback-button" href="#">
+					обратная связь
+				</a>
+			<!-- </div> -->
+		</div>
+
+		<div class="header-level header-level--bottom scroll-lock-item-pm">
+			<!-- <div class="container"> -->
+				кнопка почты
+			<!-- </div> -->
+		</div>
+
+		<div class="header-level header-level--footer scroll-lock-item-pm">
+			<!-- <div class="container"> -->
+				футер
+			<!-- </div> -->
 		</div>
 
 	</div>
@@ -274,18 +277,24 @@ get_template_part('parts/header');
 
 	
 	
-		<div id="light-build-notification">light build</div>
+		<div id="light-build-notification">L</div>
 		<style>
 			#light-build-notification {
-				width: 100%;
-				height: 50px;
-				line-height: 50px;
-				text-align: center;
-				font-family: sans-serif;
-				font-size: 28px;
-				letter-spacing: 4px;
+				position: fixed;
+				bottom: 0;
+				right: 0;
+				width: 6vh;
+				height: 6vh;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-family: Georgia;
+				font-weight: bold;
+				font-size: 3.5vh;
 				color: #0e2dda;
 				background-color: #48f979;
+				border: solid 0.5vh #ff3535;
+				border-radius: 50%;
 			}
 		</style>
 	
