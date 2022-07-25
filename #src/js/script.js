@@ -53,9 +53,9 @@ scrollLock.init()
 @@include('front/header.js')
 header.init({
 	menu: true,
-	submenu: true,
-	hidingHeader: true,
-	elemAboveHeader: true
+	// submenu: true,
+	// hidingHeader: true,
+	// elemAboveHeader: true
 })
 
 //////////////////////////////////////////////////

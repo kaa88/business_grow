@@ -3,13 +3,17 @@
 /* Body settings */
 body {
 	max-width: $page-max-width+px;
-	// margin: 0 auto; //REQ! if max-width
-	margin-left: 68px;
+	margin: 0 auto; //REQ! if max-width
+	padding-left: 68px;
 	font-family: $font-1;
 	font-size: $font-size-default;
 	color: $color-3;
 	background-color: $color-2;
 	&._locked {overflow: hidden;} //REQ!
+
+	display: grid;
+	grid-template-columns: auto 360px;
+	// align-items: start;
 
 	// Variables for JS manipulations:
 	--header-position: 0px; //REQ!
@@ -25,7 +29,7 @@ body {
 	max-width: $container-width+px; //REQ!
 	min-width: calc($page-min-width - (100vw - 100%)); //REQ!
 	margin: 0 auto; //REQ!
-	padding: 0 $container-padding+px;
+	padding: 0 67px 0 15px;
 }
 
 @import "_globs";
@@ -52,13 +56,17 @@ body {
 
 /* Main content */
 .main {
-	margin-top: calc(var(--header-offset) + var(--header-height)); //REQ! if header 'position' is 'fixed' or 'absolute'
-	min-height: calc(100vh - var(--header-offset) - var(--header-height) - var(--footer-height) - 1px); // makes footer sticky to bottom
+	// margin-top: calc(var(--header-offset) + var(--header-height)); //REQ! if header 'position' is 'fixed' or 'absolute'
+	// min-height: calc(100vh - var(--header-offset) - var(--header-height) - var(--footer-height) - 1px); // makes footer sticky to bottom
+	border-left: solid 1px $color-8;
 	// Section margins Example:
 	// &__section {
 	// 	.page-home & {margin-top: 67px;}
 	// 	.page-about & {margin-top: 10px;}
 	// }
+	&__categories {
+		margin-top: 90px;
+	}
 }
 
 .decor-triangle {
@@ -106,4 +114,47 @@ body {
 			opacity: 0.4;
 		}
 	}
+}
+
+.categories {
+	// background-color: #ddd;
+	&__container {}
+	&__items {
+		margin-top: 80px;
+		width: 100%;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-gap: 30px;
+		justify-content: center;
+		align-items: center;
+	}
+	&__item, &__item:visited {
+		height: 90px;
+		padding: 0 10px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-weight: 700;
+		font-size: 22px;
+		letter-spacing: 0.03em;
+		text-align: center;
+		color: $color-2;
+		background-color: $color-3;
+		transition: background-color $timer-hover;
+		&:hover {
+			background-color: $color-5;
+		}
+	}
+}
+
+// .left-space {
+// 	grid-column: 1;
+// 	grid-row: 1 / span 3;
+// }
+.sidebar {
+	grid-column: 2;
+	grid-row: 1 / span 3;
+	// width: 360px;
+	// height: 100%;
+	background-color: $color-5;
 }

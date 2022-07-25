@@ -208,45 +208,78 @@ get_template_part('parts/header');
 
 <main class="main page-home">
 
-	<a class="text-button-with-arrow" href="#">
+
+	<section class="main__categories categories">
+		<div class="categories__container container">
+			<h2 class="g-h2">
+				Выберите категорию
+			</h2>
+			<div class="categories__items">
+				<a class="categories__item" href="#">
+					Производство
+				</a>
+				<a class="categories__item" href="#">
+					Товары
+				</a>
+				<a class="categories__item" href="#">
+					Оффлайн
+				</a>
+				<a class="categories__item" href="#">
+					Строительство и недвижимость
+				</a>
+				<a class="categories__item" href="#">
+					Онлайн и оффлайн образование
+				</a>
+				<a class="categories__item" href="#">
+					Услуги населению и бизнесу
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- <a class="text-button-with-arrow" href="#">
 		<span class="text-button-with-arrow__text"><span>получить бесплатную консультацию</span></span>
 		<span class="text-button-with-arrow__arrow">
 			<i class="icon-arrow"></i>
 		</span>
-	</a>
-	<a class="text-button-with-arrow text-button-with-arrow--rounded" href="#">
+	</a> -->
+	<!-- <a class="text-button-with-arrow text-button-with-arrow--rounded" href="#">
 		<span class="text-button-with-arrow__text"><span>едем дальше</span></span>
 		<span class="text-button-with-arrow__arrow">
 			<i class="icon-arrow"></i>
 		</span>
-	</a>
+	</a> -->
 
-	<a class="feedback-button" href="#">
+	<!-- <a class="feedback-button" href="#">
 		обратная связь
 	</a>
 	<a class="feedback-button feedback-button--clipped" href="#">
 		обратная связь
-	</a>
+	</a> -->
 
-	<a class="video-button" href="#">
+	<!-- <a class="video-button" href="#">
 		<i class="icon-play">></i>
-	</a>
+	</a> -->
 	
 
-	<div class="decor-triangle">
+	<!-- <div class="decor-triangle">
 		<div class="decor-triangle__container">
 			<img src="media/img/main.png" srcset="media/img/image@2x.jpg 2x" alt="" loading="lazy">
 			<div class="decor-triangle__inner"></div>
 		</div>
-	</div>
+	</div> -->
 
 </main>
 
+<!-- <aside class="left-space"></aside> -->
 
-<section class="modal">
+<aside class="sidebar"></aside>
+
+
+<!-- <section class="modal"> -->
 	<!-- <?php get_template_part('parts/modal-info'); ?> -->
 	
-</section>
+<!-- </section> -->
 
 
 <!-- SVG test -->
@@ -283,14 +316,15 @@ get_template_part('parts/header');
 				position: fixed;
 				bottom: 0;
 				right: 0;
-				width: 6vh;
-				height: 6vh;
+				z-index: 999;
+				width: 10vh;
+				height: 10vh;
 				display: flex;
 				justify-content: center;
 				align-items: center;
 				font-family: Georgia;
 				font-weight: bold;
-				font-size: 3.5vh;
+				font-size: 5vh;
 				color: #0e2dda;
 				background-color: #48f979;
 				border: solid 0.5vh #ff3535;

@@ -2,14 +2,14 @@
 
 .header {
 	// Set position absolute if header is static, else set fixed
-	position: fixed; //REQ!
+	position: relative; //REQ!
 	// position: absolute; //REQ!
 	top: var(--header-position); //REQ!
 	left: 0; //REQ!
 	z-index: 49; //REQ!
 	width: 100%; //REQ!
-	max-width: $page-max-width+px;
-	padding: 40px 0 10px 68px;
+	max-width: 1437px;
+	padding: 40px 67px 10px 0;
 	// font-size: 0;
 	background-color: $color-2;
 	display: flex;
@@ -119,9 +119,9 @@
 	// background-color: darkslategrey;
 	flex-grow: 1;
 	height: 100%;
-	// display: flex;
-	// justify-content: space-between;
-	// align-items: flex-end;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
 	// max-width: 890px;
 	@media (max-width: $media-header+px) {
 		position: fixed; //REQ!
@@ -165,6 +165,7 @@
 	// }
 	&--mobile {
 		// background-color: $color-2;
+		margin-bottom: 3px;
 		position: relative;
 		.container {
 			display: flex;
@@ -173,9 +174,11 @@
 		}
 	}
 	&--top {
+		width: 100%;
 		max-width: 800px;
 		display: flex;
 		justify-content: flex-end;
+		margin: 0 20px 3px;
 		// background-color: #eee;
 		// .container {
 		// 	max-width: 938px;
@@ -184,9 +187,9 @@
 	}
 	&--middle {
 		// background-color: #ccc;
-		position: absolute;
-		bottom: -3px;
-		right: 0;
+		// position: absolute;
+		// bottom: -3px;
+		// right: 0;
 	}
 	&--bottom {
 		// background-color: #aaa;
@@ -218,6 +221,8 @@
 		display: flex;
 		flex-direction: column;
 		position: relative;
+		// background-color: yellow;
+		padding-left: em(23);
 	}
 	&__text {
 		margin-left: em(10);
@@ -238,7 +243,7 @@
 		display: inline-block;
 		position: absolute;
 		bottom: em(3.5);
-		left: em(-38);
+		left: em(-12);
 		width: em(42);
 		height: em(58);
 		background: linear-gradient(to top, #B05CFF, $color-5 50%, $color-5);

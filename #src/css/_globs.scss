@@ -6,7 +6,13 @@
 // 	line-height: 3;
 // 	text-align: center;
 // }
-// .g-h2 {}
+.g-h2 {
+	font-weight: 500;
+	font-size: 36px;
+	line-height: 55px;
+	letter-spacing: 0.03em;
+	color: $color-3;
+}
 // .g-h3 {}
 // .g-h4 {}
 // .g-text {}

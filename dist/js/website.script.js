@@ -521,9 +521,9 @@ const header = {
 }
 header.init({
 	menu: true,
-	submenu: true,
-	hidingHeader: true,
-	elemAboveHeader: true
+	// submenu: true,
+	// hidingHeader: true,
+	// elemAboveHeader: true
 })
 
 //////////////////////////////////////////////////
