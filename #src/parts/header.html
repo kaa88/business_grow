@@ -24,7 +24,7 @@
 	<!-- <?php wp_head(); ?> -->
 </head>
 
-<body>
+<body class="@@bodyclass">
 	<!-- <?php wp_body_open(); ?> -->
 
 	<noscript>
@@ -33,6 +33,8 @@
 			<p>Для полной функциональности этого сайта необходимо включить JavaScript.<br>Вот <a href="https://www.enable-javascript.com/ru/">инструкции, как включить JavaScript в вашем браузере</a>.</p>
 		</div>
 	</noscript>
+
+<div class="window">
 
 	<!-- <div class="loadscreen _locked">
 		<div class="loadscreen__content">
@@ -104,6 +106,9 @@
 				<a class="logo__link" href="/">
 					<span class="logo__text">Business</span>
 					<span class="logo__text-colored">GROW</span>
+					<span class="logo__bottom-text">
+						developing & marketing company
+					</span>
 					<span class="logo__up"></span>
 					<span class="logo__line"></span>
 				</a>
@@ -124,7 +129,7 @@
 							<a class="header-menu__link" href="/">главная</a>
 						</li>
 						<li class="header-menu__item" data-name="database">
-							<a class="header-menu__link" href="#">источник знаний</a>
+							<a class="header-menu__link" href="categories.html">источник знаний</a>
 						</li>
 						<li class="header-menu__item" data-name="cases">
 							<a class="header-menu__link" href="#">кейсы</a>
@@ -136,7 +141,7 @@
 
 		<div class="header-level header-level--middle scroll-lock-item-pm">
 			<!-- <div class="container"> -->
-				<a class="feedback-button" href="#">
+				<a class="@@feedback_button_class" href="#">
 					обратная связь
 				</a>
 			<!-- </div> -->

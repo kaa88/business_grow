@@ -28,7 +28,7 @@ get_template_part('parts/header');
 	<!-- <?php wp_head(); ?> -->
 </head>
 
-<body>
+<body class="@@bodyclass">
 	<!-- <?php wp_body_open(); ?> -->
 
 	<noscript>
@@ -37,6 +37,8 @@ get_template_part('parts/header');
 			<p>Для полной функциональности этого сайта необходимо включить JavaScript.<br>Вот <a href="https://www.enable-javascript.com/ru/">инструкции, как включить JavaScript в вашем браузере</a>.</p>
 		</div>
 	</noscript>
+
+<div class="window">
 
 	<!-- <div class="loadscreen _locked">
 		<div class="loadscreen__content">
@@ -108,6 +110,9 @@ get_template_part('parts/header');
 				<a class="logo__link" href="/">
 					<span class="logo__text">Business</span>
 					<span class="logo__text-colored">GROW</span>
+					<span class="logo__bottom-text">
+						developing & marketing company
+					</span>
 					<span class="logo__up"></span>
 					<span class="logo__line"></span>
 				</a>
@@ -128,7 +133,7 @@ get_template_part('parts/header');
 							<a class="header-menu__link" href="/">главная</a>
 						</li>
 						<li class="header-menu__item" data-name="database">
-							<a class="header-menu__link" href="#">источник знаний</a>
+							<a class="header-menu__link" href="categories.html">источник знаний</a>
 						</li>
 						<li class="header-menu__item" data-name="cases">
 							<a class="header-menu__link" href="#">кейсы</a>
@@ -140,7 +145,7 @@ get_template_part('parts/header');
 
 		<div class="header-level header-level--middle scroll-lock-item-pm">
 			<!-- <div class="container"> -->
-				<a class="feedback-button" href="#">
+				<a class="@@feedback_button_class" href="#">
 					обратная связь
 				</a>
 			<!-- </div> -->
@@ -222,24 +227,13 @@ get_template_part('parts/header');
 
 <!-- <?php get_template_part('parts/footer'); ?> -->
 <footer class="footer">
+	<div class="footer__container container">
 
-	<section class="footer-top">
-		<div class="footer-top__container container">
+		<p class="footer__copy">©2022</p>
+		<a class="footer__policy" href="#">Personal data policy</a>
+		<a class="footer__policy" href="#">Safety policy</a>
 
-			<h1 class="g-h1">footer</h1>
-
-		</div>
-	</section>
-
-	<section class="footer-bottom">
-		<div class="footer-bottom__container container">
-
-			<p class="footer-bottom__copy">© Copyright 2022, All Rights Reserved</p>
-			<p class="footer-bottom__author">Designed and Developed By Author</p>
-
-		</div>
-	</section>
-
+	</div>
 	
 	
 		<div id="light-build-notification">L</div>
@@ -248,15 +242,15 @@ get_template_part('parts/header');
 				position: fixed;
 				bottom: 0;
 				right: 0;
-				z-index: 999;
-				width: 10vh;
-				height: 10vh;
+				z-index: 9999;
+				width: calc(4vh + 3vw);
+				height: calc(4vh + 3vw);
 				display: flex;
 				justify-content: center;
 				align-items: center;
 				font-family: Georgia;
 				font-weight: bold;
-				font-size: 5vh;
+				font-size: calc(3vh + 1.5vw);
 				color: #0e2dda;
 				background-color: #48f979;
 				border: solid 0.5vh #ff3535;
@@ -274,7 +268,7 @@ get_template_part('parts/header');
 <script src="js/website.script.js"></script>
 <!-- <script src="js/website.script.min.js"></script> -->
 
-
+</div>
 <!-- <?php wp_footer() ?> -->
 </body>
 </html>

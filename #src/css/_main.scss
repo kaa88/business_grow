@@ -11,10 +11,6 @@ body {
 	background-color: $color-2;
 	&._locked {overflow: hidden;} //REQ!
 
-	display: grid;
-	grid-template-columns: auto 360px;
-	// align-items: start;
-
 	// Variables for JS manipulations:
 	--header-position: 0px; //REQ!
 	--header-offset: 0px; //REQ!
@@ -24,12 +20,24 @@ body {
 	--timer-menu: #{$timer-menu}; //REQ!
 	--timer-modal: #{$timer-modal}; //REQ!
 }
+.window {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+	display: grid;
+	grid-template-columns: auto 360px;
+	.homepage-body & {
+		grid-template-columns: auto;
+	}
+}
 .container {
 	width: 100%; //REQ!
 	max-width: $container-width+px; //REQ!
 	min-width: calc($page-min-width - (100vw - 100%)); //REQ!
-	margin: 0 auto; //REQ!
-	padding: 0 67px 0 15px;
+	// margin: 0 auto; //REQ!
+	padding-left: 68px;
+	// padding: 0 67px 0 15px;
 }
 
 @import "_globs";
@@ -64,13 +72,54 @@ body {
 	// 	.page-home & {margin-top: 67px;}
 	// 	.page-about & {margin-top: 10px;}
 	// }
+	&__homepage-content {}
 	&__categories {
 		margin-top: 90px;
 	}
+	&__features {
+		.page-home & {margin-top: 66px;}
+	}
+	&__decor-triangle {
+		position: absolute;
+		top: 0;
+		right: -240px;
+		z-index: -1;
+	}
 }
 
+.homepage-content {
+	&__container {}
+	h1 span {
+		display: block;
+	}
+	&__top {
+		font-size: 120px;
+		font-weight: 300;
+		letter-spacing: 0.03em;
+	}
+	&__bottom {
+		font-size: 90px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.15em;
+	}
+	&__description {
+		margin-top: 36px;
+		max-width: 640px;
+		font-size: 24px;
+		line-height: 40px;
+		letter-spacing: 0.05em;
+		color: $color-10;
+	}
+	&__text-button-with-arrow {
+		margin-top: 100px;
+	}
+}
+
+
 .decor-triangle {
-	width: 640px;
+	width: 100vh;
+	max-width: 1080px;
 	&__container {
 		position: relative;
 		width: 100%;
@@ -147,10 +196,46 @@ body {
 	}
 }
 
-// .left-space {
-// 	grid-column: 1;
-// 	grid-row: 1 / span 3;
-// }
+.features {
+	&__container {
+		max-width: 960px;
+	}
+	&__items {
+		display: inline-flex;
+		// justify-content: center;
+		// align-items: flex-end;
+	}
+	&__item {
+		// flex: 0 1 fit-content;
+		// display: flex;
+		// flex-direction: column;
+		// justify-content: space-between;
+		&:not(:last-child) {
+			margin-right: 45px;
+		}
+	}
+	&__item-img {
+		width: 60px;
+		height: 60px;
+		img {
+			width: 100%;
+			height: 100%;
+			// object-position: top;
+			// position: relative;
+			// top: 0;
+		}
+	}
+	&__item-text {
+		margin-top: 11px;
+		height: 84px;
+		width: auto;
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 24px;
+		letter-spacing: 0.03em;
+		color: $color-10;
+	}
+}
 .sidebar {
 	grid-column: 2;
 	grid-row: 1 / span 3;

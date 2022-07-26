@@ -8,13 +8,17 @@
 	left: 0; //REQ!
 	z-index: 49; //REQ!
 	width: 100%; //REQ!
-	max-width: 1437px;
-	padding: 40px 67px 10px 0;
+	max-width: 1370px;
+	padding: 40px 0 20px 0;
 	// font-size: 0;
-	background-color: $color-2;
+	// background-color: $color-2;
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-end;
+	.homepage-body & {
+		max-width: 1920px;
+		padding-right: 30px;
+	}
 	&__print-address, &__print-address-qr {display: none;} //REQ!
 }
 
@@ -175,7 +179,7 @@
 	}
 	&--top {
 		width: 100%;
-		max-width: 800px;
+		max-width: 900px;//? пересчитать
 		display: flex;
 		justify-content: flex-end;
 		margin: 0 20px 3px;
@@ -216,13 +220,13 @@
 }
 
 .logo {
-	font-size: 19px;
+	font-size: 16px;//19
 	&__link {
 		display: flex;
 		flex-direction: column;
 		position: relative;
 		// background-color: yellow;
-		padding-left: em(23);
+		padding-left: em(35);
 	}
 	&__text {
 		margin-left: em(10);
@@ -239,11 +243,20 @@
 		background-clip: text;
 		color: transparent;
 	}
+	&__bottom-text {
+		position: absolute;
+		bottom: em(-23);
+		left: 0;
+		white-space: nowrap;
+		font-weight: 300;
+		font-size: em(9);
+		letter-spacing: 0.08em;
+	}
 	&__up {
 		display: inline-block;
 		position: absolute;
 		bottom: em(3.5);
-		left: em(-12);
+		left: em(-11);
 		width: em(42);
 		height: em(58);
 		background: linear-gradient(to top, #B05CFF, $color-5 50%, $color-5);
@@ -263,7 +276,7 @@
 	&__line {
 		position: absolute;
 		bottom: em(3.3);
-		right: em(-2);
+		right: em(-10);
 		display: inline-block;
 		width: em(2);
 		height: em(41.2);

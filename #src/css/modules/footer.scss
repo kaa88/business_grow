@@ -1,18 +1,19 @@
-.footer {}
-.footer-top {
-	background-color: #999;
-	&__container {}
-}
-.footer-bottom {
-	background-color: #888;
+.footer {
 	&__container {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		column-gap: 40px;
-		flex-wrap: wrap;
-		text-align: center;
+		border-top: solid 1px $color-8;
 	}
-	&__copy {}
-	&__author {}
+	&__copy, &__policy, &__policy:visited {
+		display: inline-block;
+		font-size: 13px;
+		line-height: 60px;
+		letter-spacing: 0.03em;
+		color: $color-3;
+	}
+	&__policy {
+		margin-left: 60px;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
 }
+// доделать транзишен, переделать text-decoration на псевдо... длина полоски меньше

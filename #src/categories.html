@@ -3,11 +3,11 @@
 get_template_part('parts/header');
 ?> -->
 @@include('parts/header.html', {
-	'title': 'Business Grow - Developing & Marketing Company',
+	'title': 'Database | Business Grow',
 	'descr': 'Description',
 	'robots': 'noindex, nofollow',
-	'bodyclass': 'homepage-body',
-	'feedback_button_class': 'feedback-button feedback-button--clipped'
+	'bodyclass': '',
+	'feedback_button_class': 'feedback-button'
 })
 <script id="header-menu-options">
 	// список пунктов меню в header.html
@@ -17,28 +17,39 @@ get_template_part('parts/header');
 	
 	let headerMenuOptions = {
 	// 	links: ['home','products','about','contacts'],
-		activeLink: 'home'
+		activeLink: 'database'
 	}
 </script>
 
 
-<main class="main page-home">
+<main class="main page-categories">
 
-	<section class="main__homepage-content homepage-content">
-		<div class="homepage-content__container container">
-			<h1>
-				<span class="homepage-content__top">We make your</span>
-				<span class="homepage-content__bottom">Business Grow</span>
-			</h1>
-			<p class="homepage-content__description">
-				Lorem ipsum dolor sit amet consectetur adipisicing elit iusto consequatur cumque inventore.
-			</p>
-			<a class="homepage-content__text-button-with-arrow text-button-with-arrow" href="#">
-				<span class="text-button-with-arrow__text"><span>получить бесплатную консультацию</span></span>
-				<span class="text-button-with-arrow__arrow">
-					<i class="icon-arrow"></i>
-				</span>
-			</a>
+
+	<section class="main__categories categories">
+		<div class="categories__container container">
+			<h2 class="g-h2">
+				Выберите категорию
+			</h2>
+			<div class="categories__items">
+				<a class="categories__item" href="#">
+					Производство
+				</a>
+				<a class="categories__item" href="#">
+					Товары
+				</a>
+				<a class="categories__item" href="#">
+					Оффлайн
+				</a>
+				<a class="categories__item" href="#">
+					Строительство и недвижимость
+				</a>
+				<a class="categories__item" href="#">
+					Онлайн и оффлайн образование
+				</a>
+				<a class="categories__item" href="#">
+					Услуги населению и бизнесу
+				</a>
+			</div>
 		</div>
 	</section>
 
@@ -98,18 +109,18 @@ get_template_part('parts/header');
 	</a> -->
 	
 
-	<div class="main__decor-triangle decor-triangle">
+	<!-- <div class="decor-triangle">
 		<div class="decor-triangle__container">
-			<img src="media/img/main.png" srcset="media/img/main.png 2x" alt="" loading="lazy">
+			<img src="media/img/main.png" srcset="media/img/image@2x.jpg 2x" alt="" loading="lazy">
 			<div class="decor-triangle__inner"></div>
 		</div>
-	</div>
+	</div> -->
 
 </main>
 
 <!-- <aside class="left-space"></aside> -->
 
-<!-- <aside class="sidebar"></aside> -->
+<aside class="sidebar"></aside>
 
 
 <!-- <section class="modal"> -->
