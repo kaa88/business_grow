@@ -105,8 +105,96 @@ i {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-arrow:before {
+.icon-zen:before {
   content: "\e900";
+}
+
+.icon-arrow:before {
+  content: "\e901";
+}
+
+.icon-arrow2:before {
+  content: "\e902";
+}
+
+.icon-bubble:before {
+  content: "\e903";
+}
+
+.icon-burger:before {
+  content: "\e904";
+}
+
+.icon-cross:before {
+  content: "\e905";
+}
+
+.icon-cross2:before {
+  content: "\e906";
+}
+
+.icon-edu:before {
+  content: "\e907";
+}
+
+.icon-folder:before {
+  content: "\e908";
+}
+
+.icon-funnel:before {
+  content: "\e909";
+}
+
+.icon-gears:before {
+  content: "\e90a";
+}
+
+.icon-lock:before {
+  content: "\e90b";
+}
+
+.icon-ok:before {
+  content: "\e90c";
+}
+
+.icon-phone:before {
+  content: "\e90d";
+}
+
+.icon-telegram:before {
+  content: "\e90e";
+}
+
+.icon-traffic:before {
+  content: "\e90f";
+}
+
+.icon-vc:before {
+  content: "\e910";
+}
+
+.icon-viber:before {
+  content: "\e911";
+}
+
+.icon-vk:before {
+  content: "\e912";
+}
+
+.icon-vk2:before {
+  content: "\e913";
+}
+
+.icon-whatsapp:before {
+  content: "\e914";
+}
+
+.icon-windows:before {
+  content: "\e915";
+}
+
+.icon-youtube:before {
+  content: "\ea9d";
 }
 
 /* Fonts */
@@ -352,6 +440,38 @@ body._locked {
 }
 
 .video-button {
+  width: 132px;
+  height: 90px;
+}
+
+.video-button i:before {
+  background: -webkit-gradient(linear, left bottom, left top, from(#8500FF), to(#02FEFF));
+  background: -o-linear-gradient(bottom, #8500FF 0%, #02FEFF 100%);
+  background: linear-gradient(0deg, #8500FF 0%, #02FEFF 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-size: 130px;
+}
+
+.socials {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  height: 190px;
+  font-size: 0;
+}
+
+.socials__link,
+.socials__link:visited {
+  width: 40px;
+  height: 40px;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -361,44 +481,52 @@ body._locked {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  width: 132px;
-  height: 90px;
-  background: -webkit-gradient(linear, left bottom, left top, from(#8500FF), to(#02FEFF));
-  background: -o-linear-gradient(bottom, #8500FF 0%, #02FEFF 100%);
-  background: linear-gradient(0deg, #8500FF 0%, #02FEFF 100%);
-  border-radius: 20px;
-  position: relative;
+  background-color: #fff;
+  border: 1px solid #333;
+  border-radius: 50%;
+  color: #333;
+  -webkit-transition: all 0.15s;
+  -o-transition: all 0.15s;
+  transition: all 0.15s;
 }
 
-.video-button:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  background-color: transparent;
-  -webkit-transition: background-color 0.15s;
-  -o-transition: background-color 0.15s;
-  transition: background-color 0.15s;
-}
-
-.video-button i {
-  font-size: 40px;
-  color: #fff;
-  position: relative;
-  z-index: 2;
-}
-
-.video-button:hover:before {
+.socials__link:hover {
   background-color: #333;
+  color: #fff;
+}
+
+.icon-vk {
+  margin-top: 2px;
+  font-size: 12px;
+}
+
+.icon-telegram {
+  margin: 2px 2px 0px 0px;
+  font-size: 16px;
+}
+
+.icon-zen {
+  font-size: 22px;
+}
+
+.icon-vc {
+  margin-top: 1px;
+  font-size: 16px;
 }
 
 /* Modules */
 
 .footer__container {
+  max-width: 1020px;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  z-index: -2;
   border-top: solid 1px #E2E7EC;
 }
 
@@ -407,17 +535,20 @@ body._locked {
 .footer__policy:visited {
   display: inline-block;
   font-size: 13px;
-  line-height: 60px;
   letter-spacing: 0.03em;
   color: #333;
 }
 
 .footer__policy {
   margin-left: 60px;
+  border-bottom: 2px solid transparent;
+  -webkit-transition: all 0.15s;
+  -o-transition: all 0.15s;
+  transition: all 0.15s;
 }
 
 .footer__policy:hover {
-  text-decoration: underline;
+  border-color: #02FEFF;
 }
 
 .header {
@@ -553,8 +684,18 @@ body._locked {
   margin: 0 20px 3px;
 }
 
+.header-level--middle {
+  position: relative;
+}
+
+.header-level--middle .socials {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 15px);
+}
+
 .logo {
-  font-size: 16px;
+  font-size: 19px;
 }
 
 .logo__link {
@@ -791,8 +932,8 @@ body._locked {
 }
 
 .decor-triangle {
-  width: 100vh;
-  max-width: 1080px;
+  width: 115.31531vh;
+  max-width: 1123.2px;
 }
 
 .decor-triangle__container {

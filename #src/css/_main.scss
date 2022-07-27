@@ -118,8 +118,8 @@ body {
 
 
 .decor-triangle {
-	width: 100vh;
-	max-width: 1080px;
+	width: 115.31531vh;
+	max-width: calc(1.04 * 1080px);
 	&__container {
 		position: relative;
 		width: 100%;

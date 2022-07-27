@@ -6,8 +6,6 @@ Used: New site template v3.02
 - из-за чего-то виснет дев тулс браузера
 - неправильная расстановка стилей для :visited, надо проверить
 
-!!! синхронизировать контейнеры в хедере и контенте
-
 
 ### Template changes:
 - чтобы цветовые css переменные закрашивались, создал файл colors.scss... нужно его импортить в каждый модульный файл (@import "../colors";)
@@ -20,3 +18,4 @@ Used: New site template v3.02
 - header.html подкорректировать описание и исправить ссылки (поменять index.html на /)
 - новый стиль light build
 - в header добавить max-width: $page-max-width+px; так как он fixed и не реагирует на ширину body
+- component-test part для 

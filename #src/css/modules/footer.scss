@@ -1,19 +1,27 @@
+@import "../colors";
+
 .footer {
 	&__container {
+		max-width: 1020px;
+		height: 60px;
+		display: flex;
+		align-items: center;
+		position: relative;
+		z-index: -2;
 		border-top: solid 1px $color-8;
 	}
 	&__copy, &__policy, &__policy:visited {
 		display: inline-block;
 		font-size: 13px;
-		line-height: 60px;
 		letter-spacing: 0.03em;
 		color: $color-3;
 	}
 	&__policy {
 		margin-left: 60px;
+		border-bottom: 2px solid transparent;
+		transition: all $timer-hover;
 		&:hover {
-			text-decoration: underline;
+			border-color: $color-4;
 		}
 	}
 }
-// доделать транзишен, переделать text-decoration на псевдо... длина полоски меньше
