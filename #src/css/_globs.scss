@@ -111,40 +111,52 @@
 	clip-path: polygon(0 0, 100% 0, 100% 100%, 28px 100%);
 	padding-left: 28px;
 }
-.video-button { // переделать на svg или иконку
-	// display: inline-flex;
-	// justify-content: center;
-	// align-items: center;
-	width: 132px;
-	height: 90px;
-	// border-radius: 20px;
-	// position: relative;
-	// &:before {
-	// 	content: '';
-	// 	position: absolute;
-	// 	top: 0;
-	// 	left: 0;
-	// 	z-index: 1;
-	// 	display: inline-block;
-	// 	width: 100%;
-	// 	height: 100%;
-	// 	background-color: transparent;
-	// 	// background-color: $color-3;
-	// 	transition: background-color $timer-hover;
-	// }
-	i:before {
+
+.svg-sprite {
+	width: 0;
+	height: 0;
+	overflow: hidden;
+}
+#svg-play-button-shape {transform: scale(0.003893, 0.00572);}
+
+.video-button {
+	font-size: 16px;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: em(132);
+	height: em(90);
+	position: relative;
+	span {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		display: inline-block;
+		width: 100%;
+		height: 100%;
 		background: $gradient-2;
-		background-clip: text;
-		font-size: 130px;
-		// доделать видео батн, там сделал icon-play, надо сделать иконку оболочку из ютубовской и заклипить
-		
-		// color: $color-2;
-		// position: relative;
-		// z-index: 2;
+		clip-path: url("#svg-play-button-shape");
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: inline-block;
+			width: 100%;
+			height: 100%;
+			background-color: transparent;
+			transition: background-color $timer-hover;
+		}
 	}
-	// &:hover:before {
-	// 	background-color: $color-3;
-	// }
+	i:before {
+		margin-left: 0.2em;
+		font-size: 2.5em;
+		color: $color-2;
+	}
+	&:hover span:before {
+		background-color: $color-3;
+	}
 }
 
 .socials {

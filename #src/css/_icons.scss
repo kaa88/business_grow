@@ -20,7 +20,10 @@ i {
 	-moz-osx-font-smoothing: grayscale;
 }
 // Icons' codes
-.icon-zen:before {
+.icon-play:before {
+	content: "\e916";
+ }
+ .icon-zen:before {
 	content: "\e900";
  }
  .icon-arrow:before {
@@ -85,8 +88,5 @@ i {
  }
  .icon-windows:before {
 	content: "\e915";
- }
- .icon-youtube:before {
-	content: "\ea9d";
  }
  
