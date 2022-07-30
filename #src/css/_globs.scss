@@ -8,8 +8,8 @@
 // }
 .g-h2 {
 	font-weight: 500;
-	font-size: 36px;
-	line-height: 55px;
+	font-size: em(36);
+	line-height: 1.53;
 	letter-spacing: 0.03em;
 	color: $color-3;
 }
@@ -20,7 +20,7 @@
 // .g-link, .g-link:visited {}
 
 .text-button-with-arrow {
-	font-size: 16px;//22px;
+	// font-size: 16px;//22px;
 	height: em(90);//4.091em;
 	display: inline-flex;
 	background-color: transparent;
@@ -38,7 +38,7 @@
 			letter-spacing: 0.03em;
 			color: $color-2;
 			white-space: nowrap;
-				&:before {
+			&:before {
 				content: '';
 				position: absolute;
 				bottom: -1px;
@@ -70,7 +70,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		background-color: transparent;
+		background-color: $color-2;
 		color: $color-3;
 		border: solid 1px $color-3;
 		// transition: color $timer-hover;
@@ -85,6 +85,7 @@
 		background-color: $color-2;
 	}
 	&:hover &__arrow {
+		background-color: $color-3;
 		color: $color-2;
 	}
 }
@@ -92,13 +93,13 @@
 .feedback-button, .feedback-button:visited,
 .feedback-button--clipped, .feedback-button--clipped:visited {
 	display: inline-block;
-	width: 184px;
-	height: 50px;
+	width: em(184);
+	height: em(50);
 	background-color: $color-3;
 	color: $color-2;
 	font-weight: 700;
-	font-size: 15px;
-	line-height: 50px;
+	font-size: em(15);
+	line-height: em(50);
 	letter-spacing: 0.1em;
 	text-align: center;
 	transition: background-color $timer-hover, color $timer-hover;
@@ -108,11 +109,14 @@
 	}
 }
 .feedback-button--clipped, .feedback-button--clipped:visited {
-	clip-path: polygon(0 0, 100% 0, 100% 100%, 28px 100%);
-	padding-left: 28px;
+	clip-path: polygon(0 0, 100% 0, 100% 100%, em(28) 100%);
+	padding-left: em(28);
 }
 
 .svg-sprite {
+	position: fixed;
+	top: 0;
+	left: 0;
 	width: 0;
 	height: 0;
 	overflow: hidden;
@@ -120,7 +124,7 @@
 #svg-play-button-shape {transform: scale(0.003893, 0.00572);}
 
 .video-button {
-	font-size: 16px;
+	// font-size: 16px;
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;
@@ -163,11 +167,13 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	height: 190px;
-	font-size: 0;
+	height: em(190);
+	span {
+		font-size: 0;
+	}
 	&__link, &__link:visited {
-		width: 40px;
-		height: 40px;
+		width: em(40);
+		height: em(40);
 		display: inline-flex;
 		justify-content: center;
 		align-items: center;
@@ -185,20 +191,20 @@
 	}
 }
 .icon-vk {
-	margin-top: 2px;
-	font-size: 12px;
+	margin-top: em(2);
+	font-size: em(12);
 }
 .icon-telegram {
-	margin: 2px 2px 0px 0px;;
-	font-size: 16px;
+	margin: em(2) em(2) 0px 0px;
+	font-size: 1em;
 }
 .icon-zen {
 	// margin: 1px 0px 0px 1px;
-	font-size: 22px;
+	font-size: em(22);
 }
 .icon-vc {
-	margin-top: 1px;
-	font-size: 16px;
+	margin-top: em(1);
+	font-size: 1em;
 }
 
 

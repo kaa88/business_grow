@@ -9,7 +9,7 @@
 	z-index: 49; //REQ!
 	width: 100%; //REQ!
 	max-width: 1370px;
-	padding: 40px 0 20px 0;
+	padding: 3.7vh 0 2vh 0;
 	// font-size: 0;
 	// background-color: $color-2;
 	display: flex;
@@ -17,7 +17,7 @@
 	align-items: flex-end;
 	.homepage-body & {
 		max-width: 1920px;
-		padding-right: 30px;
+		padding-right: em(30);
 	}
 	&__print-address, &__print-address-qr {display: none;} //REQ!
 }
@@ -169,7 +169,7 @@
 	// }
 	&--mobile {
 		// background-color: $color-2;
-		margin-bottom: 3px;
+		margin-bottom: em(3);
 		position: relative;
 		.container {
 			display: flex;
@@ -179,10 +179,10 @@
 	}
 	&--top {
 		width: 100%;
-		max-width: 900px;//? пересчитать
+		max-width: em(812);//? пересчитать
 		display: flex;
 		justify-content: flex-end;
-		margin: 0 20px 3px;
+		margin: 0 em(20) em(3);
 		// background-color: #eee;
 		// .container {
 		// 	max-width: 938px;
@@ -194,11 +194,12 @@
 		// position: absolute;
 		// bottom: -3px;
 		// right: 0;
+		margin-left: em(200);
 		position: relative;
 		.socials {
 			position: absolute;
 			right: 0;
-			top: calc(100% + 15px);
+			top: calc(100% + em(15));
 		}
 	}
 	&--bottom {
@@ -226,7 +227,10 @@
 }
 
 .logo {
-	font-size: 19px;
+	font-size: em(19);
+	// @media (max-width: $desktop+px) {
+	// 	font-size: resize-multiplier(19, $desktop, 0.6);
+	// }
 	&__link {
 		display: flex;
 		flex-direction: column;
@@ -294,7 +298,7 @@
 	height: 100%;
 	// background-color: #fff;
 	@media (max-width: $media-header+px) {
-		padding: 10px;
+		padding: em(10);
 		// Mobile landscape screen apadtive
 		@media (max-height: $mobile-s+px) {
 			padding: 0;
@@ -328,7 +332,7 @@
 	}
 	&__item {
 		&:not(:last-child) {
-			margin-right: 105px;
+			margin-right: em(105);
 		}
 		@media (min-width: $media-header+1+px) {
 			position: relative;
@@ -342,24 +346,14 @@
 		// line-height: 50px;
 		// padding: 0 20px;
 		font-weight: 700;
-		font-size: 20px;
+		font-size: em(20);
 		letter-spacing: 0.1em;
 		white-space: nowrap;
 		line-height: 1.3;
 		// background-color: orange;
 		transition: all $timer-hover;
-		// &._active { // ошибка с :visited
-		// 	&:before { // this area prevents turning menu off on mousemove between menu & submenu
-		// 		background-color: yellow; //
-		// 		content: '';
-		// 		position: absolute;
-		// 		bottom: -100%;
-		// 		left: 0;
-		// 		display: inline-block;
-		// 		width: 100%;
-		// 		height: 100%;
-		// 		cursor: default;
-		// 	}
+		// @media (max-width: $desktop+px) {
+		// 	font-size: resize-multiplier(20, $desktop, 0.4);
 		// }
 	}
 	&__link {
@@ -369,17 +363,17 @@
 		&:before {
 			content: '';
 			position: absolute;
-			bottom: -3px;
-			left: -2px;
+			bottom: em(-3);
+			left: em(-2);
 			display: inline-block;
-			width: calc(100% + 4px);
+			width: calc(100% + em(4));
 			height: 0;
 			background-color: $color-4;
 			z-index: -1;
 			transition: height $timer-hover;
 		}
 		&:hover:before {
-			height: 14px;
+			height: em(14);
 		}
 	}
 }

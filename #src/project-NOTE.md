@@ -18,4 +18,6 @@ Used: New site template v3.02
 - header.html подкорректировать описание и исправить ссылки (поменять index.html на /)
 - новый стиль light build
 - в header добавить max-width: $page-max-width+px; так как он fixed и не реагирует на ширину body
-- component-test part для 
+- component-test part для верстки всяких глобалок и тестов
+- mixins resize-multiplier
+- templates обновить (scrollbar, svg)

@@ -4,12 +4,16 @@
 body {
 	max-width: $page-max-width+px;
 	margin: 0 auto; //REQ! if max-width
-	padding-left: 68px;
+	padding-left: 3.54%;//68px;
 	font-family: $font-1;
 	font-size: $font-size-default;
 	color: $color-3;
 	background-color: $color-2;
 	&._locked {overflow: hidden;} //REQ!
+	
+	@media (max-width: $desktop+px) {
+		font-size: resize-multiplier(16, $desktop, 1);
+	}
 
 	// Variables for JS manipulations:
 	--header-position: 0px; //REQ!
@@ -19,24 +23,39 @@ body {
 	--media-mobile: #{$mobile}; //REQ!
 	--timer-menu: #{$timer-menu}; //REQ!
 	--timer-modal: #{$timer-modal}; //REQ!
-}
-.window {
-	width: 100%;
-	height: 100%;
+// }
+// .window {
+	// width: 100%;
+	// height: 100vh;
+	// max-height: em(1080);
 	position: relative;
-	overflow: hidden;
+	height: 100%;
+	// overflow-x: hidden;
+	// overflow-y: visible;
 	display: grid;
 	grid-template-columns: auto 360px;
-	.homepage-body & {
+	grid-template-rows: auto 1fr auto;
+	&.homepage-body {
 		grid-template-columns: auto;
 	}
+	&::-webkit-scrollbar {
+		width: 0.4166vw;
+	}
+	&::-webkit-scrollbar-track {
+		background: transparent;
+	}
+	&::-webkit-scrollbar-thumb {
+		background: $color-6;
+	}
+	scrollbar-width: thin;
+	scrollbar-color: $color-6 transparent;
 }
 .container {
 	width: 100%; //REQ!
 	max-width: $container-width+px; //REQ!
 	min-width: calc($page-min-width - (100vw - 100%)); //REQ!
 	// margin: 0 auto; //REQ!
-	padding-left: 68px;
+	padding-left: 3.68%;//68px;
 	// padding: 0 67px 0 15px;
 }
 
@@ -64,63 +83,112 @@ body {
 
 /* Main content */
 .main {
-	// margin-top: calc(var(--header-offset) + var(--header-height)); //REQ! if header 'position' is 'fixed' or 'absolute'
-	// min-height: calc(100vh - var(--header-offset) - var(--header-height) - var(--footer-height) - 1px); // makes footer sticky to bottom
+	max-height: em(1080);
+	padding: em(40) 0;
+	// display: flex;
+	// flex-direction: column;
+	// justify-content: space-evenly;//space-between;
 	border-left: solid 1px $color-8;
 	// Section margins Example:
 	// &__section {
 	// 	.page-home & {margin-top: 67px;}
 	// 	.page-about & {margin-top: 10px;}
 	// }
-	&__homepage-content {}
-	&__categories {
-		margin-top: 90px;
+	&__container {
+		height: 100%;
+		// height: em(600);
+		// max-height: em(505);
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;//space-between;
+		align-items: flex-start;
 	}
-	&__features {
-		.page-home & {margin-top: 66px;}
+	// &__homepage-content {
+	// 	// flex: 1 1 1000px;
+	// }
+	&__homepage-title {
+		// margin-top: em(75);
+		span {
+			display: block;
+		}
 	}
-	&__decor-triangle {
-		position: absolute;
-		top: 0;
-		right: -240px;
-		z-index: -1;
-	}
-}
-
-.homepage-content {
-	&__container {}
-	h1 span {
-		display: block;
-	}
-	&__top {
-		font-size: 120px;
+	&__homepage-title-top {
+		font-size: em(120);
 		font-weight: 300;
 		letter-spacing: 0.03em;
+		line-height: 1.05;
 	}
-	&__bottom {
-		font-size: 90px;
+	&__homepage-title-bottom {
+		font-size: em(90);
 		font-weight: 700;
 		text-transform: uppercase;
 		letter-spacing: 0.15em;
 	}
-	&__description {
-		margin-top: 36px;
-		max-width: 640px;
-		font-size: 24px;
-		line-height: 40px;
+	&__homepage-title-description {
+		// margin-top: em(22);
+		max-width: em(450);
+		font-size: em(24);
+		line-height: 1.67;
 		letter-spacing: 0.05em;
 		color: $color-10;
 	}
 	&__text-button-with-arrow {
-		margin-top: 100px;
+		margin-top: em(50);//90px;
+	}
+	&__categories {
+		margin-top: em(90);
+	}
+	&__features {
+		flex: 0 1 auto;
+		.page-home & {
+			margin-top: em(20);//40px;
+			// margin-bottom: 7.685vh;//20px;
+			// расчет от 1080
+		}
+	}
+	&__decor-triangle {
 	}
 }
-
+// .homepage-content {
+	// height: 100%;
+	// max-height: 520px;
+	// &__container {
+	// 	height: em(600);
+	// 	max-height: em(505);
+	// 	display: flex;
+	// 	flex-direction: column;
+	// 	justify-content: space-between;
+	// 	align-items: flex-start;
+	// }
+// }
 
 .decor-triangle {
-	width: 115.31531vh;
-	max-width: calc(1.04 * 1080px);
+	position: absolute;
+	top: 0;
+	right: 0;
+	// left: calc(100% - 73vh);
+	// left: em(900);
+	z-index: -1;
+	
+	height: 100%;
+	width: em(800);
+	// max-height: em(1080);
+
+	// !!! Почти готово, пересчитать размер треугольника и проверить
+
+	overflow: hidden;
+	// width: 115.31531vh;
+	// min-width: em(1080);
+	// max-width: calc(1.08 * 1080px);
+	// max-width: calc(1.04 * 1080px);
 	&__container {
+		position: absolute;
+		top: 0;
+		// right: em(-340);
+		left: 0;
+		width: calc(1.15 * em(1080));
+	}
+	&__shape {
 		position: relative;
 		width: 100%;
 		height: 0;
@@ -197,41 +265,36 @@ body {
 }
 
 .features {
-	&__container {
-		max-width: 960px;
-	}
+	max-width: em(938);
+	// font-size: 16px;
+	// @media (max-width: $desktop+px) {
+	// 	font-size: resize-multiplier(16, $desktop, 0.4);
+	// }
+	// &__container {
+	// }
 	&__items {
 		display: inline-flex;
-		// justify-content: center;
-		// align-items: flex-end;
 	}
 	&__item {
-		// flex: 0 1 fit-content;
-		// display: flex;
-		// flex-direction: column;
-		// justify-content: space-between;
 		&:not(:last-child) {
-			margin-right: 45px;
+			margin-right: em(45);
 		}
 	}
 	&__item-img {
-		width: 60px;
-		height: 60px;
+		width: em(60);
+		height: em(60);
 		img {
 			width: 100%;
 			height: 100%;
-			// object-position: top;
-			// position: relative;
-			// top: 0;
 		}
 	}
 	&__item-text {
-		margin-top: 11px;
-		height: 84px;
+		margin-top: em(11);
+		height: em(84);
 		width: auto;
 		font-weight: 500;
-		font-size: 16px;
-		line-height: 24px;
+		font-size: 1em;
+		line-height: 1.5;
 		letter-spacing: 0.03em;
 		color: $color-10;
 	}

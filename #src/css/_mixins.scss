@@ -28,12 +28,14 @@
 @function em($px, $context: 16) {
 	@return math.div($px, $context) * 1em;
 }
-@function vw-pct($base, $media) {
-	@return calc($base / $media * 100vw);
-	// example: width: vw-pct(300, $media-footer);
-}
-@function vw-multi($base, $media, $multiplier: 0.8) {
+// @function vw-pct($base, $media) {
+// 	@return calc($base / $media * 100vw);
+// 	// example: width: vw-pct(300, $media-footer);
+// }
+@function resize-multiplier($base, $media, $multiplier: 1) {
 	@return calc($base * $multiplier / $media * 100vw + $base * (1 - $multiplier) * 1px);
-	// example: width: vw-multi(300, $media-footer, 0.8);
-	// multiplier значения от 0 до 1 - понижающие, от 1 и выше - повышающие
+	// example: width: resize-multiplier(300, $media-footer, 0.8);
+	// base - размер элемента на границе отсчета
+	// media - граница отсчета
+	// multiplier - значения от 0 до 1 - понижающие (замедляют ресайз), от 1 и выше - повышающие (ускоряют)
 }

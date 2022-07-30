@@ -38,7 +38,7 @@ get_template_part('parts/header');
 		</div>
 	</noscript>
 
-<div class="window">
+<!-- <div class="window"> -->
 
 	<!-- <div class="loadscreen _locked">
 		<div class="loadscreen__content">
@@ -150,19 +150,19 @@ get_template_part('parts/header');
 				</a>
 				<div class="socials">
 					<a class="socials__link" href="#">
-						vk
+						<span>vk</span>
 						<i class="icon-vk"></i>
 					</a>
 					<a class="socials__link" href="#">
-						telegram
+						<span>telegram</span>
 						<i class="icon-telegram"></i>
 					</a>
 					<a class="socials__link" href="#">
-						ya.zen
+						<span>ya.zen</span>
 						<i class="icon-zen"></i>
 					</a>
 					<a class="socials__link" href="#">
-						vc.ru
+						<span>vc.ru</span>
 						<i class="icon-vc"></i>
 					</a>
 				</div>
@@ -230,66 +230,66 @@ get_template_part('parts/header');
 
 
 <main class="main page-home">
+	<div class="main__container container">
 
-	<section class="main__homepage-content homepage-content">
-		<div class="homepage-content__container container">
-			<h1>
-				<span class="homepage-content__top">We make your</span>
-				<span class="homepage-content__bottom">Business Grow</span>
-			</h1>
-			<p class="homepage-content__description">
-				Lorem ipsum dolor sit amet consectetur adipisicing elit iusto consequatur cumque inventore.
-			</p>
-			<a class="homepage-content__text-button-with-arrow text-button-with-arrow" href="#">
-				<span class="text-button-with-arrow__text"><span>получить бесплатную консультацию</span></span>
-				<span class="text-button-with-arrow__arrow">
-					<i class="icon-arrow"></i>
-				</span>
-			</a>
-		</div>
-	</section>
+		<h1 class="main__homepage-title">
+			<span class="main__homepage-title-top">We make your</span>
+			<span class="main__homepage-title-bottom">Business Grow</span>
+		</h1>
+		<p class="main__homepage-title-description">
+			Lorem ipsum dolor sit amet consectetur adipisicing elit iusto consequatur cumque inventore.
+		</p>
+		<a class="main__text-button-with-arrow text-button-with-arrow" href="#">
+			<span class="text-button-with-arrow__text"><span>получить бесплатную консультацию</span></span>
+			<span class="text-button-with-arrow__arrow">
+				<i class="icon-arrow"></i>
+			</span>
+		</a>
 
-	<section class="main__features features">
-		<div class="features__container container">
-			<div class="features__items">
-				<div class="features__item">
-					<div class="features__item-img">
-						<img src="media/img/features-1.svg" alt="" loading="lazy">
+		<section class="main__features features">
+			<!-- <div class="features__container container"> -->
+				<div class="features__items">
+					<div class="features__item">
+						<div class="features__item-img">
+							<img src="media/img/features-1.svg" alt="" loading="lazy">
+						</div>
+						<p class="features__item-text">
+							Выполнили более 300 проектов из более 60 сфер бизнеса за 10 лет работы
+						</p>
 					</div>
-					<p class="features__item-text">
-						Выполнили более 300 проектов из более 60 сфер бизнеса за 10 лет работы
-					</p>
-				</div>
-				<div class="features__item">
-					<div class="features__item-img">
-						<img src="media/img/features-2.svg" alt="" loading="lazy">
+					<div class="features__item">
+						<div class="features__item-img">
+							<img src="media/img/features-2.svg" alt="" loading="lazy">
+						</div>
+						<p class="features__item-text">
+							Делаем: сайты, трафик, автоворонки, а также продюсируем экспертов онлайн образования
+						</p>
 					</div>
-					<p class="features__item-text">
-						Делаем: сайты, трафик, автоворонки, а также продюсируем экспертов онлайн образования
-					</p>
-				</div>
-				<div class="features__item">
-					<div class="features__item-img">
-						<img src="media/img/features-3.svg" alt="" loading="lazy">
+					<div class="features__item">
+						<div class="features__item-img">
+							<img src="media/img/features-3.svg" alt="" loading="lazy">
+						</div>
+						<p class="features__item-text">
+							Провели более 125 онлайн и офлайн мероприятий по маркетингу, своих и партнеров
+						</p>
 					</div>
-					<p class="features__item-text">
-						Провели более 125 онлайн и офлайн мероприятий по маркетингу, своих и партнеров
-					</p>
 				</div>
-			</div>
-		</div>
-	</section>
+			<!-- </div> -->
+		</section>
 
-	
+	</div>
 
-	<div class="main__decor-triangle decor-triangle">
-		<div class="decor-triangle__container">
+
+</main>
+
+<div class="decor-triangle">
+	<div class="decor-triangle__container">
+		<div class="decor-triangle__shape">
 			<img src="media/img/main.png" srcset="media/img/main.png 2x" alt="" loading="lazy">
 			<div class="decor-triangle__inner"></div>
 		</div>
 	</div>
-
-</main>
+</div>
 
 <!-- <aside class="sidebar"></aside> -->
 
@@ -299,34 +299,6 @@ get_template_part('parts/header');
 	
 <!-- </section> -->
 
-<!-- SVG test -->
-<img id="svg-test" style="width: 300px;" src="media/img/icon-arrow.svg">
-
-<!-- Other -->
-	<a class="text-button-with-arrow" href="#">
-		<span class="text-button-with-arrow__text"><span>получить бесплатную консультацию</span></span>
-		<span class="text-button-with-arrow__arrow">
-			<i class="icon-arrow"></i>
-		</span>
-	</a>
-	<a class="text-button-with-arrow text-button-with-arrow--rounded" href="#">
-		<span class="text-button-with-arrow__text"><span>едем дальше</span></span>
-		<span class="text-button-with-arrow__arrow">
-			<i class="icon-arrow"></i>
-		</span>
-	</a>
-
-	<a class="feedback-button" href="#">
-		обратная связь
-	</a>
-	<a class="feedback-button feedback-button--clipped" href="#">
-		обратная связь
-	</a>
-	
-	<a class="video-button" href="#">
-		<span></span>
-		<i class="icon-play"></i>
-	</a>
 
 <section class="svg-sprite">
 	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256.22708 174.82484">
@@ -382,7 +354,7 @@ get_template_part('parts/header');
 <script src="js/website.script.js"></script>
 <!-- <script src="js/website.script.min.js"></script> -->
 
-</div>
+<!-- </div> -->
 <!-- <?php wp_footer() ?> -->
 </body>
 </html>

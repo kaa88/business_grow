@@ -2,8 +2,8 @@
 
 .footer {
 	&__container {
-		max-width: 1020px;
-		height: 60px;
+		max-width: em(1020);
+		height: em(60);
 		display: flex;
 		align-items: center;
 		position: relative;
@@ -12,12 +12,12 @@
 	}
 	&__copy, &__policy, &__policy:visited {
 		display: inline-block;
-		font-size: 13px;
+		font-size: em(13);
 		letter-spacing: 0.03em;
 		color: $color-3;
 	}
 	&__policy {
-		margin-left: 60px;
+		margin-left: em(60);
 		border-bottom: 2px solid transparent;
 		transition: all $timer-hover;
 		&:hover {
