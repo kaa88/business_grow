@@ -11,7 +11,7 @@ body {
 	background-color: $color-2;
 	&._locked {overflow: hidden;} //REQ!
 	
-	@media (max-width: $desktop+px) {
+	@media (max-width: $desktop+px) and (min-width: $mobile+1+px) {
 		font-size: resize-multiplier(16, $desktop, 1);
 	}
 
@@ -29,7 +29,9 @@ body {
 	// height: 100vh;
 	// max-height: em(1080);
 	position: relative;
-	height: 100%;
+	// height: em(1080);
+	height: 1080px;
+	max-height: 100vh;
 	// overflow-x: hidden;
 	// overflow-y: visible;
 	display: grid;
@@ -83,8 +85,10 @@ body {
 
 /* Main content */
 .main {
-	max-height: em(1080);
-	padding: em(40) 0;
+	// max-height: em(1080);
+	// padding: em(40) 0;
+	padding: 3.7vh 0;
+	// padding-top: calc();
 	// display: flex;
 	// flex-direction: column;
 	// justify-content: space-evenly;//space-between;
@@ -171,23 +175,28 @@ body {
 	z-index: -1;
 	
 	height: 100%;
-	width: em(800);
+	// width: 47.3958%;
+	width: em(910);
 	// max-height: em(1080);
-
-	// !!! Почти готово, пересчитать размер треугольника и проверить
 
 	overflow: hidden;
 	// width: 115.31531vh;
 	// min-width: em(1080);
 	// max-width: calc(1.08 * 1080px);
 	// max-width: calc(1.04 * 1080px);
+	@media (max-height: 1000px) {
+		position: fixed;
+		height: 100vh;
+	}
 	&__container {
 		position: absolute;
 		top: 0;
 		// right: em(-340);
 		left: 0;
-		width: calc(1.15 * em(1080));
-	}
+		width: calc(1.1531531 * em(1080));
+		// min-width: em(870);
+		// max-width: 115.31531vh;
+}
 	&__shape {
 		position: relative;
 		width: 100%;
