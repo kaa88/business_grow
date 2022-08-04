@@ -11,7 +11,7 @@
 	font-size: em(36);
 	line-height: 1.53;
 	letter-spacing: 0.03em;
-	color: $color-3;
+	color: $color03;
 }
 // .g-h3 {}
 // .g-h4 {}
@@ -30,13 +30,13 @@
 		justify-content: center;
 		align-items: center;
 		padding: 0 em(30);
-		background-color: $color-3;
+		background-color: $color03;
 		span {
 			position: relative;
 			font-size: em(22);
 			font-weight: 700;
 			letter-spacing: 0.03em;
-			color: $color-2;
+			color: $color02;
 			white-space: nowrap;
 			&:before {
 				content: '';
@@ -70,23 +70,23 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		background-color: $color-2;
-		color: $color-3;
-		border: solid 1px $color-3;
+		background-color: $color02;
+		color: $color03;
+		border: solid 1px $color03;
 		// transition: color $timer-hover;
 	}
 	&--rounded &__arrow {
 		border-radius: 50%;
 	}
 	&:hover {
-		background-color: $color-3;
+		background-color: $color03;
 	}
 	&:hover &__text span:before {
-		background-color: $color-2;
+		background-color: $color02;
 	}
 	&:hover &__arrow {
-		background-color: $color-3;
-		color: $color-2;
+		background-color: $color03;
+		color: $color02;
 	}
 }
 
@@ -95,8 +95,8 @@
 	display: inline-block;
 	width: em(184);
 	height: em(50);
-	background-color: $color-3;
-	color: $color-2;
+	background-color: $color03;
+	color: $color02;
 	font-weight: 700;
 	font-size: em(15);
 	line-height: em(50);
@@ -104,13 +104,26 @@
 	text-align: center;
 	transition: background-color $timer-hover, color $timer-hover;
 	&:hover {
-		background-color: $color-4;
-		color: $color-3;
+		background-color: $color04;
+		color: $color03;
 	}
 }
 .feedback-button--clipped, .feedback-button--clipped:visited {
 	clip-path: polygon(0 0, 100% 0, 100% 100%, em(28) 100%);
 	padding-left: em(28);
+}
+
+.mail-button, .mail-button:visited {
+	display: inline-block;
+	width: 260px;
+	height: 50px;
+	line-height: 50px;
+	border: 1px solid $color04;
+	border-radius: 30px;
+	font-weight: 700;
+	font-size: 12px;
+	text-align: center;
+	color: $color04;
 }
 
 .svg-sprite {
@@ -156,10 +169,10 @@
 	i:before {
 		margin-left: 0.2em;
 		font-size: 2.5em;
-		color: $color-2;
+		color: $color02;
 	}
 	&:hover span:before {
-		background-color: $color-3;
+		background-color: $color03;
 	}
 }
 
@@ -177,16 +190,16 @@
 		display: inline-flex;
 		justify-content: center;
 		align-items: center;
-		background-color: $color-2;
-		border: 1px solid $color-3;
+		background-color: $color02;
+		border: 1px solid $color03;
 		border-radius: 50%;
-		color: $color-3;
+		color: $color03;
 		transition: all $timer-hover;
 	}
-	&__link {
+	&:not(.menu-footer__socials) &__link {
 		&:hover {
-			background-color: $color-3;
-			color: $color-2;
+			background-color: $color03;
+			color: $color02;
 		}
 	}
 }
@@ -207,6 +220,11 @@
 	font-size: 1em;
 }
 
+.mobile-only {
+	@media (min-width: $mobile+1+px) {
+		display: none;
+	}
+}
 
 
 

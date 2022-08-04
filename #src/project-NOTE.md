@@ -9,7 +9,8 @@ Used: New site template v3.02
 
 ### Template changes:
 - чтобы цветовые css переменные закрашивались, создал файл colors.scss... нужно его импортить в каждый модульный файл (@import "../colors";)
-- в разделе цветов сделать переменные градиентов $gradient-1
+- названия переменных цветов переделать на $color01, т.к. -1 после десятого начинает неправильно закрашивать
+- в разделе цветов сделать переменные градиентов $gradient01
 - main.scss в .main min-height в формуле отнять 1 рх, чтобы не вылезала прокрутка из-за погрешности
 - WordPress admin-bar position fix перенес в reset
 - import globs перенес в _main
@@ -21,3 +22,4 @@ Used: New site template v3.02
 - component-test part для верстки всяких глобалок и тестов
 - mixins resize-multiplier
 - templates обновить (scrollbar, svg)
+- scroll-lock.js в строке 43 убрать " + '>*'", чтобы не выбирал всех детей, а добавлял паддинг только мейну и футеру

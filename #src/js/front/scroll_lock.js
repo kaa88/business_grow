@@ -40,7 +40,8 @@ const scrollLock = {
 		if (this.useDefaultGroups) {
 			let selector = '';
 			for (let i = 0; i < this.defaultElems.length; i++) {
-				selector += '.' + this.defaultElems[i] + '>*';
+				selector += '.' + this.defaultElems[i];
+				// 	selector += '.' + this.defaultElems[i] + '>*';
 				if (i < this.defaultElems.length - 1) selector += ',';
 			}
 			let defaultItems = document.querySelectorAll(selector);

@@ -115,7 +115,8 @@ const scrollLock = {
 		if (this.useDefaultGroups) {
 			let selector = '';
 			for (let i = 0; i < this.defaultElems.length; i++) {
-				selector += '.' + this.defaultElems[i] + '>*';
+				selector += '.' + this.defaultElems[i];
+				// 	selector += '.' + this.defaultElems[i] + '>*';
 				if (i < this.defaultElems.length - 1) selector += ',';
 			}
 			let defaultItems = document.querySelectorAll(selector);
@@ -335,6 +336,7 @@ const header = {
 			
 			if (this.menuElem.classList.contains('_active')) {
 				this.menuElem.classList.remove('_active');
+				this.root.headerElem.classList.remove('_active');
 				for (let i = 0; i < this.buttons.length; i++) {
 					this.buttons[i].classList.remove('_active');
 				}
@@ -344,6 +346,7 @@ const header = {
 			else {
 				if (e) {
 					this.menuElem.classList.add('_active');
+					this.root.headerElem.classList.add('_active');
 					for (let i = 0; i < this.buttons.length; i++) {
 						this.buttons[i].classList.add('_active');
 					}

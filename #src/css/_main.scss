@@ -7,8 +7,8 @@ body {
 	padding-left: 3.54%;//68px;
 	font-family: $font-1;
 	font-size: $font-size-default;
-	color: $color-3;
-	background-color: $color-2;
+	color: $color03;
+	background-color: $color02;
 	&._locked {overflow: hidden;} //REQ!
 	
 	@media (max-width: $desktop+px) and (min-width: $mobile+1+px) {
@@ -47,10 +47,10 @@ body {
 		background: transparent;
 	}
 	&::-webkit-scrollbar-thumb {
-		background: $color-6;
+		background: $color06;
 	}
 	scrollbar-width: thin;
-	scrollbar-color: $color-6 transparent;
+	scrollbar-color: $color06 transparent;
 }
 .container {
 	width: 100%; //REQ!
@@ -92,7 +92,7 @@ body {
 	// display: flex;
 	// flex-direction: column;
 	// justify-content: space-evenly;//space-between;
-	border-left: solid 1px $color-8;
+	border-left: solid 1px $color08;
 	// Section margins Example:
 	// &__section {
 	// 	.page-home & {margin-top: 67px;}
@@ -134,7 +134,7 @@ body {
 		font-size: em(24);
 		line-height: 1.67;
 		letter-spacing: 0.05em;
-		color: $color-10;
+		color: $color10;
 	}
 	&__text-button-with-arrow {
 		margin-top: em(50);//90px;
@@ -232,11 +232,11 @@ body {
 		&:before {
 			z-index: 2;
 			height: 46.667%;
-			background-color: $color-2;
+			background-color: $color02;
 		}
 		&:after {
 			height: 100%;
-			background-color: $color-4;
+			background-color: $color04;
 			opacity: 0.4;
 		}
 	}
@@ -264,11 +264,11 @@ body {
 		font-size: 22px;
 		letter-spacing: 0.03em;
 		text-align: center;
-		color: $color-2;
-		background-color: $color-3;
+		color: $color02;
+		background-color: $color03;
 		transition: background-color $timer-hover;
 		&:hover {
-			background-color: $color-5;
+			background-color: $color05;
 		}
 	}
 }
@@ -305,7 +305,7 @@ body {
 		font-size: 1em;
 		line-height: 1.5;
 		letter-spacing: 0.03em;
-		color: $color-10;
+		color: $color10;
 	}
 }
 .sidebar {
@@ -313,5 +313,5 @@ body {
 	grid-row: 1 / span 3;
 	// width: 360px;
 	// height: 100%;
-	background-color: $color-5;
+	background-color: $color05;
 }

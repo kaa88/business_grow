@@ -17,20 +17,20 @@
 		width: 100%;
 		height: 100%;
 		z-index: -2;
-		border-top: solid 1px $color-8;
+		border-top: solid 1px $color08;
 	}
 	&__copy, &__policy, &__policy:visited {
 		display: inline-block;
 		font-size: em(13);
 		letter-spacing: 0.03em;
-		color: $color-3;
+		color: $color03;
 	}
 	&__policy {
 		margin-left: em(60);
 		border-bottom: 2px solid transparent;
 		transition: all $timer-hover;
 		&:hover {
-			border-color: $color-4;
+			border-color: $color04;
 		}
 	}
 }
