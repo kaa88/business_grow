@@ -4,7 +4,6 @@
 body {
 	max-width: $page-max-width+px;
 	margin: 0 auto; //REQ! if max-width
-	padding-left: 3.54%;//68px;
 	font-family: $font-1;
 	font-size: $font-size-default;
 	color: $color03;
@@ -13,6 +12,12 @@ body {
 	
 	@media (max-width: $desktop+px) and (min-width: $mobile+1+px) {
 		font-size: resize-multiplier(16, $desktop, 1);
+	}
+	@media (max-width: $mobile+px) {
+		font-size: 10px;
+	}
+	@media (min-width: $mobile+1+px) {
+		padding-left: 3.54%;//68px;
 	}
 
 	// Variables for JS manipulations:
@@ -187,6 +192,9 @@ body {
 	@media (max-height: 1000px) {
 		position: fixed;
 		height: 100vh;
+	}
+	@media (max-width: $mobile+px) {
+		display: none;
 	}
 	&__container {
 		position: absolute;

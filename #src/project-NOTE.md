@@ -1,10 +1,9 @@
-Used: New site template v3.02
-
 # Project NOTE
+New site template v3.02
+
 
 ### TO DO:
-- из-за чего-то виснет дев тулс браузера
-- неправильная расстановка стилей для :visited, надо проверить
+- контент мобильной версии
 
 
 ### Template changes:
@@ -23,3 +22,6 @@ Used: New site template v3.02
 - mixins resize-multiplier
 - templates обновить (scrollbar, svg)
 - scroll-lock.js в строке 43 убрать " + '>*'", чтобы не выбирал всех детей, а добавлял паддинг только мейну и футеру
+- header menu перенести скроллинг из меню во враппер, чтобы все уровни скролились при маленькой высоте
+- неправильная расстановка стилей для :visited, надо проверить
+- Project NOTE немного переделан
