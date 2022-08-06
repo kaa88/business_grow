@@ -8,6 +8,7 @@ body {
 	font-size: $font-size-default;
 	color: $color03;
 	background-color: $color02;
+	// overflow: hidden;
 	&._locked {overflow: hidden;} //REQ!
 	
 	@media (max-width: $desktop+px) and (min-width: $mobile+1+px) {
@@ -90,6 +91,8 @@ body {
 
 /* Main content */
 .main {
+	width: 100%;
+	max-width: 100vw;
 	// max-height: em(1080);
 	// padding: em(40) 0;
 	padding: 3.7vh 0;
@@ -97,7 +100,9 @@ body {
 	// display: flex;
 	// flex-direction: column;
 	// justify-content: space-evenly;//space-between;
-	border-left: solid 1px $color08;
+	@media (min-width: $mobile+1+px) {
+		border-left: solid 1px $color08;
+	}
 	// Section margins Example:
 	// &__section {
 	// 	.page-home & {margin-top: 67px;}
@@ -111,14 +116,28 @@ body {
 		flex-direction: column;
 		justify-content: space-evenly;//space-between;
 		align-items: flex-start;
+		@media (max-width: $mobile+px) {
+			padding: 0 30px;
+		}
 	}
 	// &__homepage-content {
 	// 	// flex: 1 1 1000px;
 	// }
 	&__homepage-title {
 		// margin-top: em(75);
-		span {
-			display: block;
+		@media (max-width: $mobile+px) {
+			.homepage-body & {
+				color: $color02;
+			}
+		}
+		@media (max-width: $mobile-s+px) {
+			text-align: center;
+			width: 100%;
+		}
+		@media (min-width: $mobile+1+px) {
+			span {
+				display: block;
+			}
 		}
 	}
 	&__homepage-title-top {
@@ -126,12 +145,25 @@ body {
 		font-weight: 300;
 		letter-spacing: 0.03em;
 		line-height: 1.05;
+		@media (max-width: $mobile+px) {
+			font-weight: 600;
+			font-size: 22px;
+		}
 	}
 	&__homepage-title-bottom {
 		font-size: em(90);
 		font-weight: 700;
 		text-transform: uppercase;
 		letter-spacing: 0.15em;
+		@media (max-width: $mobile+px) {
+			font-weight: 600;
+			font-size: 22px;
+			letter-spacing: 0.03em;
+			text-transform: inherit;
+		}
+	}
+	.triangle-arrow {
+		margin-top: 8px;
 	}
 	&__homepage-title-description {
 		// margin-top: em(22);
@@ -140,9 +172,24 @@ body {
 		line-height: 1.67;
 		letter-spacing: 0.05em;
 		color: $color10;
+		@media (max-width: $mobile+px) {
+			font-weight: 500;
+			font-size: 14px;
+			.homepage-body & {
+				color: $color02;
+			}
+		}
 	}
 	&__text-button-with-arrow {
 		margin-top: em(50);//90px;
+		@media (max-width: $mobile+px) {
+			display: none;
+		}
+	}
+	&__rounded-button {
+		@media (max-width: $mobile-s+px) {
+			margin: 0 auto;
+		}
 	}
 	&__categories {
 		margin-top: em(90);
@@ -154,8 +201,19 @@ body {
 			// margin-bottom: 7.685vh;//20px;
 			// расчет от 1080
 		}
+		@media (max-width: $mobile+px) {
+			display: none;
+		}
 	}
-	&__decor-triangle {
+	&__features-slider {
+		// position: relative;
+		// left: -30px;
+	}
+	&__mobile-background {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
 	}
 }
 // .homepage-content {
@@ -249,6 +307,20 @@ body {
 		}
 	}
 }
+.triangle-arrow {
+	transform: rotate(90deg);
+	&:before, &:after {
+		content: '';
+		display: inline-block;
+		width: 6px;
+		height: 7px;
+		clip-path: polygon(0 0, 100% 50%, 0 100%);
+		background-color: $color02;
+	}
+	&:before {
+		opacity: 0.3;
+	}
+}
 
 .categories {
 	// background-color: #ddd;
@@ -316,10 +388,76 @@ body {
 		color: $color10;
 	}
 }
+.features-slider {
+	left: -30px;
+	width: 100vw;
+	padding: 10px 0 15px;
+	.swiper-wrapper {
+		width: 100%;
+	}
+	.swiper-slide {
+		width: 110px;
+		height: 135px;
+		padding: 10px;
+		background-color: $color02;
+		box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.1);
+		border-radius: 33px 10px 10px 10px;
+		transition: background-color $timer-hover;
+		cursor: default;
+	}
+	&__img {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 45px;
+		height: 45px;
+		border-radius: 50%;
+		background-color: $color05;
+		font-size: 17px;
+		color: $color02;
+		transition: background-color $timer-hover;
+	}
+	.swiper-slide:hover {
+		background-color: $color05;
+	}
+	.swiper-slide:hover &__img {
+		background-color: $color09;
+	}
+	&__text {
+		@include text-max-lines(5);
+		margin-top: 3px;
+		font-size: 10px;
+		line-height: 1.4;
+		letter-spacing: 0.03em;
+		transition: color $timer-hover;
+	}
+	.swiper-slide:hover &__text {
+		color: $color02;
+	}
+}
+
 .sidebar {
 	grid-column: 2;
 	grid-row: 1 / span 3;
 	// width: 360px;
 	// height: 100%;
 	background-color: $color05;
+}
+
+.mobile-background {
+	width: 100%;
+	height: 60vh;//390
+	min-height: 300px;
+	background: $gradient-3;
+	border-radius: 0px 0px 30px 30px;
+	overflow: hidden;
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		opacity: 0.5;
+	}
+	@media (min-width: $mobile+1+px) {
+		display: none;
+	}
 }

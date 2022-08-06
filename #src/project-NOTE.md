@@ -19,7 +19,7 @@ New site template v3.02
 - новый стиль light build
 - в header добавить max-width: $page-max-width+px; так как он fixed и не реагирует на ширину body
 - component-test part для верстки всяких глобалок и тестов
-- mixins resize-multiplier
+- mixins resize-multiplier, text-max-lines
 - templates обновить (scrollbar, svg)
 - scroll-lock.js в строке 43 убрать " + '>*'", чтобы не выбирал всех детей, а добавлял паддинг только мейну и футеру
 - header menu перенести скроллинг из меню во враппер, чтобы все уровни скролились при маленькой высоте

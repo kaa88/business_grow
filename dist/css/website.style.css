@@ -318,6 +318,22 @@ body::-webkit-scrollbar-thumb {
   color: #333;
 }
 
+.rounded-button,
+.rounded-button:visited {
+  display: inline-block;
+  width: 260px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 55px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  color: #fff;
+  background-color: #333;
+}
+
 .text-button-with-arrow {
   height: 5.625em;
   display: -webkit-inline-box;
@@ -633,6 +649,10 @@ body::-webkit-scrollbar-thumb {
   color: #333;
 }
 
+.footer__copy {
+  white-space: nowrap;
+}
+
 .footer__policy {
   margin-left: 3.75em;
   border-bottom: 2px solid transparent;
@@ -723,6 +743,10 @@ body::-webkit-scrollbar-thumb {
   -ms-user-select: none;
   user-select: none;
   position: relative;
+}
+
+.homepage-body .header-menu-open-btn {
+  color: #fff;
 }
 
 .header-menu-close-btn {
@@ -1016,8 +1040,9 @@ body::-webkit-scrollbar-thumb {
 /* Main content */
 
 .main {
+  width: 100%;
+  max-width: 100vw;
   padding: 3.7vh 0;
-  border-left: solid 1px #E2E7EC;
 }
 
 .main__container {
@@ -1037,10 +1062,6 @@ body::-webkit-scrollbar-thumb {
   align-items: flex-start;
 }
 
-.main__homepage-title span {
-  display: block;
-}
-
 .main__homepage-title-top {
   font-size: 7.5em;
   font-weight: 300;
@@ -1053,6 +1074,10 @@ body::-webkit-scrollbar-thumb {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.15em;
+}
+
+.main .triangle-arrow {
+  margin-top: 8px;
 }
 
 .main__homepage-title-description {
@@ -1079,6 +1104,13 @@ body::-webkit-scrollbar-thumb {
 
 .page-home .main__features {
   margin-top: 1.25em;
+}
+
+.main__mobile-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
 .decor-triangle {
@@ -1151,6 +1183,27 @@ body::-webkit-scrollbar-thumb {
   height: 100%;
   background-color: #02FEFF;
   opacity: 0.4;
+}
+
+.triangle-arrow {
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.triangle-arrow:before,
+.triangle-arrow:after {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 7px;
+  -webkit-clip-path: polygon(0 0, 100% 50%, 0 100%);
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  background-color: #fff;
+}
+
+.triangle-arrow:before {
+  opacity: 0.3;
 }
 
 .categories__items {
@@ -1231,10 +1284,100 @@ body::-webkit-scrollbar-thumb {
   color: #2B2A29;
 }
 
+.features-slider {
+  left: -30px;
+  width: 100vw;
+  padding: 10px 0 15px;
+}
+
+.features-slider .swiper-wrapper {
+  width: 100%;
+}
+
+.features-slider .swiper-slide {
+  width: 110px;
+  height: 135px;
+  padding: 10px;
+  background-color: #fff;
+  -webkit-box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.1);
+  border-radius: 33px 10px 10px 10px;
+  -webkit-transition: background-color 0.15s;
+  -o-transition: background-color 0.15s;
+  transition: background-color 0.15s;
+  cursor: default;
+}
+
+.features-slider__img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: #8500FF;
+  font-size: 17px;
+  color: #fff;
+  -webkit-transition: background-color 0.15s;
+  -o-transition: background-color 0.15s;
+  transition: background-color 0.15s;
+}
+
+.features-slider .swiper-slide:hover {
+  background-color: #8500FF;
+}
+
+.swiper-slide:hover .features-slider__img {
+  background-color: #7C00EE;
+}
+
+.features-slider__text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+  margin-top: 3px;
+  font-size: 10px;
+  line-height: 1.4;
+  letter-spacing: 0.03em;
+  -webkit-transition: color 0.15s;
+  -o-transition: color 0.15s;
+  transition: color 0.15s;
+}
+
+.swiper-slide:hover .features-slider__text {
+  color: #fff;
+}
+
 .sidebar {
   grid-column: 2;
   grid-row: 1/span 3;
   background-color: #8500FF;
+}
+
+.mobile-background {
+  width: 100%;
+  height: 60vh;
+  min-height: 300px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#8500FF), to(#02FEFF));
+  background: -o-linear-gradient(top, #8500FF 0%, #02FEFF 100%);
+  background: linear-gradient(180deg, #8500FF 0%, #02FEFF 100%);
+  border-radius: 0px 0px 30px 30px;
+  overflow: hidden;
+}
+
+.mobile-background img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  opacity: 0.5;
 }
 
 .page-404__content {
@@ -1345,6 +1488,18 @@ body::-webkit-scrollbar-thumb {
   .header-menu__link:hover:before {
     height: 0.875em;
   }
+
+  .main {
+    border-left: solid 1px #E2E7EC;
+  }
+
+  .main__homepage-title span {
+    display: block;
+  }
+
+  .mobile-background {
+    display: none;
+  }
 }
 
 @media (max-width: 782px) {
@@ -1354,6 +1509,12 @@ body::-webkit-scrollbar-thumb {
 
   .header {
     padding: 28px 0 22px 15px;
+  }
+
+  .homepage-body .header {
+    background-image: -webkit-gradient(linear, left bottom, left top, from(transparent), to(#333));
+    background-image: -o-linear-gradient(bottom, transparent, #333);
+    background-image: linear-gradient(to top, transparent, #333);
   }
 
   .header-menu-hide-wrapper {
@@ -1414,7 +1575,15 @@ body::-webkit-scrollbar-thumb {
   }
 
   .logo {
-    font-size: 16px;
+    font-size: 14px;
+  }
+
+  .homepage-body .logo__text {
+    color: #fff;
+  }
+
+  .homepage-body .logo__bottom-text {
+    color: #fff;
   }
 
   .header-menu {
@@ -1445,6 +1614,43 @@ body::-webkit-scrollbar-thumb {
     color: #8500FF;
   }
 
+  .main__container {
+    padding: 0 30px;
+  }
+
+  .homepage-body .main__homepage-title {
+    color: #fff;
+  }
+
+  .main__homepage-title-top {
+    font-weight: 600;
+    font-size: 22px;
+  }
+
+  .main__homepage-title-bottom {
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: 0.03em;
+    text-transform: inherit;
+  }
+
+  .main__homepage-title-description {
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  .homepage-body .main__homepage-title-description {
+    color: #fff;
+  }
+
+  .main__text-button-with-arrow {
+    display: none;
+  }
+
+  .main__features {
+    display: none;
+  }
+
   .decor-triangle {
     display: none;
   }
@@ -1453,6 +1659,17 @@ body::-webkit-scrollbar-thumb {
 @media (max-width: 782px) and (max-height: 550px) {
   .header-menu {
     padding: 1vh 0 1vh 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main__homepage-title {
+    text-align: center;
+    width: 100%;
+  }
+
+  .main__rounded-button {
+    margin: 0 auto;
   }
 }
 

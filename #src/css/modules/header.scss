@@ -17,6 +17,9 @@
 	transition: background-color $timer-menu;
 	@media (max-width: $media-header+px) {
 		padding: 28px 0 22px 15px;
+		.homepage-body & {
+			background-image: linear-gradient(to top, transparent, $color03);
+		}
 	}
 	.homepage-body & {
 		max-width: 1920px;
@@ -59,6 +62,9 @@
 	position: relative;
 	@media (min-width: $media-header+1+px) {
 		display: none; //REQ!
+	}
+	.homepage-body & {
+		color: $color02;
 	}
 }
 .header-menu-close-btn {
@@ -198,7 +204,7 @@
 	// 	font-size: resize-multiplier(19, $desktop, 0.6);
 	// }
 	@media (max-width: $media-header+px) {
-		font-size: 16px;
+		font-size: 14px;
 	}
 	&__link {
 		display: flex;
@@ -216,6 +222,11 @@
 		.header._active & {
 			color: $color02;
 		}	
+		@media (max-width: $mobile+px) {
+			.homepage-body & {
+				color: $color02;
+			}
+		}
 	}
 	&__text-colored {
 		font-weight: 800;
@@ -238,6 +249,11 @@
 		.header._active & {
 			color: $color02;
 		}	
+		@media (max-width: $mobile+px) {
+			.homepage-body & {
+				color: $color02;
+			}
+		}
 	}
 	// &__up {
 	// 	display: inline-block;

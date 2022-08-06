@@ -15,7 +15,7 @@ get_template_part('parts/header');
 	<title>Business Grow - Developing & Marketing Company</title>
 	<meta name="description" content="Description">
 	<meta name="robots" content="noindex, nofollow">
-	<!-- <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/> -->
+	<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 	<!-- <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css"> -->
 	<link rel="stylesheet" href="css/website.style.css">
 	<!-- <link rel="stylesheet" href="css/website.style.min.css"> -->
@@ -262,10 +262,16 @@ get_template_part('parts/header');
 <main class="main page-home">
 	<div class="main__container container">
 
+		<div class="main__mobile-background mobile-background scroll-lock-item-p">
+			<img src="media/img/main.png" srcset="media/img/image@2x.jpg 2x" alt="" loading="lazy">
+		</div>
+
 		<h1 class="main__homepage-title">
 			<span class="main__homepage-title-top">We make your</span>
+			&nbsp;
 			<span class="main__homepage-title-bottom">Business Grow</span>
 		</h1>
+		<span class="triangle-arrow mobile-only"></span>
 		<p class="main__homepage-title-description">
 			Lorem ipsum dolor sit amet consectetur adipisicing elit iusto consequatur cumque inventore.
 		</p>
@@ -275,6 +281,61 @@ get_template_part('parts/header');
 				<i class="icon-arrow"></i>
 			</span>
 		</a>
+		<div class="main__features-slider features-slider swiper mobile-only">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<div class="features-slider__img">
+						<i class="icon-windows"></i>
+					</div>
+					<p class="features-slider__text">
+						Создание сайтов любого масштаба и сложности
+					</p>
+				</div>
+				<div class="swiper-slide">
+					<div class="features-slider__img">
+						<i class="icon-traffic"></i>
+					</div>
+					<p class="features-slider__text">
+						Многоканальная настройка трафика
+					</p>
+				</div>
+				<div class="swiper-slide">
+					<div class="features-slider__img">
+						<i class="icon-edu"></i>
+					</div>
+					<p class="features-slider__text">
+						Продюсирование, масштабирование онлайн-школ и экспертов онлайн-образования
+					</p>
+				</div>
+				<div class="swiper-slide">
+					<div class="features-slider__img">
+						<i class="icon-bubble"></i>
+					</div>
+					<p class="features-slider__text">
+						Мессенджер маркетинг, чат-боты
+					</p>
+				</div>
+				<div class="swiper-slide">
+					<div class="features-slider__img">
+						<i class="icon-gears"></i>
+					</div>
+					<p class="features-slider__text">
+						Полный цикл производства видео для бизнеса
+					</p>
+				</div>
+				<div class="swiper-slide">
+					<div class="features-slider__img">
+						<i class="icon-funnel"></i>
+					</div>
+					<p class="features-slider__text">
+						Автоворонки
+					</p>
+				</div>
+			</div>
+		</div>
+	
+
+		<a class="main__rounded-button rounded-button mobile-only" href="#">получить консультацию</a>
 
 		<section class="main__features features">
 			<!-- <div class="features__container container"> -->
@@ -402,7 +463,7 @@ get_template_part('parts/header');
 </footer>
 
 
-<!-- <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script> -->
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
 <!-- <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script> -->
 <!-- <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script> -->

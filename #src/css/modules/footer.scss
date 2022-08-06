@@ -25,6 +25,9 @@
 		letter-spacing: 0.03em;
 		color: $color03;
 	}
+	&__copy {
+		white-space: nowrap;
+	}
 	&__policy {
 		margin-left: em(60);
 		border-bottom: 2px solid transparent;

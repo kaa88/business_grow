@@ -182,28 +182,16 @@ footer.init()
 //////////////////////////////////////////////////
 
 // Swiper //
-// const swiper = new Swiper('.banner__swiper', {
-// 	navigation: {
-// 		prevEl: '.swiper-button-prev',
-// 		nextEl: '.swiper-button-next',
-// 	},
-// 	pagination: {
-// 		el: '.swiper-pagination',
-// 		type: 'bullets',
-// 	},
-// 	loop: true,
-// 	loopAdditionalSlides: 2,
-// 	speed: 700,
-// 	spaceBetween: 15,
-// 	autoplay: {
-// 		delay: 5000,
-// 		disableOnInteraction: false,
-// 		pauseOnMouseEnter: true,
-// 	},
-// 	breakpoints: {
-// 		782: {}
-// 	},
-// })
+const features_slider = new Swiper('.features-slider', {
+	slidesPerView: 'auto',
+	slidesOffsetBefore: 30,
+	slidesOffsetAfter: 15,
+	spaceBetween: 10,
+	freeMode: true,
+	// breakpoints: {
+	// 	782: {}
+	// },
+})
 
 //////////////////////////////////////////////////
 
