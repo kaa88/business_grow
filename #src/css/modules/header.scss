@@ -417,11 +417,7 @@
 		font-size: 6px;
 	}
 	.socials {
-		height: auto;
-		flex-direction: row;
-		font-size: 0.65em;
 		&__link, &__link:visited {
-			margin-left: 10px;
 			border: none;
 			background-color: $color11;
 			color: $color02;

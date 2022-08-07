@@ -193,15 +193,24 @@
 
 .socials {
 	display: flex;
-	flex-direction: column;
 	justify-content: space-between;
-	height: em(190);
+	@media (max-width: $mobile+px) {
+		font-size: 16px;
+	}
+	&--vertical {
+		flex-direction: column;
+		height: em(190);
+	}
+	&--vertical &__link, &--vertical &__link:visited {
+		margin-left: 0 !important;
+		font-size: 1.5684em;
+	}
 	span {
 		font-size: 0;
 	}
 	&__link, &__link:visited {
-		width: em(40);
-		height: em(40);
+		width: em(26);
+		height: em(26);
 		display: inline-flex;
 		justify-content: center;
 		align-items: center;
@@ -210,6 +219,9 @@
 		border-radius: 50%;
 		color: $color03;
 		transition: all $timer-hover;
+	}
+	&__link:not(:first-child) {
+		margin-left: 10px;
 	}
 	&:not(.menu-footer__socials) &__link {
 		&:hover {
@@ -220,19 +232,19 @@
 }
 .icon-vk {
 	margin-top: em(2);
-	font-size: em(12);
+	font-size: em(8);
 }
 .icon-telegram {
-	margin: em(2) em(2) 0px 0px;
-	font-size: 1em;
+	margin: em(1) em(2) 0px 0px;
+	font-size: em(12);
 }
 .icon-zen {
-	// margin: 1px 0px 0px 1px;
-	font-size: em(22);
+	margin-top: em(1.5);
+	font-size: em(14);
 }
 .icon-vc {
 	margin-top: em(1);
-	font-size: 1em;
+	font-size: em(11);
 }
 
 .mobile-only {
