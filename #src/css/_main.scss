@@ -30,18 +30,11 @@ body {
 	--timer-menu: #{$timer-menu}; //REQ!
 	--timer-modal: #{$timer-modal}; //REQ!
 // }
-// .window {
-	// width: 100%;
-	// height: 100vh;
-	// max-height: em(1080);
 	position: relative;
-	// height: em(1080);
 	height: 1080px;
 	max-height: 100vh;
-	// overflow-x: hidden;
-	// overflow-y: visible;
 	display: grid;
-	grid-template-columns: auto 360px;
+	grid-template-columns: auto em(360);
 	grid-template-rows: auto 1fr auto;
 	&.homepage-body {
 		grid-template-columns: 100%;
@@ -60,10 +53,10 @@ body {
 }
 .container {
 	width: 100%; //REQ!
-	max-width: $container-width+px; //REQ!
+	max-width: em(1380);//$container-width+px; //REQ!
 	min-width: calc($page-min-width - (100vw - 100%)); //REQ!
 	// margin: 0 auto; //REQ!
-	padding-left: 3.68%;//68px;
+	padding-left: 3.68vw;//68px;
 	// padding: 0 67px 0 15px;
 	@media (max-width: $mobile+px) {
 		padding: 0 30px;
@@ -83,7 +76,7 @@ body {
 // @import "modules/input_range_colored";
 // @import "modules/input_range_double";
 // @import "modules/loadscreen";
-// @import "modules/modal";
+@import "modules/modal";
 // @import "modules/pagination";
 // @import "modules/popup";
 // @import "modules/select";
@@ -108,6 +101,7 @@ body {
 	// 	.page-about & {margin-top: 10px;}
 	// }
 	&__container {
+		padding-right: 10px;
 		height: 100%;
 		display: flex;
 		flex-direction: column;
@@ -182,15 +176,16 @@ body {
 		}
 	}
 	&__categories {
-		margin-top: em(90);
+		// margin-top: em(90);
+		margin-top: 1vh;
 	}
 	&__features {
 		flex: 0 1 auto;
-		.page-home & {
+		// .page-home & {
 			margin-top: em(20);//40px;
 			// margin-bottom: 7.685vh;//20px;
 			// расчет от 1080
-		}
+		// }
 		@media (max-width: $mobile+px) {
 			display: none;
 		}
@@ -303,22 +298,23 @@ body {
 	// background-color: #ddd;
 	&__container {}
 	&__items {
-		margin-top: 80px;
+		margin-top: 7.4vh;//em(80);
 		width: 100%;
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
-		grid-gap: 30px;
+		grid-auto-rows: em(90);
+		grid-gap: em(30);
 		justify-content: center;
 		align-items: center;
 	}
 	&__item, &__item:visited {
-		height: 90px;
-		padding: 0 10px;
+		height: 100%;//em(90);
+		padding: 0 em(10);
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		font-weight: 700;
-		font-size: 22px;
+		font-size: em(22);
 		letter-spacing: 0.03em;
 		text-align: center;
 		color: $color02;

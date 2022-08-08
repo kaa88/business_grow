@@ -8,7 +8,7 @@
 	left: 0; //REQ!
 	z-index: 49; //REQ!
 	width: 100%; //REQ!
-	max-width: 1370px;
+	max-width: em(1302);
 	padding: 3.7vh 0 2vh 0;
 	// font-size: 0;
 	display: flex;
@@ -178,6 +178,9 @@
 			position: absolute;
 			right: 0;
 			top: calc(100% + em(15));
+			&:not(.homepage-body &) {
+				display: none;
+			}
 		}
 	}
 	&--bottom {

@@ -556,8 +556,120 @@ footer.init()
 //////////////////////////////////////////////////
 
 // Modal window //
-// @ @include('front/modal.js')
-// modal.init()
+/* 
+	Set transition timeout in CSS only.
+	
+	Init params {obj}: 
+	- elem - element name (default = 'modal'),
+	- linkName - modal link name (default = 'modal-link')
+	- on: {'modal-window': {open, close}} - event function(event, content, timeout){}
+
+	On-func example:
+	modal.init({
+		on: {
+			'modal-contact': {
+				close: function(event, content, timeout) {setTimeout(() => {formToEmail.clean(document.querySelector('.question-form'))}, 700)}
+			},
+			'modal-imgpreview': {
+				open: function(event, content, timeout) {
+					let source = event.currentTarget.children[event.currentTarget.children.length-1];
+					let img = document.querySelector('#modal-imgpreview img');
+					img.src = source.getAttribute('src').replace('.','-preview.');
+					if (source.srcset) img.srcset = source.srcset.replace('@2x.','-preview@2x.');
+					else img.srcset = '';
+				},
+				close: function(event, content) {
+					let img = document.querySelector('#modal-imgpreview img');
+					setTimeout(() => {
+						img.src = img.srcset = '';
+					}, modal.timeout)
+				},
+			},
+			'modal-video': {
+				open: function(event, content, timeout) {setTimeout(() => {videoPlayer.play(content)}, timeout)},
+				close: function(event, content, timeout) {videoPlayer.pause(content)}
+			}
+		}
+	})
+*/
+const modal = {
+	refs: {
+		translock: transitionLock,
+		scrlock: scrollLock,
+		header: header.menu.menuElem
+	},
+	init: function(params = {}){
+		this.elemName = params.elem || 'modal';
+		this.elem = document.querySelector('.' + this.elemName);
+		if (!this.elem) return;
+		this.timeout = parseFloat(getComputedStyle(document.body).getPropertyValue('--timer-modal'))*1000 || 0;
+		this.windows = this.elem.querySelectorAll('.' + this.elemName + '__window');
+		this.links = document.querySelectorAll(params.linkName ? '.' + params.linkName : '.modal-link');
+		for (let i = 0; i < this.links.length; i++) {
+			this.links[i].addEventListener('click', this.open.bind(this));
+		}
+		this.elem.addEventListener('click', function(e) {
+			if (!e.target.closest('.' + this.elemName + '__wrapper')) this.closeAll();
+		}.bind(this));
+		let closeButtons = this.elem.querySelectorAll('.' + this.elemName + '__close-button');
+		for (let i = 0; i < closeButtons.length; i++) {
+			closeButtons[i].addEventListener('click', this.closeThis.bind(this));
+		}
+		this.on = params.on || {};
+	},
+	open: function(e){
+		if (this.refs.translock.check(this.timeout)) return;
+		e.preventDefault();
+		let currentModal = this.elem.querySelector(e.currentTarget.getAttribute('href'));
+		currentModal.classList.add('_open');
+		if (this.on[currentModal.id] && this.on[currentModal.id].open)
+			this.on[currentModal.id].open(
+				e, 
+				currentModal.querySelector('.' + this.elemName + '__content > *:not(.' + this.elemName + '__close-button)'),
+				this.timeout
+			);
+		modal.check();
+	},
+	closeThis: function(e){
+		if (this.refs.translock.check(this.timeout)) return;
+		let currentModal = e.target.closest('.' + this.elemName + '__window');
+		currentModal.classList.remove('_open');
+		if (this.on[currentModal.id] && this.on[currentModal.id].close)
+			this.on[currentModal.id].close(
+				e, 
+				currentModal.querySelector('.' + this.elemName + '__content > *:not(.' + this.elemName + '__close-button)'),
+				this.timeout
+			);
+		modal.check();
+	},
+	closeAll: function(){
+		if (this.refs.translock.check(this.timeout)) return;
+		for (let i = 0; i < this.windows.length; i++) {
+			if (this.windows[i].classList.contains('_open')) {
+				this.windows[i].classList.remove('_open');
+				if (this.on[this.windows[i].id] && this.on[this.windows[i].id].close)
+					this.on[this.windows[i].id].close(0,0,this.timeout);
+			}
+		}
+		modal.check();
+	},
+	check: function(){
+		let openedWindows = 0;
+		for (let i = 0; i < this.windows.length; i++) {
+			if (this.windows[i].classList.contains('_open')) openedWindows++;
+		}
+		if (openedWindows) {
+			this.elem.classList.add('_visible');
+			this.refs.scrlock.lock();
+		}
+		else {
+			this.elem.classList.remove('_visible');
+			if (!this.refs.header.classList.contains('_active'))
+				this.refs.scrlock.unlock(this.timeout);
+		}
+	}
+}
+modal.init()
 
 //////////////////////////////////////////////////
 
@@ -571,12 +683,89 @@ footer.init()
 //////////////////////////////////////////////////
 
 // Select //
-// @ @include('front/select.js')
-// const form_select = new Select({
-// 	elem: 'form__select',
-// 	firstOptSelected: true,
-// 	onselect: (selection) => {console.log(selection)}
-// })
+/*	
+	Init params {obj}:
+	- elem - element name (default = 'select')
+	- firstOptSelected (default = false)
+	- onselect - f(selection)
+*/
+class Select {
+	constructor(params = {}) {
+		this.elemName = params.elem || 'select';
+		this.elem = document.querySelector('.' + this.elemName);
+		if (!this.elem) return;
+
+		this.header = this.elem.querySelector('.select__header');
+		this.headertext = this.elem.querySelector('.select__header-text');
+		this.list = this.elem.querySelector('.select__list-wrapper');
+		this.list.innerHTML = '';
+
+		this.basicSelect = this.elem.querySelectorAll('select option');
+
+		let newList = document.createElement('ul');
+		newList.classList.add('select__list');
+		this.list.appendChild(newList);
+		for (let i = 0; i < this.basicSelect.length; i++) {
+			if (this.basicSelect[i].hasAttribute('disabled')) continue;
+			let newLi = document.createElement('li');
+			newLi.classList.add('select__option');
+			newLi.innerHTML = this.basicSelect[i].innerHTML;
+			newList.appendChild(newLi);
+		}
+
+		this.options = this.elem.querySelectorAll('.select__option');
+		this.listMaxHeight = this.elem.querySelector('.select__list').offsetHeight;
+		let that = this;
+		for (let i = 0; i < this.options.length; i++) {
+			this.options[i].addEventListener('click', function() {
+				that.selectItem(event, that, i);
+			});
+		};
+		this.header.addEventListener('click', this.showList.bind(this));
+		window.addEventListener('click', this.hideList.bind(this), {capture: true});
+		this.isOpened = false;
+
+		if (params.firstOptSelected) {
+			this.headertext.innerHTML = this.options[0].innerHTML;
+			this.options[0].classList.add('_selected');
+			this.basicSelect[0].parentElement.removeChild(this.basicSelect[0]);
+		}
+		else {
+			this.headertext.innerHTML = this.basicSelect[0].innerHTML;
+		}
+		this.onselect = params.onselect || function(selection){};
+	}
+	hideList(e) {
+		if (!this.isOpened) return;
+		this.list.style.height = '';
+		this.elem.classList.remove('_active');
+		this.list.classList.remove('_active');
+		let that = this;
+		setTimeout(() => {that.isOpened = false}, 100);
+	}
+	showList(e) {
+		if (this.isOpened) return;
+		this.list.style.height = this.listMaxHeight + 'px';
+		this.elem.classList.add('_active');
+		this.list.classList.add('_active');
+		this.isOpened = true;
+	}
+	selectItem(e, that, i) {
+		for (let j = 0; j < e.target.parentElement.children.length; j++) {
+			e.target.parentElement.children[j].classList.remove('_selected');
+			that.basicSelect[j].removeAttribute('selected');
+		}
+		e.target.classList.add('_selected');
+		that.basicSelect[i+1].setAttribute('selected', 'true');
+		that.onselect(that.basicSelect[i+1].value);
+		that.headertext.innerHTML = e.target.innerHTML;
+	}
+}
+const select_consult_activity = new Select({
+	elem: 'form__select',
+	firstOptSelected: true,
+	// onselect: (selection) => {console.log(selection)}
+})
 
 //////////////////////////////////////////////////
 
@@ -671,12 +860,21 @@ footer.init()
 //////////////////////////////////////////////////
 
 // Swiper //
-const features_slider = new Swiper('.features-slider', {
+const slider_features = new Swiper('.features-slider', {
 	slidesPerView: 'auto',
 	slidesOffsetBefore: 30,
 	slidesOffsetAfter: 15,
 	spaceBetween: 10,
 	freeMode: true,
+	// breakpoints: {
+	// 	782: {}
+	// },
+})
+const slider_consult = new Swiper('.modal__consult-content', {
+	navigation: {
+		nextEl: '.modal__text-button-with-arrow',
+	},
+	spaceBetween: 30,
 	// breakpoints: {
 	// 	782: {}
 	// },
@@ -700,3 +898,5 @@ const features_slider = new Swiper('.features-slider', {
 // @ @include('back/json_load.js')
 
 //////////////////////////////////////////////////
+
+// Quiz

@@ -23,77 +23,51 @@ get_template_part('parts/header');
 
 
 <main class="main page-categories">
+	<div class="main__container container">
 
-
-	<section class="main__categories categories">
-		<div class="categories__container container">
-			<h2 class="g-h2">
-				Выберите категорию
-			</h2>
-			<div class="categories__items">
-				<a class="categories__item" href="#">
-					Производство
-				</a>
-				<a class="categories__item" href="#">
-					Товары
-				</a>
-				<a class="categories__item" href="#">
-					Оффлайн
-				</a>
-				<a class="categories__item" href="#">
-					Строительство и недвижимость
-				</a>
-				<a class="categories__item" href="#">
-					Онлайн и оффлайн образование
-				</a>
-				<a class="categories__item" href="#">
-					Услуги населению и бизнесу
-				</a>
-			</div>
-		</div>
-	</section>
-
-	<section class="main__features features">
-		<div class="features__container container">
-			<div class="features__items">
-				<div class="features__item">
-					<div class="features__item-img">
-						<img src="media/img/features-1.svg" alt="" loading="lazy">
-					</div>
-					<p class="features__item-text">
-						Выполнили более 300 проектов из более 60 сфер бизнеса за 10 лет работы
-					</p>
+		<section class="main__categories categories">
+			<!-- <div class="categories__container container"> -->
+				<h2 class="g-h2">
+					Выберите категорию
+				</h2>
+				<div class="categories__items">
+					<a class="categories__item" href="#">
+						Производство
+					</a>
+					<a class="categories__item" href="#">
+						Товары
+					</a>
+					<a class="categories__item" href="#">
+						Оффлайн
+					</a>
+					<a class="categories__item" href="#">
+						Строительство и недвижимость
+					</a>
+					<a class="categories__item" href="#">
+						Онлайн и оффлайн образование
+					</a>
+					<a class="categories__item" href="#">
+						Услуги населению и бизнесу
+					</a>
 				</div>
-				<div class="features__item">
-					<div class="features__item-img">
-						<img src="media/img/features-2.svg" alt="" loading="lazy">
-					</div>
-					<p class="features__item-text">
-						Делаем: сайты, трафик, автоворонки, а также продюсируем экспертов онлайн образования
-					</p>
-				</div>
-				<div class="features__item">
-					<div class="features__item-img">
-						<img src="media/img/features-3.svg" alt="" loading="lazy">
-					</div>
-					<p class="features__item-text">
-						Провели более 125 онлайн и офлайн мероприятий по маркетингу, своих и партнеров
-					</p>
-				</div>
-			</div>
-		</div>
-	</section>
+			<!-- </div> -->
+		</section>
 
+		<section class="main__features features">
+			@@include('parts/features.html')
+		</section>
+
+	</div>
 </main>
 
 
 <aside class="sidebar"></aside>
 
 
-<!-- <section class="modal"> -->
+<section class="modal">
 	<!-- <?php get_template_part('parts/modal-info'); ?> -->
 	<!-- @@include('parts/modal-info.html') -->
-<!-- </section> -->
+</section>
 
 
 @@include('parts/svg.html')

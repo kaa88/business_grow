@@ -67,8 +67,8 @@ footer.init()
 //////////////////////////////////////////////////
 
 // Modal window //
-// @ @include('front/modal.js')
-// modal.init()
+@@include('front/modal.js')
+modal.init()
 
 //////////////////////////////////////////////////
 
@@ -82,12 +82,12 @@ footer.init()
 //////////////////////////////////////////////////
 
 // Select //
-// @ @include('front/select.js')
-// const form_select = new Select({
-// 	elem: 'form__select',
-// 	firstOptSelected: true,
-// 	onselect: (selection) => {console.log(selection)}
-// })
+@@include('front/select.js')
+const select_consult_activity = new Select({
+	elem: 'form__select',
+	firstOptSelected: true,
+	// onselect: (selection) => {console.log(selection)}
+})
 
 //////////////////////////////////////////////////
 
@@ -182,12 +182,21 @@ footer.init()
 //////////////////////////////////////////////////
 
 // Swiper //
-const features_slider = new Swiper('.features-slider', {
+const slider_features = new Swiper('.features-slider', {
 	slidesPerView: 'auto',
 	slidesOffsetBefore: 30,
 	slidesOffsetAfter: 15,
 	spaceBetween: 10,
 	freeMode: true,
+	// breakpoints: {
+	// 	782: {}
+	// },
+})
+const slider_consult = new Swiper('.modal__consult-content', {
+	navigation: {
+		nextEl: '.modal__text-button-with-arrow',
+	},
+	spaceBetween: 30,
 	// breakpoints: {
 	// 	782: {}
 	// },
@@ -211,3 +220,5 @@ const features_slider = new Swiper('.features-slider', {
 // @ @include('back/json_load.js')
 
 //////////////////////////////////////////////////
+
+// Quiz

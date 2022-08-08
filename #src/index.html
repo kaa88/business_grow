@@ -26,7 +26,7 @@ get_template_part('parts/header');
 	<div class="main__container container">
 
 		<div class="main__mobile-background mobile-background scroll-lock-item-m">
-			<img src="media/img/main.png" alt="" loading="lazy">
+			<img src="media/img/main.png" srcset="media/img/main.png 2x" alt="" loading="lazy">
 		</div>
 
 		<h1 class="main__homepage-title">
@@ -38,7 +38,7 @@ get_template_part('parts/header');
 		<p class="main__homepage-title-description">
 			Lorem ipsum dolor sit amet consectetur adipisicing elit iusto consequatur cumque inventore.
 		</p>
-		<a class="main__text-button-with-arrow text-button-with-arrow" href="#">
+		<a class="main__text-button-with-arrow text-button-with-arrow modal-link" href="#modal-consult">
 			<span class="text-button-with-arrow__text"><span>получить бесплатную консультацию</span></span>
 			<span class="text-button-with-arrow__arrow">
 				<i class="icon-arrow"></i>
@@ -97,38 +97,10 @@ get_template_part('parts/header');
 			</div>
 		</div>
 	
-
-		<a class="main__rounded-button rounded-button mobile-only" href="#">получить консультацию</a>
+		<a class="main__rounded-button rounded-button mobile-only modal-link" href="#modal-consult">получить консультацию</a>
 
 		<section class="main__features features">
-			<!-- <div class="features__container container"> -->
-				<div class="features__items">
-					<div class="features__item">
-						<div class="features__item-img">
-							<img src="media/img/features-1.svg" alt="" loading="lazy">
-						</div>
-						<p class="features__item-text">
-							Выполнили более 300 проектов из более 60 сфер бизнеса за 10 лет работы
-						</p>
-					</div>
-					<div class="features__item">
-						<div class="features__item-img">
-							<img src="media/img/features-2.svg" alt="" loading="lazy">
-						</div>
-						<p class="features__item-text">
-							Делаем: сайты, трафик, автоворонки, а также продюсируем экспертов онлайн образования
-						</p>
-					</div>
-					<div class="features__item">
-						<div class="features__item-img">
-							<img src="media/img/features-3.svg" alt="" loading="lazy">
-						</div>
-						<p class="features__item-text">
-							Провели более 125 онлайн и офлайн мероприятий по маркетингу, своих и партнеров
-						</p>
-					</div>
-				</div>
-			<!-- </div> -->
+			@@include('parts/features.html')
 		</section>
 
 	</div>
@@ -145,17 +117,15 @@ get_template_part('parts/header');
 	</div>
 </div>
 
-<!-- <aside class="sidebar"></aside> -->
-
-
-<!-- <section class="modal"> -->
+<section class="modal">
 	<!-- <?php get_template_part('parts/modal-info'); ?> -->
-	<!-- @@include('parts/modal-info.html') -->
-<!-- </section> -->
+	@@include('parts/modal-consult.html')
+</section>
 
-<!-- @@include('parts/#component-tests.html') -->
 @@include('parts/svg.html')
 
+
+<!-- @@include('parts/#ct.html') -->
 <!-- <div class="template-test-block scroll-lock-item-p"><div class="container">@@include('#templates.html')</div></div> -->
 
 
