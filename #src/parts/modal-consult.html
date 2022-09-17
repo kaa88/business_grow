@@ -11,42 +11,69 @@
 				<div class="modal__progressbar-inner"></div>
 			</div>
 
-			<div class="modal__consult-content swiper">
-				<div class="swiper-wrapper">
+			<form class="modal__consult-form consult-form" name="consult-form" action="#">
 
-					<div class="swiper-slide">
-						<div class="modal__interaction">
-							<p class="modal__text">
-								В какой сфере бизнеса вы работаете или собираетесь работать?
-							</p>
-							<!-- select -->
-							<p class="modal__text">
-								Введите ссылку на ваш сайт/аккаунт в соц.сетях, или просто пропустите этот шаг
-							</p>
-							<!-- input -->
-						</div>
-						<div class="modal__info">
-							info
-						</div>
-					</div>
-					<div class="swiper-slide">
-						<div class="modal__interaction">
-							<p class="modal__text">
-								В какой сфере бизнеса вы работаете или собираетесь работать?
-							</p>
-							<!-- select -->
-							<p class="modal__text">
-								Введите ссылку на ваш сайт/аккаунт в соц.сетях, или просто пропустите этот шаг
-							</p>
-							<!-- input -->
-						</div>
-						<div class="modal__info">
-							info
-						</div>
-					</div>
+				<div class="consult-form__slider swiper">
+					<div class="consult-form__wrapper swiper-wrapper">
 
+						<div class="consult-form__slide swiper-slide">
+							<div class="consult-form__main">
+
+								<div class="modal-textbox">
+									<p class="modal-text">
+										В какой сфере бизнеса вы работаете или собираетесь работать?
+									</p>
+								</div>
+
+								<div class="consult-form__select select">
+									<div class="select__header">
+										<span class="select__header-text"></span>
+										<span class="select__header-icon"><i class="icon-arrow2"></i></span>
+									</div>
+									<div class="select__list-wrapper"><!-- script-fill --></div>
+									<select name="select">
+										<option value="none" selected disabled>Select...</option>
+										<option value="opt 1">Розничная торговля</option>
+										<option value="opt 2">Транспорт</option>
+										<option value="opt 3">Туризм</option>
+									</select>
+								</div>
+
+								<div class="modal-textbox">
+									<p class="modal-text">
+										Введите ссылку на ваш сайт/аккаунт в соц.сетях, или просто пропустите этот шаг
+									</p>
+								</div>
+
+								<input class="consult-form__input" type="text" placeholder="ссылка на сайт или аккаунт в соц.сетях">
+
+							</div>
+
+							<div class="consult-form__aside">
+								<div class="consult-form__aside-info-list aside-info-list">
+
+									<div class="aside-info-list__item">
+										<div class="aside-info-list__item-icon"><i class="icon-cross2"></i></div>
+										<p class="aside-info-list__item-text">
+											Мы реализовали более 300 проектов по увеличению прибыли предприятий из более 60 сфер бизнеса.
+										</p>
+									</div>
+
+									<div class="aside-info-list__item">
+										<div class="aside-info-list__item-icon"><i class="icon-cross2"></i></div>
+										<p class="aside-info-list__item-text">
+											Информация о вашем бизнесе позволит нам сформулировать консультацию более продуктивно.
+										</p>
+									</div>
+
+								</div>
+
+							</div>
+						</div>
+
+					</div>
 				</div>
-			</div>
+			</form>
 			
 			<a class="modal__text-button-with-arrow text-button-with-arrow" href="#">
 				<span class="text-button-with-arrow__text"><span>едем дальше</span></span>

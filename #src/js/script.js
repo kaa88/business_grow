@@ -84,7 +84,7 @@ modal.init()
 // Select //
 @@include('front/select.js')
 const select_consult_activity = new Select({
-	elem: 'form__select',
+	elem: 'consult-form__select',
 	firstOptSelected: true,
 	// onselect: (selection) => {console.log(selection)}
 })
