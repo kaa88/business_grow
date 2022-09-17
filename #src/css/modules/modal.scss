@@ -43,8 +43,8 @@
 		width: em(1500);
 		// max-width: 500px;
 		height: em(825);
-		max-height: 96%;
-		padding: em(40) em(100) em(60) em(60);
+		max-height: 98%;
+		padding: em(40) em(100) em(58) em(60);
 		background-color: #fff;
 		border-radius: em(30);
 		// #modal-imgpreview & { // example for different windows
@@ -60,24 +60,29 @@
 		// }
 	}
 	&__content {
+		display: flex;
+		flex-direction: column;
+		// justify-content: space-between;
 		width: 100%;
-		padding: 0;
+		padding: 0 em(20) 0 0;
 		overflow-y: auto;
 		overflow-x: hidden;
 		scrollbar-width: thin;
-		scrollbar-color: $color08 transparent;
+		scrollbar-color: $color07 transparent;
 		&::-webkit-scrollbar {
 			width: em(5);
 		}
 		&::-webkit-scrollbar-track {
 			background: transparent;
-			border-radius: 5px;
+			// border-radius: 5px;
 		}
 		&::-webkit-scrollbar-thumb {
-			background: $color08;
-			border-radius: 5px;
+			background: $color07;
+			// border-radius: 5px;
 		}
-		padding-right: em(20);
+		& > * {
+			flex: 0 0 auto;
+		}
 	}
 	&__close-button {
 		position: absolute;
@@ -117,7 +122,7 @@
 		}
 	}
 	&__progressbar {
-		margin: em(40) auto 0;
+		margin: em(40) auto em(35);
 		width: em(1000);
 		height: em(20);
 		background: linear-gradient(90deg, #E2E7EC 0%, rgba(226, 231, 236, 0.3) 100%);
@@ -133,8 +138,19 @@
 	}
 	&__consult-form {
 	}
-	&__text-button-with-arrow {
-		margin: 0 auto;
+	&__bottom {
+		flex-grow: 1;
+		margin-top: em(40);
+		margin-bottom: 2px;
+		padding-left: em(10);
+		display: flex;
+		justify-content: center;
+		align-items: flex-end;
+	}
+	.text-button-with-arrow {
+		&__text {
+			width: em(319);
+		}
 	}
 }
 
@@ -143,7 +159,7 @@
 	// background-color: yellow;
 	&__slider {
 		height: 100%;
-		margin-top: em(35);
+		// margin-top: em(35);
 		// background-color: orange;
 	}
 	&__wrapper {
@@ -155,6 +171,7 @@
 		justify-content: space-between;
 	}
 	&__main {
+		padding-left: 5px;
 	}
 	&__select {
 		margin-top: em(14);
@@ -177,7 +194,7 @@
 	}
 	&__aside {
 		align-self: flex-end;
-		max-width: em(520);
+		max-width: em(540);
 		border-style: solid;
 		border-left-width: 1px;
 		border-image-source: repeating-linear-gradient(to bottom, $color01 0, $color01 2px, transparent 2px, transparent 4px);
@@ -190,7 +207,7 @@
 
 .aside-info-list {
 	padding-top: em(25);
-	padding-left: em(77);
+	padding-left: em(97);
 	&__item {
 		position: relative;
 		&:not(:last-child) {

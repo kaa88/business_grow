@@ -4,7 +4,6 @@ New site template v3.02
 
 ### TO DO:
 - модал
-- нижнюю кнопку центрировать через флекс?
 
 
 ### Template changes:

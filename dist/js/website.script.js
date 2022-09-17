@@ -870,15 +870,36 @@ const slider_features = new Swiper('.features-slider', {
 	// 	782: {}
 	// },
 })
-const slider_consult = new Swiper('.modal__consult-content', {
-	navigation: {
-		nextEl: '.modal__text-button-with-arrow',
-	},
+const slider_consult = new Swiper('.consult-form__slider', {
+	// navigation: {
+	// 	nextEl: '.modal__text-button-with-arrow',
+	// },
 	spaceBetween: 30,
+	allowTouchMove: false
 	// breakpoints: {
 	// 	782: {}
 	// },
 })
+let swiperSlideButtons = document.querySelectorAll('.swiper-slide-button');
+for (let i = 0; i < swiperSlideButtons.length; i++) {
+	swiperSlideButtons[i].addEventListener('click', function(e) {
+		e.preventDefault();
+		slider_consult.slideNext();
+		if (modalProgressBar.i < modalProgressBar.total) modalProgressBar.i++;
+		modalProgressBar.expand();
+	})
+}
+
+// Quiz
+let modalProgressBar = {
+	elem: document.querySelector('.modal__progressbar-inner'),
+	total: document.querySelector('.consult-form__slider .swiper-wrapper').children.length,
+	i: 1,
+	expand: function() {
+		this.elem.style.width = this.i / this.total * 100 + '%';
+	}
+}
+modalProgressBar.expand();
 
 //////////////////////////////////////////////////
 
@@ -898,5 +919,3 @@ const slider_consult = new Swiper('.modal__consult-content', {
 // @ @include('back/json_load.js')
 
 //////////////////////////////////////////////////
-
-// Quiz

@@ -8,7 +8,7 @@
 	transition: all $timer-select;
 	select {display: none;}
 	&._active {
-		filter: drop-shadow(0 em(2) em(2) #333);
+		filter: drop-shadow(0 em(3) em(2) #333);
 	}
 	&__header {
 		height: 100%;
