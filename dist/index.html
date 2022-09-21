@@ -386,10 +386,31 @@ get_template_part('parts/header');
 			<div class="modal__content">
 				<div class="modal__close-button"><i class="icon-cross"></i></div>
 
-				<p class="modal__title">
-					Чтобы наша консультация была для вас более предметной и точной, пожалуйста ответьте всего на 3 вопроса
-				</p>
-
+				<div class="modal__title-slider swiper">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<p class="modal__title">
+								Чтобы наша консультация была для вас более предметной и точной, пожалуйста ответьте всего на 3 вопроса
+							</p>
+						</div>
+						<div class="swiper-slide">
+							<p class="modal__title">
+								Отлично, 2 шага до консультации, go-go-go! В решении какой задачи, мы можем вам помочь?
+							</p>
+						</div>
+						<div class="swiper-slide">
+							<p class="modal__title">
+								Остался последний вопрос! Сколько сейчас в цифрах, ежемесячный оборот вашего бизнеса?
+							</p>
+						</div>
+						<div class="swiper-slide">
+							<p class="modal__title modal__title--bold">
+								БЛАГОДАРИМ ЗА ВАШЕ ВРЕМЯ!
+							</p>
+						</div>
+					</div>
+				</div>
+		
 				<div class="modal__progressbar">
 					<div class="modal__progressbar-inner"></div>
 				</div>
@@ -397,9 +418,9 @@ get_template_part('parts/header');
 				<form class="modal__consult-form consult-form" name="consult-form" action="#">
 
 					<div class="consult-form__slider swiper">
-						<div class="consult-form__wrapper swiper-wrapper">
+						<div class="swiper-wrapper">
 
-							<div class="consult-form__slide swiper-slide">
+							<div class="swiper-slide">
 								<div class="consult-form__main">
 
 									<div class="modal-textbox">
@@ -433,7 +454,7 @@ get_template_part('parts/header');
 								</div>
 
 								<div class="consult-form__aside">
-									<div class="consult-form__aside-info-list aside-info-list">
+									<div class="consult-form__aside-info-list aside-info-list aside-info-list--small">
 
 										<div class="aside-info-list__item">
 											<div class="aside-info-list__item-icon"><i class="icon-cross2"></i></div>
@@ -452,39 +473,60 @@ get_template_part('parts/header');
 									</div>
 
 								</div>
+
+
+
+								<div class="consult-form__bottom">
+									<div class="slider-back-button" style="font-size: 30px;">BACK</div> <!-- // -->
+									<a class="text-button-with-arrow swiper-slide-button" href="#">
+										<span class="text-button-with-arrow__text"><span>едем дальше</span></span>
+										<span class="text-button-with-arrow__arrow">
+											<i class="icon-arrow"></i>
+										</span>
+									</a>
+								</div>
+
+
+
 							</div>
 
-							<div class="consult-form__slide swiper-slide">
+							<div class="swiper-slide">
 								<div class="consult-form__main">
 
 									<div class="modal-textbox">
 										<p class="modal-text">
-											В какой сфере бизнеса вы работаете или собираетесь работать?
+											Можете выбрать несколько вариантов ответа:
 										</p>
 									</div>
 
-									<div class="consult-form__select select">
-										<div class="select__header">
-											<span class="select__header-text"></span>
-											<span class="select__header-icon"><i class="icon-arrow2"></i></span>
-										</div>
-										<div class="select__list-wrapper"><!-- script-fill --></div>
-										<select name="select">
-											<option value="none" selected disabled>Select...</option>
-											<option value="opt 1">Розничная торговля</option>
-											<option value="opt 2">Транспорт</option>
-											<option value="opt 3">Туризм</option>
-										</select>
+									<div class="consult-form__radio radio">
+										<input type="radio" id="radio-consult-goal-1" name="radio-consult-goal" value="option 1" checked>
+										<label for="radio-consult-goal-1">
+											<span class="label-box"></span>
+											<span class="label-text">Увеличить количество клиентов</span>
+										</label>
+										<input type="radio" id="radio-consult-goal-2" name="radio-consult-goal" value="option 2">
+										<label for="radio-consult-goal-2">
+											<span class="label-box"></span>
+											<span class="label-text">Повысить прибыль, средний чек</span>
+										</label>
+										<input type="radio" id="radio-consult-goal-3" name="radio-consult-goal" value="option 3">
+										<label for="radio-consult-goal-3">
+											<span class="label-box"></span>
+											<span class="label-text">Создать образ компании в веб пространстве</span>
+										</label>
+										<input type="radio" id="radio-consult-goal-4" name="radio-consult-goal" value="option 4">
+										<label for="radio-consult-goal-4">
+											<span class="label-box"></span>
+											<span class="label-text">Решить конкретную задачу</span>
+										</label>
+										<input type="radio" id="radio-consult-goal-5" name="radio-consult-goal" value="option 5">
+										<label for="radio-consult-goal-5">
+											<span class="label-box"></span>
+											<span class="label-text">Расскажу на консультации</span>
+										</label>
 									</div>
-
-									<div class="modal-textbox">
-										<p class="modal-text">
-											Введите ссылку на ваш сайт/аккаунт в соц.сетях, или просто пропустите этот шаг
-										</p>
-									</div>
-
-									<input class="consult-form__input" type="text" placeholder="ссылка на сайт или аккаунт в соц.сетях">
-
+								
 								</div>
 
 								<div class="consult-form__aside">
@@ -493,96 +535,172 @@ get_template_part('parts/header');
 										<div class="aside-info-list__item">
 											<div class="aside-info-list__item-icon"><i class="icon-cross2"></i></div>
 											<p class="aside-info-list__item-text">
-												Мы реализовали более 300 проектов по увеличению прибыли предприятий из более 60 сфер бизнеса.
+												От задачи зависит набор инструментов, которые мы предлложим для ее решения.
 											</p>
 										</div>
 
 										<div class="aside-info-list__item">
 											<div class="aside-info-list__item-icon"><i class="icon-cross2"></i></div>
 											<p class="aside-info-list__item-text">
-												Информация о вашем бизнесе позволит нам сформулировать консультацию более продуктивно.
+												Каждый бизнес индивидуален, поэтому у нас никогда не было и не будет стандартного коммерческого предложения.
+											</p>
+										</div>
+
+										<div class="aside-info-list__item">
+											<div class="aside-info-list__item-icon"><i class="icon-cross2"></i></div>
+											<p class="aside-info-list__item-text">
+												К каждому конкретному случаю, мы подходим индивидуально, так как не всем помогут одни и те же решения.
 											</p>
 										</div>
 
 									</div>
 
 								</div>
+
+
+								<div class="consult-form__bottom">
+									<div class="slider-back-button" style="font-size: 30px;">BACK</div> <!-- // -->
+									<a class="text-button-with-arrow swiper-slide-button" href="#">
+										<span class="text-button-with-arrow__text"><span>к последнему вопросу</span></span>
+										<span class="text-button-with-arrow__arrow">
+											<i class="icon-arrow"></i>
+										</span>
+									</a>
+								</div>
+
+
+
 							</div>
 
-							<div class="consult-form__slide swiper-slide">
+							<div class="swiper-slide">
 								<div class="consult-form__main">
 
-									<div class="modal-textbox">
-										<p class="modal-text">
-											В какой сфере бизнеса вы работаете или собираетесь работать?
-										</p>
+									<div class="consult-form__radio radio">
+										<input type="radio" id="radio-consult-turnover-1" name="radio-consult-turnover" value="option 1" checked>
+										<label for="radio-consult-turnover-1">
+											<span class="label-box"></span>
+											<span class="label-text">0 — 300 000 ₽</span>
+										</label>
+										<input type="radio" id="radio-consult-turnover-2" name="radio-consult-turnover" value="option 2">
+										<label for="radio-consult-turnover-2">
+											<span class="label-box"></span>
+											<span class="label-text">300 000 — 1 000 000 ₽</span>
+										</label>
+										<input type="radio" id="radio-consult-turnover-3" name="radio-consult-turnover" value="option 3">
+										<label for="radio-consult-turnover-3">
+											<span class="label-box"></span>
+											<span class="label-text">1 000 000 — 10 000 000 ₽</span>
+										</label>
+										<input type="radio" id="radio-consult-turnover-4" name="radio-consult-turnover" value="option 4">
+										<label for="radio-consult-turnover-4">
+											<span class="label-box"></span>
+											<span class="label-text">10 000 000 — 100 000 000 ₽</span>
+										</label>
+										<input type="radio" id="radio-consult-turnover-5" name="radio-consult-turnover" value="option 5">
+										<label for="radio-consult-turnover-5">
+											<span class="label-box"></span>
+											<span class="label-text">Только запускаю новый бизнес</span>
+										</label>
 									</div>
-
-									<div class="consult-form__select select">
-										<div class="select__header">
-											<span class="select__header-text"></span>
-											<span class="select__header-icon"><i class="icon-arrow2"></i></span>
-										</div>
-										<div class="select__list-wrapper"><!-- script-fill --></div>
-										<select name="select">
-											<option value="none" selected disabled>Select...</option>
-											<option value="opt 1">Розничная торговля</option>
-											<option value="opt 2">Транспорт</option>
-											<option value="opt 3">Туризм</option>
-										</select>
-									</div>
-
-									<div class="modal-textbox">
-										<p class="modal-text">
-											Введите ссылку на ваш сайт/аккаунт в соц.сетях, или просто пропустите этот шаг
-										</p>
-									</div>
-
-									<input class="consult-form__input" type="text" placeholder="ссылка на сайт или аккаунт в соц.сетях">
 
 								</div>
 
 								<div class="consult-form__aside">
-									<div class="consult-form__aside-info-list aside-info-list">
+									<div class="consult-form__aside-info-list aside-info-list aside-info-list--small">
 
 										<div class="aside-info-list__item">
 											<div class="aside-info-list__item-icon"><i class="icon-cross2"></i></div>
 											<p class="aside-info-list__item-text">
-												Мы реализовали более 300 проектов по увеличению прибыли предприятий из более 60 сфер бизнеса.
-											</p>
-										</div>
-
-										<div class="aside-info-list__item">
-											<div class="aside-info-list__item-icon"><i class="icon-cross2"></i></div>
-											<p class="aside-info-list__item-text">
-												Информация о вашем бизнесе позволит нам сформулировать консультацию более продуктивно.
+												От оборота вашего бизнеса зависит многое: стратегия, инструменты и даже, выделенная конкретно под ваш случай, проектная команда.
 											</p>
 										</div>
 
 									</div>
 
 								</div>
+
+
+								<div class="consult-form__bottom">
+									<div class="slider-back-button" style="font-size: 30px;">BACK</div> <!-- // -->
+									<a class="text-button-with-arrow swiper-slide-button" href="#">
+										<span class="text-button-with-arrow__text"><span>ГОТОВО</span></span>
+										<span class="text-button-with-arrow__arrow">
+											<i class="icon-arrow"></i>
+										</span>
+									</a>
+								</div>
+				
+
+
 							</div>
 
+							<div class="swiper-slide">
+								<div class="consult-form__main">
+
+									<div class="consult-form__radio radio">
+										<input type="radio" id="radio-consult-turnover-1" name="radio-consult-turnover" value="option 1" checked>
+										<label for="radio-consult-turnover-1">
+											<span class="label-box"></span>
+											<span class="label-text">0 — 300 000 ₽</span>
+										</label>
+										<input type="radio" id="radio-consult-turnover-2" name="radio-consult-turnover" value="option 2">
+										<label for="radio-consult-turnover-2">
+											<span class="label-box"></span>
+											<span class="label-text">300 000 — 1 000 000 ₽</span>
+										</label>
+										<input type="radio" id="radio-consult-turnover-3" name="radio-consult-turnover" value="option 3">
+										<label for="radio-consult-turnover-3">
+											<span class="label-box"></span>
+											<span class="label-text">1 000 000 — 10 000 000 ₽</span>
+										</label>
+										<input type="radio" id="radio-consult-turnover-4" name="radio-consult-turnover" value="option 4">
+										<label for="radio-consult-turnover-4">
+											<span class="label-box"></span>
+											<span class="label-text">10 000 000 — 100 000 000 ₽</span>
+										</label>
+										<input type="radio" id="radio-consult-turnover-5" name="radio-consult-turnover" value="option 5">
+										<label for="radio-consult-turnover-5">
+											<span class="label-box"></span>
+											<span class="label-text">Только запускаю новый бизнес</span>
+										</label>
+									</div>
+
+								</div>
+
+								<div class="consult-form__aside">
+									<div class="consult-form__aside-info-list aside-info-list aside-info-list--small">
+
+										<div class="aside-info-list__item">
+											<div class="aside-info-list__item-icon"><i class="icon-cross2"></i></div>
+											<p class="aside-info-list__item-text">
+												От оборота вашего бизнеса зависит многое: стратегия, инструменты и даже, выделенная конкретно под ваш случай, проектная команда.
+											</p>
+										</div>
+
+									</div>
+
+								</div>
 
 
+								<div class="consult-form__bottom">
+									<div class="slider-back-button" style="font-size: 30px;">BACK</div> <!-- // -->
+									<a class="text-button-with-arrow swiper-slide-button" href="#">
+										<span class="text-button-with-arrow__text"><span>ГОТОВО</span></span>
+										<span class="text-button-with-arrow__arrow">
+											<i class="icon-arrow"></i>
+										</span>
+									</a>
+								</div>
+				
 
 
-
+							</div>
 
 
 						</div>
 					</div>
 				</form>
 			
-				<div class="modal__bottom">
-					<a class="modal__text-button-with-arrow text-button-with-arrow swiper-slide-button" href="#">
-						<span class="text-button-with-arrow__text"><span>едем дальше</span></span>
-						<span class="text-button-with-arrow__arrow">
-							<i class="icon-arrow"></i>
-						</span>
-					</a>
-				</div>
 				
 			</div>
 		</div>

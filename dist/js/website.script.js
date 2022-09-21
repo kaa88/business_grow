@@ -870,10 +870,22 @@ const slider_features = new Swiper('.features-slider', {
 	// 	782: {}
 	// },
 })
-const slider_consult = new Swiper('.consult-form__slider', {
-	// navigation: {
-	// 	nextEl: '.modal__text-button-with-arrow',
+const slider_consult_top = new Swiper('.modal__title-slider', {
+	navigation: {
+		prevEl: '.slider-back-button',
+	},
+	speed: 500,
+	spaceBetween: 30,
+	allowTouchMove: false
+	// breakpoints: {
+	// 	782: {}
 	// },
+})
+const slider_consult_bot = new Swiper('.consult-form__slider', {
+	navigation: {
+		prevEl: '.slider-back-button',
+	},
+	speed: 500,
 	spaceBetween: 30,
 	allowTouchMove: false
 	// breakpoints: {
@@ -884,7 +896,9 @@ let swiperSlideButtons = document.querySelectorAll('.swiper-slide-button');
 for (let i = 0; i < swiperSlideButtons.length; i++) {
 	swiperSlideButtons[i].addEventListener('click', function(e) {
 		e.preventDefault();
-		slider_consult.slideNext();
+		if (transitionLock.check( 500 )) return;
+		slider_consult_top.slideNext();
+		slider_consult_bot.slideNext();
 		if (modalProgressBar.i < modalProgressBar.total) modalProgressBar.i++;
 		modalProgressBar.expand();
 	})

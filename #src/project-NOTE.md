@@ -4,6 +4,7 @@ New site template v3.02
 
 ### TO DO:
 - модал
+- для расчета прогрессбара добавить последним слайдам класс, который не будет учитываться скриптом
 
 
 ### Template changes:
@@ -28,3 +29,4 @@ New site template v3.02
 - svg-sprite переименовать в svg-templates
 - modal изменить строку <p class="test-article" style="font-size: 50px;"> и убрать стили из css (чтобы не забывать про него)
 - script.js имена переменных для объектов из конструктора (swiper, select...) именовать наоборот, как slider_имя
+- #templates fix in input-radio

@@ -7,37 +7,44 @@
 		display: none;
 		&:checked + label .label-box {
 			&:after {
-				width: 18px;
-				height: 18px;
+				opacity: 1;
 			}
 		}
 	}
 	label {
 		display: inline-flex;
 		align-items: center;
-		column-gap: 5px;
+		// column-gap: 5px;
+		&:not(:last-child) {
+			margin-bottom: em(15);
+		}
 	}
 	.label-text {
-		font-family: Arial;
-		font-size: 16px;
+		margin-left: em(30);
 		white-space: nowrap;
+		font-size: em(20);
+		line-height: 1;
+		letter-spacing: 0.05em;
+		color: $color10;
 	}
 	.label-box {
-		width: 24px;
-		height: 24px;
+		width: em(60);
+		height: em(60);
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		background-color: #fff;
-		border-radius: 20px;
+		// background-color: lime;
+		border-radius: 50%;
+		border: dashed 1px $color01;
 		cursor: pointer;
 		&:after {
 			content: "";
-			width: 0;
-			height: 0;
-			background-color: orange;
-			border-radius: 20px;
-			transition: all .3s;
+			width: em(30);
+			height: em(30);
+			background: $gradient-1;
+			border-radius: 50%;
+			transition: all $timer-hover;
+			opacity: 0;
 		}
 	}
 }

@@ -121,6 +121,9 @@
 			line-height: 1;
 		}
 	}
+	&__title-slider {
+		width: 100%;
+	}
 	&__progressbar {
 		margin: em(40) auto em(35);
 		width: em(1000);
@@ -138,47 +141,26 @@
 	}
 	&__consult-form {
 	}
-	&__bottom {
-		flex-grow: 1;
-		margin-top: em(40);
-		margin-bottom: 2px;
-		padding-left: em(10);
-		display: flex;
-		justify-content: center;
-		align-items: flex-end;
-	}
-	.text-button-with-arrow {
-		&__text {
-			width: em(319);
-		}
-	}
 }
 
 .consult-form {
-	// height: 100%;
-	// background-color: yellow;
 	&__slider {
 		height: 100%;
-		// margin-top: em(35);
-		// background-color: orange;
-	}
-	&__wrapper {
-		// background-color: lime;
-	}
-	&__slide {
-		// background-color: #ccc;
-		display: flex;
-		justify-content: space-between;
+		.swiper-slide {
+			display: grid;
+			grid-template-columns: 1fr em(540);
+			justify-content: space-between;
+		}
 	}
 	&__main {
 		padding-left: 5px;
 	}
 	&__select {
-		margin-top: em(14);
-		margin-bottom: em(24);
+		margin-top: em(23);
+		margin-bottom: em(40);
 	}
 	&__input {
-		margin-top: em(14);
+		margin-top: em(23);
 		font-size: 1em;
 		width: em(690);
 		height: em(90);
@@ -194,24 +176,50 @@
 	}
 	&__aside {
 		align-self: flex-end;
-		max-width: em(540);
+		// max-width: em(540);
 		border-style: solid;
 		border-left-width: 1px;
 		border-image-source: repeating-linear-gradient(to bottom, $color01 0, $color01 2px, transparent 2px, transparent 4px);
 		border-image-slice: 1;
-		border-image-repeat: repeat;
+		border-image-repeat: round;
 	}
 	&__aside-info-list {
+	}
+	&__bottom {
+		grid-column: span 2;
+		// flex-grow: 1;
+		margin-top: em(30);
+		margin-bottom: 2px;
+		padding-left: em(10);
+		display: flex;
+		justify-content: center;
+		align-items: flex-end;
+	}
+	.text-button-with-arrow {
+		&__text {
+			width: em(319);
+		}
+	}
+	&__radio {
+		margin-top: em(20);
 	}
 }
 
 .aside-info-list {
+	height: em(350);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 	padding-top: em(25);
 	padding-left: em(97);
+	&--small {
+		height: em(300);
+		justify-content: space-around;
+	}
 	&__item {
 		position: relative;
 		&:not(:last-child) {
-			margin-bottom: em(90);
+			margin-bottom: em(20);
 		}
 	}
 	&__item-icon {
@@ -234,13 +242,6 @@
 	}
 }
 
-.swiper {
-}
-.swiper-wrapper {
-}
-.swiper-slide {
-}
-
 .modal-textbox {
 	max-width: em(500);
 	margin-left: em(47);
@@ -249,5 +250,6 @@
 	font-size: em(20);
 	line-height: 1.5;
 	letter-spacing: 0.05em;
+	color: $color10;
 }
 
