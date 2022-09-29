@@ -230,21 +230,75 @@
 		}
 	}
 }
+
+i {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 .icon-vk {
-	margin-top: em(2);
-	font-size: em(8);
-}
-.icon-telegram {
-	margin: em(1) em(2) 0px 0px;
-	font-size: em(12);
-}
-.icon-zen {
-	margin-top: em(1.5);
-	font-size: em(14);
+	&:before {
+		margin-top: 5%;//em(2);
+		font-size: em(8);
+	}
 }
 .icon-vc {
-	margin-top: em(1);
-	font-size: em(11);
+	&:before {
+		margin-top: 1%;//em(1);
+		font-size: em(11);
+	}
+}
+.icon-telegram {
+	&:before {
+		// margin: em(1) em(2) 0 0;
+		margin-top: 10%;
+		// margin-left: 0;
+		font-size: em(12);
+	}
+	&.colored-icon {
+		background-color: #27A6E5;
+		&:before {
+			margin-top: 3%;
+			// margin-left: 0;
+			font-size: em(15);
+		}
+	}
+}
+.icon-zen {
+	&:before {
+		margin-top: 2%;//em(1.5);
+		font-size: em(14);
+	}
+}
+.icon-whatsapp {
+	&.colored-icon {
+		background-color: #48C95F;
+		&:before {
+			margin-top: 2%;
+		}
+	}
+}
+.icon-viber {
+	&.colored-icon {
+		background-color: #7C509A;
+		&:before {
+			margin-top: 10%;
+			// margin-top: em(3);
+		}
+	}
+}
+.icon-phone {
+	&.colored-icon {
+		background-color: $color03;
+		&:before {
+			margin-top: 3%;
+			margin-left: 3%;
+			font-size: em(18);
+		}
+	}
+}
+.colored-icon {
+	color: $color02;
 }
 
 .mobile-only {

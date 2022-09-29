@@ -6,6 +6,8 @@ New site template v3.02
 - модал
 - для расчета прогрессбара добавить последним слайдам класс, который не будет учитываться скриптом
 
+= упростить базовый шаблон, редкие вещи (типа animated burger) комментировать, все необходимые эл-ты раскрасить в разные цвета, добавить комментарии что и для чего нужно
+
 
 ### Template changes:
 - чтобы цветовые css переменные закрашивались, создал файл colors.scss... нужно его импортить в каждый модульный файл (@import "../colors";)
@@ -29,4 +31,6 @@ New site template v3.02
 - svg-sprite переименовать в svg-templates
 - modal изменить строку <p class="test-article" style="font-size: 50px;"> и убрать стили из css (чтобы не забывать про него)
 - script.js имена переменных для объектов из конструктора (swiper, select...) именовать наоборот, как slider_имя
-- #templates fix in input-radio
+- #templates fix in input-radio (и checkbox)... в css изменить flex gap на margin (для старых safari)
+- swiper модуль для верстки без интернета (swiper.js, script.js)
+- script.js - body em checker (???)

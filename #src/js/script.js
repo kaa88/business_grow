@@ -182,49 +182,43 @@ const select_consult_activity = new Select({
 //////////////////////////////////////////////////
 
 // Swiper //
-const slider_features = new Swiper('.features-slider', {
-	slidesPerView: 'auto',
-	slidesOffsetBefore: 30,
-	slidesOffsetAfter: 15,
-	spaceBetween: 10,
-	freeMode: true,
-	// breakpoints: {
-	// 	782: {}
-	// },
-})
-const slider_consult_top = new Swiper('.modal__title-slider', {
-	navigation: {
-		prevEl: '.slider-back-button',
-	},
-	speed: 500,
-	spaceBetween: 30,
-	allowTouchMove: false
-	// breakpoints: {
-	// 	782: {}
-	// },
-})
-const slider_consult_bot = new Swiper('.consult-form__slider', {
-	navigation: {
-		prevEl: '.slider-back-button',
-	},
-	speed: 500,
-	spaceBetween: 30,
-	allowTouchMove: false
-	// breakpoints: {
-	// 	782: {}
-	// },
-})
-let swiperSlideButtons = document.querySelectorAll('.swiper-slide-button');
-for (let i = 0; i < swiperSlideButtons.length; i++) {
-	swiperSlideButtons[i].addEventListener('click', function(e) {
-		e.preventDefault();
-		if (transitionLock.check( 500 )) return;
-		slider_consult_top.slideNext();
-		slider_consult_bot.slideNext();
-		if (modalProgressBar.i < modalProgressBar.total) modalProgressBar.i++;
-		modalProgressBar.expand();
+const swipers = {
+	features: '.features-slider',
+	consult_top: '.modal__title-slider',
+	consult_bot: '.consult-form__slider'
+};
+
+if (typeof Swiper !== 'undefined') {
+	swipers.new = swipers.features;
+	swipers.features = new Swiper(swipers.new, {
+		slidesPerView: 'auto',
+		slidesOffsetBefore: 30,
+		slidesOffsetAfter: 15,
+		spaceBetween: 10,
+		freeMode: true,
 	})
+	swipers.new = swipers.consult_top;
+	swipers.consult_top = new Swiper(swipers.new, {
+		speed: 500,
+		spaceBetween: 30,
+		allowTouchMove: false
+	})
+	swipers.new = swipers.consult_bot;
+	swipers.consult_bot = new Swiper(swipers.new, {
+		speed: 500,
+		spaceBetween: 30,
+		allowTouchMove: false
+	})
+
 }
+
+
+// Swiper no-internet version
+else {
+	let swipersSpaceBetween = 30;
+	@@include('front/swiper.js')
+}
+
 
 // Quiz
 let modalProgressBar = {
@@ -236,6 +230,30 @@ let modalProgressBar = {
 	}
 }
 modalProgressBar.expand();
+
+
+swipers.slideButtons = document.querySelectorAll('.swiper-slide-button');
+for (let i = 0; i < swipers.slideButtons.length; i++) {
+	swipers.slideButtons[i].addEventListener('click', function(e) {
+		e.preventDefault();
+		if (transitionLock.check( 500 )) return;
+		swipers.consult_top.slideNext();
+		swipers.consult_bot.slideNext();
+		if (modalProgressBar.i < modalProgressBar.total) modalProgressBar.i++;
+		modalProgressBar.expand();
+	})
+}
+swipers.slideBackButtons = document.querySelectorAll('.slider-back-button');
+for (let i = 0; i < swipers.slideBackButtons.length; i++) {
+	swipers.slideBackButtons[i].addEventListener('click', function(e) {
+		e.preventDefault();
+		if (transitionLock.check( 500 )) return;
+		swipers.consult_top.slidePrev();
+		swipers.consult_bot.slidePrev();
+		if (modalProgressBar.i > 0) modalProgressBar.i--;
+		modalProgressBar.expand();
+	})
+}
 
 //////////////////////////////////////////////////
 
@@ -255,3 +273,10 @@ modalProgressBar.expand();
 // @ @include('back/json_load.js')
 
 //////////////////////////////////////////////////
+
+// Body 'em' checker
+// window.addEventListener('resize', bodyEmCheck);
+// function bodyEmCheck() {
+// 	console.log('Body "em" checker. Current font-size: ' + getComputedStyle(document.body).fontSize);
+// }
+// bodyEmCheck();

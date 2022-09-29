@@ -3,6 +3,13 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: flex-start;
+	&--messengers {
+		max-width: em(630);
+		display: grid;
+		grid-template-columns: repeat(2, auto);
+		justify-content: space-between;
+		grid-row-gap: em(40);
+	}
 	input {
 		display: none;
 		&:checked + label .label-box {
@@ -45,6 +52,15 @@
 			border-radius: 50%;
 			transition: all $timer-hover;
 			opacity: 0;
+		}
+		&--style2 {
+			width: em(30);
+			height: em(30);
+			&:after {
+				width: em(16);
+				height: em(16);
+				background: $color03;
+			}
 		}
 	}
 }
