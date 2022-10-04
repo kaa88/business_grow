@@ -280,3 +280,29 @@ for (let i = 0; i < swipers.slideBackButtons.length; i++) {
 // 	console.log('Body "em" checker. Current font-size: ' + getComputedStyle(document.body).fontSize);
 // }
 // bodyEmCheck();
+
+//////////////////////////////////////////////////
+
+// Time select
+let timeSelect = {
+	init: function() {
+		this.elem = document.querySelector('.time-select');
+		let inputs = this.elem.querySelectorAll('.time-select__input');
+		this.inputH = inputs[0];
+		this.inputM = inputs[1];
+		this.toggleButton = this.elem.querySelector('.time-select__header-expander');
+		this.toggleButton.addEventListener('click', this.toggleSelectorBox.bind(this));
+		window.addEventListener('click', this.toggleSelectorBox.bind(this));
+
+	},
+	toggleSelectorBox: function(e) {
+		if (e.target != this.toggleButton) {
+			console.log('window')
+		}// ДОДЕЛАТЬ!!
+		if (this.elem.classList.contains('_active'))
+		this.elem.classList.toggle('_active');
+		e.stopPropagation();
+	}
+}
+timeSelect.init();
+console.log(timeSelect)

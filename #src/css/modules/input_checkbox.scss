@@ -1,3 +1,5 @@
+@import "../colors";
+
 .checkbox {
 	input {
 		display: none;
@@ -6,11 +8,11 @@
 		}
 	}
 	label {
-		max-width: em(390);
 		display: inline-flex;
 		align-items: center;
 	}
 	.label-box {
+		flex-shrink: 0;
 		width: em(20);
 		height: em(20);
 		position: relative;

@@ -10,11 +10,16 @@
 		justify-content: space-between;
 		grid-row-gap: em(40);
 	}
+	// &--messengers-style2 {
+	// }
 	input {
 		display: none;
 		&:checked + label .label-box {
 			&:after {
 				opacity: 1;
+			}
+			&--style3 {
+				border-color: $color01;
 			}
 		}
 	}
@@ -44,6 +49,7 @@
 		border-radius: 50%;
 		border: dashed 1px $color01;
 		cursor: pointer;
+		transition: border-color $timer-hover;
 		&:after {
 			content: "";
 			width: em(30);
@@ -60,6 +66,18 @@
 				width: em(16);
 				height: em(16);
 				background: $color03;
+			}
+		}
+		&--style3 {
+			border-color: transparent;
+			&:after {
+				width: 0;
+				height: 0;
+			}
+			i {
+				width: em(40);
+				height: em(40);
+				border-radius: 50%;
 			}
 		}
 	}
