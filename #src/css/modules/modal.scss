@@ -409,25 +409,31 @@
 }
 
 .time-select {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+	position: relative;
+	// display: flex;
+	// flex-direction: column;
+	// align-items: center;
 	padding: 0 em(70) 0 em(5);
 	width: 100%;
-	height: em(300);
+	height: 0;
 	min-height: em(90);
-	border-radius: 45px;
+	border-radius: em(45);
 	background-color: $color07;
+	// overflow: hidden;
+	// &._active {
+	// 	height: em(300);
+	// }
 	&__header {
 		flex: 0 0 auto;
 		// margin-top: em(35);
 		position: relative;
+		z-index: 9;
 		width: 100%;
 		height: em(90);
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		background-color: $color04;
+		// background-color: $color04;
 	}
 	&__header-expander {
 		position: absolute;
@@ -437,7 +443,7 @@
 		width: em(20);
 		height: em(22);
 		cursor: pointer;
-		background-color: $color05;
+		// background-color: $color05;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -463,11 +469,24 @@
 		user-select: none;
 	}
 	&__selector-box {
-		padding-top: em(1);
-		padding-bottom: em(20);
-		height: 20px;
-		display: flex;
-		justify-content: center;
+		position: absolute;
+		top: em(45);
+		left: 0;
+		z-index: 8;
+		width: 100%;
+		height: 0;
+		overflow: hidden;
+		background-color: $color07;
+		border-radius: em(45);
+		transition: height .2s;
+		.wrapper {
+			display: flex;
+			justify-content: center;
+			margin: em(46) em(70) em(20) em(5);
+		}
+	}
+	&._active &__selector-box {
+		height: em(255);
 	}
 	&__selector {
 		width: em(24);
@@ -475,16 +494,24 @@
 		display: flex;
 		flex-direction: column;
 		font-size: em(30);
-		background-color: orange;
+		background-color: $color02;
+		outline: solid 1px $color06;
+		overflow: auto;
 		&:first-child {
 			margin-right: em(12);
 		}
 		span {
+			flex: 0 0 em(20);
 			text-align: center;
 			cursor: pointer;
+			user-select: none;
 			&:hover, &._active {
-				background-color: lime;
+				background-color: $color06;
 			}
 		}
+		&::-webkit-scrollbar {
+			width: 0;
+		}
+		scrollbar-width: none;
 	}
 }

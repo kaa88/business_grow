@@ -287,22 +287,54 @@ for (let i = 0; i < swipers.slideBackButtons.length; i++) {
 let timeSelect = {
 	init: function() {
 		this.elem = document.querySelector('.time-select');
+		if (!this.elem) return;
 		let inputs = this.elem.querySelectorAll('.time-select__input');
 		this.inputH = inputs[0];
 		this.inputM = inputs[1];
+		let selectors = this.elem.querySelectorAll('.time-select__selector');
+		this.selectorH = selectors[0];
+		this.selectorM = selectors[1];
+
+		// Filling selectors
+		function fillSelector(that, selector, i) {
+			let timeStr = i.toString();
+			if (i < 10) timeStr = '0' + timeStr;
+			let newItem = document.createElement('span');
+			newItem.innerHTML = timeStr;
+			selector.appendChild(newItem);
+			newItem.addEventListener('mousedown', that.selectTime.bind(that));
+		}
+		for (let i = 0; i <= 23; i++) {
+			fillSelector(this, this.selectorH, i);
+		}
+		for (let i = 0; i <= 59; i += 5) {
+			fillSelector(this, this.selectorM, i);
+		}
+		//
+
 		this.toggleButton = this.elem.querySelector('.time-select__header-expander');
 		this.toggleButton.addEventListener('click', this.toggleSelectorBox.bind(this));
+		this.toggleButton.addEventListener('selectstart', function() {return false;});
 		window.addEventListener('click', this.toggleSelectorBox.bind(this));
-
 	},
+
 	toggleSelectorBox: function(e) {
-		if (e.target != this.toggleButton) {
-			console.log('window')
-		}// ДОДЕЛАТЬ!!
-		if (this.elem.classList.contains('_active'))
-		this.elem.classList.toggle('_active');
 		e.stopPropagation();
+		if (e.currentTarget == this.toggleButton) {
+			if (this.elem.classList.contains('_active')) this.elem.classList.remove('_active');
+			else this.elem.classList.add('_active');
+		}
+		else {
+			if (e.target.closest('.time-select')) return;
+			else if (this.elem.classList.contains('_active')) this.elem.classList.remove('_active');
+		}
+	},
+
+	selectTime: function(e) {
+		let targetInput = this.inputH;
+		if (e.target.parentElement == this.selectorM) targetInput = this.inputM;
+		targetInput.value = e.target.innerHTML;
 	}
 }
 timeSelect.init();
-console.log(timeSelect)
+// console.log(timeSelect)
