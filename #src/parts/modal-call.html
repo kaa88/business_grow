@@ -21,11 +21,11 @@
 					</p>
 
 
-					<div class="call-content__time-select time-select">
+					<div class="call-content__time-select time-select" ondragstart="return false;">
 						<div class="time-select__header">
-							<input class="time-select__input" type="text" value="00">
+							<input class="time-select__input" type="number"> <!-- value="00" -->
 							<span class="time-select__divider">:</span>
-							<input class="time-select__input" type="text" value="00">
+							<input class="time-select__input" type="number">
 							<div class="time-select__header-expander">
 								<i class="icon-arrow2"></i>
 							</div>
@@ -55,28 +55,28 @@
 
 				<div class="call-content__contact-method">
 					<div class="radio">
-						<input type="radio" id="radio-consult-contact-method-3" name="radio-consult-contact-method" value="option 3">
+						<input type="radio" id="radio-consult-contact-method-3" name="radio-consult-contact-method" value="telegram" checked>
 						<label for="radio-consult-contact-method-3">
 							<span class="label-box label-box--style3">
 								<i class="colored-icon icon-telegram"></i>
 							</span>
 							<span class="label-text">Задать вопрос в Telegram</span>
 						</label>
-						<input type="radio" id="radio-consult-contact-method-1" name="radio-consult-contact-method" value="option 1" checked>
+						<input type="radio" id="radio-consult-contact-method-1" name="radio-consult-contact-method" value="whatsapp">
 						<label for="radio-consult-contact-method-1">
 							<span class="label-box label-box--style3">
 								<i class="colored-icon icon-whatsapp"></i>
 							</span>
 							<span class="label-text">Задать вопрос в WhatsApp</span>
 						</label>
-						<input type="radio" id="radio-consult-contact-method-2" name="radio-consult-contact-method" value="option 2">
+						<input type="radio" id="radio-consult-contact-method-2" name="radio-consult-contact-method" value="viber">
 						<label for="radio-consult-contact-method-2">
 							<span class="label-box label-box--style3">
 								<i class="colored-icon icon-viber"></i>
 							</span>
 							<span class="label-text">Задать вопрос в Viber</span>
 						</label>
-						<input type="radio" id="radio-consult-contact-method-4" name="radio-consult-contact-method" value="option 4">
+						<input type="radio" id="radio-consult-contact-method-4" name="radio-consult-contact-method" value="vk">
 						<label for="radio-consult-contact-method-4">
 							<span class="label-box label-box--style3">
 								<i class="colored-icon icon-vk"></i>

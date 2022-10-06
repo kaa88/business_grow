@@ -285,17 +285,33 @@ for (let i = 0; i < swipers.slideBackButtons.length; i++) {
 
 // Time select
 let timeSelect = {
+	names: {
+		activeClass: 'active',
+		selectedClass: 'selected'
+	},
 	init: function() {
 		this.elem = document.querySelector('.time-select');
 		if (!this.elem) return;
+
+		// Inputs
 		let inputs = this.elem.querySelectorAll('.time-select__input');
 		this.inputH = inputs[0];
 		this.inputM = inputs[1];
+		this.inputH.addEventListener('click', function() {this.select()})
+		this.inputM.addEventListener('click', function() {this.select()})
+		this.inputH.addEventListener('keydown', this.checkInputHourValue.bind(this))
+		this.inputM.addEventListener('keydown', this.checkInputMinuteValue.bind(this))
+		this.inputH.addEventListener('input', this.checkInputTimeFormat.bind(this))
+		this.inputM.addEventListener('input', this.checkInputTimeFormat.bind(this))
+		this.inputH.addEventListener('blur', this.checkInputBlur.bind(this))
+		this.inputM.addEventListener('blur', this.checkInputBlur.bind(this))
+		//
+
+		// Selectors
 		let selectors = this.elem.querySelectorAll('.time-select__selector');
 		this.selectorH = selectors[0];
 		this.selectorM = selectors[1];
 
-		// Filling selectors
 		function fillSelector(that, selector, i) {
 			let timeStr = i.toString();
 			if (i < 10) timeStr = '0' + timeStr;
@@ -310,31 +326,90 @@ let timeSelect = {
 		for (let i = 0; i <= 59; i += 5) {
 			fillSelector(this, this.selectorM, i);
 		}
+		this.selectTime('init', this.selectorH.children[0]);
+		this.selectTime('init', this.selectorM.children[0]);
 		//
 
+		// Open/close events
 		this.toggleButton = this.elem.querySelector('.time-select__header-expander');
 		this.toggleButton.addEventListener('click', this.toggleSelectorBox.bind(this));
-		this.toggleButton.addEventListener('selectstart', function() {return false;});
 		window.addEventListener('click', this.toggleSelectorBox.bind(this));
+		//
+	},
+
+	getPair: function(item) {
+		if (!item) return false;
+		if (item == this.inputH) return this.selectorH;
+		if (item == this.inputM) return this.selectorM;
+		if (item == this.selectorH) return this.inputH;
+		if (item == this.selectorM) return this.inputM;
+	},
+
+	checkInputHourValue: function(e) {
+		if (window.getSelection().type != 'Range' && e.target.value.length >= 2 && e.key.match(/[0-9]/)) {
+			this.inputM.select();
+		}
+	},
+	checkInputMinuteValue: function(e) {
+		if (window.getSelection().type != 'Range' && e.target.value.length >= 2 && e.key.match(/[0-9]/)) {
+			e.preventDefault();
+		}
+		if (e.target.value.length == 0 && e.key == 'Backspace') {
+			this.inputH.select();
+		}
+	},
+	checkInputTimeFormat: function(e) {
+		let maxValue = 23; // hours
+		if (e.target == this.inputM) maxValue = 59; // minutes
+		if (e.target.value > maxValue) e.target.value = maxValue;
+	},
+	checkInputBlur: function(e) {
+		if (e.target.value.length == 0) e.target.value = '00';
+		if (e.target.value.length == 1) e.target.value = '0' + e.target.value;
+
+		// Choose & Mark time in Selector
+		let markingTarget, markingSelector = this.getPair(e.target);
+		for (let i = 0; i < markingSelector.children.length; i++) {
+			if (markingSelector.children[i].innerHTML == e.target.value) {
+				markingTarget =  markingSelector.children[i];
+			}
+		}
+		this.selectTime(false, markingTarget);
+	},
+
+	selectTime: function(e, selectorItem) {
+		console.log(selectorItem)
+		if (e) {
+			if (e != 'init') selectorItem = e.target;
+			// fill input
+			let targetInput = this.getPair(selectorItem.parentElement);
+			targetInput.value = selectorItem.innerHTML;
+		}
+
+		// mark selector item
+		let selector;
+		if (selectorItem) selector = selectorItem.parentElement;
+		else selector = this.selectorM;
+		for (let i = 0; i < selector.children.length; i++) {
+			selector.children[i].classList.remove('selected');
+		}
+		if (selectorItem) {
+			selectorItem.classList.add('selected');
+			if (!e) selectorItem.scrollIntoView({block: "center"});
+		}
 	},
 
 	toggleSelectorBox: function(e) {
 		e.stopPropagation();
 		if (e.currentTarget == this.toggleButton) {
-			if (this.elem.classList.contains('_active')) this.elem.classList.remove('_active');
-			else this.elem.classList.add('_active');
+			if (this.elem.classList.contains(this.names.activeClass)) this.elem.classList.remove(this.names.activeClass);
+			else this.elem.classList.add(this.names.activeClass);
 		}
 		else {
 			if (e.target.closest('.time-select')) return;
-			else if (this.elem.classList.contains('_active')) this.elem.classList.remove('_active');
+			else if (this.elem.classList.contains(this.names.activeClass)) this.elem.classList.remove(this.names.activeClass);
 		}
 	},
-
-	selectTime: function(e) {
-		let targetInput = this.inputH;
-		if (e.target.parentElement == this.selectorM) targetInput = this.inputM;
-		targetInput.value = e.target.innerHTML;
-	}
 }
 timeSelect.init();
 // console.log(timeSelect)
