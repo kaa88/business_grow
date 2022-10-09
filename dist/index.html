@@ -275,7 +275,7 @@ get_template_part('parts/header');
 		<p class="main__homepage-title-description">
 			Lorem ipsum dolor sit amet consectetur adipisicing elit iusto consequatur cumque inventore.
 		</p>
-		<a class="main__text-button-with-arrow text-button-with-arrow modal-link" href="#modal-call">
+		<a class="main__text-button-with-arrow text-button-with-arrow modal-link" href="#modal-access">
 			<span class="text-button-with-arrow__text"><span>получить бесплатную консультацию</span></span>
 			<span class="text-button-with-arrow__arrow">
 				<i class="icon-arrow"></i>
@@ -712,8 +712,8 @@ get_template_part('parts/header');
 									</a>
 
 									<div class="consult-form__checkbox checkbox">
-										<input type="checkbox" id="policy-checkbox" name="checked" value="policy-ok" checked>
-										<label for="policy-checkbox">
+										<input type="checkbox" id="consultform-policy-checkbox" name="checked" value="policy-ok" checked>
+										<label for="consultform-policy-checkbox">
 											<span class="label-box"><i class="icon-ok"></i></span>
 											<span class="label-text">
 												<span>оставляя свои контактные данные, вы соглашаетесь</span>
@@ -796,16 +796,16 @@ get_template_part('parts/header');
 					Обычно мы отвечаем в течение 15 минут, но иногда на ответ может потребоваться до 24-х часов
 				</p>
 		
-				<div class="modal__call-content call-content">
+				<div class="modal__feedback-content feedback-content">
 
-					<div class="call-content__main">
+					<div class="feedback-content__main">
 
 						<p class="modal-text">
 							Выберите удобное время звонка:
 						</p>
 
 
-						<div class="call-content__time-select time-select" ondragstart="return false;">
+						<div class="feedback-content__time-select time-select" ondragstart="return false;">
 							<div class="time-select__header">
 								<input class="time-select__input" type="number"> <!-- value="00" -->
 								<span class="time-select__divider">:</span>
@@ -824,7 +824,7 @@ get_template_part('parts/header');
 						</div>
 
 
-						<div class="call-content__phone-input phone-input">
+						<div class="feedback-content__phone-input phone-input">
 							<p class="phone-input__title">Телефон*</p>
 							<input class="phone-input__input" type="text" placeholder="Введите ваш номер телефона">
 						</div>
@@ -837,7 +837,7 @@ get_template_part('parts/header');
 				
 					</div>
 
-					<div class="call-content__contact-method">
+					<div class="feedback-content__contact-method">
 						<div class="radio">
 							<input type="radio" id="radio-consult-contact-method-3" name="radio-consult-contact-method" value="telegram" checked>
 							<label for="radio-consult-contact-method-3">
@@ -871,10 +871,10 @@ get_template_part('parts/header');
 					</div>
 				
 
-					<div class="call-content__bottom">
-						<div class="call-content__checkbox checkbox">
-							<input type="checkbox" id="policy-checkbox" name="checked" value="policy-ok" checked>
-							<label for="policy-checkbox">
+					<div class="feedback-content__bottom">
+						<div class="feedback-content__checkbox checkbox">
+							<input type="checkbox" id="callform-policy-checkbox" name="checked" value="policy-ok" checked>
+							<label for="callform-policy-checkbox">
 								<span class="label-box"><i class="icon-ok"></i></span>
 								<span class="label-text">
 									<span>оставляя свои контактные данные, вы соглашаетесь</span>
@@ -894,354 +894,166 @@ get_template_part('parts/header');
 			<div class="modal__content">
 				<div class="modal__close-button"><i class="icon-cross"></i></div>
 
-				<div class="modal__title-slider swiper">
-					<div class="swiper-wrapper">
-						<div class="swiper-slide">
-							<p class="modal__title">
-								<span>
-									Чтобы наша консультация была для вас более предметной и точной, пожалуйста ответьте всего на 3 вопроса
-								</span>
-							</p>
-						</div>
-						<div class="swiper-slide">
-							<p class="modal__title">
-								<span>
-									Отлично, 2 шага до консультации, go-go-go! В решении какой задачи, мы можем вам помочь?
-								</span>
-							</p>
-						</div>
-						<div class="swiper-slide">
-							<p class="modal__title">
-								<span>
-									Остался последний вопрос! Сколько сейчас в цифрах, ежемесячный оборот вашего бизнеса?
-								</span>
-							</p>
-						</div>
-						<div class="swiper-slide">
-							<p class="modal__title modal__title--bold">
-								<span>
-									БЛАГОДАРИМ ЗА ВАШЕ ВРЕМЯ!
-								</span>
-							</p>
-						</div>
-					</div>
-				</div>
+				<p class="modal__title modal__title--bold">
+					<span>
+						Введите ваш вопрос в форму или сразу пишите в любой из наших мессенджеров
+					</span>
+				</p>
+				<p class="modal__subtitle">
+					Обычно мы отвечаем в течение 15 минут, но иногда на ответ может потребоваться до 24-х часов
+				</p>
 		
-				<div class="modal__progressbar">
-					<div class="modal__progressbar-inner"></div>
-				</div>
+				<div class="modal__feedback-content feedback-content feedback-content--message">
 
-				<form class="modal__consult-form consult-form" name="consult-form" action="#">
+					<div class="feedback-content__main">
 
-					<div class="consult-form__slider swiper">
-						<div class="swiper-wrapper">
+						<p class="modal-text">
+							В произвольной форме напишите ваш вопрос, если требуется прикрепите файл
+						</p>
 
-							<div class="swiper-slide">
-								<div class="consult-form__main">
+						<div class="feedback-content__textarea">
+							<textarea name="message"></textarea>
+							<div class="feedback-content__attachment-icon" title="Прикрепить файл"><i class="icon-folder"></i></div>
+						</div>
 
-									<div class="modal-textbox">
-										<p class="modal-text">
-											В какой сфере бизнеса вы работаете или собираетесь работать?
-										</p>
-									</div>
+						<div class="feedback-content__phone-input phone-input">
+							<p class="phone-input__title">Телефон*</p>
+							<input class="phone-input__input" type="text" placeholder="Номер телефона">
+						</div>
 
-									<div class="consult-form__select select">
-										<div class="select__header">
-											<span class="select__header-text"></span>
-											<span class="select__header-icon"><i class="icon-arrow2"></i></span>
-										</div>
-										<div class="select__list-wrapper"><!-- script-fill --></div>
-										<select name="select">
-											<option value="none" selected disabled>Select...</option>
-											<option value="opt 1">Розничная торговля</option>
-											<option value="opt 2">Транспорт</option>
-											<option value="opt 3">Туризм</option>
-										</select>
-									</div>
+						<div class="feedback-content__phone-input phone-input">
+							<p class="phone-input__title">E-mail*</p>
+							<input class="phone-input__input" type="text" placeholder="E-mail адрес">
+						</div>
 
-									<div class="modal-textbox">
-										<p class="modal-text">
-											Введите ссылку на ваш сайт/аккаунт в соц.сетях, или просто пропустите этот шаг
-										</p>
-									</div>
-
-									<input class="consult-form__input" type="text" placeholder="ссылка на сайт или аккаунт в соц.сетях">
-
-								</div>
-
-								<div class="consult-form__aside">
-									<div class="consult-form__aside-info-list aside-info-list aside-info-list--small">
-
-										<div class="aside-info-list__item">
-											<div class="aside-info-list__item-icon"><i class="icon-cross2"></i></div>
-											<p class="aside-info-list__item-text">
-												Мы реализовали более 300 проектов по увеличению прибыли предприятий из более 60 сфер бизнеса.
-											</p>
-										</div>
-
-										<div class="aside-info-list__item">
-											<div class="aside-info-list__item-icon"><i class="icon-cross2"></i></div>
-											<p class="aside-info-list__item-text">
-												Информация о вашем бизнесе позволит нам сформулировать консультацию более продуктивно.
-											</p>
-										</div>
-
-									</div>
-
-								</div>
-
-
-
-								<div class="consult-form__bottom">
-									<div class="slider-back-button" style="font-size: 30px;">BACK</div> <!-- // -->
-									<a class="text-button-with-arrow swiper-slide-button" href="#">
-										<span class="text-button-with-arrow__text"><span>едем дальше</span></span>
-										<span class="text-button-with-arrow__arrow">
-											<i class="icon-arrow"></i>
-										</span>
-									</a>
-								</div>
-
-
-
-							</div>
-
-							<div class="swiper-slide">
-								<div class="consult-form__main">
-
-									<div class="modal-textbox">
-										<p class="modal-text">
-											Можете выбрать несколько вариантов ответа:
-										</p>
-									</div>
-
-									<div class="consult-form__radio radio">
-										<input type="radio" id="radio-consult-goal-1" name="radio-consult-goal" value="option 1" checked>
-										<label for="radio-consult-goal-1">
-											<span class="label-box"></span>
-											<span class="label-text">Увеличить количество клиентов</span>
-										</label>
-										<input type="radio" id="radio-consult-goal-2" name="radio-consult-goal" value="option 2">
-										<label for="radio-consult-goal-2">
-											<span class="label-box"></span>
-											<span class="label-text">Повысить прибыль, средний чек</span>
-										</label>
-										<input type="radio" id="radio-consult-goal-3" name="radio-consult-goal" value="option 3">
-										<label for="radio-consult-goal-3">
-											<span class="label-box"></span>
-											<span class="label-text">Создать образ компании в веб пространстве</span>
-										</label>
-										<input type="radio" id="radio-consult-goal-4" name="radio-consult-goal" value="option 4">
-										<label for="radio-consult-goal-4">
-											<span class="label-box"></span>
-											<span class="label-text">Решить конкретную задачу</span>
-										</label>
-										<input type="radio" id="radio-consult-goal-5" name="radio-consult-goal" value="option 5">
-										<label for="radio-consult-goal-5">
-											<span class="label-box"></span>
-											<span class="label-text">Расскажу на консультации</span>
-										</label>
-									</div>
-								
-								</div>
-
-								<div class="consult-form__aside">
-									<div class="consult-form__aside-info-list aside-info-list">
-
-										<div class="aside-info-list__item">
-											<div class="aside-info-list__item-icon"><i class="icon-cross2"></i></div>
-											<p class="aside-info-list__item-text">
-												От задачи зависит набор инструментов, которые мы предлложим для ее решения.
-											</p>
-										</div>
-
-										<div class="aside-info-list__item">
-											<div class="aside-info-list__item-icon"><i class="icon-cross2"></i></div>
-											<p class="aside-info-list__item-text">
-												Каждый бизнес индивидуален, поэтому у нас никогда не было и не будет стандартного коммерческого предложения.
-											</p>
-										</div>
-
-										<div class="aside-info-list__item">
-											<div class="aside-info-list__item-icon"><i class="icon-cross2"></i></div>
-											<p class="aside-info-list__item-text">
-												К каждому конкретному случаю, мы подходим индивидуально, так как не всем помогут одни и те же решения.
-											</p>
-										</div>
-
-									</div>
-
-								</div>
-
-
-								<div class="consult-form__bottom">
-									<div class="slider-back-button" style="font-size: 30px;">BACK</div> <!-- // -->
-									<a class="text-button-with-arrow swiper-slide-button" href="#">
-										<span class="text-button-with-arrow__text"><span>к последнему вопросу</span></span>
-										<span class="text-button-with-arrow__arrow">
-											<i class="icon-arrow"></i>
-										</span>
-									</a>
-								</div>
-
-
-
-							</div>
-
-							<div class="swiper-slide">
-								<div class="consult-form__main">
-
-									<div class="consult-form__radio radio">
-										<input type="radio" id="radio-consult-turnover-1" name="radio-consult-turnover" value="option 1" checked>
-										<label for="radio-consult-turnover-1">
-											<span class="label-box"></span>
-											<span class="label-text">0 — 300 000 ₽</span>
-										</label>
-										<input type="radio" id="radio-consult-turnover-2" name="radio-consult-turnover" value="option 2">
-										<label for="radio-consult-turnover-2">
-											<span class="label-box"></span>
-											<span class="label-text">300 000 — 1 000 000 ₽</span>
-										</label>
-										<input type="radio" id="radio-consult-turnover-3" name="radio-consult-turnover" value="option 3">
-										<label for="radio-consult-turnover-3">
-											<span class="label-box"></span>
-											<span class="label-text">1 000 000 — 10 000 000 ₽</span>
-										</label>
-										<input type="radio" id="radio-consult-turnover-4" name="radio-consult-turnover" value="option 4">
-										<label for="radio-consult-turnover-4">
-											<span class="label-box"></span>
-											<span class="label-text">10 000 000 — 100 000 000 ₽</span>
-										</label>
-										<input type="radio" id="radio-consult-turnover-5" name="radio-consult-turnover" value="option 5">
-										<label for="radio-consult-turnover-5">
-											<span class="label-box"></span>
-											<span class="label-text">Только запускаю новый бизнес</span>
-										</label>
-									</div>
-
-								</div>
-
-								<div class="consult-form__aside">
-									<div class="consult-form__aside-info-list aside-info-list aside-info-list--small">
-
-										<div class="aside-info-list__item">
-											<div class="aside-info-list__item-icon"><i class="icon-cross2"></i></div>
-											<p class="aside-info-list__item-text">
-												От оборота вашего бизнеса зависит многое: стратегия, инструменты и даже, выделенная конкретно под ваш случай, проектная команда.
-											</p>
-										</div>
-
-									</div>
-
-								</div>
-
-
-								<div class="consult-form__bottom">
-									<div class="slider-back-button" style="font-size: 30px;">BACK</div> <!-- // -->
-									<a class="text-button-with-arrow swiper-slide-button" href="#">
-										<span class="text-button-with-arrow__text"><span>ГОТОВО</span></span>
-										<span class="text-button-with-arrow__arrow">
-											<i class="icon-arrow"></i>
-										</span>
-									</a>
-								</div>
+						<a class="text-button-simple" href="#">
+							<span>
+								Получить ответ
+							</span>
+						</a>
 				
+					</div>
 
-
-							</div>
-
-							<div class="swiper-slide">
-								<div class="consult-form__main">
-
-									<div class="modal-textbox">
-										<p class="modal-text modal-text--large">
-											Выберите удобный вам способ связи,
-										</p>
-										<p class="modal-text">
-											мы свяжемся с вами в ближайшие 12 часов и постараемся найти решение ваших бизнес задач
-										</p>
-									</div>
-
-									<div class="consult-form__radio radio radio--messengers">
-										<input type="radio" id="radio-consult-contact-1" name="radio-consult-contact" value="option 1" checked>
-										<label for="radio-consult-contact-1">
-											<span class="label-box label-box--style2"></span>
-											<i class="colored-icon icon-whatsapp"></i>
-											<span class="label-text">WhatsApp</span>
-										</label>
-										<input type="radio" id="radio-consult-contact-2" name="radio-consult-contact" value="option 2">
-										<label for="radio-consult-contact-2">
-											<span class="label-box label-box--style2"></span>
-											<i class="colored-icon icon-viber"></i>
-											<span class="label-text">Viber</span>
-										</label>
-										<input type="radio" id="radio-consult-contact-3" name="radio-consult-contact" value="option 3">
-										<label for="radio-consult-contact-3">
-											<span class="label-box label-box--style2"></span>
-											<i class="colored-icon icon-telegram"></i>
-											<span class="label-text">Telegram</span>
-										</label>
-										<input type="radio" id="radio-consult-contact-4" name="radio-consult-contact" value="option 4">
-										<label for="radio-consult-contact-4">
-											<span class="label-box label-box--style2"></span>
-											<i class="colored-icon icon-phone"></i>
-											<span class="label-text">Mobile phone</span>
-										</label>
-									</div>
-
-								</div>
-
-								<div class="consult-form__aside">
-									<div class="consult-form__aside-info-list aside-info-list aside-info-list--small">
-
-										<div class="aside-info-list__item">
-											<p class="aside-info-list__item-text aside-info-list__item-text--large">
-												Спасибо за интерес к нашей компании!
-											</p>
-										</div>
-
-									</div>
-
-								</div>
-
-
-								<div class="consult-form__bottom">
-
-									<div class="consult-form__phone">
-										<p class="consult-form__phone-title">Телефон*</p>
-										<input class="consult-form__phone-input" type="text" placeholder="Введите ваш номер телефона">
-									</div>
-
-									<a class="text-button-with-arrow swiper-slide-button" href="#">
-										<span class="text-button-with-arrow__text"><span>получить консультацию</span></span>
-										<span class="text-button-with-arrow__arrow">
-											<i class="icon-arrow"></i>
-										</span>
-									</a>
-
-									<div class="consult-form__checkbox checkbox">
-										<input type="checkbox" id="policy-checkbox" name="checked" value="policy-ok" checked>
-										<label for="policy-checkbox">
-											<span class="label-box"><i class="icon-ok"></i></span>
-											<span class="label-text">
-												<span>оставляя свои контактные данные, вы соглашаетесь</span>
-												<a class="policy-link" href="#">с политикой защиты и обработки персональных данных пользователей сайта</a>
-											</span>
-										</label>
-									</div>
-
-								</div>
-				
-
-
-							</div>
-
-
+					<div class="feedback-content__contact-method">
+						<div class="radio">
+							<input type="radio" id="radio-consult-contact-method-3" name="radio-consult-contact-method" value="telegram" checked>
+							<label for="radio-consult-contact-method-3">
+								<span class="label-box label-box--style3">
+									<i class="colored-icon icon-telegram"></i>
+								</span>
+								<span class="label-text">Задать вопрос в Telegram</span>
+							</label>
+							<input type="radio" id="radio-consult-contact-method-1" name="radio-consult-contact-method" value="whatsapp">
+							<label for="radio-consult-contact-method-1">
+								<span class="label-box label-box--style3">
+									<i class="colored-icon icon-whatsapp"></i>
+								</span>
+								<span class="label-text">Задать вопрос в WhatsApp</span>
+							</label>
+							<input type="radio" id="radio-consult-contact-method-2" name="radio-consult-contact-method" value="viber">
+							<label for="radio-consult-contact-method-2">
+								<span class="label-box label-box--style3">
+									<i class="colored-icon icon-viber"></i>
+								</span>
+								<span class="label-text">Задать вопрос в Viber</span>
+							</label>
+							<input type="radio" id="radio-consult-contact-method-4" name="radio-consult-contact-method" value="vk">
+							<label for="radio-consult-contact-method-4">
+								<span class="label-box label-box--style3">
+									<i class="colored-icon icon-vk"></i>
+								</span>
+								<span class="label-text">Задать вопрос в VK</span>
+							</label>
 						</div>
 					</div>
-				</form>
-			
 				
+
+					<div class="feedback-content__bottom">
+						<div class="feedback-content__checkbox checkbox">
+							<input type="checkbox" id="msg-policy-checkbox" name="checked" value="policy-ok" checked>
+							<label for="msg-policy-checkbox">
+								<span class="label-box"><i class="icon-ok"></i></span>
+								<span class="label-text">
+									<span>оставляя свои контактные данные, вы соглашаетесь</span>
+									<a class="policy-link" href="#">с политикой защиты и обработки персональных данных пользователей сайта</a>
+								</span>
+							</label>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<div class="modal__window" id="modal-access">
+		<div class="modal__wrapper">
+			<div class="modal__content">
+				<div class="modal__close-button"><i class="icon-cross"></i></div>
+
+				<p class="modal__title modal__title--bold">
+					<span>
+						Выберите канал, в который мы отправим вам доступ и материалы по развитию бизнеса
+					</span>
+				</p>
+		
+				<div class="modal__feedback-content feedback-content feedback-content--access">
+
+					<div class="feedback-content__main">
+
+
+
+
+						<div class="radio">
+							<input type="radio" id="radio-access-contact-method-1" name="radio-access-contact-method" value="telegram" checked>
+							<label for="radio-access-contact-method-1">
+								<span class="label-box label-box--style3">
+									<i class="colored-icon icon-telegram"></i>
+								</span>
+							</label>
+							<input type="radio" id="radio-access-contact-method-2" name="radio-access-contact-method" value="vk">
+							<label for="radio-access-contact-method-2">
+								<span class="label-box label-box--style3">
+									<i class="colored-icon icon-vk"></i>
+								</span>
+							</label>
+						</div>
+
+						<p class="modal-text">
+							или получите доступ на электоронную почту:
+						</p>
+
+						<div class="feedback-content__phone-input phone-input">
+							<p class="phone-input__title">E-mail*</p>
+							<input class="phone-input__input" type="text" placeholder="E-mail адрес">
+						</div>
+
+						<a class="text-button-simple" href="#">
+							<span>
+								получить доступ к материалам
+							</span>
+						</a>
+				
+					</div>
+
+					<div class="feedback-content__bottom">
+						<div class="feedback-content__checkbox checkbox">
+							<input type="checkbox" id="access-policy-checkbox" name="checked" value="policy-ok" checked>
+							<label for="msg-policy-checkbox">
+								<span class="label-box"><i class="icon-ok"></i></span>
+								<span class="label-text">
+									<span>оставляя свои контактные данные, вы соглашаетесь</span>
+									<a class="policy-link" href="#">с политикой защиты и обработки персональных данных пользователей сайта</a>
+								</span>
+							</label>
+						</div>
+						<p class="feedback-content__if-no-msg">
+							если сообщение от нас не приходит больше 5 минут,<br> пожалуйста напишите нам через <a class="modal-link" href="#modal-message">форму</a>
+						</p>
+					</div>
+
+				</div>
+
 			</div>
 		</div>
 	</div>

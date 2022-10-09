@@ -27,7 +27,7 @@ const { src, dest } = require('gulp'),
 	fileinclude = require('gulp-file-include'),
 	scss = require('gulp-sass')(require('sass')),
 	autoprefixer = require('gulp-autoprefixer'),
-	css_media_queries = require('gulp-group-css-media-queries'),
+	// css_media_queries = require('gulp-group-css-media-queries'),
 	clean_css = require('gulp-clean-css'),
 	uglify = require('gulp-uglify-es').default,
 	ttf2woff = require('gulp-ttf2woff'),
@@ -110,6 +110,11 @@ function clean() {
 	return del(path.clean);
 }
 
+function tellCssAboutLightBuild() {
+	fs.writeFile($source + '/css/light-build-option.scss', '$isLightBuild: ' + isLiteBuild + ';', cb);
+	return Promise.resolve('ok');
+}
+
 //////////////////////////////////////////////////
 
 function html(cb, file) {
@@ -151,7 +156,7 @@ function css() {
 			overrideBrowserslist: ['last 5 versions'],
 			cascade: true
 		}))
-		.pipe(css_media_queries())
+		// .pipe(css_media_queries())
 		.pipe(rename({
 			prefix: scriptsPrefix
 		}));
@@ -454,6 +459,7 @@ let start = gulp.parallel(
 	watchFiles,
 	gulp.series(
 		clean,
+		tellCssAboutLightBuild,
 		otf,
 		fonts,
 		gulp.parallel(html, css, js, data, service, libs, media, images),
@@ -461,6 +467,7 @@ let start = gulp.parallel(
 	)
 );
 
+exports.tellCssAboutLightBuild = tellCssAboutLightBuild;
 exports.otf = otf;
 exports.fonts = fonts;
 exports.fontsStyle = fontsStyle;

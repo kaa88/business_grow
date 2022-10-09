@@ -276,9 +276,9 @@ i {
 	&.colored-icon {
 		background-color: #0077FF;
 		&:before {
-			// margin-top: 3%;
-			// margin-left: 0;
-			// font-size: em(15);
+			margin-top: 10%;
+			// margin-left: 1%;
+			font-size: em(13);
 		}
 	}
 }
@@ -292,15 +292,15 @@ i {
 	&:before {
 		// margin: em(1) em(2) 0 0;
 		margin-top: 10%;
-		// margin-left: 0;
+		margin-left: -1%;
 		font-size: em(12);
 	}
 	&.colored-icon {
 		background-color: #27A6E5;
 		&:before {
-			margin-top: 3%;
-			// margin-left: 0;
-			font-size: em(15);
+			margin-top: 5%;
+			// margin-left: -1%;
+			font-size: em(17);
 		}
 	}
 }
@@ -315,6 +315,8 @@ i {
 		background-color: #48C95F;
 		&:before {
 			margin-top: 2%;
+			margin-left: 2%;
+			font-size: em(19);
 		}
 	}
 }
@@ -323,7 +325,8 @@ i {
 		background-color: #7C509A;
 		&:before {
 			margin-top: 10%;
-			// margin-top: em(3);
+			margin-left: 2%;
+			font-size: em(19);
 		}
 	}
 }

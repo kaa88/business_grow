@@ -378,7 +378,6 @@ let timeSelect = {
 	},
 
 	selectTime: function(e, selectorItem) {
-		console.log(selectorItem)
 		if (e) {
 			if (e != 'init') selectorItem = e.target;
 			// fill input
@@ -412,4 +411,3 @@ let timeSelect = {
 	},
 }
 timeSelect.init();
-// console.log(timeSelect)

@@ -1,8 +1,9 @@
 @use "sass:math";
-@import "_reset";
-@import "_noscript";
-@import "_mixins";
-@import "_icons";
+@import "light-build-option";
+@import "reset";
+@import "noscript";
+@import "mixins";
+@import "icons";
 
 //////////////////////////////////////////////////
 
@@ -56,6 +57,6 @@ $timer-progress: 0.3s;
 
 //////////////////////////////////////////////////
 
-@import "_main";
-@import "_404";
-@import "_print";
+@import "main";
+@import "404";
+@import "print";

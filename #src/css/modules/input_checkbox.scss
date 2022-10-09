@@ -25,7 +25,8 @@
 			align-items: center;
 		}
 		i:before {
-			margin-top: em(11);
+			// margin-top: em(11);
+			margin-top: 31%;
 			font-size: em(8);
 			opacity: 0;
 			transition: all $timer-hover;
