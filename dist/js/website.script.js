@@ -560,8 +560,9 @@ footer.init()
 	Set transition timeout in CSS only.
 	
 	Init params {obj}: 
-	- elem - element name (default = 'modal'),
+	- elem - element name (default = 'modal')
 	- linkName - modal link name (default = 'modal-link')
+	- closeOldIfNew - close previous opened window if new one is opened (default = false)
 	- on: {'modal-window': {open, close}} - event function(event, content, timeout){}
 
 	On-func example:
@@ -616,37 +617,51 @@ const modal = {
 			closeButtons[i].addEventListener('click', this.closeThis.bind(this));
 		}
 		this.on = params.on || {};
+		this.cssZindex = 111;
+		this.closeOldIfNew = params.closeOldIfNew || false;
 	},
 	open: function(e){
 		if (this.refs.translock.check(this.timeout)) return;
 		e.preventDefault();
+
+		if (this.closeOldIfNew) {
+			for (let i = 0; i < this.windows.length; i++) {
+				if (this.windows[i].classList.contains('_open')) this.closeThis(false, this.windows[i]);
+			}
+		}
+
 		let currentModal = this.elem.querySelector(e.currentTarget.getAttribute('href'));
 		currentModal.classList.add('_open');
+		currentModal.style.zIndex = this.cssZindex++;
 		if (this.on[currentModal.id] && this.on[currentModal.id].open)
 			this.on[currentModal.id].open(
 				e, 
 				currentModal.querySelector('.' + this.elemName + '__content > *:not(.' + this.elemName + '__close-button)'),
 				this.timeout
-			);
+		);
 		modal.check();
 	},
-	closeThis: function(e){
-		if (this.refs.translock.check(this.timeout)) return;
-		let currentModal = e.target.closest('.' + this.elemName + '__window');
+	closeThis: function(e, elemToClose){
+		if (!elemToClose && this.refs.translock.check(this.timeout)) return;
+		let currentModal = elemToClose ? elemToClose : e.target.closest('.' + this.elemName + '__window');
 		currentModal.classList.remove('_open');
+		// let that = this;
+		// setTimeout(() => {that.windows[i].style.zIndex = '';}, that.timeout);
 		if (this.on[currentModal.id] && this.on[currentModal.id].close)
 			this.on[currentModal.id].close(
 				e, 
 				currentModal.querySelector('.' + this.elemName + '__content > *:not(.' + this.elemName + '__close-button)'),
 				this.timeout
 			);
-		modal.check();
+		if (!elemToClose) modal.check();
 	},
 	closeAll: function(){
 		if (this.refs.translock.check(this.timeout)) return;
 		for (let i = 0; i < this.windows.length; i++) {
 			if (this.windows[i].classList.contains('_open')) {
 				this.windows[i].classList.remove('_open');
+				// let that = this;
+				// setTimeout(() => {that.windows[i].style.zIndex = '';}, that.timeout);
 				if (this.on[this.windows[i].id] && this.on[this.windows[i].id].close)
 					this.on[this.windows[i].id].close(0,0,this.timeout);
 			}
@@ -669,7 +684,9 @@ const modal = {
 		}
 	}
 }
-modal.init()
+modal.init({
+	closeOldIfNew: true
+})
 
 //////////////////////////////////////////////////
 

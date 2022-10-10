@@ -275,7 +275,7 @@ get_template_part('parts/header');
 		<p class="main__homepage-title-description">
 			Lorem ipsum dolor sit amet consectetur adipisicing elit iusto consequatur cumque inventore.
 		</p>
-		<a class="main__text-button-with-arrow text-button-with-arrow modal-link" href="#modal-access">
+		<a class="main__text-button-with-arrow text-button-with-arrow modal-link" href="#modal-consult">
 			<span class="text-button-with-arrow__text"><span>получить бесплатную консультацию</span></span>
 			<span class="text-button-with-arrow__arrow">
 				<i class="icon-arrow"></i>
@@ -485,7 +485,7 @@ get_template_part('parts/header');
 
 
 								<div class="consult-form__bottom">
-									<div class="slider-back-button" style="font-size: 30px;">BACK</div> <!-- // -->
+									<!-- <div class="slider-back-button" style="font-size: 30px;">BACK</div> --> <!-- // -->
 									<a class="text-button-with-arrow swiper-slide-button" href="#">
 										<span class="text-button-with-arrow__text"><span>едем дальше</span></span>
 										<span class="text-button-with-arrow__arrow">
@@ -567,7 +567,7 @@ get_template_part('parts/header');
 
 
 								<div class="consult-form__bottom">
-									<div class="slider-back-button" style="font-size: 30px;">BACK</div> <!-- // -->
+									<!-- <div class="slider-back-button" style="font-size: 30px;">BACK</div> --> <!-- // -->
 									<a class="text-button-with-arrow swiper-slide-button" href="#">
 										<span class="text-button-with-arrow__text"><span>к последнему вопросу</span></span>
 										<span class="text-button-with-arrow__arrow">
@@ -629,7 +629,7 @@ get_template_part('parts/header');
 
 
 								<div class="consult-form__bottom">
-									<div class="slider-back-button" style="font-size: 30px;">BACK</div> <!-- // -->
+									<!-- <div class="slider-back-button" style="font-size: 30px;">BACK</div> --> <!-- // -->
 									<a class="text-button-with-arrow swiper-slide-button" href="#">
 										<span class="text-button-with-arrow__text"><span>ГОТОВО</span></span>
 										<span class="text-button-with-arrow__arrow">
@@ -646,37 +646,44 @@ get_template_part('parts/header');
 								<div class="consult-form__main">
 
 									<div class="modal-textbox">
-										<p class="modal-text modal-text--large">
+										<p class="modal-text modal-text--large desktop-only">
 											Выберите удобный вам способ связи,
 										</p>
-										<p class="modal-text">
+										<p class="modal-text desktop-only">
 											мы свяжемся с вами в ближайшие 12 часов и постараемся найти решение ваших бизнес задач
+										</p>
+										<p class="modal-text mobile-only">
+											Выберите удобный вам способ связи и введите ваш номер телефона
 										</p>
 									</div>
 
 									<div class="consult-form__radio radio radio--messengers">
 										<input type="radio" id="radio-consult-contact-1" name="radio-consult-contact" value="whatsapp" checked>
 										<label for="radio-consult-contact-1">
-											<span class="label-box label-box--style2"></span>
-											<i class="colored-icon icon-whatsapp"></i>
+											<span class="label-box label-box--style2">
+												<i class="colored-icon icon-whatsapp"></i>
+											</span>
 											<span class="label-text">WhatsApp</span>
 										</label>
 										<input type="radio" id="radio-consult-contact-2" name="radio-consult-contact" value="viber">
 										<label for="radio-consult-contact-2">
-											<span class="label-box label-box--style2"></span>
-											<i class="colored-icon icon-viber"></i>
+											<span class="label-box label-box--style2">
+												<i class="colored-icon icon-viber"></i>
+											</span>
 											<span class="label-text">Viber</span>
 										</label>
 										<input type="radio" id="radio-consult-contact-3" name="radio-consult-contact" value="telegram">
 										<label for="radio-consult-contact-3">
-											<span class="label-box label-box--style2"></span>
-											<i class="colored-icon icon-telegram"></i>
+											<span class="label-box label-box--style2">
+												<i class="colored-icon icon-telegram"></i>
+											</span>
 											<span class="label-text">Telegram</span>
 										</label>
 										<input type="radio" id="radio-consult-contact-4" name="radio-consult-contact" value="phone">
 										<label for="radio-consult-contact-4">
-											<span class="label-box label-box--style2"></span>
-											<i class="colored-icon icon-phone"></i>
+											<span class="label-box label-box--style2">
+												<i class="colored-icon icon-phone"></i>
+											</span>
 											<span class="label-text">Mobile phone</span>
 										</label>
 									</div>
@@ -841,28 +848,28 @@ get_template_part('parts/header');
 						<div class="radio">
 							<input type="radio" id="radio-consult-contact-method-3" name="radio-consult-contact-method" value="telegram" checked>
 							<label for="radio-consult-contact-method-3">
-								<span class="label-box label-box--style3">
+								<span class="label-box label-box--style2">
 									<i class="colored-icon icon-telegram"></i>
 								</span>
 								<span class="label-text">Задать вопрос в Telegram</span>
 							</label>
 							<input type="radio" id="radio-consult-contact-method-1" name="radio-consult-contact-method" value="whatsapp">
 							<label for="radio-consult-contact-method-1">
-								<span class="label-box label-box--style3">
+								<span class="label-box label-box--style2">
 									<i class="colored-icon icon-whatsapp"></i>
 								</span>
 								<span class="label-text">Задать вопрос в WhatsApp</span>
 							</label>
 							<input type="radio" id="radio-consult-contact-method-2" name="radio-consult-contact-method" value="viber">
 							<label for="radio-consult-contact-method-2">
-								<span class="label-box label-box--style3">
+								<span class="label-box label-box--style2">
 									<i class="colored-icon icon-viber"></i>
 								</span>
 								<span class="label-text">Задать вопрос в Viber</span>
 							</label>
 							<input type="radio" id="radio-consult-contact-method-4" name="radio-consult-contact-method" value="vk">
 							<label for="radio-consult-contact-method-4">
-								<span class="label-box label-box--style3">
+								<span class="label-box label-box--style2">
 									<i class="colored-icon icon-vk"></i>
 								</span>
 								<span class="label-text">Задать вопрос в VK</span>
@@ -938,28 +945,28 @@ get_template_part('parts/header');
 						<div class="radio">
 							<input type="radio" id="radio-consult-contact-method-3" name="radio-consult-contact-method" value="telegram" checked>
 							<label for="radio-consult-contact-method-3">
-								<span class="label-box label-box--style3">
+								<span class="label-box label-box--style2">
 									<i class="colored-icon icon-telegram"></i>
 								</span>
 								<span class="label-text">Задать вопрос в Telegram</span>
 							</label>
 							<input type="radio" id="radio-consult-contact-method-1" name="radio-consult-contact-method" value="whatsapp">
 							<label for="radio-consult-contact-method-1">
-								<span class="label-box label-box--style3">
+								<span class="label-box label-box--style2">
 									<i class="colored-icon icon-whatsapp"></i>
 								</span>
 								<span class="label-text">Задать вопрос в WhatsApp</span>
 							</label>
 							<input type="radio" id="radio-consult-contact-method-2" name="radio-consult-contact-method" value="viber">
 							<label for="radio-consult-contact-method-2">
-								<span class="label-box label-box--style3">
+								<span class="label-box label-box--style2">
 									<i class="colored-icon icon-viber"></i>
 								</span>
 								<span class="label-text">Задать вопрос в Viber</span>
 							</label>
 							<input type="radio" id="radio-consult-contact-method-4" name="radio-consult-contact-method" value="vk">
 							<label for="radio-consult-contact-method-4">
-								<span class="label-box label-box--style3">
+								<span class="label-box label-box--style2">
 									<i class="colored-icon icon-vk"></i>
 								</span>
 								<span class="label-text">Задать вопрос в VK</span>
@@ -1007,13 +1014,13 @@ get_template_part('parts/header');
 						<div class="radio">
 							<input type="radio" id="radio-access-contact-method-1" name="radio-access-contact-method" value="telegram" checked>
 							<label for="radio-access-contact-method-1">
-								<span class="label-box label-box--style3">
+								<span class="label-box label-box--style2">
 									<i class="colored-icon icon-telegram"></i>
 								</span>
 							</label>
 							<input type="radio" id="radio-access-contact-method-2" name="radio-access-contact-method" value="vk">
 							<label for="radio-access-contact-method-2">
-								<span class="label-box label-box--style3">
+								<span class="label-box label-box--style2">
 									<i class="colored-icon icon-vk"></i>
 								</span>
 							</label>

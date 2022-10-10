@@ -68,7 +68,9 @@ footer.init()
 
 // Modal window //
 @@include('front/modal.js')
-modal.init()
+modal.init({
+	closeOldIfNew: true
+})
 
 //////////////////////////////////////////////////
 

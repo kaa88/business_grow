@@ -1,6 +1,7 @@
 @import "../colors";
 
 .modal {
+	// display: none;//
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -41,50 +42,50 @@
 		position: relative;
 		display: flex;
 		width: em(1500);
-		// max-width: 500px;
 		height: em(825);
 		max-height: 98%;
 		padding: em(40) em(100) em(58) em(60);
 		background-color: #fff;
 		border-radius: em(30);
-		// #modal-imgpreview & { // example for different windows
-		// 	font-size: 0;
-		// 	max-width: 1000px;
-		// 	max-height: 700px;
-		// 	background-color: transparent;
-		// 	img {
-		// 		width: 100%;
-		// 		height: 100%;
-		// 		object-fit: contain;
-		// 	}
-		// }
 		#modal-confirm & {
 			padding-right: em(60);
+		}
+		@media (max-width: $media-modal+px) {
+			width: 100%;
+			height: 100%;
+			max-height: 100%;
+			padding: em(40) 0 em(58) 0;
+			border-radius: 0;
+			background-color: $color03;
 		}
 	}
 	&__content {
 		display: flex;
 		flex-direction: column;
-		// justify-content: space-between;
 		width: 100%;
 		padding: 0 em(20) 0 0;
 		overflow-y: auto;
 		overflow-x: hidden;
-		scrollbar-width: thin;
-		scrollbar-color: $color07 transparent;
-		&::-webkit-scrollbar {
-			width: em(5);
-		}
-		&::-webkit-scrollbar-track {
-			background: transparent;
-			// border-radius: 5px;
-		}
-		&::-webkit-scrollbar-thumb {
-			background: $color07;
-			// border-radius: 5px;
+		@media (min-width: $media-modal+1+px) {
+			scrollbar-width: thin;
+			scrollbar-color: $color07 transparent;
+			&::-webkit-scrollbar {
+				width: em(5);
+			}
+			&::-webkit-scrollbar-track {
+				background: transparent;
+				// border-radius: 5px;
+			}
+			&::-webkit-scrollbar-thumb {
+				background: $color07;
+				// border-radius: 5px;
+			}
 		}
 		& > * {
 			flex: 0 0 auto;
+		}
+		@media (max-width: $media-modal+px) {
+			padding: 50px 0 0; //?
 		}
 	}
 	&__close-button {
@@ -110,6 +111,18 @@
 			margin-top: em(2);
 			font-size: em(18);
 		}
+		@media (max-width: $media-modal+px) {
+			top: 30px;
+			right: 15px;
+			width: 36px;
+			height: 36px;
+			background-color: rgba(234, 243, 248, 0.1);
+			color: $color02;
+			i {
+				margin-top: 0;
+				font-size: 11px;
+			}
+		}
 	}
 	&__title {
 		margin: 0 auto;
@@ -129,6 +142,17 @@
 			font-weight: 700;
 			line-height: 1.4;
 		}
+		@media (max-width: $media-modal+px) {
+			max-width: 100%;
+			height: auto;
+			padding: 0 30px;
+			color: $color02;
+			font-weight: 400;
+			span {
+				font-size: 13px;
+				line-height: 1.38;
+			}
+		}
 	}
 	&__title-slider {
 		width: 100%;
@@ -145,6 +169,9 @@
 		line-height: 1.5;
 		text-align: center;
 		letter-spacing: 0.03em;
+		@media (max-width: $media-modal+px) {
+			display: none;
+		}
 	}
 	&__progressbar {
 		margin: em(40) auto em(35);
@@ -153,6 +180,13 @@
 		background: linear-gradient(90deg, #E2E7EC 0%, rgba(226, 231, 236, 0.3) 100%);
 		border: solid em(1) $color08;
 		border-radius: em(10);
+		@media (max-width: $media-modal+px) {
+			width: calc(100% - 60px);
+			height: 10px;
+			margin: 10px auto 16px;
+			background: linear-gradient(90deg, #333333 0%, #454647 100%);
+			border: 1px solid rgba(226, 231, 236, 0.1);
+		}
 	}
 	&__progressbar-inner {
 		width: 25%;
@@ -180,21 +214,40 @@
 }
 
 .consult-form {
+	@media (max-width: $media-modal+px) {
+		width: 100%;
+		// height: 100%;
+		padding: 30px;
+		border-radius: 30px 30px 0 0;
+		background-color: $color02;
+	}
 	&__slider {
 		height: 100%;
 		.swiper-slide {
 			display: grid;
 			grid-template-columns: 1fr em(540);
 			justify-content: space-between;
-			// overflow: hidden;
+			@media (max-width: $media-modal+px) {
+				grid-template-columns: 100%;
+			}
 		}
 	}
 	&__main {
-		padding-left: 5px;
+		@media (min-width: $media-modal+1+px) {
+			padding-left: 5px;
+		}
+		@media (max-width: $media-modal+px) {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
 	}
 	&__select {
 		margin-top: em(23);
 		margin-bottom: em(40);
+		@media (max-width: $media-modal+px) {
+			margin: 15px 0 30px;
+		}
 	}
 	&__input {
 		margin-top: em(23);
@@ -210,6 +263,14 @@
 			color: $color06;
 			-webkit-text-fill-color: $color06;
 		}
+		@media (max-width: $media-modal+px) {
+			margin: 15px 0 0;
+			// width: calc(100% - 60px);
+			width: 100%;
+			height: 50px;
+			padding: 0 22px;
+			font-size: 12px;
+		}
 	}
 	&__aside {
 		align-self: flex-end;
@@ -219,6 +280,9 @@
 		border-image-source: repeating-linear-gradient(to bottom, $color01 0, $color01 2px, transparent 2px, transparent 4px);
 		border-image-slice: 1;
 		border-image-repeat: round;
+		@media (max-width: $media-modal+px) {
+			display: none;
+		}
 	}
 	&__aside-info-list {
 	}
@@ -234,25 +298,33 @@
 		& > *:not(:first-child) {
 			margin-left: em(37);
 		}
+		@media (max-width: $media-modal+px) {
+			padding-left: 0;
+			flex: 0 0 auto;
+		}
 	}
 	.text-button-with-arrow {
 		&__text {
 			width: em(319);
+			@media (max-width: $media-modal+px) {
+				width: 100%;
+			}
 		}
 	}
 	&__radio {
 		margin-top: em(20);
 		margin-left: em(47);
-		i {
-			margin-left: em(30);
-			width: em(40);
-			height: em(40);
-			border-radius: 50%;
-			overflow: hidden;
-			&:before {
-				font-size: em(19);
-			}
+		@media (max-width: $media-modal+px) {
+			margin-top: 5px;
+			margin-left: 0;
 		}
+		// i {
+			// margin-left: em(30);
+			// width: em(40);
+			// height: em(40);
+			// border-radius: 50%;
+			// overflow: hidden;
+		// }
 		&.radio--messengers {
 			margin-top: em(50);
 		}
@@ -310,6 +382,9 @@
 .modal-textbox {
 	max-width: em(550);
 	margin-left: em(47);
+	@media (max-width: $media-modal+px) {
+		margin-left: 0;
+	}
 }
 .modal-text {
 	font-size: em(20);
@@ -322,6 +397,10 @@
 	}
 	&:not(:first-child) {
 		margin-top: em(15);
+	}
+	@media (max-width: $media-modal+px) {
+		font-size: 13px;
+		line-height: 1.38;
 	}
 }
 
@@ -386,7 +465,7 @@
 			width: em(120);
 			height: em(120);
 		}
-		.radio .label-box--style3 i {
+		.radio .label-box--style2 i {
 			width: em(90);
 			height: em(90);
 		}

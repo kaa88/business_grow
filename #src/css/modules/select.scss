@@ -10,6 +10,11 @@
 	&._active {
 		filter: drop-shadow(0 em(3) em(2) #333);
 	}
+	@media (max-width: $media-modal+px) {
+		// width: calc(100% - 60px);
+		width: 100%;
+		height: 50px;
+	}
 	&__header {
 		height: 100%;
 		padding: 0 em(47);
@@ -36,6 +41,16 @@
 			font-size: em(13);
 			margin-top: em(2);
 		}
+		@media (max-width: $media-modal+px) {
+			padding: 0 22px;
+			&-text {
+				font-size: 10px;
+			}
+			&-icon {
+				font-size: 7px;
+				margin-top: 1px;
+			}
+		}
 	}
 	// &__header:hover, &._active &__header {
 	// 	border-color: yellow;
@@ -60,6 +75,9 @@
 	}
 	&__list {
 		padding: em(50) 0 em(15);
+		@media (max-width: $media-modal+px) {
+			padding: 25px 0 0;
+		}
 	}
 	&__option {
 		display: flex;
@@ -70,9 +88,11 @@
 		white-space: nowrap;
 		overflow: hidden;
 		transition: all $timer-hover;
-		// &:first-child {
-			// margin-top: em(50);
-		// }
+		@media (max-width: $media-modal+px) {
+			height: 40px;
+			padding: 0 22px;
+			font-size: 10px;
+		}
 		&:last-child {
 			margin-bottom: em(10);
 		}

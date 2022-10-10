@@ -10,6 +10,10 @@
 		justify-content: space-between;
 		grid-row-gap: em(40);
 	}
+	@media (max-width: $media-modal+px) {
+		height: 100%;
+		justify-content: space-between;
+	}
 	// &--messengers-style2 {
 	// }
 	input {
@@ -18,8 +22,11 @@
 			&:after {
 				opacity: 1;
 			}
-			&--style3 {
+			&--style2 {
 				border-color: $color01;
+			}
+			.consult-form &--style2:after {
+				background-color: $color01;
 			}
 		}
 	}
@@ -32,43 +39,49 @@
 		}
 	}
 	.label-text {
-		margin-left: em(30);
+		margin-left: em(40);
 		white-space: nowrap;
 		font-size: em(20);
 		line-height: 1;
 		letter-spacing: 0.05em;
 		color: $color10;
+		.consult-form & {
+			margin-left: em(80);
+		}
+		@media (max-width: $media-modal+px) {
+			font-size: 13px;
+			margin-left: 18px;
+			white-space: normal;
+			// line-height: 0.5;
+		}
 	}
 	.label-box {
+		flex-shrink: 0;
 		width: em(60);
 		height: em(60);
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		// background-color: lime;
 		border-radius: 50%;
 		border: dashed 1px $color01;
 		cursor: pointer;
 		transition: border-color $timer-hover;
+		position: relative;
 		&:after {
 			content: "";
+			position: absolute;
 			width: em(30);
 			height: em(30);
 			background: $gradient-1;
 			border-radius: 50%;
 			transition: all $timer-hover;
 			opacity: 0;
+			flex-shrink: 0;
+		}
+		* {
+			flex-shrink: 0;
 		}
 		&--style2 {
-			width: em(30);
-			height: em(30);
-			&:after {
-				width: em(16);
-				height: em(16);
-				background: $color03;
-			}
-		}
-		&--style3 {
 			border-color: transparent;
 			&:after {
 				width: 0;
@@ -78,6 +91,29 @@
 				width: em(40);
 				height: em(40);
 				border-radius: 50%;
+			}
+		}
+		@media (min-width: $media-modal+1+px) {
+			.consult-form &--style2 {
+				width: em(30);
+				height: em(30);
+				border-color: $color01;
+				&:after {
+					width: em(16);
+					height: em(16);
+					background: transparent;
+				}
+				i {
+					position: relative;
+					right: em(-65); // ?
+					width: em(40);
+					height: em(40);
+					border-radius: 50%;
+					cursor: default;
+					&:before {
+						font-size: em(19);
+					}
+				}
 			}
 		}
 	}

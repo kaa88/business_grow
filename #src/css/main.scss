@@ -108,6 +108,7 @@ body {
 		flex-direction: column;
 		justify-content: space-evenly;//space-between;
 		align-items: flex-start;
+		// overflow: hidden;//
 	}
 	&__homepage-title {
 		@media (max-width: $mobile+px) {
@@ -363,8 +364,10 @@ body {
 	}
 }
 .features-slider {
+	// background-color: yellow;//
+	// display: none;//
 	left: -30px;
-	width: calc(100% + 60px);
+	width: calc(100% + 40px); // container padding left 30, right 10 = 40
 	padding: 10px 0 15px;
 	.swiper-wrapper {
 		width: 100%;

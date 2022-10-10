@@ -98,19 +98,6 @@
 			}
 		}
 	}
-	&--rounded {
-		border-radius: em(55);
-	}
-	&--rounded &__text {
-		border-radius: em(55);//45px;
-		padding: 0 em(114);
-		margin-right: em(22);
-		span {
-			font-size: em(18.2);
-			letter-spacing: 0.25em;
-			text-transform: uppercase;
-		}
-	}
 	&__arrow {
 		flex: 0 0 auto;
 		width: em(90);
@@ -122,9 +109,6 @@
 		border: solid 1px $color03;
 		// transition: color $timer-hover;
 	}
-	&--rounded &__arrow {
-		border-radius: 50%;
-	}
 	&:hover {
 		background-color: $color03;
 	}
@@ -134,6 +118,33 @@
 	&:hover &__arrow {
 		background-color: $color03;
 		color: $color02;
+	}
+	@media (max-width: $media-modal+px) {
+		display: flex;
+		// width: calc(100% - 60px);
+		width: 100%;
+		height: 50px;
+		border-radius: 45px;
+		&__text {
+			border-radius: 45px;
+			padding: 0 6px;
+			margin-right: 11px;
+			span {
+				// font-weight: 500;
+				font-size: 10px;
+				letter-spacing: 0.25em;
+				text-transform: uppercase;
+				margin-top: 2px;
+			}
+		}
+		&__arrow {
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			i:before {
+				font-size: 9px;
+			}
+		}
 	}
 }
 
@@ -346,6 +357,11 @@ i {
 
 .mobile-only {
 	@media (min-width: $mobile+1+px) {
+		display: none;
+	}
+}
+.desktop-only {
+	@media (max-width: $mobile+px) {
 		display: none;
 	}
 }
