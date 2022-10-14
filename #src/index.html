@@ -38,12 +38,7 @@ get_template_part('parts/header');
 		<p class="main__homepage-title-description">
 			Lorem ipsum dolor sit amet consectetur adipisicing elit iusto consequatur cumque inventore.
 		</p>
-		<a class="main__text-button-with-arrow text-button-with-arrow modal-link" href="#modal-consult">
-			<span class="text-button-with-arrow__text"><span>получить бесплатную консультацию</span></span>
-			<span class="text-button-with-arrow__arrow">
-				<i class="icon-arrow"></i>
-			</span>
-		</a>
+
 		<div class="main__features-slider features-slider swiper mobile-only">
 			<div class="swiper-wrapper">
 				<div class="swiper-slide">
@@ -97,7 +92,15 @@ get_template_part('parts/header');
 			</div>
 		</div>
 	
-		<a class="main__rounded-button rounded-button mobile-only modal-link" href="#modal-consult">получить консультацию</a>
+		<a class="main__text-button-with-arrow text-button-with-arrow modal-link desktop-only" href="#modal-confirm">
+			<span class="text-button-with-arrow__text"><span>получить бесплатную консультацию</span></span>
+			<span class="text-button-with-arrow__arrow">
+				<i class="icon-arrow"></i>
+			</span>
+		</a>
+		<a class="main__text-button-with-arrow text-button-with-arrow modal-link mobile-only" href="#modal-confirm">
+			<span class="text-button-with-arrow__text"><span>получить консультацию</span></span>
+		</a>
 
 		<section class="main__features features">
 			@@include('parts/features.html')

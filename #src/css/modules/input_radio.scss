@@ -13,9 +13,11 @@
 	@media (max-width: $media-modal+px) {
 		height: 100%;
 		justify-content: space-between;
+		&--messengers {
+			grid-row-gap: 20px;
+			grid-column-gap: 10px;
+		}
 	}
-	// &--messengers-style2 {
-	// }
 	input {
 		display: none;
 		&:checked + label .label-box {
@@ -45,14 +47,14 @@
 		line-height: 1;
 		letter-spacing: 0.05em;
 		color: $color10;
-		.consult-form & {
-			margin-left: em(80);
-		}
 		@media (max-width: $media-modal+px) {
 			font-size: 13px;
 			margin-left: 18px;
 			white-space: normal;
 			// line-height: 0.5;
+			// .consult-form & {
+			// 	margin-left: 5px;
+			// }
 		}
 	}
 	.label-box {
@@ -91,6 +93,15 @@
 				width: em(40);
 				height: em(40);
 				border-radius: 50%;
+			}
+			@media (max-width: $media-modal+px) {
+				width: 50px;
+				height: 50px;
+				i {
+					// width: 40px;
+					// height: 40px;
+					font-size: 16px;
+				}
 			}
 		}
 		@media (min-width: $media-modal+1+px) {

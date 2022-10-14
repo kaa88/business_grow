@@ -64,12 +64,54 @@ header.init({
 @@include('front/footer.js')
 footer.init()
 
+// console.log(document.querySelector('.header').offsetHeight + ' ' + document.querySelector('.main').offsetHeight + ' ' + document.querySelector('.footer').offsetHeight + ' ' + document.body.offsetHeight)
+
 //////////////////////////////////////////////////
 
 // Modal window //
 @@include('front/modal.js')
+
+// modal closing with header menu button
+let headerMenuCloseButton = document.querySelector('.header-menu-close-btn');
+headerMenuCloseButton.addEventListener('click', function() {
+	modal.closeAll(true);
+})
+//
+
 modal.init({
-	closeOldIfNew: true
+	closeOldIfNew: true,
+	on: {
+		'any': {
+			open: function(event, content, timeout) {
+				let header = document.body.querySelector('.header');
+				header.classList.add('_active-modal-z');
+
+				if (content.className.match(/--light/)) header.classList.add('_active-modal-light');
+				else header.classList.add('_active-modal-dark');
+				
+				headerMenuCloseButton.classList.add('_active');
+				let footerCloneContainers = document.body.querySelectorAll('.modal__footer-clone');
+				for (let i = 0; i < footerCloneContainers.length; i++) {
+					footerCloneContainers[i].innerHTML = document.body.querySelector('.footer').outerHTML;
+				}
+			},
+			close: function(event, content, timeout) {
+				let header = document.body.querySelector('.header');
+				header.classList.remove('_active-modal-light');
+				header.classList.remove('_active-modal-dark');
+				let openedWindows = false;
+				for (let i = 0; i < modal.windows.length; i++) {
+					if (modal.windows[i].classList.contains('_open')) {
+						openedWindows = true;
+						break;
+					}
+				}
+				if (!openedWindows) {
+					setTimeout(()=>{header.classList.remove('_active-modal-z')}, timeout);
+				}
+			},
+		},
+	}
 })
 
 //////////////////////////////////////////////////
@@ -217,7 +259,10 @@ if (typeof Swiper !== 'undefined') {
 
 // Swiper no-internet version
 else {
-	let swipersSpaceBetween = 30;
+	swipers.settings = {
+		spaceBetween: 30,
+		overflowHidden: true
+	}
 	@@include('front/swiper.js')
 }
 

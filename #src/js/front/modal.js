@@ -6,6 +6,7 @@
 	- linkName - modal link name (default = 'modal-link')
 	- closeOldIfNew - close previous opened window if new one is opened (default = false)
 	- on: {'modal-window': {open, close}} - event function(event, content, timeout){}
+		'modal-window' name can be 'any' - trigger on any window
 
 	On-func example:
 	modal.init({
@@ -75,45 +76,47 @@ const modal = {
 		let currentModal = this.elem.querySelector(e.currentTarget.getAttribute('href'));
 		currentModal.classList.add('_open');
 		currentModal.style.zIndex = this.cssZindex++;
+
+		let onFuncContent = currentModal.querySelector('.' + this.elemName + '__content > *:not(.' + this.elemName + '__close-button)');
 		if (this.on[currentModal.id] && this.on[currentModal.id].open)
-			this.on[currentModal.id].open(
-				e, 
-				currentModal.querySelector('.' + this.elemName + '__content > *:not(.' + this.elemName + '__close-button)'),
-				this.timeout
-		);
+			this.on[currentModal.id].open(e, onFuncContent, this.timeout);
+		if (this.on['any'] && this.on['any'].open)
+			this.on['any'].open(e, onFuncContent, this.timeout);
+
 		modal.check();
 	},
 	closeThis: function(e, elemToClose){
 		if (!elemToClose && this.refs.translock.check(this.timeout)) return;
 		let currentModal = elemToClose ? elemToClose : e.target.closest('.' + this.elemName + '__window');
 		currentModal.classList.remove('_open');
-		// let that = this;
-		// setTimeout(() => {that.windows[i].style.zIndex = '';}, that.timeout);
+		let onFuncContent = currentModal.querySelector('.' + this.elemName + '__content > *:not(.' + this.elemName + '__close-button)');
 		if (this.on[currentModal.id] && this.on[currentModal.id].close)
-			this.on[currentModal.id].close(
-				e, 
-				currentModal.querySelector('.' + this.elemName + '__content > *:not(.' + this.elemName + '__close-button)'),
-				this.timeout
-			);
+			this.on[currentModal.id].close(e, onFuncContent, this.timeout);
+		if (this.on['any'] && this.on['any'].close)
+			this.on['any'].close(e, onFuncContent, this.timeout);
+
 		if (!elemToClose) modal.check();
 	},
-	closeAll: function(){
-		if (this.refs.translock.check(this.timeout)) return;
+	closeAll: function(noScrollLock){
+		if (!noScrollLock && this.refs.translock.check(this.timeout)) return;
 		for (let i = 0; i < this.windows.length; i++) {
 			if (this.windows[i].classList.contains('_open')) {
 				this.windows[i].classList.remove('_open');
-				// let that = this;
-				// setTimeout(() => {that.windows[i].style.zIndex = '';}, that.timeout);
 				if (this.on[this.windows[i].id] && this.on[this.windows[i].id].close)
 					this.on[this.windows[i].id].close(0,0,this.timeout);
 			}
 		}
+		if (this.on['any'] && this.on['any'].close)
+			this.on['any'].close(0,0,this.timeout);
 		modal.check();
 	},
 	check: function(){
-		let openedWindows = 0;
+		let openedWindows = false;
 		for (let i = 0; i < this.windows.length; i++) {
-			if (this.windows[i].classList.contains('_open')) openedWindows++;
+			if (this.windows[i].classList.contains('_open')) {
+				openedWindows = true;
+				break;
+			}
 		}
 		if (openedWindows) {
 			this.elem.classList.add('_visible');

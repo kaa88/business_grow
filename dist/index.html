@@ -99,11 +99,13 @@ get_template_part('parts/header');
 -->
 
 <header class="header scroll-lock-item-p">
+	<div class="header__bg"></div>
 	<div class="header-menu-turn-off-area"></div>
 	<div class="header__print-address-qr">QR</div>
 	<div class="header__print-address">address.com</div>
 
 	<div class="header-level header-level--mobile">
+
 
 		<div class="header-level__logo logo">
 			<a class="logo__link" href="/">
@@ -275,12 +277,7 @@ get_template_part('parts/header');
 		<p class="main__homepage-title-description">
 			Lorem ipsum dolor sit amet consectetur adipisicing elit iusto consequatur cumque inventore.
 		</p>
-		<a class="main__text-button-with-arrow text-button-with-arrow modal-link" href="#modal-consult">
-			<span class="text-button-with-arrow__text"><span>получить бесплатную консультацию</span></span>
-			<span class="text-button-with-arrow__arrow">
-				<i class="icon-arrow"></i>
-			</span>
-		</a>
+
 		<div class="main__features-slider features-slider swiper mobile-only">
 			<div class="swiper-wrapper">
 				<div class="swiper-slide">
@@ -334,7 +331,15 @@ get_template_part('parts/header');
 			</div>
 		</div>
 	
-		<a class="main__rounded-button rounded-button mobile-only modal-link" href="#modal-consult">получить консультацию</a>
+		<a class="main__text-button-with-arrow text-button-with-arrow modal-link desktop-only" href="#modal-confirm">
+			<span class="text-button-with-arrow__text"><span>получить бесплатную консультацию</span></span>
+			<span class="text-button-with-arrow__arrow">
+				<i class="icon-arrow"></i>
+			</span>
+		</a>
+		<a class="main__text-button-with-arrow text-button-with-arrow modal-link mobile-only" href="#modal-confirm">
+			<span class="text-button-with-arrow__text"><span>получить консультацию</span></span>
+		</a>
 
 		<section class="main__features features">
 			<div class="features__items">
@@ -384,7 +389,9 @@ get_template_part('parts/header');
 	<div class="modal__window" id="modal-consult">
 		<div class="modal__wrapper">
 			<div class="modal__content">
-				<div class="modal__close-button"><i class="icon-cross"></i></div>
+				<div class="modal__close-button desktop-only"><i class="icon-cross"></i></div>
+
+				<div class="modal__header-cover modal__header-cover--dark mobile-only"></div>
 
 				<div class="modal__title-slider swiper">
 					<div class="swiper-wrapper">
@@ -740,6 +747,7 @@ get_template_part('parts/header');
 					</div>
 				</form>
 			
+				<div class="modal__footer-clone mobile-only"></div>
 				
 			</div>
 		</div>
@@ -749,6 +757,7 @@ get_template_part('parts/header');
 			<div class="modal__content">
 				<div class="modal__close-button"><i class="icon-cross"></i></div>
 
+				<div class="modal__header-cover modal__header-cover--light mobile-only"></div>
 
 				<p class="modal__title modal__title--bold">
 					<span>
@@ -759,6 +768,8 @@ get_template_part('parts/header');
 					Я лично или один из специалистов нашей компании свяжется с вами в течение 24 часов
 				</p>
 
+				<div class="modal-line mobile-only"></div>
+
 				<div class="modal__confirm-content confirm-content">
 					<p class="confirm-content__text">
 						Мы создали источник знаний для предпринимателей, маркетологов и первых лиц компаний
@@ -766,11 +777,19 @@ get_template_part('parts/header');
 						Если вы еще не с нами, поспешите присоединиться к закрытым материалам — видео, инструкции, статьи, закрытые онлайн мастер-классы, чат предпринимателей-единомышленников
 					</p>
 
-					<div class="confirm-content__video-player">
-						<a class="video-button" href="#">
-							<span></span>
-							<i class="icon-play"></i>
-						</a>
+					<div class="confirm-content__video-player video-player">
+						<div class="video-player__container">
+							<div class="video-player__back-image">
+								<img src="media/img/main.png" alt="" loading="lazy">
+							</div>
+							<div class="video-player__wrapper">
+								<p class="video-player__info">60 секунд о том, что внутри</p>
+								<a class="video-player__play-button" href="#">
+									<span></span>
+									<i class="icon-play"></i>
+								</a>
+							</div>
+						</div>
 					</div>
 
 	
@@ -785,6 +804,7 @@ get_template_part('parts/header');
 					</a>
 				</div>
 
+				<div class="modal__footer-clone mobile-only"></div>
 
 			</div>
 		</div>
@@ -793,6 +813,8 @@ get_template_part('parts/header');
 		<div class="modal__wrapper">
 			<div class="modal__content">
 				<div class="modal__close-button"><i class="icon-cross"></i></div>
+
+				<div class="modal__header-cover modal__header-cover--light mobile-only"></div>
 
 				<p class="modal__title modal__title--bold">
 					<span>
@@ -893,6 +915,7 @@ get_template_part('parts/header');
 
 				</div>
 
+				<div class="modal__footer-clone mobile-only"></div>
 			</div>
 		</div>
 	</div>
@@ -900,6 +923,8 @@ get_template_part('parts/header');
 		<div class="modal__wrapper">
 			<div class="modal__content">
 				<div class="modal__close-button"><i class="icon-cross"></i></div>
+
+				<div class="modal__header-cover modal__header-cover--light mobile-only"></div>
 
 				<p class="modal__title modal__title--bold">
 					<span>
@@ -990,6 +1015,7 @@ get_template_part('parts/header');
 
 				</div>
 
+				<div class="modal__footer-clone mobile-only"></div>
 			</div>
 		</div>
 	</div>
@@ -1061,6 +1087,7 @@ get_template_part('parts/header');
 
 				</div>
 
+				<div class="modal__footer-clone mobile-only"></div>
 			</div>
 		</div>
 	</div>
@@ -1108,54 +1135,53 @@ get_template_part('parts/header');
 		<a class="footer__policy" href="#">Safety policy</a>
 
 	</div>
-	
-	
-		<div id="light-build-notification" class="scroll-lock-item-m">L</div>
-		<style>
-			#light-build-notification {
-				position: fixed;
-				bottom: 0;
-				right: 0;
-				z-index: 9999;
-				width: calc(4vh + 3vw);
-				height: calc(4vh + 3vw);
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				font-family: Georgia;
-				font-weight: bold;
-				font-size: calc(3vh + 1.5vw);
-				color: #0e2dda;
-				background-color: #48f979;
-				border: solid 0.5vh #ff3535;
-				border-radius: 50%;
-				cursor: pointer;
-			}
-			.lbn-left {
-				left: 0;
-				right: auto;
-			}
-		</style>
-		<script>
-			let lbn_elem = document.querySelector('#light-build-notification');
-			lbn_elem.addEventListener('click', function() {
-				let side = 'left';
-				if (this.classList.contains('lbn-left')) side = 'right';
-				this.classList.toggle('lbn-left');
-				let d = new Date();
-				d.setTime(d.getTime() + (10*24*60*60*1000));
-				document.cookie = `__light-build-notification=${side}; path=/; expires=${d.toUTCString()}`;
-			})
-			let lbn_cookie = decodeURIComponent(document.cookie).split('; '), lbn_cookieObj = {};
-			for (let i = 0; i < lbn_cookie.length; i++) {
-				let split = lbn_cookie[i].split('=');
-				lbn_cookieObj[split[0]] = split[1];
-			}
-			lbn_cookie = lbn_cookieObj['__light-build-notification'];
-			if (lbn_cookie && lbn_cookie == 'left') lbn_elem.classList.add('lbn-left');
-		</script>
-	
 </footer>
+
+
+	<div id="light-build-notification" class="scroll-lock-item-m">L</div>
+	<style>
+		#light-build-notification {
+			position: fixed;
+			bottom: 0;
+			right: 0;
+			z-index: 9999;
+			width: calc(4vh + 3vw);
+			height: calc(4vh + 3vw);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-family: Georgia;
+			font-weight: bold;
+			font-size: calc(3vh + 1.5vw);
+			color: #0e2dda;
+			background-color: #48f979;
+			border: solid 0.5vh #ff3535;
+			border-radius: 50%;
+			cursor: pointer;
+		}
+		.lbn-left {
+			left: 0;
+			right: auto;
+		}
+	</style>
+	<script>
+		let lbn_elem = document.querySelector('#light-build-notification');
+		lbn_elem.addEventListener('click', function() {
+			let side = 'left';
+			if (this.classList.contains('lbn-left')) side = 'right';
+			this.classList.toggle('lbn-left');
+			let d = new Date();
+			d.setTime(d.getTime() + (10*24*60*60*1000));
+			document.cookie = `__light-build-notification=${side}; path=/; expires=${d.toUTCString()}`;
+		})
+		let lbn_cookie = decodeURIComponent(document.cookie).split('; '), lbn_cookieObj = {};
+		for (let i = 0; i < lbn_cookie.length; i++) {
+			let split = lbn_cookie[i].split('=');
+			lbn_cookieObj[split[0]] = split[1];
+		}
+		lbn_cookie = lbn_cookieObj['__light-build-notification'];
+		if (lbn_cookie && lbn_cookie == 'left') lbn_elem.classList.add('lbn-left');
+	</script>
 
 
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>

@@ -104,7 +104,8 @@ const header = {
 			this.root = that;
 			this.timeout = timeout;
 			this.menuElem = this.root.headerElem.querySelector(names.menu);
-			this.buttons = this.root.headerElem.querySelectorAll(`${names.menuOpenBtn}, ${names.menuCloseBtn}, ${names.menuArea}`);
+			this.toggleButtons = this.root.headerElem.querySelectorAll(`${names.menuOpenBtn}`);
+			this.closeButtons = this.root.headerElem.querySelectorAll(`${names.menuCloseBtn}, ${names.menuArea}`);
 			let newMenu = this.menuElem.querySelector(names.menuItems);
 
 			// headerMenuOptions handler
@@ -133,35 +134,49 @@ const header = {
 				headerMenuOptionsElem.parentElement.removeChild(headerMenuOptionsElem);
 			}
 
-			for (let i = 0; i < this.buttons.length; i++) {
-				this.buttons[i].addEventListener('click', this.toggle.bind(this));
+			for (let i = 0; i < this.toggleButtons.length; i++) {
+				this.toggleButtons[i].addEventListener('click', this.toggle.bind(this));
+			}
+			for (let i = 0; i < this.closeButtons.length; i++) {
+				this.closeButtons[i].addEventListener('click', this.close.bind(this));
 			}
 		},
 		toggle: function(e) {
 			if (!this.isLoaded) return;
-			if (this.root.refs.translock.check(this.timeout)) return;
-			
-			if (this.menuElem.classList.contains('_active')) {
-				this.menuElem.classList.remove('_active');
-				this.root.headerElem.classList.remove('_active');
-				for (let i = 0; i < this.buttons.length; i++) {
-					this.buttons[i].classList.remove('_active');
-				}
-				this.root.refs.scrlock.unlock(this.timeout);
-				this.root.submenu.closeAll(); // submenu reference
-			}
-			else {
-				if (e) {
-					this.menuElem.classList.add('_active');
-					this.root.headerElem.classList.add('_active');
-					for (let i = 0; i < this.buttons.length; i++) {
-						this.buttons[i].classList.add('_active');
-					}
-					this.root.refs.scrlock.lock();
-					this.root.hidingHeader.scroll(0, true); // hidingHeader reference
-				}
-			}
+			if (this.menuElem.classList.contains('_active')) this.close();
+			else if (e) this.open();
 		},
+		open: function() {
+			if (!this.isLoaded) return;
+			if (this.root.refs.translock.check(this.timeout)) return;
+
+			this.menuElem.classList.add('_active');
+			this.root.headerElem.classList.add('_active');
+			for (let i = 0; i < this.toggleButtons.length; i++) {
+				this.toggleButtons[i].classList.add('_active');
+			}
+			for (let i = 0; i < this.closeButtons.length; i++) {
+				this.closeButtons[i].classList.add('_active');
+			}
+			this.root.refs.scrlock.lock();
+			this.root.hidingHeader.scroll(0, true); // hidingHeader reference
+		},
+		close: function() {
+			if (!this.isLoaded) return;
+			if (this.root.refs.translock.check(this.timeout)) return;
+
+			this.menuElem.classList.remove('_active');
+			this.root.headerElem.classList.remove('_active');
+			for (let i = 0; i < this.toggleButtons.length; i++) {
+				this.toggleButtons[i].classList.remove('_active');
+			}
+			for (let i = 0; i < this.closeButtons.length; i++) {
+				this.closeButtons[i].classList.remove('_active');
+			}
+			this.root.refs.scrlock.unlock(this.timeout);
+			this.root.submenu.closeAll(); // submenu reference
+		},
+
 		hideOnViewChange: function() {
 			// this func prevents menu blinking on mobile view switch
 			if (this.isLoaded) {

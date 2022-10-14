@@ -19,20 +19,20 @@
 // .g-button, .g-button:visited {}
 // .g-link, .g-link:visited {}
 
-.rounded-button, .rounded-button:visited {
-	display: inline-block;
-	width: 260px;
-	height: 50px;
-	line-height: 50px;
-	border-radius: 55px;
-	text-align: center;
-	text-transform: uppercase;
-	font-weight: 700;
-	font-size: 10px;
-	letter-spacing: 0.25em;
-	color: $color02;
-	background-color: $color03;
-}
+// .rounded-button, .rounded-button:visited {
+// 	display: inline-block;
+// 	width: 260px;
+// 	height: 50px;
+// 	line-height: 50px;
+// 	border-radius: 55px;
+// 	text-align: center;
+// 	text-transform: uppercase;
+// 	font-weight: 700;
+// 	font-size: 10px;
+// 	letter-spacing: 0.25em;
+// 	color: $color02;
+// 	background-color: $color03;
+// }
 
 .text-button-simple {
 	display: inline-flex;
@@ -109,26 +109,30 @@
 		border: solid 1px $color03;
 		// transition: color $timer-hover;
 	}
-	&:hover {
-		background-color: $color03;
-	}
 	&:hover &__text span:before {
 		background-color: $color02;
 	}
-	&:hover &__arrow {
-		background-color: $color03;
-		color: $color02;
+	@media (min-width: $media-modal+1+px) {
+		&:hover {
+			background-color: $color03;
+		}
+		&:hover &__arrow {
+			background-color: $color03;
+			color: $color02;
+		}
 	}
 	@media (max-width: $media-modal+px) {
 		display: flex;
 		// width: calc(100% - 60px);
 		width: 100%;
+		max-width: 260px;
 		height: 50px;
 		border-radius: 45px;
+		margin-left: auto;
+		margin-right: auto;
 		&__text {
 			border-radius: 45px;
-			padding: 0 6px;
-			margin-right: 11px;
+			// padding: 0 6px;
 			span {
 				// font-weight: 500;
 				font-size: 10px;
@@ -140,6 +144,7 @@
 		&__arrow {
 			width: 50px;
 			height: 50px;
+			margin-left: 11px;
 			border-radius: 50%;
 			i:before {
 				font-size: 9px;
@@ -193,46 +198,6 @@
 	overflow: hidden;
 }
 #svg-play-button-shape {transform: scale(0.003893, 0.00572);}
-
-.video-button {
-	// font-size: 16px;
-	display: inline-flex;
-	justify-content: center;
-	align-items: center;
-	width: em(132);
-	height: em(90);
-	position: relative;
-	span {
-		position: absolute;
-		top: 0;
-		left: 0;
-		z-index: -1;
-		display: inline-block;
-		width: 100%;
-		height: 100%;
-		background: $gradient-2;
-		clip-path: url("#svg-play-button-shape");
-		&:before {
-			content: '';
-			position: absolute;
-			top: 0;
-			left: 0;
-			display: inline-block;
-			width: 100%;
-			height: 100%;
-			background-color: transparent;
-			transition: background-color $timer-hover;
-		}
-	}
-	i:before {
-		margin-left: 0.2em;
-		font-size: 2.5em;
-		color: $color02;
-	}
-	&:hover span:before {
-		background-color: $color03;
-	}
-}
 
 .socials {
 	display: flex;
@@ -357,11 +322,11 @@ i {
 
 .mobile-only {
 	@media (min-width: $mobile+1+px) {
-		display: none;
+		display: none !important;
 	}
 }
 .desktop-only {
 	@media (max-width: $mobile+px) {
-		display: none;
+		display: none !important;
 	}
 }

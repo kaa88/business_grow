@@ -297,7 +297,8 @@ const header = {
 			this.root = that;
 			this.timeout = timeout;
 			this.menuElem = this.root.headerElem.querySelector(names.menu);
-			this.buttons = this.root.headerElem.querySelectorAll(`${names.menuOpenBtn}, ${names.menuCloseBtn}, ${names.menuArea}`);
+			this.toggleButtons = this.root.headerElem.querySelectorAll(`${names.menuOpenBtn}`);
+			this.closeButtons = this.root.headerElem.querySelectorAll(`${names.menuCloseBtn}, ${names.menuArea}`);
 			let newMenu = this.menuElem.querySelector(names.menuItems);
 
 			// headerMenuOptions handler
@@ -326,35 +327,49 @@ const header = {
 				headerMenuOptionsElem.parentElement.removeChild(headerMenuOptionsElem);
 			}
 
-			for (let i = 0; i < this.buttons.length; i++) {
-				this.buttons[i].addEventListener('click', this.toggle.bind(this));
+			for (let i = 0; i < this.toggleButtons.length; i++) {
+				this.toggleButtons[i].addEventListener('click', this.toggle.bind(this));
+			}
+			for (let i = 0; i < this.closeButtons.length; i++) {
+				this.closeButtons[i].addEventListener('click', this.close.bind(this));
 			}
 		},
 		toggle: function(e) {
 			if (!this.isLoaded) return;
-			if (this.root.refs.translock.check(this.timeout)) return;
-			
-			if (this.menuElem.classList.contains('_active')) {
-				this.menuElem.classList.remove('_active');
-				this.root.headerElem.classList.remove('_active');
-				for (let i = 0; i < this.buttons.length; i++) {
-					this.buttons[i].classList.remove('_active');
-				}
-				this.root.refs.scrlock.unlock(this.timeout);
-				this.root.submenu.closeAll(); // submenu reference
-			}
-			else {
-				if (e) {
-					this.menuElem.classList.add('_active');
-					this.root.headerElem.classList.add('_active');
-					for (let i = 0; i < this.buttons.length; i++) {
-						this.buttons[i].classList.add('_active');
-					}
-					this.root.refs.scrlock.lock();
-					this.root.hidingHeader.scroll(0, true); // hidingHeader reference
-				}
-			}
+			if (this.menuElem.classList.contains('_active')) this.close();
+			else if (e) this.open();
 		},
+		open: function() {
+			if (!this.isLoaded) return;
+			if (this.root.refs.translock.check(this.timeout)) return;
+
+			this.menuElem.classList.add('_active');
+			this.root.headerElem.classList.add('_active');
+			for (let i = 0; i < this.toggleButtons.length; i++) {
+				this.toggleButtons[i].classList.add('_active');
+			}
+			for (let i = 0; i < this.closeButtons.length; i++) {
+				this.closeButtons[i].classList.add('_active');
+			}
+			this.root.refs.scrlock.lock();
+			this.root.hidingHeader.scroll(0, true); // hidingHeader reference
+		},
+		close: function() {
+			if (!this.isLoaded) return;
+			if (this.root.refs.translock.check(this.timeout)) return;
+
+			this.menuElem.classList.remove('_active');
+			this.root.headerElem.classList.remove('_active');
+			for (let i = 0; i < this.toggleButtons.length; i++) {
+				this.toggleButtons[i].classList.remove('_active');
+			}
+			for (let i = 0; i < this.closeButtons.length; i++) {
+				this.closeButtons[i].classList.remove('_active');
+			}
+			this.root.refs.scrlock.unlock(this.timeout);
+			this.root.submenu.closeAll(); // submenu reference
+		},
+
 		hideOnViewChange: function() {
 			// this func prevents menu blinking on mobile view switch
 			if (this.isLoaded) {
@@ -553,6 +568,8 @@ const footer = {
 }
 footer.init()
 
+// console.log(document.querySelector('.header').offsetHeight + ' ' + document.querySelector('.main').offsetHeight + ' ' + document.querySelector('.footer').offsetHeight + ' ' + document.body.offsetHeight)
+
 //////////////////////////////////////////////////
 
 // Modal window //
@@ -564,6 +581,7 @@ footer.init()
 	- linkName - modal link name (default = 'modal-link')
 	- closeOldIfNew - close previous opened window if new one is opened (default = false)
 	- on: {'modal-window': {open, close}} - event function(event, content, timeout){}
+		'modal-window' name can be 'any' - trigger on any window
 
 	On-func example:
 	modal.init({
@@ -633,45 +651,47 @@ const modal = {
 		let currentModal = this.elem.querySelector(e.currentTarget.getAttribute('href'));
 		currentModal.classList.add('_open');
 		currentModal.style.zIndex = this.cssZindex++;
+
+		let onFuncContent = currentModal.querySelector('.' + this.elemName + '__content > *:not(.' + this.elemName + '__close-button)');
 		if (this.on[currentModal.id] && this.on[currentModal.id].open)
-			this.on[currentModal.id].open(
-				e, 
-				currentModal.querySelector('.' + this.elemName + '__content > *:not(.' + this.elemName + '__close-button)'),
-				this.timeout
-		);
+			this.on[currentModal.id].open(e, onFuncContent, this.timeout);
+		if (this.on['any'] && this.on['any'].open)
+			this.on['any'].open(e, onFuncContent, this.timeout);
+
 		modal.check();
 	},
 	closeThis: function(e, elemToClose){
 		if (!elemToClose && this.refs.translock.check(this.timeout)) return;
 		let currentModal = elemToClose ? elemToClose : e.target.closest('.' + this.elemName + '__window');
 		currentModal.classList.remove('_open');
-		// let that = this;
-		// setTimeout(() => {that.windows[i].style.zIndex = '';}, that.timeout);
+		let onFuncContent = currentModal.querySelector('.' + this.elemName + '__content > *:not(.' + this.elemName + '__close-button)');
 		if (this.on[currentModal.id] && this.on[currentModal.id].close)
-			this.on[currentModal.id].close(
-				e, 
-				currentModal.querySelector('.' + this.elemName + '__content > *:not(.' + this.elemName + '__close-button)'),
-				this.timeout
-			);
+			this.on[currentModal.id].close(e, onFuncContent, this.timeout);
+		if (this.on['any'] && this.on['any'].close)
+			this.on['any'].close(e, onFuncContent, this.timeout);
+
 		if (!elemToClose) modal.check();
 	},
-	closeAll: function(){
-		if (this.refs.translock.check(this.timeout)) return;
+	closeAll: function(noScrollLock){
+		if (!noScrollLock && this.refs.translock.check(this.timeout)) return;
 		for (let i = 0; i < this.windows.length; i++) {
 			if (this.windows[i].classList.contains('_open')) {
 				this.windows[i].classList.remove('_open');
-				// let that = this;
-				// setTimeout(() => {that.windows[i].style.zIndex = '';}, that.timeout);
 				if (this.on[this.windows[i].id] && this.on[this.windows[i].id].close)
 					this.on[this.windows[i].id].close(0,0,this.timeout);
 			}
 		}
+		if (this.on['any'] && this.on['any'].close)
+			this.on['any'].close(0,0,this.timeout);
 		modal.check();
 	},
 	check: function(){
-		let openedWindows = 0;
+		let openedWindows = false;
 		for (let i = 0; i < this.windows.length; i++) {
-			if (this.windows[i].classList.contains('_open')) openedWindows++;
+			if (this.windows[i].classList.contains('_open')) {
+				openedWindows = true;
+				break;
+			}
 		}
 		if (openedWindows) {
 			this.elem.classList.add('_visible');
@@ -684,8 +704,48 @@ const modal = {
 		}
 	}
 }
+
+// modal closing with header menu button
+let headerMenuCloseButton = document.querySelector('.header-menu-close-btn');
+headerMenuCloseButton.addEventListener('click', function() {
+	modal.closeAll(true);
+})
+//
+
 modal.init({
-	closeOldIfNew: true
+	closeOldIfNew: true,
+	on: {
+		'any': {
+			open: function(event, content, timeout) {
+				let header = document.body.querySelector('.header');
+				header.classList.add('_active-modal-z');
+
+				if (content.className.match(/--light/)) header.classList.add('_active-modal-light');
+				else header.classList.add('_active-modal-dark');
+				
+				headerMenuCloseButton.classList.add('_active');
+				let footerCloneContainers = document.body.querySelectorAll('.modal__footer-clone');
+				for (let i = 0; i < footerCloneContainers.length; i++) {
+					footerCloneContainers[i].innerHTML = document.body.querySelector('.footer').outerHTML;
+				}
+			},
+			close: function(event, content, timeout) {
+				let header = document.body.querySelector('.header');
+				header.classList.remove('_active-modal-light');
+				header.classList.remove('_active-modal-dark');
+				let openedWindows = false;
+				for (let i = 0; i < modal.windows.length; i++) {
+					if (modal.windows[i].classList.contains('_open')) {
+						openedWindows = true;
+						break;
+					}
+				}
+				if (!openedWindows) {
+					setTimeout(()=>{header.classList.remove('_active-modal-z')}, timeout);
+				}
+			},
+		},
+	}
 })
 
 //////////////////////////////////////////////////
@@ -910,8 +970,20 @@ if (typeof Swiper !== 'undefined') {
 
 // Swiper no-internet version
 else {
-	let swipersSpaceBetween = 30;
-	console.log('Swiper reserve "non-internet" code included!');
+	swipers.settings = {
+		spaceBetween: 30,
+		overflowHidden: true
+	}
+	/* 
+	Non-internet Swiper script. 
+	It provides basic Swiper functions (sliding) and styles.
+	Settings:
+	- spaceBetween,
+	- overflowHidden.
+	Only for developers use! Make sure to delete this script from final version.
+*/
+
+console.log('Swiper reserve "non-internet" script included!');
 
 addSwiperReserveMovingScript = function(elem) {
 	elem.children[0].classList.add('active-slide');
@@ -935,7 +1007,7 @@ addSwiperReserveMovingScript = function(elem) {
 			activeSlide++;
 		}
 		this.children[activeSlide].classList.add('active-slide');
-		this.style.left = 'calc(' + activeSlide * -100 + '% - ' + swipers.spaceBetween * activeSlide + 'px';
+		this.style.left = 'calc(' + activeSlide * -100 + '% - ' + swipers.settings.spaceBetween * activeSlide + 'px';
 	}
 
 	elem.slidePrev = function() {
@@ -947,20 +1019,19 @@ addSwiperReserveMovingScript = function(elem) {
 }
 
 for (let swiperElem in swipers) {
+	if (swiperElem == 'settings') continue;
 	let newSwiperSelector = swipers[swiperElem] + ' .swiper-wrapper';
 	swipers[swiperElem] = document.querySelector(newSwiperSelector);
 	addSwiperReserveMovingScript(swipers[swiperElem]);
 }
 
-swipers.spaceBetween = swipersSpaceBetween;
-
 let swiperReserveStyles = document.createElement('style');
 document.head.appendChild(swiperReserveStyles);
 swiperReserveStyles.innerHTML =
-	'.swiper {width: 100%; position: relative;}' +
+	'.swiper {width: 100%; position: relative;' + (swipers.settings.overflowHidden ? ' overflow: hidden;' : '') + '}' +
 	'.swiper-wrapper {position: relative; top: 0; left: 0%; display: flex; transition: left .5s;}' +
 	'.swiper-slide {flex: 0 0 100%;}' +
-	'.swiper-slide:not(:first-child) {margin-left: ' + swipers.spaceBetween + 'px;}}';
+	'.swiper-slide:not(:first-child) {margin-left: ' + swipers.settings.spaceBetween + 'px;}}';
 }
 
 

@@ -17,9 +17,6 @@
 	transition: background-color $timer-menu;
 	@media (max-width: $media-header+px) {
 		padding: 28px 0 22px 15px;
-		.homepage-body & {
-			background-image: linear-gradient(to top, transparent, $color03);
-		}
 	}
 	.homepage-body & {
 		max-width: 1920px;
@@ -28,18 +25,43 @@
 	&._active {
 		background-color: $color03;
 	}
+	&._active-modal-z { // class for modals on mobile screens
+		@media (max-width: $mobile+px) {
+			z-index: 899;
+		}
+	}
 	&__print-address, &__print-address-qr {display: none;} //REQ!
+	&__bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		width: 100%;
+		height: 100%;
+		opacity: 1;
+		transition: opacity $timer-modal;
+		@media (max-width: $media-header+px) {
+			.homepage-body & {
+				background-image: linear-gradient(to top, transparent, $color03);
+			}
+			._active-modal-light & {//, ._active-modal-dark & {
+				opacity: 0;
+			}
+		}
+	}
 }
 
 .header-menu-turn-off-area {
 	position: fixed; //REQ!
-	top: calc(var(--header-height) + var(--header-position)); //REQ!
+	// top: calc(var(--header-height) + var(--header-position)); //REQ!
+	top: 0;
 	left: 0; //REQ!
 	z-index: -1; //REQ!
 	width: 100vw; //REQ!
-	height: calc(100vh - var(--header-height) - var(--header-position)); //REQ!
+	// height: calc(100vh - var(--header-height) - var(--header-position)); //REQ!
+	height: 100vh;
 	background-color: rgba(51, 51, 51, 0.7);
-	backdrop-filter: blur(2px);
+	// backdrop-filter: blur(2px);
 	cursor: pointer;
 	opacity: 0; //REQ!
 	visibility: hidden; //REQ!
@@ -60,11 +82,16 @@
 	cursor: pointer; //REQ!
 	user-select: none; //REQ!
 	position: relative;
+	// transition: all;
 	@media (min-width: $media-header+1+px) {
 		display: none; //REQ!
 	}
 	.homepage-body & {
 		color: $color02;
+	}
+	&._hidden { // for modal
+		opacity: 0;
+		visibility: hidden;
 	}
 }
 .header-menu-close-btn {
@@ -85,9 +112,17 @@
 	visibility: hidden;
 	opacity: 0;
 	transition: visibility $timer-menu, opacity $timer-menu;
-	.header._active & {
+	i:before {
+		font-size: 13px;
+		margin-right: 1px;
+	}
+	&._active {
 		visibility: visible;
 		opacity: 1;
+	}
+	._active-modal-light & {
+		background-color: $color07;
+		color: $color06;
 	}
 	@media (min-width: $media-header+1+px) {
 		display: none; //REQ!
@@ -196,6 +231,9 @@
 		}
 	}
 	&__logo {
+		@media (max-width: $media-header+px) {
+			margin-left: 8px;
+		}
 	}
 	&__header-menu {
 	}
@@ -229,6 +267,12 @@
 			.homepage-body & {
 				color: $color02;
 			}
+			// .header._active-modal-dark & {
+			// 	color: $color02;
+			// }
+			.header._active-modal-light & {
+				color: $color03;
+			}	
 		}
 	}
 	&__text-colored {
@@ -239,6 +283,17 @@
 		background: $gradient-2;
 		background-clip: text;
 		color: transparent;
+		transition: color $timer-menu;
+		@media (max-width: $media-header+px) {
+			background: none;
+			color: $color02;
+			// .header._active &, .header._active-modal-dark & {
+			// 	color: $color02;
+			// }	
+			.header._active-modal-light & {
+				color: $color03;
+			}	
+		}
 	}
 	&__bottom-text {
 		position: absolute;
@@ -256,6 +311,9 @@
 			.homepage-body & {
 				color: $color02;
 			}
+			.header._active-modal-light & {
+				color: $color03;
+			}	
 		}
 	}
 	// &__up {
@@ -307,13 +365,22 @@
 		}
 	}
 	&__line {
+		--line-color: #{$color05};
 		position: absolute;
 		bottom: em(3.3);
 		right: em(-10);
 		display: inline-block;
 		width: em(2);
 		height: em(41.2);
-		background-image: linear-gradient(to bottom, $color05 em(2), transparent em(2), transparent em(4), $color05 em(4), $color05 em(6), transparent em(6), transparent em(8), $color05 em(8), $color05 em(10), transparent em(10), transparent em(12), $color05 em(12), $color05 em(14), transparent em(14), transparent em(16), $color05 em(16));
+		background-image: linear-gradient(to bottom, var(--line-color) em(2), transparent em(2), transparent em(4), var(--line-color) em(4), var(--line-color) em(6), transparent em(6), transparent em(8), var(--line-color) em(8), var(--line-color) em(10), transparent em(10), transparent em(12), var(--line-color) em(12), var(--line-color) em(14), transparent em(14), transparent em(16), var(--line-color) em(16));
+		// opacity: 1;
+		// transition: opacity $timer-modal;
+		@media (max-width: $media-header+px) {
+			--line-color: #{$color08};
+			// .header._active-modal-light & {
+			// 	opacity: 0;
+			// }	
+		}
 	}
 }
 

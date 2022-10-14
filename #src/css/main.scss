@@ -9,7 +9,9 @@ body {
 	color: $color03;
 	background-color: $color02;
 	// overflow: hidden;
-	&._locked {overflow: hidden;} //REQ!
+	// @media (min-width: $mobile+1+px) {
+		&._locked {overflow: hidden;} //REQ!
+	// }
 	
 	@media (max-width: $desktop+px) and (min-width: $mobile+1+px) {
 		font-size: resize-multiplier(16, $desktop, 1);
@@ -169,11 +171,14 @@ body {
 	&__text-button-with-arrow {
 		margin-top: em(50);//90px;
 		@media (max-width: $mobile+px) {
-			display: none;
+			// display: none;
+			.text-button-with-arrow__arrow {
+				display: none;
+			}
 		}
 	}
 	&__rounded-button {
-		@media (max-width: $mobile-s+px) {
+		@media (max-width: $mobile+px) {
 			margin: 0 auto;
 		}
 	}

@@ -31,6 +31,9 @@
 			opacity: 0;
 			transition: all $timer-hover;
 		}
+		@media (max-width: $media-modal+px) {
+			font-size: 12px;
+		}
 	}
 	.label-text {
 		margin-left: em(25);
@@ -40,6 +43,10 @@
 		letter-spacing: 0.05em;
 		* {
 			display: block;
+		}
+		@media (max-width: $media-modal+px) {
+			font-size: 6px;
+			line-height: 1.33;
 		}
 	}
 	.policy-link {
