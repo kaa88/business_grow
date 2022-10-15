@@ -712,27 +712,32 @@ headerMenuCloseButton.addEventListener('click', function() {
 })
 //
 
+// clone footer to modal window to provide scrolling
+let footerCloneContainers = document.body.querySelectorAll('.modal__footer-clone');
+for (let i = 0; i < footerCloneContainers.length; i++) {
+	footerCloneContainers[i].innerHTML = document.body.querySelector('.footer').outerHTML;
+}
+//
+
 modal.init({
 	closeOldIfNew: true,
 	on: {
 		'any': {
 			open: function(event, content, timeout) {
-				let header = document.body.querySelector('.header');
-				header.classList.add('_active-modal-z');
+				// let header = document.body.querySelector('.header');
+				header.headerElem.classList.add('_active-modal-z');
 
-				if (content.className.match(/--light/)) header.classList.add('_active-modal-light');
-				else header.classList.add('_active-modal-dark');
+				if (content.className.match(/--light/)) header.headerElem.classList.add('_active-modal-light');
+				if (content.className.match(/--dark/)) header.headerElem.classList.add('_active-modal-dark');
 				
 				headerMenuCloseButton.classList.add('_active');
-				let footerCloneContainers = document.body.querySelectorAll('.modal__footer-clone');
-				for (let i = 0; i < footerCloneContainers.length; i++) {
-					footerCloneContainers[i].innerHTML = document.body.querySelector('.footer').outerHTML;
-				}
 			},
 			close: function(event, content, timeout) {
-				let header = document.body.querySelector('.header');
-				header.classList.remove('_active-modal-light');
-				header.classList.remove('_active-modal-dark');
+				// let header = document.body.querySelector('.header');
+				header.headerElem.classList.remove('_active-modal-light');
+				header.headerElem.classList.remove('_active-modal-dark');
+				header.headerElem.classList.remove('_active-modal-transform'); //?
+				headerMenuCloseButton.classList.remove('_active');
 				let openedWindows = false;
 				for (let i = 0; i < modal.windows.length; i++) {
 					if (modal.windows[i].classList.contains('_open')) {
@@ -741,10 +746,17 @@ modal.init({
 					}
 				}
 				if (!openedWindows) {
-					setTimeout(()=>{header.classList.remove('_active-modal-z')}, timeout);
+					setTimeout(()=>{header.headerElem.classList.remove('_active-modal-z')}, timeout);
 				}
 			},
 		},
+		'modal-call': {
+			close: function(event, content, timeout) {
+				setTimeout(() => {
+					swipers.modal_call.slidePrev();
+				}, timeout);
+			}
+		}
 	}
 })
 
@@ -940,7 +952,13 @@ const select_consult_activity = new Select({
 const swipers = {
 	features: '.features-slider',
 	consult_top: '.modal__title-slider',
-	consult_bot: '.consult-form__slider'
+	consult_bot: '.consult-form__slider',
+	modal_call: '.modal__call-slider',
+	modal_msg: '.modal__msg-slider',
+	settings: {
+		speed: 500,
+		spaceBetween: 30,
+	}
 };
 
 if (typeof Swiper !== 'undefined') {
@@ -954,17 +972,28 @@ if (typeof Swiper !== 'undefined') {
 	})
 	swipers.new = swipers.consult_top;
 	swipers.consult_top = new Swiper(swipers.new, {
-		speed: 500,
-		spaceBetween: 30,
+		speed: swipers.settings.speed,
+		spaceBetween: swipers.settings.spaceBetween,
 		allowTouchMove: false
 	})
 	swipers.new = swipers.consult_bot;
 	swipers.consult_bot = new Swiper(swipers.new, {
-		speed: 500,
-		spaceBetween: 30,
+		speed: swipers.settings.speed,
+		spaceBetween: swipers.settings.spaceBetween,
 		allowTouchMove: false
 	})
-
+	swipers.new = swipers.modal_call;
+	swipers.modal_call = new Swiper(swipers.new, {
+		speed: swipers.settings.speed,
+		spaceBetween: swipers.settings.spaceBetween,
+		allowTouchMove: false
+	})
+	swipers.new = swipers.modal_msg;
+	swipers.modal_msg = new Swiper(swipers.new, {
+		speed: swipers.settings.speed,
+		spaceBetween: swipers.settings.spaceBetween,
+		allowTouchMove: false
+	})
 }
 
 
@@ -1047,28 +1076,54 @@ let modalProgressBar = {
 modalProgressBar.expand();
 
 
-swipers.slideButtons = document.querySelectorAll('.swiper-slide-button');
-for (let i = 0; i < swipers.slideButtons.length; i++) {
-	swipers.slideButtons[i].addEventListener('click', function(e) {
+swipers.consultSlideButtons = document.querySelectorAll('.swiper-slide-button');
+for (let i = 0; i < swipers.consultSlideButtons.length; i++) {
+	swipers.consultSlideButtons[i].addEventListener('click', function(e) {
 		e.preventDefault();
-		if (transitionLock.check( 500 )) return;
+		if (transitionLock.check( swipers.settings.speed )) return;
 		swipers.consult_top.slideNext();
 		swipers.consult_bot.slideNext();
 		if (modalProgressBar.i < modalProgressBar.total) modalProgressBar.i++;
 		modalProgressBar.expand();
 	})
 }
-swipers.slideBackButtons = document.querySelectorAll('.slider-back-button');
-for (let i = 0; i < swipers.slideBackButtons.length; i++) {
-	swipers.slideBackButtons[i].addEventListener('click', function(e) {
-		e.preventDefault();
-		if (transitionLock.check( 500 )) return;
-		swipers.consult_top.slidePrev();
-		swipers.consult_bot.slidePrev();
-		if (modalProgressBar.i > 0) modalProgressBar.i--;
-		modalProgressBar.expand();
-	})
-}
+swipers.callSlideButton = document.querySelector('#modal-call .text-button-simple');
+swipers.callSlideButton.addEventListener('click', function(e) {
+
+	// add form-check
+
+	e.preventDefault();
+	if (transitionLock.check( swipers.settings.speed )) return;
+	swipers.modal_call.slideNext();
+
+	header.headerElem.classList.add('_active-modal-transform');
+})
+swipers.msgSlideButton = document.querySelector('#modal-message .text-button-simple');
+swipers.msgSlideButton.addEventListener('click', function(e) {
+
+	// add form-check
+
+	e.preventDefault();
+	if (transitionLock.check( swipers.settings.speed )) return;
+	swipers.modal_msg.slideNext();
+
+	header.headerElem.classList.add('_active-modal-transform');
+})
+
+// console.log(swipers)
+
+// delete the folowing
+// swipers.slideBackButtons = document.querySelectorAll('.slider-back-button');
+// for (let i = 0; i < swipers.slideBackButtons.length; i++) {
+// 	swipers.slideBackButtons[i].addEventListener('click', function(e) {
+// 		e.preventDefault();
+// 		if (transitionLock.check( 500 )) return;
+// 		swipers.consult_top.slidePrev();
+// 		swipers.consult_bot.slidePrev();
+// 		if (modalProgressBar.i > 0) modalProgressBar.i--;
+// 		modalProgressBar.expand();
+// 	})
+// }
 
 //////////////////////////////////////////////////
 
@@ -1141,8 +1196,6 @@ let timeSelect = {
 		for (let i = 0; i <= 59; i += 5) {
 			fillSelector(this, this.selectorM, i);
 		}
-		this.selectTime('init', this.selectorH.children[0]);
-		this.selectTime('init', this.selectorM.children[0]);
 		//
 
 		// Open/close events
@@ -1150,6 +1203,14 @@ let timeSelect = {
 		this.toggleButton.addEventListener('click', this.toggleSelectorBox.bind(this));
 		window.addEventListener('click', this.toggleSelectorBox.bind(this));
 		//
+
+		// Scrolling parameters
+		this.selectorItem = this.selectorH.children[0];
+		this.computeSelectorHeight();
+		window.addEventListener('resize', this.computeSelectorHeight.bind(this));
+		
+		this.selectTime('init', this.selectorH);
+		this.selectTime('init', this.selectorM);
 	},
 
 	getPair: function(item) {
@@ -1182,35 +1243,42 @@ let timeSelect = {
 		if (e.target.value.length == 0) e.target.value = '00';
 		if (e.target.value.length == 1) e.target.value = '0' + e.target.value;
 
-		// Choose & Mark time in Selector
-		let markingTarget, markingSelector = this.getPair(e.target);
-		for (let i = 0; i < markingSelector.children.length; i++) {
-			if (markingSelector.children[i].innerHTML == e.target.value) {
-				markingTarget =  markingSelector.children[i];
-			}
-		}
-		this.selectTime(false, markingTarget);
+		this.selectTime(false, this.getPair(e.target));
 	},
 
-	selectTime: function(e, selectorItem) {
-		if (e) {
-			if (e != 'init') selectorItem = e.target;
-			// fill input
-			let targetInput = this.getPair(selectorItem.parentElement);
-			targetInput.value = selectorItem.innerHTML;
+	selectTime: function(e, selectorEl) { // events: init(1,1), select(1,0), blur(0,1)
+		// fill input on selection
+		if (e && e != 'init') {
+			let targetInput = this.getPair(e.target.parentElement);
+			targetInput.setAttribute('value', e.target.innerHTML);
 		}
+		//
 
 		// mark selector item
-		let selector;
-		if (selectorItem) selector = selectorItem.parentElement;
-		else selector = this.selectorM;
-		for (let i = 0; i < selector.children.length; i++) {
-			selector.children[i].classList.remove('selected');
+		let s = selectorEl ? selectorEl : e.target.parentElement;
+		for (let i = 0; i < s.children.length; i++) {
+			s.children[i].classList.remove('selected');
 		}
-		if (selectorItem) {
-			selectorItem.classList.add('selected');
-			if (!e) selectorItem.scrollIntoView({block: "center"});
+
+		let markingTarget, inputValue, index;
+		if (selectorEl) {
+			inputValue = this.getPair(selectorEl).value;
+			for (let i = 0; i < selectorEl.children.length; i++) {
+				if (selectorEl && selectorEl.children[i].innerHTML == inputValue) {
+					markingTarget = selectorEl.children[i];
+					index = i;
+					break;
+				}
+			}
+			// scroll into view
+			if (markingTarget) markingTarget.parentElement.scrollTop = this.selectorItemHeight * (index - 2);
 		}
+		else markingTarget = e.target;
+		if (markingTarget) markingTarget.classList.add('selected');
+	},
+
+	computeSelectorHeight: function() {
+		this.selectorItemHeight = parseFloat(getComputedStyle(this.selectorItem).height);
 	},
 
 	toggleSelectorBox: function(e) {

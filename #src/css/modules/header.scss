@@ -30,6 +30,12 @@
 			z-index: 899;
 		}
 	}
+	&._active-modal-transform .logo { // class for modals on mobile screens
+		@media (max-width: $mobile+px) {
+			transition: transform $timer-modal;
+			transform: translateX(-320px);
+		}
+	}
 	&__print-address, &__print-address-qr {display: none;} //REQ!
 	&__bg {
 		position: absolute;

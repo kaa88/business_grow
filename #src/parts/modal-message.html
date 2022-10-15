@@ -5,93 +5,129 @@
 
 			<div class="modal__header-cover modal__header-cover--light mobile-only"></div>
 
-			<p class="modal__title modal__title--bold">
-				<span>
-					Введите ваш вопрос в форму или сразу пишите в любой из наших мессенджеров
-				</span>
-			</p>
-			<p class="modal__subtitle">
-				Обычно мы отвечаем в течение 15 минут, но иногда на ответ может потребоваться до 24-х часов
-			</p>
-		
-			<div class="modal__feedback-content feedback-content feedback-content--message">
+			<div class="modal__msg-slider swiper">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
 
-				<div class="feedback-content__main">
+						<p class="modal__title modal__title--bold">
+							<span>
+								Введите ваш вопрос в форму или сразу пишите в любой из наших мессенджеров
+							</span>
+						</p>
+						<p class="modal__subtitle">
+							Обычно мы отвечаем в течение 15 минут, но иногда на ответ может потребоваться до 24-х часов
+						</p>
+					
+						<div class="modal__feedback-content feedback-content feedback-content--message">
 
-					<p class="modal-text">
-						В произвольной форме напишите ваш вопрос, если требуется прикрепите файл
-					</p>
+							<div class="feedback-content__main">
 
-					<div class="feedback-content__textarea">
-						<textarea name="message"></textarea>
-						<div class="feedback-content__attachment-icon" title="Прикрепить файл"><i class="icon-folder"></i></div>
+								<p class="modal-text">
+									В произвольной форме напишите ваш вопрос, если требуется прикрепите файл
+								</p>
+
+								<div class="feedback-content__textarea">
+									<textarea name="message"></textarea>
+									<div class="feedback-content__attachment-icon" title="Прикрепить файл"><i class="icon-folder"></i></div>
+								</div>
+
+								<div class="feedback-content__phone-input phone-input">
+									<p class="phone-input__title">Телефон*</p>
+									<input class="phone-input__input" type="text" placeholder="Номер телефона">
+								</div>
+
+								<div class="feedback-content__phone-input phone-input">
+									<p class="phone-input__title">E-mail*</p>
+									<input class="phone-input__input" type="text" placeholder="E-mail адрес">
+								</div>
+
+								<a class="text-button-simple" href="#">
+									<span class="desktop-only">Получить ответ</span>
+									<span class="mobile-only">Задать вопрос</span>
+								</a>
+							
+							</div>
+
+							<div class="feedback-content__contact-method">
+								<div class="radio">
+									<input type="radio" id="radio-consult-contact-method-3" name="radio-consult-contact-method" value="telegram" checked>
+									<label for="radio-consult-contact-method-3">
+										<span class="label-box label-box--style2">
+											<i class="colored-icon icon-telegram"></i>
+										</span>
+										<span class="label-text">Задать вопрос в Telegram</span>
+									</label>
+									<input type="radio" id="radio-consult-contact-method-1" name="radio-consult-contact-method" value="whatsapp">
+									<label for="radio-consult-contact-method-1">
+										<span class="label-box label-box--style2">
+											<i class="colored-icon icon-whatsapp"></i>
+										</span>
+										<span class="label-text">Задать вопрос в WhatsApp</span>
+									</label>
+									<input type="radio" id="radio-consult-contact-method-2" name="radio-consult-contact-method" value="viber">
+									<label for="radio-consult-contact-method-2">
+										<span class="label-box label-box--style2">
+											<i class="colored-icon icon-viber"></i>
+										</span>
+										<span class="label-text">Задать вопрос в Viber</span>
+									</label>
+									<input type="radio" id="radio-consult-contact-method-4" name="radio-consult-contact-method" value="vk">
+									<label for="radio-consult-contact-method-4">
+										<span class="label-box label-box--style2">
+											<i class="colored-icon icon-vk"></i>
+										</span>
+										<span class="label-text">Задать вопрос в VK</span>
+									</label>
+								</div>
+							</div>
+
+							<div class="feedback-content__bottom">
+								<div class="feedback-content__checkbox checkbox">
+									<input type="checkbox" id="msg-policy-checkbox" name="checked" value="policy-ok" checked>
+									<label for="msg-policy-checkbox">
+										<span class="label-box"><i class="icon-ok"></i></span>
+										<span class="label-text">
+											<span>оставляя свои контактные данные, вы соглашаетесь</span>
+											<a class="policy-link" href="#">с политикой защиты и обработки персональных данных пользователей сайта</a>
+										</span>
+									</label>
+								</div>
+							</div>
+
+						</div>
 					</div>
 
-					<div class="feedback-content__phone-input phone-input">
-						<p class="phone-input__title">Телефон*</p>
-						<input class="phone-input__input" type="text" placeholder="Номер телефона">
-					</div>
+					<div class="swiper-slide">
 
-					<div class="feedback-content__phone-input phone-input">
-						<p class="phone-input__title">E-mail*</p>
-						<input class="phone-input__input" type="text" placeholder="E-mail адрес">
-					</div>
+						<div class="swiper-slide__main">
+							<p class="modal__title modal__title--bold">
+								<span>
+									СПАСИБО ЗА ВАШ ВОПРОС!
+								</span>
+							</p>
+							<p class="modal__subtitle">
+								Обычно мы отвечаем в течение 15 минут, но иногда на ответ может потребоваться больше времени
+							</p>
+						</div>
 
-					<a class="text-button-simple" href="#">
-						<span>
-							Получить ответ
-						</span>
-					</a>
+						<div class="swiper-slide__bottom">
+
+							<p class="modal-text">
+								С уважением<br>к вам и вашему бизнесу
+							</p>
+
+							<div class="modal__logo logo">
+								<a class="logo__link" href="/">
+									<span class="logo__text">Business</span>
+									<span class="logo__text-colored">GROW</span>
+									<span class="logo__up"><i></i></span>
+									<span class="logo__line"></span>
+								</a>
+							</div>
 				
-				</div>
-
-				<div class="feedback-content__contact-method">
-					<div class="radio">
-						<input type="radio" id="radio-consult-contact-method-3" name="radio-consult-contact-method" value="telegram" checked>
-						<label for="radio-consult-contact-method-3">
-							<span class="label-box label-box--style2">
-								<i class="colored-icon icon-telegram"></i>
-							</span>
-							<span class="label-text">Задать вопрос в Telegram</span>
-						</label>
-						<input type="radio" id="radio-consult-contact-method-1" name="radio-consult-contact-method" value="whatsapp">
-						<label for="radio-consult-contact-method-1">
-							<span class="label-box label-box--style2">
-								<i class="colored-icon icon-whatsapp"></i>
-							</span>
-							<span class="label-text">Задать вопрос в WhatsApp</span>
-						</label>
-						<input type="radio" id="radio-consult-contact-method-2" name="radio-consult-contact-method" value="viber">
-						<label for="radio-consult-contact-method-2">
-							<span class="label-box label-box--style2">
-								<i class="colored-icon icon-viber"></i>
-							</span>
-							<span class="label-text">Задать вопрос в Viber</span>
-						</label>
-						<input type="radio" id="radio-consult-contact-method-4" name="radio-consult-contact-method" value="vk">
-						<label for="radio-consult-contact-method-4">
-							<span class="label-box label-box--style2">
-								<i class="colored-icon icon-vk"></i>
-							</span>
-							<span class="label-text">Задать вопрос в VK</span>
-						</label>
+						</div>
 					</div>
 				</div>
-				
-
-				<div class="feedback-content__bottom">
-					<div class="feedback-content__checkbox checkbox">
-						<input type="checkbox" id="msg-policy-checkbox" name="checked" value="policy-ok" checked>
-						<label for="msg-policy-checkbox">
-							<span class="label-box"><i class="icon-ok"></i></span>
-							<span class="label-text">
-								<span>оставляя свои контактные данные, вы соглашаетесь</span>
-								<a class="policy-link" href="#">с политикой защиты и обработки персональных данных пользователей сайта</a>
-							</span>
-						</label>
-					</div>
-				</div>
-
 			</div>
 
 			<div class="modal__footer-clone mobile-only"></div>

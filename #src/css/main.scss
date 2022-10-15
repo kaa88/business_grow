@@ -104,13 +104,15 @@ body {
 	// 	.page-about & {margin-top: 10px;}
 	// }
 	&__container {
-		padding-right: 10px;
 		height: 100%;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-evenly;//space-between;
 		align-items: flex-start;
 		// overflow: hidden;//
+		@media (min-width: $mobile+1+px) {
+			padding-right: 10px;
+		}
 	}
 	&__homepage-title {
 		@media (max-width: $mobile+px) {
@@ -171,7 +173,7 @@ body {
 	&__text-button-with-arrow {
 		margin-top: em(50);//90px;
 		@media (max-width: $mobile+px) {
-			// display: none;
+			margin-top: 0;
 			.text-button-with-arrow__arrow {
 				display: none;
 			}
@@ -372,7 +374,7 @@ body {
 	// background-color: yellow;//
 	// display: none;//
 	left: -30px;
-	width: calc(100% + 40px); // container padding left 30, right 10 = 40
+	width: calc(100% + 60px); // container padding left 30, right 10 = 40
 	padding: 10px 0 15px;
 	.swiper-wrapper {
 		width: 100%;

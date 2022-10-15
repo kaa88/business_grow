@@ -34,8 +34,8 @@
 // 	background-color: $color03;
 // }
 
-.text-button-simple {
-	display: inline-flex;
+.text-button-simple, .text-button-simple:visited {
+	display: flex;
 	justify-content: center;
 	align-items: center;
 	width: 100%;//?
@@ -97,6 +97,9 @@
 				transition: background-color $timer-hover;
 			}
 		}
+		@media (max-width: $mobile+px) {
+			padding: 0 15px;
+		}
 	}
 	&__arrow {
 		flex: 0 0 auto;
@@ -124,6 +127,7 @@
 	@media (max-width: $media-modal+px) {
 		display: flex;
 		// width: calc(100% - 60px);
+		justify-content: center;
 		width: 100%;
 		max-width: 260px;
 		height: 50px;
