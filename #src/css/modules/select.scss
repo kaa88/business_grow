@@ -52,9 +52,6 @@
 			}
 		}
 	}
-	// &__header:hover, &._active &__header {
-	// 	border-color: yellow;
-	// }
 	&__list-wrapper {
 		position: absolute;
 		// top: 100%;
@@ -64,14 +61,9 @@
 		z-index: 2;
 		height: 0;
 		overflow: hidden;
-		// border: solid 1px $color07;
 		background-color: $color07;
 		border-radius: 0 0 em(45) em(45);
 		transition: all $timer-select;
-		// visibility: hidden; // скрытие списка с толстой рамкой
-		&._active {
-			// visibility: visible;
-		}
 	}
 	&__list {
 		padding: em(50) 0 em(15);

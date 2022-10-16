@@ -49,7 +49,8 @@
 		width: em(1500);
 		height: em(825);
 		max-height: 98%;
-		padding: em(40) em(100) em(58) em(60);
+		// padding: em(40) em(100) em(58) em(60);
+		padding: em(40) em(20) em(58) em(60);
 		background-color: #fff;
 		border-radius: em(30);
 		#modal-confirm & {
@@ -70,10 +71,12 @@
 		}
 	}
 	&__content {
+		position: relative;
 		display: flex;
 		flex-direction: column;
 		width: 100%;
-		padding: 0 em(20) 0 0;
+		// padding: 0 em(20) 0 0;
+		padding: 0 em(40) 0 0;
 		overflow-y: auto;
 		overflow-x: hidden;
 		@media (min-width: $media-modal+1+px) {
@@ -111,6 +114,7 @@
 		position: absolute;
 		top: em(30);
 		right: em(30);
+		z-index: 2;
 		width: em(60);
 		height: em(60);
 		display: flex;
@@ -323,26 +327,27 @@
 		width: 100%;
 		// height: 100%;
 		flex-grow: 1;
-		padding: 30px 25px 0 25px;
+		padding: 30px 27px 0 27px;
 		border-radius: 30px 30px 0 0;
 		background-color: $color02;
 	}
 	&__slider {
 		height: 100%;
-		max-height: 380px;
+		// max-height: 380px;
 		// background-color: yellow;
 		@media (max-width: $media-modal+px) {
+			max-height: 380px;
 			max-width: 480px;
 		}
 		.swiper-slide {
 			// background-color: thistle;
 			display: grid;
-			grid-template-columns: 1fr em(540);
+			grid-template-columns: 1fr em(600);//540
 			justify-content: space-between;
 			@media (max-width: $media-modal+px) {
 				grid-template-columns: 100%;
 				// max-width: 500px;
-				padding: 0 5px; // select shadow
+				padding: 0 3px; // select shadow
 			}
 		}
 	}
@@ -388,7 +393,7 @@
 	}
 	&__aside {
 		align-self: flex-end;
-		// max-width: em(540);
+		margin-right: 17px;//
 		border-style: solid;
 		border-left-width: 1px;
 		border-image-source: repeating-linear-gradient(to bottom, $color01 0, $color01 2px, transparent 2px, transparent 4px);
@@ -401,26 +406,22 @@
 	&__aside-info-list {
 	}
 	&__bottom {
-		max-width: em(1286);
+		// max-width: em(1286);
 		grid-column: span 2;
 		margin-top: em(30);
 		margin-bottom: 2px;
+		margin-right: 17px;//
 		padding-left: em(47);
 		display: flex;
-		justify-content: center;
+		justify-content: space-around;//center
 		align-items: flex-end;
-		@media (min-width: $media-modal+1+px) {
-			& > *:not(:first-child) {
-				margin-left: em(37);
-			}
-		}
 		@media (max-width: $media-modal+px) {
 			padding-left: 0;
 			flex: 0 0 auto;
 			display: block;
 			align-self: end;
 			margin-top: 0;
-			margin-bottom: 10px;
+			margin-bottom: 20px;
 		}
 	}
 	.text-button-with-arrow {
@@ -461,7 +462,7 @@
 			max-width: em(390);
 		}
 	}
-	&__phone-input {
+	&__user-contact-input {
 		@media (max-width: $media-modal+px) {
 			margin-top: 10px;
 		}
@@ -474,7 +475,8 @@
 	flex-direction: column;
 	justify-content: space-between;
 	padding-top: em(25);
-	padding-left: em(97);
+	// padding-left: em(97);
+	padding-left: em(107);
 	&--small {
 		height: em(300);
 		justify-content: space-around;
@@ -580,7 +582,7 @@
 	overflow: hidden;
 	@media (max-width: $media-modal+px) {
 		width: 100%;
-		max-width: 480px;
+		max-width: 380px;//480
 		height: auto;
 		border-radius: 10px;
 	}
@@ -673,7 +675,7 @@
 }
 
 
-.phone-input {
+.user-contact-input {
 	width: em(390);
 	@media (max-width: $media-modal+px) {
 		width: 100%;
@@ -697,6 +699,9 @@
 		&::placeholder {
 			color: $color06;
 			-webkit-text-fill-color: $color06;
+		}
+		&._error {
+			border-color: $color12;
 		}
 		@media (max-width: $media-modal+px) {
 			font-size: 10px;
@@ -834,6 +839,7 @@
 		}
 		@media (max-width: $media-modal+px) {
 			margin-top: 10px;
+			margin-bottom: 8px;
 		}
 	}
 	&--access &__bottom {
@@ -849,11 +855,11 @@
 	&__time-select {
 		margin-top: em(30);
 	}
-	&__phone-input {
+	&__user-contact-input {
 		width: 100%;
 		margin-top: em(30);
 	}
-	&--access &__phone-input {
+	&--access &__user-contact-input {
 		align-self: end;
 	}
 	.text-button-simple {
@@ -885,11 +891,15 @@
 			width: 100%;
 			height: 100%;
 			padding: em(10) em(15);
+			border: solid 1px transparent;
 			border-radius: 5px;
 			background-color: $color08;
 			color: $color10;
 			resize: none;
 			font-size: em(20);
+			&._error {
+				border-color: $color12;
+			}
 		}
 	}
 	&__attachment-icon {
@@ -939,7 +949,7 @@
 	@media (max-width: $media-modal+px) {
 		min-height: 50px;
 	}
-	&.active {
+	&._active {
 		filter: drop-shadow(0 em(3) em(2) #333);
 	}
 	&__header {
@@ -1007,7 +1017,7 @@
 			margin: em(46) em(70) em(20) em(5);
 		}
 	}
-	&.active &__selector-box {
+	&._active &__selector-box {
 		height: em(255);
 	}
 	&__selector {
@@ -1027,7 +1037,7 @@
 			text-align: center;
 			cursor: pointer;
 			user-select: none;
-			&:hover, &.selected {
+			&:hover, &._selected {
 				background-color: $color06;
 			}
 		}
@@ -1037,3 +1047,4 @@
 		scrollbar-width: none;
 	}
 }
+

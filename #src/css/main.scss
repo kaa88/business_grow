@@ -71,7 +71,7 @@ body {
 // @import "modules/accordion_css";
 // @import "modules/accordion_js";
 @import "modules/footer";
-// @import "modules/form";
+@import "modules/form";
 @import "modules/header";
 @import "modules/input_checkbox";
 @import "modules/input_radio";
@@ -214,20 +214,10 @@ body {
 	position: absolute;
 	top: 0;
 	right: 0;
-	// left: calc(100% - 73vh);
-	// left: em(900);
 	z-index: -1;
-	
 	height: 100%;
-	// width: 47.3958%;
 	width: em(910);
-	// max-height: em(1080);
-
 	overflow: hidden;
-	// width: 115.31531vh;
-	// min-width: em(1080);
-	// max-width: calc(1.08 * 1080px);
-	// max-width: calc(1.04 * 1080px);
 	@media (max-height: 1000px) {
 		position: fixed;
 		height: 100vh;
@@ -238,11 +228,8 @@ body {
 	&__container {
 		position: absolute;
 		top: 0;
-		// right: em(-340);
 		left: 0;
 		width: calc(1.1531531 * em(1080));
-		// min-width: em(870);
-		// max-width: 115.31531vh;
 }
 	&__shape {
 		position: relative;
@@ -337,12 +324,6 @@ body {
 
 .features {
 	max-width: em(938);
-	// font-size: 16px;
-	// @media (max-width: $desktop+px) {
-	// 	font-size: resize-multiplier(16, $desktop, 0.4);
-	// }
-	// &__container {
-	// }
 	&__items {
 		display: inline-flex;
 	}
@@ -423,8 +404,6 @@ body {
 .sidebar {
 	grid-column: 2;
 	grid-row: 1 / span 3;
-	// width: 360px;
-	// height: 100%;
 	background-color: $color05;
 }
 
@@ -444,4 +423,10 @@ body {
 	@media (min-width: $mobile+1+px) {
 		display: none;
 	}
+}
+.policy-link, .policy-link:visited {
+	color: $color05;
+}
+.policy-link:hover {
+	text-decoration: underline;
 }

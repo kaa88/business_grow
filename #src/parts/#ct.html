@@ -35,3 +35,18 @@
 		<span></span>
 		<i class="icon-play"></i>
 	</a>
+
+	<input class="test-checkbox" type="checkbox">
+	<button class="test-checkbox-btn" style="width: 100px; height: 30px; background: gray;">click</button>
+	<script>
+		let testchckb = document.querySelector('.test-checkbox');
+		let tchckbbtn = document.querySelector('.test-checkbox-btn');
+		testchckb.addEventListener('input', function() {
+			console.log('input action')
+			testchckb.setAttribute('value', testchckb.checked)
+		})
+		tchckbbtn.addEventListener('click', function() {
+			console.log(testchckb.value)
+			console.log(testchckb.checked)
+		})
+	</script>

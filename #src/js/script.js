@@ -90,7 +90,6 @@ modal.init({
 	on: {
 		'any': {
 			open: function(event, content, timeout) {
-				// let header = document.body.querySelector('.header');
 				header.headerElem.classList.add('_active-modal-z');
 
 				if (content.className.match(/--light/)) header.headerElem.classList.add('_active-modal-light');
@@ -99,19 +98,12 @@ modal.init({
 				headerMenuCloseButton.classList.add('_active');
 			},
 			close: function(event, content, timeout) {
-				// let header = document.body.querySelector('.header');
-				header.headerElem.classList.remove('_active-modal-light');
-				header.headerElem.classList.remove('_active-modal-dark');
-				header.headerElem.classList.remove('_active-modal-transform'); //?
-				headerMenuCloseButton.classList.remove('_active');
-				let openedWindows = false;
-				for (let i = 0; i < modal.windows.length; i++) {
-					if (modal.windows[i].classList.contains('_open')) {
-						openedWindows = true;
-						break;
-					}
-				}
-				if (!openedWindows) {
+				let openedModals = modal.check();
+				if (!openedModals) {
+					header.headerElem.classList.remove('_active-modal-light');
+					header.headerElem.classList.remove('_active-modal-dark');
+					header.headerElem.classList.remove('_active-modal-transform'); //?
+					headerMenuCloseButton.classList.remove('_active');
 					setTimeout(()=>{header.headerElem.classList.remove('_active-modal-z')}, timeout);
 				}
 			},
@@ -120,6 +112,13 @@ modal.init({
 			close: function(event, content, timeout) {
 				setTimeout(() => {
 					swipers.modal_call.slidePrev();
+				}, timeout);
+			}
+		},
+		'modal-message': {
+			close: function(event, content, timeout) {
+				setTimeout(() => {
+					swipers.modal_msg.slidePrev();
 				}, timeout);
 			}
 		}
@@ -319,28 +318,22 @@ for (let i = 0; i < swipers.consultSlideButtons.length; i++) {
 		modalProgressBar.expand();
 	})
 }
-swipers.callSlideButton = document.querySelector('#modal-call .text-button-simple');
-swipers.callSlideButton.addEventListener('click', function(e) {
+// swipers.callSlideButton = document.querySelector('#modal-call .text-button-simple');
+// swipers.callSlideButton.addEventListener('click', function(e) {
+// 	e.preventDefault();
+// 	if (transitionLock.check( swipers.settings.speed )) return;
+// 	swipers.modal_call.slideNext();
 
-	// add form-check
+// 	header.headerElem.classList.add('_active-modal-transform');
+// })
+// swipers.msgSlideButton = document.querySelector('#modal-message .text-button-simple');
+// swipers.msgSlideButton.addEventListener('click', function(e) {
+// 	e.preventDefault();
+// 	if (transitionLock.check( swipers.settings.speed )) return;
+// 	swipers.modal_msg.slideNext();
 
-	e.preventDefault();
-	if (transitionLock.check( swipers.settings.speed )) return;
-	swipers.modal_call.slideNext();
-
-	header.headerElem.classList.add('_active-modal-transform');
-})
-swipers.msgSlideButton = document.querySelector('#modal-message .text-button-simple');
-swipers.msgSlideButton.addEventListener('click', function(e) {
-
-	// add form-check
-
-	e.preventDefault();
-	if (transitionLock.check( swipers.settings.speed )) return;
-	swipers.modal_msg.slideNext();
-
-	header.headerElem.classList.add('_active-modal-transform');
-})
+// 	header.headerElem.classList.add('_active-modal-transform');
+// })
 
 // console.log(swipers)
 
@@ -366,8 +359,28 @@ swipers.msgSlideButton.addEventListener('click', function(e) {
 //////////////////////////////////////////////////
 
 // Send form to email //
-// @ @include('back/form_to_email.js')
-// formToEmail.init(true);
+@@include('back/form_to_email.js')
+formToEmail.init({
+	demo: true,
+	onsend: function(form) {
+		if (form.name == 'consult-form') {
+			modal.open(false, 'modal-confirm');
+			setTimeout(() => {
+				swipers.consult_top.slideTo(0);
+				swipers.consult_bot.slideTo(0);
+				modalProgressBar.i = 1;
+				modalProgressBar.expand();
+				select_consult_activity.reset();
+			}, modal.timeout);
+		}
+		if (form.name == 'call-form') {
+			swipers.modal_call.slideNext();
+		}
+		if (form.name == 'message-form') {
+			swipers.modal_msg.slideNext();
+		}
+	}
+});
 
 //////////////////////////////////////////////////
 
@@ -388,8 +401,8 @@ swipers.msgSlideButton.addEventListener('click', function(e) {
 // Time select
 let timeSelect = {
 	names: {
-		activeClass: 'active',
-		selectedClass: 'selected'
+		activeClass: '_active',
+		selectedClass: '_selected'
 	},
 	init: function() {
 		this.elem = document.querySelector('.time-select');
@@ -489,7 +502,7 @@ let timeSelect = {
 		// mark selector item
 		let s = selectorEl ? selectorEl : e.target.parentElement;
 		for (let i = 0; i < s.children.length; i++) {
-			s.children[i].classList.remove('selected');
+			s.children[i].classList.remove(this.names.selectedClass);
 		}
 
 		let markingTarget, inputValue, index;
@@ -506,7 +519,7 @@ let timeSelect = {
 			if (markingTarget) markingTarget.parentElement.scrollTop = this.selectorItemHeight * (index - 2);
 		}
 		else markingTarget = e.target;
-		if (markingTarget) markingTarget.classList.add('selected');
+		if (markingTarget) markingTarget.classList.add(this.names.selectedClass);
 	},
 
 	computeSelectorHeight: function() {

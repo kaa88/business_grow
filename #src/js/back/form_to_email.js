@@ -14,8 +14,8 @@ const formToEmail = {
 		incorrectEmail: 'Incorrect email',
 	},
 	
-	init: function(demo = false){
-		this.demo = demo;
+	init: function(params = {}){
+		this.demo = params.demo ? true : false;
 		this.inputs = document.querySelectorAll('form input, form textarea');
 		for (let i = 0; i < this.inputs.length; i++) {
 			this.inputs[i].addEventListener('input', function(){
@@ -30,6 +30,15 @@ const formToEmail = {
 		}
 		for (let i = 0; i < document.forms.length; i++) {
 			document.forms[i].addEventListener('submit', this.send.bind(this));
+		}
+		this.onsend = params.onsend || function(){};
+		this.onerror = params.onerror || function(){};
+
+		// Checkbox correct values
+		let checkboxes = document.body.querySelectorAll('.checkbox input');
+		for (let i = 0; i < checkboxes.length; i++) {
+			checkboxes[i].addEventListener('input', this.setCheckboxValue);
+			this.setCheckboxValue(false, checkboxes[i]);
 		}
 	},
 
@@ -84,6 +93,10 @@ const formToEmail = {
 			report.innerHTML = this.messages.error;
 		}
 		e.target.classList.remove('_sending');
+
+		// on-function
+		this.onsend(e.target);
+		this.onerror(e.target);
 	},
 
 	check: function(form) {
@@ -135,11 +148,29 @@ const formToEmail = {
 
 	clean: function(form, all = true) {
 		if (!form) return;
-		let inputs = form.querySelectorAll('input, textarea');
+		let inputs = form.querySelectorAll('input:not(.time-select__input), textarea'); // checkbox, radio, text, textarea
 		for (let i = 0; i < inputs.length; i++) {
-			if (inputs[i].hasAttribute('name'))
-				inputs[i].value = '';
+			if (inputs[i].hasAttribute('name')) {
+				switch(inputs[i].type) {
+					case 'checkbox':
+						inputs[i].checked = true;
+						this.setCheckboxValue(false, inputs[i]);
+						break;
+					case 'radio':
+						inputs[i].parentElement.querySelector('input').checked = true;
+						break;
+					case 'submit':
+						break;
+					default:
+						inputs[i].value = '';
+				}
+			}
 			if (all) inputs[i].classList.remove('_error');
+		}
+		let selects = form.querySelectorAll('select');
+		for (let i = 0; i < selects.length; i++) {
+			// 'onsend' resets the selects
+			if (all) selects[i].classList.remove('_error');
 		}
 		if (all) {
 			let report = form.querySelector('.form-report');
@@ -147,6 +178,10 @@ const formToEmail = {
 			report.classList.remove('er');
 			report.innerHTML = '';
 		}
+	},
+
+	setCheckboxValue: function(e, elem = this) {
+		elem.setAttribute('value', elem.checked ? elem.checked : ''); // пустое для скрипта формы, чтобы вешал класс error
 	},
 
 	// Phone mask

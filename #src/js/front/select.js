@@ -66,13 +66,19 @@ class Select {
 		this.isOpened = true;
 	}
 	selectItem(e, that, i) {
-		for (let j = 0; j < e.target.parentElement.children.length; j++) {
-			e.target.parentElement.children[j].classList.remove('_selected');
+		let target = e ? e.target : that.options[i];
+		for (let j = 0; j < target.parentElement.children.length; j++) {
+			target.parentElement.children[j].classList.remove('_selected');
 			that.basicSelect[j].removeAttribute('selected');
 		}
-		e.target.classList.add('_selected');
+		target.classList.add('_selected');
 		that.basicSelect[i+1].setAttribute('selected', 'true');
 		that.onselect(that.basicSelect[i+1].value);
-		that.headertext.innerHTML = e.target.innerHTML;
+		that.headertext.innerHTML = target.innerHTML;
+	}
+	reset() { // function for form-controlled reset
+		if (!this.elem) return;
+		this.selectItem(false, this, 0);
+		this.hideList();
 	}
 }

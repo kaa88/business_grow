@@ -18,7 +18,7 @@
 							Обычно мы отвечаем в течение 15 минут, но иногда на ответ может потребоваться до 24-х часов
 						</p>
 					
-						<div class="modal__feedback-content feedback-content">
+						<form class="modal__feedback-content feedback-content" name="call-form" action="#">
 			
 							<div class="feedback-content__main">
 			
@@ -28,9 +28,9 @@
 			
 								<div class="feedback-content__time-select time-select" ondragstart="return false;">
 									<div class="time-select__header">
-										<input class="time-select__input" type="number" value="17">
+										<input class="time-select__input" type="number" name="call-time-h" value="17">
 										<span class="time-select__divider">:</span>
-										<input class="time-select__input" type="number" value="15">
+										<input class="time-select__input" type="number" name="call-time-m" value="15">
 										<div class="time-select__header-expander">
 											<i class="icon-arrow2"></i>
 										</div>
@@ -45,43 +45,46 @@
 								</div>
 			
 			
-								<div class="feedback-content__phone-input phone-input">
-									<p class="phone-input__title">Телефон*</p>
-									<input class="phone-input__input" type="text" placeholder="Введите ваш номер телефона">
+								<div class="feedback-content__user-contact-input user-contact-input">
+									<p class="user-contact-input__title">Телефон*</p>
+									<input class="user-contact-input__input _req" type="text" name="phone" placeholder="Введите ваш номер телефона">
 								</div>
 			
-								<a class="text-button-simple" href="#">
-									<span>
-										Заказать звонок
+								<button class="text-button-simple" type="submit">
+									<span class="text-button-simple__text">Заказать звонок</span>
+									<span class="submit-progress">
+										<span class="submit-progress__box">
+											<i></i><i></i><i></i>
+										</span>
 									</span>
-								</a>
+								</button>
 							
 							</div>
 			
 							<div class="feedback-content__contact-method">
 								<div class="radio">
-									<input type="radio" id="radio-call-contact-method-3" name="radio-call-contact-method" value="telegram" checked>
+									<input type="radio" id="radio-call-contact-method-3" name="call-contact-method" value="telegram" checked>
 									<label for="radio-call-contact-method-3">
 										<span class="label-box label-box--style2">
 											<i class="colored-icon icon-telegram"></i>
 										</span>
 										<span class="label-text">Задать вопрос в Telegram</span>
 									</label>
-									<input type="radio" id="radio-call-contact-method-1" name="radio-call-contact-method" value="whatsapp">
+									<input type="radio" id="radio-call-contact-method-1" name="call-contact-method" value="whatsapp">
 									<label for="radio-call-contact-method-1">
 										<span class="label-box label-box--style2">
 											<i class="colored-icon icon-whatsapp"></i>
 										</span>
 										<span class="label-text">Задать вопрос в WhatsApp</span>
 									</label>
-									<input type="radio" id="radio-call-contact-method-2" name="radio-call-contact-method" value="viber">
+									<input type="radio" id="radio-call-contact-method-2" name="call-contact-method" value="viber">
 									<label for="radio-call-contact-method-2">
 										<span class="label-box label-box--style2">
 											<i class="colored-icon icon-viber"></i>
 										</span>
 										<span class="label-text">Задать вопрос в Viber</span>
 									</label>
-									<input type="radio" id="radio-call-contact-method-4" name="radio-call-contact-method" value="vk">
+									<input type="radio" id="radio-call-contact-method-4" name="call-contact-method" value="vk">
 									<label for="radio-call-contact-method-4">
 										<span class="label-box label-box--style2">
 											<i class="colored-icon icon-vk"></i>
@@ -93,18 +96,20 @@
 			
 							<div class="feedback-content__bottom">
 								<div class="feedback-content__checkbox checkbox">
-									<input type="checkbox" id="callform-policy-checkbox" name="checked" value="policy-ok" checked>
+									<input class="_req" type="checkbox" id="callform-policy-checkbox" name="policy-check" checked>
 									<label for="callform-policy-checkbox">
 										<span class="label-box"><i class="icon-ok"></i></span>
 										<span class="label-text">
 											<span>оставляя свои контактные данные, вы соглашаетесь</span>
-											<a class="policy-link" href="#">с политикой защиты и обработки персональных данных пользователей сайта</a>
+											<a class="policy-link" href="404.html" target="_blank" title="Откроется на новой вкладке">с политикой защиты и обработки персональных данных пользователей сайта</a>
 										</span>
 									</label>
 								</div>
+
+								<div class="form-report"></div>
 							</div>
 			
-						</div>
+						</form>
 			
 					</div>
 

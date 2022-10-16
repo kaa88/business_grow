@@ -161,19 +161,19 @@ get_template_part('parts/header');
 				обратная связь
 			</a>
 			<div class="header-level__socials socials socials--vertical">
-				<a class="socials__link" href="#">
+				<a class="socials__link modal-link" href="#modal-confirm">
 					<span>vk</span>
 					<i class="icon-vk"></i>
 				</a>
-				<a class="socials__link" href="#">
+				<a class="socials__link modal-link" href="#modal-call">
 					<span>telegram</span>
 					<i class="icon-telegram"></i>
 				</a>
-				<a class="socials__link" href="#">
+				<a class="socials__link modal-link" href="#modal-message">
 					<span>ya.zen</span>
 					<i class="icon-zen"></i>
 				</a>
-				<a class="socials__link" href="#">
+				<a class="socials__link modal-link" href="#modal-access">
 					<span>vc.ru</span>
 					<i class="icon-vc"></i>
 				</a>
@@ -450,11 +450,12 @@ get_template_part('parts/header');
 											<span class="select__header-icon"><i class="icon-arrow2"></i></span>
 										</div>
 										<div class="select__list-wrapper"><!-- script-fill --></div>
-										<select name="select">
+										<select name="type-of-business">
 											<option value="none" selected disabled>Select...</option>
-											<option value="opt 1">Розничная торговля</option>
-											<option value="opt 2">Транспорт</option>
-											<option value="opt 3">Туризм</option>
+											<option value="retail">Розничная торговля</option>
+											<option value="transport">Транспорт</option>
+											<option value="tourism">Туризм</option>
+											<option value="service">Услуги</option>
 										</select>
 									</div>
 
@@ -464,7 +465,7 @@ get_template_part('parts/header');
 										</p>
 									</div>
 
-									<input class="consult-form__input" type="text" placeholder="ссылка на сайт или аккаунт в соц.сетях">
+									<input class="consult-form__input" type="text" name="user-account-href" placeholder="ссылка на сайт или аккаунт в соц.сетях">
 
 								</div>
 
@@ -515,28 +516,28 @@ get_template_part('parts/header');
 									</div>
 
 									<div class="consult-form__radio radio">
-										<input type="radio" id="radio-consult-goal-1" name="radio-consult-goal" value="option 1" checked>
-										<label for="radio-consult-goal-1">
+										<input type="radio" id="radio-business-goal-1" name="business-goal" value="clients" checked>
+										<label for="radio-business-goal-1">
 											<span class="label-box"></span>
 											<span class="label-text">Увеличить количество клиентов</span>
 										</label>
-										<input type="radio" id="radio-consult-goal-2" name="radio-consult-goal" value="option 2">
-										<label for="radio-consult-goal-2">
+										<input type="radio" id="radio-business-goal-2" name="business-goal" value="income">
+										<label for="radio-business-goal-2">
 											<span class="label-box"></span>
 											<span class="label-text">Повысить прибыль, средний чек</span>
 										</label>
-										<input type="radio" id="radio-consult-goal-3" name="radio-consult-goal" value="option 3">
-										<label for="radio-consult-goal-3">
+										<input type="radio" id="radio-business-goal-3" name="business-goal" value="reputation">
+										<label for="radio-business-goal-3">
 											<span class="label-box"></span>
 											<span class="label-text">Создать образ компании в веб пространстве</span>
 										</label>
-										<input type="radio" id="radio-consult-goal-4" name="radio-consult-goal" value="option 4">
-										<label for="radio-consult-goal-4">
+										<input type="radio" id="radio-business-goal-4" name="business-goal" value="solve-problem">
+										<label for="radio-business-goal-4">
 											<span class="label-box"></span>
 											<span class="label-text">Решить конкретную задачу</span>
 										</label>
-										<input type="radio" id="radio-consult-goal-5" name="radio-consult-goal" value="option 5">
-										<label for="radio-consult-goal-5">
+										<input type="radio" id="radio-business-goal-5" name="business-goal" value="unknown">
+										<label for="radio-business-goal-5">
 											<span class="label-box"></span>
 											<span class="label-text">Расскажу на консультации</span>
 										</label>
@@ -591,28 +592,28 @@ get_template_part('parts/header');
 								<div class="consult-form__main">
 
 									<div class="consult-form__radio radio">
-										<input type="radio" id="radio-consult-turnover-1" name="radio-consult-turnover" value="option 1" checked>
-										<label for="radio-consult-turnover-1">
+										<input type="radio" id="radio-business-turnover-1" name="business-turnover" value="0+" checked>
+										<label for="radio-business-turnover-1">
 											<span class="label-box"></span>
 											<span class="label-text">0 — 300 000 ₽</span>
 										</label>
-										<input type="radio" id="radio-consult-turnover-2" name="radio-consult-turnover" value="option 2">
-										<label for="radio-consult-turnover-2">
+										<input type="radio" id="radio-business-turnover-2" name="business-turnover" value="300k+">
+										<label for="radio-business-turnover-2">
 											<span class="label-box"></span>
 											<span class="label-text">300 000 — 1 000 000 ₽</span>
 										</label>
-										<input type="radio" id="radio-consult-turnover-3" name="radio-consult-turnover" value="option 3">
-										<label for="radio-consult-turnover-3">
+										<input type="radio" id="radio-business-turnover-3" name="business-turnover" value="1m+">
+										<label for="radio-business-turnover-3">
 											<span class="label-box"></span>
 											<span class="label-text">1 000 000 — 10 000 000 ₽</span>
 										</label>
-										<input type="radio" id="radio-consult-turnover-4" name="radio-consult-turnover" value="option 4">
-										<label for="radio-consult-turnover-4">
+										<input type="radio" id="radio-business-turnover-4" name="business-turnover" value="10m+">
+										<label for="radio-business-turnover-4">
 											<span class="label-box"></span>
 											<span class="label-text">10 000 000 — 100 000 000 ₽</span>
 										</label>
-										<input type="radio" id="radio-consult-turnover-5" name="radio-consult-turnover" value="option 5">
-										<label for="radio-consult-turnover-5">
+										<input type="radio" id="radio-business-turnover-5" name="business-turnover" value="startup">
+										<label for="radio-business-turnover-5">
 											<span class="label-box"></span>
 											<span class="label-text">Только запускаю новый бизнес</span>
 										</label>
@@ -665,28 +666,28 @@ get_template_part('parts/header');
 									</div>
 
 									<div class="consult-form__radio radio radio--messengers">
-										<input type="radio" id="radio-consult-contact-1" name="radio-consult-contact" value="whatsapp" checked>
+										<input type="radio" id="radio-consult-contact-1" name="consult-contact-type" value="whatsapp" checked>
 										<label for="radio-consult-contact-1">
 											<span class="label-box label-box--style2">
 												<i class="colored-icon icon-whatsapp"></i>
 											</span>
 											<span class="label-text">WhatsApp</span>
 										</label>
-										<input type="radio" id="radio-consult-contact-2" name="radio-consult-contact" value="viber">
+										<input type="radio" id="radio-consult-contact-2" name="consult-contact-type" value="viber">
 										<label for="radio-consult-contact-2">
 											<span class="label-box label-box--style2">
 												<i class="colored-icon icon-viber"></i>
 											</span>
 											<span class="label-text">Viber</span>
 										</label>
-										<input type="radio" id="radio-consult-contact-3" name="radio-consult-contact" value="telegram">
+										<input type="radio" id="radio-consult-contact-3" name="consult-contact-type" value="telegram">
 										<label for="radio-consult-contact-3">
 											<span class="label-box label-box--style2">
 												<i class="colored-icon icon-telegram"></i>
 											</span>
 											<span class="label-text">Telegram</span>
 										</label>
-										<input type="radio" id="radio-consult-contact-4" name="radio-consult-contact" value="phone">
+										<input type="radio" id="radio-consult-contact-4" name="consult-contact-type" value="phone">
 										<label for="radio-consult-contact-4">
 											<span class="label-box label-box--style2">
 												<i class="colored-icon icon-phone"></i>
@@ -713,28 +714,33 @@ get_template_part('parts/header');
 
 								<div class="consult-form__bottom">
 
-									<div class="consult-form__phone-input phone-input">
-										<p class="phone-input__title">Телефон*</p>
-										<input class="phone-input__input" type="text" placeholder="Введите ваш номер телефона">
+									<div class="consult-form__user-contact-input user-contact-input">
+										<p class="user-contact-input__title">Телефон*</p>
+										<input class="user-contact-input__input _req" type="text" name="phone" placeholder="Введите ваш номер телефона">
 									</div>
 			
-									<a class="text-button-with-arrow swiper-slide-button" href="#">
+									<button class="text-button-with-arrow" type="submit">
 										<span class="text-button-with-arrow__text"><span>получить консультацию</span></span>
-									</a>
+										<span class="submit-progress">
+											<span class="submit-progress__box">
+												<i></i><i></i><i></i>
+											</span>
+										</span>
+									</button>
 
 									<div class="consult-form__checkbox checkbox">
-										<input type="checkbox" id="consultform-policy-checkbox" name="checked" value="policy-ok" checked>
+										<input class="_req" type="checkbox" id="consultform-policy-checkbox" name="policy-check" checked>
 										<label for="consultform-policy-checkbox">
 											<span class="label-box"><i class="icon-ok"></i></span>
 											<span class="label-text">
 												<span>оставляя свои контактные данные, вы соглашаетесь</span>
-												<a class="policy-link" href="#">с политикой защиты и обработки персональных данных пользователей сайта</a>
+												<a class="policy-link" href="404.html" target="_blank" title="Откроется на новой вкладке">с политикой защиты и обработки персональных данных пользователей сайта</a>
 											</span>
 										</label>
 									</div>
 
+									<div class="form-report"></div>
 								</div>
-				
 
 
 							</div>
@@ -742,6 +748,7 @@ get_template_part('parts/header');
 
 						</div>
 					</div>
+
 				</form>
 			
 				<div class="modal__footer-clone mobile-only"></div>
@@ -826,7 +833,7 @@ get_template_part('parts/header');
 								Обычно мы отвечаем в течение 15 минут, но иногда на ответ может потребоваться до 24-х часов
 							</p>
 					
-							<div class="modal__feedback-content feedback-content">
+							<form class="modal__feedback-content feedback-content" name="call-form" action="#">
 			
 								<div class="feedback-content__main">
 			
@@ -836,9 +843,9 @@ get_template_part('parts/header');
 			
 									<div class="feedback-content__time-select time-select" ondragstart="return false;">
 										<div class="time-select__header">
-											<input class="time-select__input" type="number" value="17">
+											<input class="time-select__input" type="number" name="call-time-h" value="17">
 											<span class="time-select__divider">:</span>
-											<input class="time-select__input" type="number" value="15">
+											<input class="time-select__input" type="number" name="call-time-m" value="15">
 											<div class="time-select__header-expander">
 												<i class="icon-arrow2"></i>
 											</div>
@@ -853,43 +860,46 @@ get_template_part('parts/header');
 									</div>
 			
 			
-									<div class="feedback-content__phone-input phone-input">
-										<p class="phone-input__title">Телефон*</p>
-										<input class="phone-input__input" type="text" placeholder="Введите ваш номер телефона">
+									<div class="feedback-content__user-contact-input user-contact-input">
+										<p class="user-contact-input__title">Телефон*</p>
+										<input class="user-contact-input__input _req" type="text" name="phone" placeholder="Введите ваш номер телефона">
 									</div>
 			
-									<a class="text-button-simple" href="#">
-										<span>
-											Заказать звонок
+									<button class="text-button-simple" type="submit">
+										<span class="text-button-simple__text">Заказать звонок</span>
+										<span class="submit-progress">
+											<span class="submit-progress__box">
+												<i></i><i></i><i></i>
+											</span>
 										</span>
-									</a>
+									</button>
 							
 								</div>
 			
 								<div class="feedback-content__contact-method">
 									<div class="radio">
-										<input type="radio" id="radio-call-contact-method-3" name="radio-call-contact-method" value="telegram" checked>
+										<input type="radio" id="radio-call-contact-method-3" name="call-contact-method" value="telegram" checked>
 										<label for="radio-call-contact-method-3">
 											<span class="label-box label-box--style2">
 												<i class="colored-icon icon-telegram"></i>
 											</span>
 											<span class="label-text">Задать вопрос в Telegram</span>
 										</label>
-										<input type="radio" id="radio-call-contact-method-1" name="radio-call-contact-method" value="whatsapp">
+										<input type="radio" id="radio-call-contact-method-1" name="call-contact-method" value="whatsapp">
 										<label for="radio-call-contact-method-1">
 											<span class="label-box label-box--style2">
 												<i class="colored-icon icon-whatsapp"></i>
 											</span>
 											<span class="label-text">Задать вопрос в WhatsApp</span>
 										</label>
-										<input type="radio" id="radio-call-contact-method-2" name="radio-call-contact-method" value="viber">
+										<input type="radio" id="radio-call-contact-method-2" name="call-contact-method" value="viber">
 										<label for="radio-call-contact-method-2">
 											<span class="label-box label-box--style2">
 												<i class="colored-icon icon-viber"></i>
 											</span>
 											<span class="label-text">Задать вопрос в Viber</span>
 										</label>
-										<input type="radio" id="radio-call-contact-method-4" name="radio-call-contact-method" value="vk">
+										<input type="radio" id="radio-call-contact-method-4" name="call-contact-method" value="vk">
 										<label for="radio-call-contact-method-4">
 											<span class="label-box label-box--style2">
 												<i class="colored-icon icon-vk"></i>
@@ -901,18 +911,20 @@ get_template_part('parts/header');
 			
 								<div class="feedback-content__bottom">
 									<div class="feedback-content__checkbox checkbox">
-										<input type="checkbox" id="callform-policy-checkbox" name="checked" value="policy-ok" checked>
+										<input class="_req" type="checkbox" id="callform-policy-checkbox" name="policy-check" checked>
 										<label for="callform-policy-checkbox">
 											<span class="label-box"><i class="icon-ok"></i></span>
 											<span class="label-text">
 												<span>оставляя свои контактные данные, вы соглашаетесь</span>
-												<a class="policy-link" href="#">с политикой защиты и обработки персональных данных пользователей сайта</a>
+												<a class="policy-link" href="404.html" target="_blank" title="Откроется на новой вкладке">с политикой защиты и обработки персональных данных пользователей сайта</a>
 											</span>
 										</label>
 									</div>
+
+									<div class="form-report"></div>
 								</div>
 			
-							</div>
+							</form>
 			
 						</div>
 
@@ -975,7 +987,7 @@ get_template_part('parts/header');
 								Обычно мы отвечаем в течение 15 минут, но иногда на ответ может потребоваться до 24-х часов
 							</p>
 					
-							<div class="modal__feedback-content feedback-content feedback-content--message">
+							<form class="modal__feedback-content feedback-content feedback-content--message" name="message-form" action="#">
 
 								<div class="feedback-content__main">
 
@@ -984,52 +996,57 @@ get_template_part('parts/header');
 									</p>
 
 									<div class="feedback-content__textarea">
-										<textarea name="message"></textarea>
+										<textarea class="_req" name="message"></textarea>
 										<div class="feedback-content__attachment-icon" title="Прикрепить файл"><i class="icon-folder"></i></div>
 									</div>
 
-									<div class="feedback-content__phone-input phone-input">
-										<p class="phone-input__title">Телефон*</p>
-										<input class="phone-input__input" type="text" placeholder="Номер телефона">
+									<div class="feedback-content__user-contact-input user-contact-input">
+										<p class="user-contact-input__title">Телефон*</p>
+										<input class="user-contact-input__input _req" type="text" name="phone" placeholder="Номер телефона">
 									</div>
 
-									<div class="feedback-content__phone-input phone-input">
-										<p class="phone-input__title">E-mail*</p>
-										<input class="phone-input__input" type="text" placeholder="E-mail адрес">
+									<div class="feedback-content__user-contact-input user-contact-input">
+										<p class="user-contact-input__title">E-mail*</p>
+										<input class="user-contact-input__input _req" type="text" name="email" placeholder="E-mail адрес">
 									</div>
 
-									<a class="text-button-simple" href="#">
-										<span class="desktop-only">Получить ответ</span>
-										<span class="mobile-only">Задать вопрос</span>
-									</a>
+									<button class="text-button-simple" type="submit">
+										<span class="text-button-simple__text desktop-only">Получить ответ</span>
+										<span class="text-button-simple__text mobile-only">Задать вопрос</span>
+										<span class="submit-progress">
+											<span class="submit-progress__box">
+												<i></i><i></i><i></i>
+											</span>
+										</span>
+									</button>
 							
 								</div>
 
 								<div class="feedback-content__contact-method">
 									<div class="radio">
-										<input type="radio" id="radio-consult-contact-method-3" name="radio-consult-contact-method" value="telegram" checked>
-										<label for="radio-consult-contact-method-3">
+										<input type="radio" id="radio-message-contact-method-3" name="message-contact-method" value="telegram" checked>
+										<label for="radio-message-contact-method-3">
 											<span class="label-box label-box--style2">
 												<i class="colored-icon icon-telegram"></i>
 											</span>
 											<span class="label-text">Задать вопрос в Telegram</span>
 										</label>
-										<input type="radio" id="radio-consult-contact-method-1" name="radio-consult-contact-method" value="whatsapp">
-										<label for="radio-consult-contact-method-1">
+										<input type="radio" id="radio-message-contact-method-1" name="message-contact-method" value="whatsapp">
+										<label for="radio-message-contact-method-1">
 											<span class="label-box label-box--style2">
 												<i class="colored-icon icon-whatsapp"></i>
 											</span>
 											<span class="label-text">Задать вопрос в WhatsApp</span>
 										</label>
-										<input type="radio" id="radio-consult-contact-method-2" name="radio-consult-contact-method" value="viber">
-										<label for="radio-consult-contact-method-2">
+										<input type="radio" id="radio-message-contact-method-2" name="message-contact-method" value="viber">
+										<label for="radio-message-contact-method-2">
 											<span class="label-box label-box--style2">
 												<i class="colored-icon icon-viber"></i>
 											</span>
 											<span class="label-text">Задать вопрос в Viber</span>
 										</label>
-										<input type="radio" id="radio-consult-contact-method-4" name="radio-consult-contact-method" value="vk">
-										<label for="radio-consult-contact-method-4">
+										<input type="radio" id="radio-message-contact-method-4" name="message-contact-method" value="vk">
+										<label for="radio-message-contact-method-4">
 											<span class="label-box label-box--style2">
 												<i class="colored-icon icon-vk"></i>
 											</span>
@@ -1040,18 +1057,20 @@ get_template_part('parts/header');
 
 								<div class="feedback-content__bottom">
 									<div class="feedback-content__checkbox checkbox">
-										<input type="checkbox" id="msg-policy-checkbox" name="checked" value="policy-ok" checked>
+										<input class="_req" type="checkbox" id="msg-policy-checkbox" name="policy-check" checked>
 										<label for="msg-policy-checkbox">
 											<span class="label-box"><i class="icon-ok"></i></span>
 											<span class="label-text">
 												<span>оставляя свои контактные данные, вы соглашаетесь</span>
-												<a class="policy-link" href="#">с политикой защиты и обработки персональных данных пользователей сайта</a>
+												<a class="policy-link" href="404.html" target="_blank" title="Откроется на новой вкладке">с политикой защиты и обработки персональных данных пользователей сайта</a>
 											</span>
 										</label>
 									</div>
+
+									<div class="form-report"></div>
 								</div>
 
-							</div>
+							</form>
 						</div>
 
 						<div class="swiper-slide">
@@ -1128,9 +1147,9 @@ get_template_part('parts/header');
 							или получите доступ на электоронную почту:
 						</p>
 
-						<div class="feedback-content__phone-input phone-input">
-							<p class="phone-input__title">E-mail*</p>
-							<input class="phone-input__input" type="text" placeholder="E-mail адрес">
+						<div class="feedback-content__user-contact-input user-contact-input">
+							<p class="user-contact-input__title">E-mail*</p>
+							<input class="user-contact-input__input" type="text" name="email" placeholder="E-mail адрес">
 						</div>
 
 						<a class="text-button-simple" href="#">

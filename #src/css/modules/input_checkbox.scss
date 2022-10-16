@@ -35,6 +35,9 @@
 			font-size: 12px;
 		}
 	}
+	input._error + label .label-box {
+		border-color: $color12;
+	}
 	.label-text {
 		margin-left: em(25);
 		// white-space: nowrap;
@@ -48,8 +51,5 @@
 			font-size: 6px;
 			line-height: 1.33;
 		}
-	}
-	.policy-link {
-		color: $color05;
 	}
 }

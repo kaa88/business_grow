@@ -63,27 +63,34 @@ const modal = {
 		this.cssZindex = 111;
 		this.closeOldIfNew = params.closeOldIfNew || false;
 	},
-	open: function(e){
+	open: function(e, modalName){
 		if (this.refs.translock.check(this.timeout)) return;
-		e.preventDefault();
+		if (e) e.preventDefault();
 
+		// closeOldIfNew part 1
+		let oldWindow = false;
 		if (this.closeOldIfNew) {
 			for (let i = 0; i < this.windows.length; i++) {
-				if (this.windows[i].classList.contains('_open')) this.closeThis(false, this.windows[i]);
+				if (this.windows[i].classList.contains('_open')) oldWindow =  this.windows[i];
 			}
 		}
-
-		let currentModal = this.elem.querySelector(e.currentTarget.getAttribute('href'));
+		//
+		if (!modalName) modalName = e.currentTarget.getAttribute('href');
+		else if (!modalName.match(/\#/)) modalName = '#' + modalName;
+		let currentModal = this.elem.querySelector(modalName);
 		currentModal.classList.add('_open');
 		currentModal.style.zIndex = this.cssZindex++;
 
 		let onFuncContent = currentModal.querySelector('.' + this.elemName + '__content > *:not(.' + this.elemName + '__close-button)');
 		if (this.on[currentModal.id] && this.on[currentModal.id].open)
-			this.on[currentModal.id].open(e, onFuncContent, this.timeout);
+			this.on[currentModal.id].open(e ? e : false, onFuncContent, this.timeout);
 		if (this.on['any'] && this.on['any'].open)
-			this.on['any'].open(e, onFuncContent, this.timeout);
+			this.on['any'].open(e ? e : false, onFuncContent, this.timeout);
 
-		modal.check();
+		// closeOldIfNew part 2 (wrong turn-off fix, must run after on-function)
+		if (this.closeOldIfNew) this.closeThis(false, oldWindow);
+		//
+		this.toggleMainWindow(this.check());
 	},
 	closeThis: function(e, elemToClose){
 		if (!elemToClose && this.refs.translock.check(this.timeout)) return;
@@ -95,7 +102,7 @@ const modal = {
 		if (this.on['any'] && this.on['any'].close)
 			this.on['any'].close(e, onFuncContent, this.timeout);
 
-		if (!elemToClose) modal.check();
+		if (!elemToClose) this.toggleMainWindow(this.check());
 	},
 	closeAll: function(noScrollLock){
 		if (!noScrollLock && this.refs.translock.check(this.timeout)) return;
@@ -108,16 +115,25 @@ const modal = {
 		}
 		if (this.on['any'] && this.on['any'].close)
 			this.on['any'].close(0,0,this.timeout);
-		modal.check();
+		this.toggleMainWindow(this.check());
 	},
 	check: function(){
-		let openedWindows = false;
+		// let openedWindows = false;
 		for (let i = 0; i < this.windows.length; i++) {
-			if (this.windows[i].classList.contains('_open')) {
-				openedWindows = true;
-				break;
-			}
+			if (this.windows[i].classList.contains('_open')) return true;
 		}
+		return false;
+		// if (openedWindows) {
+		// 	this.elem.classList.add('_visible');
+		// 	this.refs.scrlock.lock();
+		// }
+		// else {
+		// 	this.elem.classList.remove('_visible');
+		// 	if (!this.refs.header.classList.contains('_active'))
+		// 		this.refs.scrlock.unlock(this.timeout);
+		// }
+	},
+	toggleMainWindow: function(openedWindows) {
 		if (openedWindows) {
 			this.elem.classList.add('_visible');
 			this.refs.scrlock.lock();

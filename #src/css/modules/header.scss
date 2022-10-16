@@ -117,7 +117,7 @@
 	user-select: none; //REQ!
 	visibility: hidden;
 	opacity: 0;
-	transition: visibility $timer-menu, opacity $timer-menu;
+	transition: visibility $timer-menu, opacity $timer-menu, background-color $timer-modal, color $timer-modal;
 	i:before {
 		font-size: 13px;
 		margin-right: 1px;
@@ -322,27 +322,6 @@
 			}	
 		}
 	}
-	// &__up {
-	// 	display: inline-block;
-	// 	position: absolute;
-	// 	bottom: em(3.5);
-	// 	left: em(-11);
-	// 	width: em(42);
-	// 	height: em(58);
-	// 	background: linear-gradient(to top, #B05CFF, $color05 50%, $color05);
-	// 	clip-path: polygon(0 51%, 51% 0, 100% 51%, 72% 51%, 72% 100%, 28% 100%, 28% 51%);
-	// 	filter: drop-shadow(1px 1px 1px $color02);
-	// 	&:before {
-	// 		content: '';
-	// 		position: absolute;
-	// 		top: em(15);
-	// 		left: 0;
-	// 		display: inline-block;
-	// 		width: 100%;
-	// 		height: em(15);
-	// 		background: linear-gradient(to right, $color02, $color02 40%, $color04 40%, $color04);
-	// 	}
-	// }
 	&__up {
 		position: absolute;
 		bottom: em(3.5);
