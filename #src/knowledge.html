@@ -1,0 +1,93 @@
+<!-- <?php
+/* Template Name: Home */
+get_template_part('parts/header');
+?> -->
+@@include('parts/header.html', {
+	'title': 'Knowledge base | Business Grow',
+	'descr': 'Description',
+	'robots': 'noindex, nofollow',
+	'bodyclass': '',
+	'feedback_button_class': 'feedback-button'
+})
+<script id="header-menu-options">
+	// список пунктов меню в header.html
+	// наличие и порядок устанавливаются в массиве 'links'
+	// 'activeLink' добавляет класс 'this-page'
+	// тег 'script' можно удалить
+	
+	let headerMenuOptions = {
+	// 	links: ['home','products','about','contacts'],
+		activeLink: 'knowledge'
+	}
+</script>
+
+
+<main class="main page-knowledge">
+	<div class="main__container container">
+
+		<!-- <section class="main__knowledge-content knowledge-content"> -->
+
+			<div class="main__complex-image complex-image">
+				<div class="complex-image__circles">
+					<img src="media/img/circles.svg" alt="" loading="lazy">
+				</div>
+				<div class="complex-image__img">
+					<img class="materials-video" src="media/img/materials-big-01.png" srcset="media/img/materials-big-01.png 2x" alt="" loading="lazy">
+				</div>
+			</div>
+
+			<!-- <div class="knowledge-content__container"> -->
+				<h2 class="g-h2">
+					Закрытый источник знаний для предпринимателей, маркетологов и первых лиц компаний
+				</h2>
+
+				<div class="main__video-link">
+					<a class="video-button" href="#">
+						<span></span>
+						<i class="icon-play"></i>
+					</a>
+					<p class="main__video-link-text">видео о том, что внутри</p>
+				</div>
+
+				<p class="g-text">
+					Получите бесплатный доступ к закрытым материалам по бизнесу и растите вместе с нами
+				</p>
+
+				<a class="main__text-button-with-arrow text-button-with-arrow modal-link" href="#modal-access">
+					<span class="text-button-with-arrow__text">
+						<span>получить бесплатный доступ к материалам</span>
+					</span>
+					<span class="text-button-with-arrow__arrow">
+						<i class="icon-arrow"></i>
+					</span>
+				</a>
+		
+			<!-- </div> -->
+		<!-- </section> -->
+
+		<section class="main__features features">
+			@@include('parts/features.html')
+		</section>
+
+		<div class="main__knowledgebase-slide-btn">
+			<i class="icon-arrow"></i>
+		</div>
+
+	</div>
+</main>
+
+
+<aside class="sidebar"></aside> <!-- перевести в parts -->
+
+
+<section class="modal">
+	<!-- <?php get_template_part('parts/modal-info'); ?> -->
+	@@include('parts/modal-access.html')
+</section>
+
+
+@@include('parts/svg.html')
+
+
+<!-- <?php get_template_part('parts/footer'); ?> -->
+@@include('parts/footer.html')

@@ -334,14 +334,14 @@ const header = {
 				this.closeButtons[i].addEventListener('click', this.close.bind(this));
 			}
 		},
-		toggle: function(e) {
+		toggle: function(e, noScrollLock) {
 			if (!this.isLoaded) return;
-			if (this.menuElem.classList.contains('_active')) this.close();
-			else if (e) this.open();
+			if (this.menuElem.classList.contains('_active')) this.close(noScrollLock);
+			else if (e) this.open(noScrollLock);
 		},
-		open: function() {
+		open: function(noScrollLock) {
 			if (!this.isLoaded) return;
-			if (this.root.refs.translock.check(this.timeout)) return;
+			if (!noScrollLock && this.root.refs.translock.check(this.timeout)) return;
 
 			this.menuElem.classList.add('_active');
 			this.root.headerElem.classList.add('_active');
@@ -354,9 +354,9 @@ const header = {
 			this.root.refs.scrlock.lock();
 			this.root.hidingHeader.scroll(0, true); // hidingHeader reference
 		},
-		close: function() {
+		close: function(noScrollLock) {
 			if (!this.isLoaded) return;
-			if (this.root.refs.translock.check(this.timeout)) return;
+			if (!noScrollLock && this.root.refs.translock.check(this.timeout)) return;
 
 			this.menuElem.classList.remove('_active');
 			this.root.headerElem.classList.remove('_active');
@@ -615,7 +615,7 @@ const modal = {
 	refs: {
 		translock: transitionLock,
 		scrlock: scrollLock,
-		header: header.menu.menuElem
+		header: header.menu
 	},
 	init: function(params = {}){
 		this.elemName = params.elem || 'modal';
@@ -641,6 +641,8 @@ const modal = {
 	open: function(e, modalName){
 		if (this.refs.translock.check(this.timeout)) return;
 		if (e) e.preventDefault();
+
+		this.refs.header.toggle(false, true); // close header menu if opened
 
 		// closeOldIfNew part 1
 		let oldWindow = false;
@@ -704,7 +706,7 @@ const modal = {
 		// }
 		// else {
 		// 	this.elem.classList.remove('_visible');
-		// 	if (!this.refs.header.classList.contains('_active'))
+		// 	if (!this.refs.header.menuElem.classList.contains('_active'))
 		// 		this.refs.scrlock.unlock(this.timeout);
 		// }
 	},
@@ -715,7 +717,7 @@ const modal = {
 		}
 		else {
 			this.elem.classList.remove('_visible');
-			if (!this.refs.header.classList.contains('_active'))
+			if (!this.refs.header.menuElem.classList.contains('_active'))
 				this.refs.scrlock.unlock(this.timeout);
 		}
 	}
@@ -976,6 +978,7 @@ const swipers = {
 	consult_bot: '.consult-form__slider',
 	modal_call: '.modal__call-slider',
 	modal_msg: '.modal__msg-slider',
+	cases: '.cases-slider',
 	settings: {
 		speed: 500,
 		spaceBetween: 30,
@@ -1014,6 +1017,15 @@ if (typeof Swiper !== 'undefined') {
 		speed: swipers.settings.speed,
 		spaceBetween: swipers.settings.spaceBetween,
 		allowTouchMove: false
+	})
+	swipers.new = swipers.cases;
+	swipers.cases = new Swiper(swipers.new, {
+		speed: swipers.settings.speed,
+		spaceBetween: 20,
+		navigation: {
+			nextEl: '.cases-slider__nav-next',
+			prevEl: '.cases-slider__nav-prev',
+		},
 	})
 }
 

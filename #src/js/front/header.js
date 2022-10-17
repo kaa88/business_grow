@@ -141,14 +141,14 @@ const header = {
 				this.closeButtons[i].addEventListener('click', this.close.bind(this));
 			}
 		},
-		toggle: function(e) {
+		toggle: function(e, noScrollLock) {
 			if (!this.isLoaded) return;
-			if (this.menuElem.classList.contains('_active')) this.close();
-			else if (e) this.open();
+			if (this.menuElem.classList.contains('_active')) this.close(noScrollLock);
+			else if (e) this.open(noScrollLock);
 		},
-		open: function() {
+		open: function(noScrollLock) {
 			if (!this.isLoaded) return;
-			if (this.root.refs.translock.check(this.timeout)) return;
+			if (!noScrollLock && this.root.refs.translock.check(this.timeout)) return;
 
 			this.menuElem.classList.add('_active');
 			this.root.headerElem.classList.add('_active');
@@ -161,9 +161,9 @@ const header = {
 			this.root.refs.scrlock.lock();
 			this.root.hidingHeader.scroll(0, true); // hidingHeader reference
 		},
-		close: function() {
+		close: function(noScrollLock) {
 			if (!this.isLoaded) return;
-			if (this.root.refs.translock.check(this.timeout)) return;
+			if (!noScrollLock && this.root.refs.translock.check(this.timeout)) return;
 
 			this.menuElem.classList.remove('_active');
 			this.root.headerElem.classList.remove('_active');

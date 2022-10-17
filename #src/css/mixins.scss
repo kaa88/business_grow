@@ -28,16 +28,15 @@
 	-webkit-line-clamp: $lines;
 	overflow: hidden;
 }
+@function em($px, $context: 16) {
+	@return math.div($px, $context) * 1em;
+	// context - пересчет относительно текущего эл-та. например, если нужно задать ширину текстового блока, но font-size блока установлен 30:
+	// font-size: 30px;
+	// width: em(720, 30); - получится ширина 720 по макету
+}
 @function rem($px, $context: 16) {
 	@return math.div($px, $context) * 1rem;
 }
-@function em($px, $context: 16) {
-	@return math.div($px, $context) * 1em;
-}
-// @function vw-pct($base, $media) {
-// 	@return calc($base / $media * 100vw);
-// 	// example: width: vw-pct(300, $media-footer);
-// }
 @function resize-multiplier($base, $media, $multiplier: 1) {
 	@return calc($base * $multiplier / $media * 100vw + $base * (1 - $multiplier) * 1px);
 	// example: width: resize-multiplier(300, $media-footer, 0.8);

@@ -15,7 +15,11 @@
 }
 // .g-h3 {}
 // .g-h4 {}
-// .g-text {}
+.g-text {
+	font-size: em(24);
+	line-height: 1.67;
+	letter-spacing: 0.05em;
+}
 // .g-button, .g-button:visited {}
 // .g-link, .g-link:visited {}
 
@@ -74,7 +78,7 @@
 	display: flex;//inline-flex
 	background-color: transparent;
 	// transition: background-color $timer-hover;
-	overflow: hidden;
+	// overflow: hidden;
 	&__text {
 		display: flex;
 		justify-content: center;
@@ -338,3 +342,48 @@ i {
 		display: none !important;
 	}
 }
+
+.video-button {
+	// font-size: 16px;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: em(132);
+	height: em(90);
+	position: relative;
+	@media (max-width: $media-modal+px) {
+		width: 73px;
+		height: 50px;
+	}
+	span {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		display: inline-block;
+		width: 100%;
+		height: 100%;
+		background: $gradient-2;
+		clip-path: url("#svg-play-button-shape");
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: inline-block;
+			width: 100%;
+			height: 100%;
+			background-color: transparent;
+			transition: background-color $timer-hover;
+		}
+	}
+	i:before {
+		margin-left: 0.2em;
+		font-size: 2.5em;
+		color: $color02;
+	}
+	&:hover span:before {
+		background-color: $color03;
+	}
+}
+

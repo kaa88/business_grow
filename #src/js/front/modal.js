@@ -40,7 +40,7 @@ const modal = {
 	refs: {
 		translock: transitionLock,
 		scrlock: scrollLock,
-		header: header.menu.menuElem
+		header: header.menu
 	},
 	init: function(params = {}){
 		this.elemName = params.elem || 'modal';
@@ -66,6 +66,8 @@ const modal = {
 	open: function(e, modalName){
 		if (this.refs.translock.check(this.timeout)) return;
 		if (e) e.preventDefault();
+
+		this.refs.header.toggle(false, true); // close header menu if opened
 
 		// closeOldIfNew part 1
 		let oldWindow = false;
@@ -129,7 +131,7 @@ const modal = {
 		// }
 		// else {
 		// 	this.elem.classList.remove('_visible');
-		// 	if (!this.refs.header.classList.contains('_active'))
+		// 	if (!this.refs.header.menuElem.classList.contains('_active'))
 		// 		this.refs.scrlock.unlock(this.timeout);
 		// }
 	},
@@ -140,7 +142,7 @@ const modal = {
 		}
 		else {
 			this.elem.classList.remove('_visible');
-			if (!this.refs.header.classList.contains('_active'))
+			if (!this.refs.header.menuElem.classList.contains('_active'))
 				this.refs.scrlock.unlock(this.timeout);
 		}
 	}

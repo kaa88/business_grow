@@ -79,8 +79,8 @@
 }
 
 .header-menu-open-btn {
-	height: 50px;
-	width: 50px;
+	height: 100%;//50px
+	width: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -102,33 +102,55 @@
 }
 .header-menu-close-btn {
 	position: absolute;
-	top: calc(50% - 18px);
-	left: calc(50% - 18px);
-	width: 36px;
-	height: 36px;
+	// top: calc(50% - 18px);
+	// left: calc(50% - 18px);
+	top: 0;
+	left: 0;
+	// width: 36px;
+	// height: 36px;
+	width: 100%;
+	height: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	border-radius: 50%;
-	background-color: $color11;
-	color: $color02;
 	font-size: 16px;
 	cursor: pointer; //REQ!
 	user-select: none; //REQ!
 	visibility: hidden;
 	opacity: 0;
-	transition: visibility $timer-menu, opacity $timer-menu, background-color $timer-modal, color $timer-modal;
-	i:before {
-		font-size: 13px;
-		margin-right: 1px;
+	transition: visibility $timer-menu, opacity $timer-menu;
+	&:before {
+		content: '';
+		width: 36px;
+		height: 36px;
+		border-radius: 50%;
+		background-color: $color11;
+		transition: background-color $timer-modal;
+	}
+	i {
+		position: absolute;
+		top: calc(50% - 18px);
+		left: calc(50% - 18px);
+		width: 36px;
+		height: 36px;
+		&:before {
+			font-size: 13px;
+			margin-right: 1px;
+			color: $color02;
+			transition: color $timer-modal;
+		}
 	}
 	&._active {
 		visibility: visible;
 		opacity: 1;
 	}
 	._active-modal-light & {
-		background-color: $color07;
-		color: $color06;
+		&:before {
+			background-color: $color07;
+		}
+		i:before {
+			color: $color06;
+		}
 	}
 	@media (min-width: $media-header+1+px) {
 		display: none; //REQ!
@@ -242,6 +264,11 @@
 		}
 	}
 	&__header-menu {
+	}
+	&__button-box {
+		position: relative;
+		width: 50px;
+		height: 50px;
 	}
 }
 

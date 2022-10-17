@@ -1,0 +1,130 @@
+<!-- <?php
+/* Template Name: Home */
+get_template_part('parts/header');
+?> -->
+@@include('parts/header.html', {
+	'title': 'Cases | Business Grow',
+	'descr': 'Description',
+	'robots': 'noindex, nofollow',
+	'bodyclass': '',
+	'feedback_button_class': 'feedback-button'
+})
+<script id="header-menu-options">
+	// список пунктов меню в header.html
+	// наличие и порядок устанавливаются в массиве 'links'
+	// 'activeLink' добавляет класс 'this-page'
+	// тег 'script' можно удалить
+	
+	let headerMenuOptions = {
+	// 	links: ['home','products','about','contacts'],
+		activeLink: 'cases'
+	}
+</script>
+
+
+<main class="main page-cases">
+	<div class="main__container container">
+
+		<!-- <section class="main__cases cases"> -->
+			<!-- <div class="cases__container container"> -->
+				
+				<a class="main__backlink" href="categories.html">
+					<i class="icon-arrow"></i>
+					<span>категории</span>
+				</a>
+ 
+				<div class="main__cases-slider cases-slider swiper">
+					<div class="cases-slider__nav-buttons">
+						<p class="cases-slider__nav-text">предыдущий кейс</p>
+						<div class="cases-slider__nav-prev">
+							<i class="icon-arrow"></i>
+						</div>
+						<p class="cases-slider__nav-text">следующий кейс</p>
+						<div class="cases-slider__nav-next">
+							<i class="icon-arrow"></i>
+						</div>
+					</div>
+					<div class="swiper-wrapper">
+
+						<div class="swiper-slide">
+
+							<div class="cases-slider__header">
+								<h2 class="g-h2">
+									Продажи тренинга Сергея Азимова на $38 000
+								</h2>
+							</div>
+
+							<div class="cases-slider__client">
+								<span>Клиент -</span>
+								<a class="cases-slider__client-link" href="#">
+									Сергей Азимов
+								</a>
+							</div>
+
+							<div class="cases-slider__image">
+								<img src="media/img/main.png" srcset="media/img/main.png 2x" alt="" loading="lazy">
+							</div>
+			
+						</div>
+						
+						<div class="swiper-slide">
+
+							<div class="cases-slider__header">
+								<h2 class="g-h2">
+									Продажи тренинга Сергея Азимова на $76 000
+								</h2>
+							</div>
+
+							<div class="cases-slider__client">
+								<span>Клиент -</span>
+								<a class="cases-slider__client-link" href="#">
+									Сергей Азимов
+								</a>
+							</div>
+
+							<div class="cases-slider__image">
+								<img src="media/img/main.png" srcset="media/img/main.png 2x" alt="" loading="lazy">
+							</div>
+			
+						</div>
+						
+					</div>
+				</div>
+
+			<!-- </div> -->
+		<!-- </section> -->
+
+		<section class="main__features features">
+			@@include('parts/features.html')
+
+			<a class="features__text-button-with-arrow text-button-with-arrow modal-link" href="#modal-consult">
+				<span class="text-button-with-arrow__text">
+					<span>получить консультацию</span>
+				</span>
+				<span class="text-button-with-arrow__arrow">
+					<i class="icon-arrow"></i>
+				</span>
+			</a>
+	
+		</section>
+
+
+	</div>
+</main>
+
+
+<aside class="sidebar"></aside>
+
+
+<section class="modal">
+	<!-- <?php get_template_part('parts/modal-info'); ?> -->
+	@@include('parts/modal-consult.html')
+	@@include('parts/modal-confirm.html')
+</section>
+
+
+@@include('parts/svg.html')
+
+
+<!-- <?php get_template_part('parts/footer'); ?> -->
+@@include('parts/footer.html')

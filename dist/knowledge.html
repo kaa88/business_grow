@@ -12,8 +12,8 @@ get_template_part('parts/header');
 
 	<!-- Delete if WP -->
 	<!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'"> -->
-	<title>404 - Page not found</title>
-	<meta name="description" content="Page does not exist">
+	<title>Knowledge base | Business Grow</title>
+	<meta name="description" content="Description">
 	<meta name="robots" content="noindex, nofollow">
 	<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 	<!-- <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css"> -->
@@ -28,7 +28,7 @@ get_template_part('parts/header');
 	<!-- <?php wp_head(); ?> -->
 </head>
 
-<body class="@@bodyclass">
+<body class="">
 	<!-- <?php wp_body_open(); ?> -->
 
 	<noscript>
@@ -157,7 +157,7 @@ get_template_part('parts/header');
 
 		<div class="header-level header-level--middle">
 
-			<a class="@@feedback_button_class" href="#">
+			<a class="feedback-button" href="#">
 				обратная связь
 			</a>
 			<div class="header-level__socials socials socials--vertical">
@@ -248,7 +248,7 @@ get_template_part('parts/header');
 // }
 ?> -->
 
-<!-- <script id="header-menu-options">
+<script id="header-menu-options">
 	// список пунктов меню в header.html
 	// наличие и порядок устанавливаются в массиве 'links'
 	// 'activeLink' добавляет класс 'this-page'
@@ -256,23 +256,178 @@ get_template_part('parts/header');
 	
 	let headerMenuOptions = {
 	// 	links: ['home','products','about','contacts'],
-	// 	activeLink: 'home'
+		activeLink: 'knowledge'
 	}
-</script> -->
+</script>
 
 
-<main class="main page-404">
-	<div class="page-404__container container">
-	
-		<div class="page-404__content">
-			<h1>404</h1>
-			<h2>Page Not Found</h2>
-			<p>Sorry, but the page you were trying to view does not exist.</p>
-			<a href="/">Go to Homepage</a>
+<main class="main page-knowledge">
+	<div class="main__container container">
+
+		<!-- <section class="main__knowledge-content knowledge-content"> -->
+
+			<div class="main__complex-image complex-image">
+				<div class="complex-image__circles">
+					<img src="media/img/circles.svg" alt="" loading="lazy">
+				</div>
+				<div class="complex-image__img">
+					<img class="materials-video" src="media/img/materials-big-01.png" srcset="media/img/materials-big-01.png 2x" alt="" loading="lazy">
+				</div>
+			</div>
+
+			<!-- <div class="knowledge-content__container"> -->
+				<h2 class="g-h2">
+					Закрытый источник знаний для предпринимателей, маркетологов и первых лиц компаний
+				</h2>
+
+				<div class="main__video-link">
+					<a class="video-button" href="#">
+						<span></span>
+						<i class="icon-play"></i>
+					</a>
+					<p class="main__video-link-text">видео о том, что внутри</p>
+				</div>
+
+				<p class="g-text">
+					Получите бесплатный доступ к закрытым материалам по бизнесу и растите вместе с нами
+				</p>
+
+				<a class="main__text-button-with-arrow text-button-with-arrow modal-link" href="#modal-access">
+					<span class="text-button-with-arrow__text">
+						<span>получить бесплатный доступ к материалам</span>
+					</span>
+					<span class="text-button-with-arrow__arrow">
+						<i class="icon-arrow"></i>
+					</span>
+				</a>
+		
+			<!-- </div> -->
+		<!-- </section> -->
+
+		<section class="main__features features">
+			<div class="features__items">
+				<div class="features__item">
+					<div class="features__item-img">
+						<img src="media/img/features-1.svg" alt="" loading="lazy">
+					</div>
+					<p class="features__item-text">
+						Выполнили более 300 проектов из более 60 сфер бизнеса за 10 лет работы
+					</p>
+				</div>
+				<div class="features__item">
+					<div class="features__item-img">
+						<img src="media/img/features-2.svg" alt="" loading="lazy">
+					</div>
+					<p class="features__item-text">
+						Делаем: сайты, трафик, автоворонки, а также продюсируем экспертов онлайн образования
+					</p>
+				</div>
+				<div class="features__item">
+					<div class="features__item-img">
+						<img src="media/img/features-3.svg" alt="" loading="lazy">
+					</div>
+					<p class="features__item-text">
+						Провели более 125 онлайн и офлайн мероприятий по маркетингу, своих и партнеров
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<div class="main__knowledgebase-slide-btn">
+			<i class="icon-arrow"></i>
 		</div>
-	
+
 	</div>
 </main>
+
+
+<aside class="sidebar"></aside> <!-- перевести в parts -->
+
+
+<section class="modal">
+	<!-- <?php get_template_part('parts/modal-info'); ?> -->
+	<div class="modal__window" id="modal-access">
+		<div class="modal__wrapper">
+			<div class="modal__content">
+				<div class="modal__close-button"><i class="icon-cross"></i></div>
+
+				<p class="modal__title modal__title--bold">
+					<span>
+						Выберите канал, в который мы отправим вам доступ и материалы по развитию бизнеса
+					</span>
+				</p>
+		
+				<div class="modal__feedback-content feedback-content feedback-content--access">
+
+					<div class="feedback-content__main">
+
+
+
+
+						<div class="radio">
+							<input type="radio" id="radio-access-contact-method-1" name="radio-access-contact-method" value="telegram" checked>
+							<label for="radio-access-contact-method-1">
+								<span class="label-box label-box--style2">
+									<i class="colored-icon icon-telegram"></i>
+								</span>
+							</label>
+							<input type="radio" id="radio-access-contact-method-2" name="radio-access-contact-method" value="vk">
+							<label for="radio-access-contact-method-2">
+								<span class="label-box label-box--style2">
+									<i class="colored-icon icon-vk"></i>
+								</span>
+							</label>
+						</div>
+
+						<p class="modal-text">
+							или получите доступ на электоронную почту:
+						</p>
+
+						<div class="feedback-content__user-contact-input user-contact-input">
+							<p class="user-contact-input__title">E-mail*</p>
+							<input class="user-contact-input__input" type="text" name="email" placeholder="E-mail адрес">
+						</div>
+
+						<a class="text-button-simple" href="#">
+							<span>
+								получить доступ к материалам
+							</span>
+						</a>
+				
+					</div>
+
+					<div class="feedback-content__bottom">
+						<div class="feedback-content__checkbox checkbox">
+							<input type="checkbox" id="access-policy-checkbox" name="checked" value="policy-ok" checked>
+							<label for="msg-policy-checkbox">
+								<span class="label-box"><i class="icon-ok"></i></span>
+								<span class="label-text">
+									<span>оставляя свои контактные данные, вы соглашаетесь</span>
+									<a class="policy-link" href="#">с политикой защиты и обработки персональных данных пользователей сайта</a>
+								</span>
+							</label>
+						</div>
+						<p class="feedback-content__if-no-msg">
+							если сообщение от нас не приходит больше 5 минут,<br> пожалуйста напишите нам через <a class="modal-link" href="#modal-message">форму</a>
+						</p>
+					</div>
+
+				</div>
+
+				<div class="modal__footer-clone mobile-only"></div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<section class="svg-templates">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256.22708 174.82484">
+		<clipPath id="svg-play-button-shape" clipPathUnits="objectBoundingBox">
+			<path d="M 112.25895,174.70234 C 76.714874,174.43549 43.56529,172.77588 30.937747,170.63105 19.118689,168.62353 10.335812,161.43323 6.5609344,150.67441 3.3503734,141.52396 1.1110384,124.06103 0.18238144,100.93275 -0.15903056,92.42985 0.00385744,71.1239 0.46354944,64.15566 2.1247334,38.97465 5.5436784,22.86896 10.882384,15.07546 c 1.103372,-1.61071 4.038248,-4.47373 6.05824,-5.9099095 5.577949,-3.96582 9.835925,-5.42291 18.286415,-6.25766 C 54.252093,1.0285705 87.415201,8.4047393e-4 129.05999,4.7392633e-7 179.73906,-9.9952607e-4 217.75491,1.5805905 228.14645,4.1224005 c 5.2248,1.278 10.41045,4.2399 14.3166,8.1772395 3.3291,3.35566 5.58944,6.99157 7.23588,11.63936 5.06066,14.2859 7.63284,49.39734 6.07648,82.94687 -1.0994,23.6996 -4.11049,41.46469 -8.33534,49.17775 -3.53134,6.44695 -9.95749,11.86357 -16.03946,13.51969 -7.30309,1.98864 -26.59457,3.56574 -55.11249,4.50548 -10.01962,0.33018 -43.5117,0.8071 -51.06458,0.72716 -2.91042,-0.0308 -8.74448,-0.0819 -12.96459,-0.11361 z" />
+		</clipPath>
+	</svg>
+</section>
 
 
 <!-- <?php get_template_part('parts/footer'); ?> -->

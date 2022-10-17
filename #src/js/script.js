@@ -243,6 +243,7 @@ const swipers = {
 	consult_bot: '.consult-form__slider',
 	modal_call: '.modal__call-slider',
 	modal_msg: '.modal__msg-slider',
+	cases: '.cases-slider',
 	settings: {
 		speed: 500,
 		spaceBetween: 30,
@@ -281,6 +282,15 @@ if (typeof Swiper !== 'undefined') {
 		speed: swipers.settings.speed,
 		spaceBetween: swipers.settings.spaceBetween,
 		allowTouchMove: false
+	})
+	swipers.new = swipers.cases;
+	swipers.cases = new Swiper(swipers.new, {
+		speed: swipers.settings.speed,
+		spaceBetween: 20,
+		navigation: {
+			nextEl: '.cases-slider__nav-next',
+			prevEl: '.cases-slider__nav-prev',
+		},
 	})
 }
 

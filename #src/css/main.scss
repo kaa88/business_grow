@@ -104,6 +104,7 @@ body {
 	// 	.page-about & {margin-top: 10px;}
 	// }
 	&__container {
+		position: relative;
 		height: 100%;
 		display: flex;
 		flex-direction: column;
@@ -113,6 +114,13 @@ body {
 		@media (min-width: $mobile+1+px) {
 			padding-right: 10px;
 		}
+		// .page-cases & {
+		// 	display: grid;
+		// 	grid-template-columns: repeat(2, auto);
+		// 	& > *:nth-child(1), & > *:nth-child(2) {
+		// 		grid-column: span 2;
+		// 	}
+		// }
 	}
 	&__homepage-title {
 		@media (max-width: $mobile+px) {
@@ -209,7 +217,95 @@ body {
 		left: 0;
 		z-index: -1;
 	}
+	&__complex-image {
+		position: absolute;
+		top: 0;
+		right: em(-90);
+		z-index: -1;
+	}
+	&__video-link {
+		margin-top: em(25);
+		margin-bottom: em(30);
+		display: flex;
+		align-items: center;
+		.video-button {
+			margin-right: em(21);
+		}
+		&-text {
+			font-size: em(16);
+			letter-spacing: 0.03em;
+		}
+		.g-h2 {
+			.page-knowledge & {
+			}
+		}
+		.g-text {}
+	}
+	&__knowledgebase-slide-btn {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		width: em(90);
+		height: em(90);
+		background-color: $color05;
+		border-radius: 50%;
+		border: solid em(1) transparent;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		transition: background-color $timer-hover, border-color $timer-hover;
+		cursor: pointer;
+		i:before {
+			font-size: em(14);
+			color: $color02;
+		}
+		&:hover {
+			background-color: $color09;
+			border-color: $color04;
+		}
+	}
+	&__backlink, &__backlink:visited {
+		display: inline-flex;
+		align-items: center;
+		color: $color06;
+		transition: color $timer-hover;
+		span {
+			margin-left: em(8, 20);
+			font-size: em(20);
+			letter-spacing: 0.03em;
+		}
+		i:before {
+			margin-top: 25%;
+			transform: rotate(180deg);
+			font-size: em(9);
+		}
+	}
+	&__backlink:hover {
+		color: $color03;
+	}
+	&__cases-slider {
+	}
 }
+.page-knowledge {
+	.g-h2 {
+		max-width: em(720, 36);
+	}
+	.g-text {
+		max-width: em(720, 24);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
 .decor-triangle {
 	position: absolute;
 	top: 0;
@@ -324,6 +420,11 @@ body {
 
 .features {
 	max-width: em(938);
+	.page-cases & {
+		display: flex;
+		align-items: center;
+		max-width: 9999px;
+	}
 	&__items {
 		display: inline-flex;
 	}
@@ -349,6 +450,9 @@ body {
 		line-height: 1.5;
 		letter-spacing: 0.03em;
 		color: $color10;
+	}
+	&__text-button-with-arrow {
+		margin-left: em(80);
 	}
 }
 .features-slider {
@@ -429,4 +533,134 @@ body {
 }
 .policy-link:hover {
 	text-decoration: underline;
+}
+
+.complex-image {
+	width: 100%;
+	max-width: em(708);
+	display: flex;
+	justify-content: center;
+	// background-color: yellow;
+	&__circles {
+		width: em(578);
+		img {
+			width: 100%;
+		}
+	}
+	&__img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+}
+.materials-video {
+	margin-top: 4%;
+}
+
+.cases-slider {
+	width: 100%;
+	position: relative;
+	&__nav {
+		&-buttons {
+			position: absolute;
+			top: 0;
+			right: 0;
+			z-index: 2;
+			display: inline-grid;
+			grid-template-columns: repeat(2, min-content);
+			grid-column-gap: em(20);
+			justify-content: center;
+			background-color: $color02;
+		}
+		&-text {
+			grid-row: 1;
+			font-size: em(10);
+			line-height: 1.2;
+			text-align: center;
+			letter-spacing: 0.03em;
+			color: $color06;
+		}
+		&-prev, &-next {
+			margin: em(5) auto 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: em(50);
+			height: em(50);
+			border-radius: 50%;
+			border: solid em(1) transparent;
+			background-color: orange;
+			transition: border-color $timer-hover, color $timer-hover;
+			cursor: pointer;
+			i:before {
+				font-size: em(12);
+			}
+			&:hover {
+				border-color: $color01;
+				color: $color01;
+			}
+		}
+		&-prev {
+			background-color: $color02;
+			border-color: $color06;
+			color: $color06;
+			i:before {
+				transform: rotate(180deg);
+			}
+		}
+		&-next {
+			background-color: $color06;
+			color: $color02;
+			// &:hover {
+			// 	border-color: $color01;
+			// 	color: $color01;
+			// }
+		}
+	}
+	&__header {
+		height: em(100);
+		display: flex;
+		align-items: center;
+		padding-right: em(150);
+		.g-h2 {
+			@include text-max-lines(2);
+		}
+	}
+	&__client {
+		font-weight: 300;
+		font-size: em(18);
+		letter-spacing: 0.03em;
+	}
+	&__client-link, &__client-link:visited {
+		display: inline-block;
+		color: $color05;
+		border-bottom: solid em(1) transparent;
+		transition: border-color $timer-hover;
+	}
+	&__client-link:hover {
+		border-color: $color05;
+	}
+	&__image {
+		margin-top: em(20);
+		width: 100%;
+		max-height: em(400);
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	.swiper {
+	}
+	.swiper-wrapper {
+	}
+	.swiper-slide {
+	}
 }
