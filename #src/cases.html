@@ -7,7 +7,7 @@ get_template_part('parts/header');
 	'descr': 'Description',
 	'robots': 'noindex, nofollow',
 	'bodyclass': '',
-	'feedback_button_class': 'feedback-button'
+	'feedback_button_class': 'feedback-button modal-link'
 })
 <script id="header-menu-options">
 	// список пунктов меню в header.html
@@ -113,13 +113,14 @@ get_template_part('parts/header');
 </main>
 
 
-<aside class="sidebar"></aside>
+@@include('parts/materials.html')
 
 
 <section class="modal">
 	<!-- <?php get_template_part('parts/modal-info'); ?> -->
 	@@include('parts/modal-consult.html')
 	@@include('parts/modal-confirm.html')
+	@@include('parts/modal-message.html')
 </section>
 
 

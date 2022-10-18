@@ -157,7 +157,7 @@ get_template_part('parts/header');
 
 		<div class="header-level header-level--middle">
 
-			<a class="feedback-button feedback-button--clipped" href="#">
+			<a class="feedback-button feedback-button--clipped modal-link" href="#modal-message">
 				обратная связь
 			</a>
 			<div class="header-level__socials socials socials--vertical">
@@ -262,11 +262,12 @@ get_template_part('parts/header');
 
 
 <main class="main page-home">
-	<div class="main__container container">
 
-		<div class="main__mobile-background mobile-background scroll-lock-item-m">
-			<img src="media/img/main.png" srcset="media/img/main.png 2x" alt="" loading="lazy">
-		</div>
+	<div class="main__mobile-background mobile-background scroll-lock-item-m">
+		<img src="media/img/main.png" srcset="media/img/main.png 2x" alt="" loading="lazy">
+	</div>
+	
+	<div class="main__container container">
 
 		<h1 class="main__homepage-title">
 			<span class="main__homepage-title-top">We make your</span>
@@ -342,7 +343,7 @@ get_template_part('parts/header');
 		</a>
 
 		<section class="main__features features">
-			<div class="features__items">
+			<div class="features__items desktop-only">
 				<div class="features__item">
 					<div class="features__item-img">
 						<img src="media/img/features-1.svg" alt="" loading="lazy">
@@ -1222,8 +1223,8 @@ get_template_part('parts/header');
 				<i class="icon-vc"></i>
 			</a>
 		</div>
-		<a class="footer__policy" href="#">Personal data policy</a>
-		<a class="footer__policy" href="#">Safety policy</a>
+		<a class="footer__policy" href="404.html">Personal data policy</a>
+		<a class="footer__policy" href="404.html">Safety policy</a>
 
 	</div>
 </footer>

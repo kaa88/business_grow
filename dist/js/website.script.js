@@ -979,12 +979,32 @@ const swipers = {
 	modal_call: '.modal__call-slider',
 	modal_msg: '.modal__msg-slider',
 	cases: '.cases-slider',
+	materials: '.materials-slider .swiper',
 	settings: {
 		speed: 500,
 		spaceBetween: 30,
 	}
 };
 
+// Check number of slides in materials-slide
+swipers.checkMaterialSlides = function() {
+	let sliderWrapperEl = document.querySelector(this.materials + ' .swiper-wrapper');
+	if (!sliderWrapperEl) return;
+	let newWrapperString = '', lastSlideElString = sliderWrapperEl.querySelector('.last-slide').outerHTML;
+	for (let i = 0; i <= 9; i++) {
+		if (i == 9 && sliderWrapperEl.children[i]) {
+			newWrapperString += lastSlideElString;
+			break;
+		}
+		if (i > sliderWrapperEl.children.length -1) newWrapperString += '<div class="swiper-slide _empty"></div>';
+		else newWrapperString += sliderWrapperEl.children[i].outerHTML;
+	}
+	sliderWrapperEl.innerHTML = newWrapperString;
+}
+swipers.checkMaterialSlides();
+//
+
+// Building Swipers
 if (typeof Swiper !== 'undefined') {
 	swipers.new = swipers.features;
 	swipers.features = new Swiper(swipers.new, {
@@ -1020,15 +1040,41 @@ if (typeof Swiper !== 'undefined') {
 	})
 	swipers.new = swipers.cases;
 	swipers.cases = new Swiper(swipers.new, {
-		speed: swipers.settings.speed,
-		spaceBetween: 20,
 		navigation: {
 			nextEl: '.cases-slider__nav-next',
 			prevEl: '.cases-slider__nav-prev',
 		},
+		loop: true,
+		speed: swipers.settings.speed,
+		spaceBetween: 20,
+	})
+	swipers.new = swipers.materials;
+	swipers.materials = new Swiper(swipers.new, {
+		navigation: {
+			prevEl: '.materials-slider__button-prev',
+			nextEl: '.materials-slider__button-next',
+		},
+		freeMode: true,
+		slidesPerView: 'auto',
+		spaceBetween: 10,
+		slidesOffsetBefore: 30,
+		slidesOffsetAfter: 30,
+		breakpoints: {
+			[mobileSwitchWidth]: {
+				direction: 'vertical',
+				allowTouchMove: false,
+				slidesPerGroup: 5,
+				slidesPerView: 5,
+				freeMode: false,
+				spaceBetween: 0,
+				speed: 400,
+				slidesOffsetBefore: 0,
+				slidesOffsetAfter: 0,
+			}
+		}
 	})
 }
-
+//
 
 // Swiper no-internet version
 else {
@@ -1095,19 +1141,25 @@ swiperReserveStyles.innerHTML =
 	'.swiper-slide {flex: 0 0 100%;}' +
 	'.swiper-slide:not(:first-child) {margin-left: ' + swipers.settings.spaceBetween + 'px;}}';
 }
-
+//
 
 // Quiz
 let modalProgressBar = {
-	elem: document.querySelector('.modal__progressbar-inner'),
-	total: document.querySelector('.consult-form__slider .swiper-wrapper').children.length,
-	i: 1,
+	init: function() {
+		let modalCheck = document.querySelector('#modal-consult');
+		if (!modalCheck) return;
+		this.isLoaded = true;
+		this.elem = document.querySelector('.modal__progressbar-inner');
+		this.total = document.querySelector('.consult-form__slider .swiper-wrapper').children.length;
+		this.i = 1;
+		this.expand();
+	},
 	expand: function() {
-		this.elem.style.width = this.i / this.total * 100 + '%';
+		if (this.isLoaded) this.elem.style.width = this.i / this.total * 100 + '%';
 	}
 }
-modalProgressBar.expand();
-
+modalProgressBar.init();
+//
 
 swipers.consultSlideButtons = document.querySelectorAll('.swiper-slide-button');
 for (let i = 0; i < swipers.consultSlideButtons.length; i++) {

@@ -44,6 +44,12 @@
 		height: 100%;
 		z-index: -2;
 		border-top: solid 1px $color08;
+		@media (min-width: $media-footer+1+px) {
+			:not(.page-home) & {
+				width: 50%;
+				min-width: em(500);
+			}
+		}
 		@media (max-width: $media-footer+px) {
 			left: 30px;
 			width: calc(100% - 60px);

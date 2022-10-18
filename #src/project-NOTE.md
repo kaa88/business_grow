@@ -58,3 +58,4 @@ New site template v3.02
 - шаблон формы - поменять название прогресс-бокса и переделать размеры точек (templates, form.scss)
 - header - button-box для open/close btns
 - mixins.scss - добавлено описание к em
+- colors.scss - заменить название переменных на c01 - устал вписывать 'color' постоянно

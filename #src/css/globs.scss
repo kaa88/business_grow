@@ -12,6 +12,10 @@
 	line-height: 1.53;
 	letter-spacing: 0.03em;
 	color: $color03;
+	@media (max-width: $mobile+px) {
+		font-size: 19px;
+		line-height: 1.05;
+	}
 }
 // .g-h3 {}
 // .g-h4 {}

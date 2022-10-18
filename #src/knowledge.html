@@ -6,8 +6,8 @@ get_template_part('parts/header');
 	'title': 'Knowledge base | Business Grow',
 	'descr': 'Description',
 	'robots': 'noindex, nofollow',
-	'bodyclass': '',
-	'feedback_button_class': 'feedback-button'
+	'bodyclass': 'knowledgepage-body',
+	'feedback_button_class': 'feedback-button modal-link'
 })
 <script id="header-menu-options">
 	// список пунктов меню в header.html
@@ -23,6 +23,11 @@ get_template_part('parts/header');
 
 
 <main class="main page-knowledge">
+
+	<div class="main__mobile-background mobile-background scroll-lock-item-m">
+		<img src="media/img/main.png" srcset="media/img/main.png 2x" alt="" loading="lazy">
+	</div>
+
 	<div class="main__container container">
 
 		<!-- <section class="main__knowledge-content knowledge-content"> -->
@@ -32,7 +37,7 @@ get_template_part('parts/header');
 					<img src="media/img/circles.svg" alt="" loading="lazy">
 				</div>
 				<div class="complex-image__img">
-					<img class="materials-video" src="media/img/materials-big-01.png" srcset="media/img/materials-big-01.png 2x" alt="" loading="lazy">
+					<img class="materialimg-video" src="media/img/materials-big-01.png" srcset="media/img/materials-big-01.png 2x" alt="" loading="lazy">
 				</div>
 			</div>
 
@@ -77,11 +82,12 @@ get_template_part('parts/header');
 </main>
 
 
-<aside class="sidebar"></aside> <!-- перевести в parts -->
+@@include('parts/materials.html')
 
 
 <section class="modal">
 	<!-- <?php get_template_part('parts/modal-info'); ?> -->
+	@@include('parts/modal-message.html')
 	@@include('parts/modal-access.html')
 </section>
 

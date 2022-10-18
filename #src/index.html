@@ -7,7 +7,7 @@ get_template_part('parts/header');
 	'descr': 'Description',
 	'robots': 'noindex, nofollow',
 	'bodyclass': 'homepage-body',
-	'feedback_button_class': 'feedback-button feedback-button--clipped'
+	'feedback_button_class': 'feedback-button feedback-button--clipped modal-link'
 })
 <script id="header-menu-options">
 	// список пунктов меню в header.html
@@ -23,11 +23,12 @@ get_template_part('parts/header');
 
 
 <main class="main page-home">
-	<div class="main__container container">
 
-		<div class="main__mobile-background mobile-background scroll-lock-item-m">
-			<img src="media/img/main.png" srcset="media/img/main.png 2x" alt="" loading="lazy">
-		</div>
+	<div class="main__mobile-background mobile-background scroll-lock-item-m">
+		<img src="media/img/main.png" srcset="media/img/main.png 2x" alt="" loading="lazy">
+	</div>
+	
+	<div class="main__container container">
 
 		<h1 class="main__homepage-title">
 			<span class="main__homepage-title-top">We make your</span>

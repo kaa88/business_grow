@@ -157,7 +157,7 @@ get_template_part('parts/header');
 
 		<div class="header-level header-level--middle">
 
-			<a class="feedback-button" href="#">
+			<a class="feedback-button modal-link" href="#modal-message">
 				обратная связь
 			</a>
 			<div class="header-level__socials socials socials--vertical">
@@ -334,7 +334,7 @@ get_template_part('parts/header');
 		<!-- </section> -->
 
 		<section class="main__features features">
-			<div class="features__items">
+			<div class="features__items desktop-only">
 				<div class="features__item">
 					<div class="features__item-img">
 						<img src="media/img/features-1.svg" alt="" loading="lazy">
@@ -377,7 +377,126 @@ get_template_part('parts/header');
 </main>
 
 
-<aside class="sidebar"></aside>
+<!-- <aside class="sidebar">
+</aside> -->
+<div class="materials-slider">
+	<div class="materials-slider__button-prev">
+		<i class="icon-arrow2"></i>
+	</div>
+	<div class="swiper">
+		<div class="swiper-wrapper">
+
+			<div class="swiper-slide">
+				<div class="materials-slider__image">
+					<img src="media/img/main.png" alt="" loading="lazy">
+				</div>
+				<div class="materials-slider__icon"><i class="icon-lock"></i></div>
+				<p class="materials-slider__type">Видео 1</p>
+				<p class="materials-slider__title">
+					19 способов увеличить конверсию сайта
+				</p>
+			</div>
+
+			<div class="swiper-slide">
+				<div class="materials-slider__image">
+					<img src="media/img/main.png" alt="" loading="lazy">
+				</div>
+				<div class="materials-slider__icon"><i class="icon-lock"></i></div>
+				<p class="materials-slider__type">Видео 2</p>
+				<p class="materials-slider__title">
+					19 способов увеличить конверсию сайта
+				</p>
+			</div>
+
+			<div class="swiper-slide">
+				<div class="materials-slider__image">
+					<img src="media/img/main.png" alt="" loading="lazy">
+				</div>
+				<div class="materials-slider__icon"><i class="icon-lock"></i></div>
+				<p class="materials-slider__type">Видео 3</p>
+				<p class="materials-slider__title">
+					19 способов увеличить конверсию сайта
+				</p>
+			</div>
+
+			<div class="swiper-slide">
+				<div class="materials-slider__image">
+					<img src="media/img/main.png" alt="" loading="lazy">
+				</div>
+				<div class="materials-slider__icon"><i class="icon-lock"></i></div>
+				<p class="materials-slider__type">Видео 4</p>
+				<p class="materials-slider__title">
+					19 способов увеличить конверсию сайта
+				</p>
+			</div>
+
+			<div class="swiper-slide">
+				<div class="materials-slider__image">
+					<img src="media/img/main.png" alt="" loading="lazy">
+				</div>
+				<div class="materials-slider__icon"><i class="icon-lock"></i></div>
+				<p class="materials-slider__type">Видео 5</p>
+				<p class="materials-slider__title">
+					19 способов увеличить конверсию сайта
+				</p>
+			</div>
+
+			<div class="swiper-slide">
+				<div class="materials-slider__image">
+					<img src="media/img/main.png" alt="" loading="lazy">
+				</div>
+				<div class="materials-slider__icon"><i class="icon-lock"></i></div>
+				<p class="materials-slider__type">Видео 6</p>
+				<p class="materials-slider__title">
+					19 способов увеличить конверсию сайта
+				</p>
+			</div>
+
+			<div class="swiper-slide">
+				<div class="materials-slider__image">
+					<img src="media/img/main.png" alt="" loading="lazy">
+				</div>
+				<div class="materials-slider__icon"><i class="icon-lock"></i></div>
+				<p class="materials-slider__type">Видео 7</p>
+				<p class="materials-slider__title">
+					19 способов увеличить конверсию сайта
+				</p>
+			</div>
+
+			<div class="swiper-slide">
+				<div class="materials-slider__image">
+					<img src="media/img/main.png" alt="" loading="lazy">
+				</div>
+				<div class="materials-slider__icon"><i class="icon-lock"></i></div>
+				<p class="materials-slider__type">Видео 8</p>
+				<p class="materials-slider__title">
+					19 способов увеличить конверсию сайта
+				</p>
+			</div>
+
+			<div class="swiper-slide">
+				<div class="materials-slider__image">
+					<img src="media/img/main.png" alt="" loading="lazy">
+				</div>
+				<div class="materials-slider__icon"><i class="icon-lock"></i></div>
+				<p class="materials-slider__type">Видео 9</p>
+				<p class="materials-slider__title">
+					19 способов увеличить конверсию сайта
+				</p>
+			</div>
+			
+			<div class="swiper-slide last-slide">
+				<p class="materials-slider__title">
+					и масса другого огненного контента
+				</p>
+			</div>
+
+		</div>
+	</div>
+	<div class="materials-slider__button-next">
+		<i class="icon-arrow2"></i>
+	</div>
+</div>
 
 
 <section class="modal">
@@ -809,6 +928,149 @@ get_template_part('parts/header');
 			</div>
 		</div>
 	</div>
+	<div class="modal__window" id="modal-message">
+		<div class="modal__wrapper">
+			<div class="modal__content">
+				<div class="modal__close-button"><i class="icon-cross"></i></div>
+
+				<div class="modal__header-cover modal__header-cover--light mobile-only"></div>
+
+				<div class="modal__msg-slider swiper">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+
+							<p class="modal__title modal__title--bold">
+								<span>
+									Введите ваш вопрос в форму или сразу пишите в любой из наших мессенджеров
+								</span>
+							</p>
+							<p class="modal__subtitle">
+								Обычно мы отвечаем в течение 15 минут, но иногда на ответ может потребоваться до 24-х часов
+							</p>
+					
+							<form class="modal__feedback-content feedback-content feedback-content--message" name="message-form" action="#">
+
+								<div class="feedback-content__main">
+
+									<p class="modal-text">
+										В произвольной форме напишите ваш вопрос, если требуется прикрепите файл
+									</p>
+
+									<div class="feedback-content__textarea">
+										<textarea class="_req" name="message"></textarea>
+										<div class="feedback-content__attachment-icon" title="Прикрепить файл"><i class="icon-folder"></i></div>
+									</div>
+
+									<div class="feedback-content__user-contact-input user-contact-input">
+										<p class="user-contact-input__title">Телефон*</p>
+										<input class="user-contact-input__input _req" type="text" name="phone" placeholder="Номер телефона">
+									</div>
+
+									<div class="feedback-content__user-contact-input user-contact-input">
+										<p class="user-contact-input__title">E-mail*</p>
+										<input class="user-contact-input__input _req" type="text" name="email" placeholder="E-mail адрес">
+									</div>
+
+									<button class="text-button-simple" type="submit">
+										<span class="text-button-simple__text desktop-only">Получить ответ</span>
+										<span class="text-button-simple__text mobile-only">Задать вопрос</span>
+										<span class="submit-progress">
+											<span class="submit-progress__box">
+												<i></i><i></i><i></i>
+											</span>
+										</span>
+									</button>
+							
+								</div>
+
+								<div class="feedback-content__contact-method">
+									<div class="radio">
+										<input type="radio" id="radio-message-contact-method-3" name="message-contact-method" value="telegram" checked>
+										<label for="radio-message-contact-method-3">
+											<span class="label-box label-box--style2">
+												<i class="colored-icon icon-telegram"></i>
+											</span>
+											<span class="label-text">Задать вопрос в Telegram</span>
+										</label>
+										<input type="radio" id="radio-message-contact-method-1" name="message-contact-method" value="whatsapp">
+										<label for="radio-message-contact-method-1">
+											<span class="label-box label-box--style2">
+												<i class="colored-icon icon-whatsapp"></i>
+											</span>
+											<span class="label-text">Задать вопрос в WhatsApp</span>
+										</label>
+										<input type="radio" id="radio-message-contact-method-2" name="message-contact-method" value="viber">
+										<label for="radio-message-contact-method-2">
+											<span class="label-box label-box--style2">
+												<i class="colored-icon icon-viber"></i>
+											</span>
+											<span class="label-text">Задать вопрос в Viber</span>
+										</label>
+										<input type="radio" id="radio-message-contact-method-4" name="message-contact-method" value="vk">
+										<label for="radio-message-contact-method-4">
+											<span class="label-box label-box--style2">
+												<i class="colored-icon icon-vk"></i>
+											</span>
+											<span class="label-text">Задать вопрос в VK</span>
+										</label>
+									</div>
+								</div>
+
+								<div class="feedback-content__bottom">
+									<div class="feedback-content__checkbox checkbox">
+										<input class="_req" type="checkbox" id="msg-policy-checkbox" name="policy-check" checked>
+										<label for="msg-policy-checkbox">
+											<span class="label-box"><i class="icon-ok"></i></span>
+											<span class="label-text">
+												<span>оставляя свои контактные данные, вы соглашаетесь</span>
+												<a class="policy-link" href="404.html" target="_blank" title="Откроется на новой вкладке">с политикой защиты и обработки персональных данных пользователей сайта</a>
+											</span>
+										</label>
+									</div>
+
+									<div class="form-report"></div>
+								</div>
+
+							</form>
+						</div>
+
+						<div class="swiper-slide">
+
+							<div class="swiper-slide__main">
+								<p class="modal__title modal__title--bold">
+									<span>
+										СПАСИБО ЗА ВАШ ВОПРОС!
+									</span>
+								</p>
+								<p class="modal__subtitle">
+									Обычно мы отвечаем в течение 15 минут, но иногда на ответ может потребоваться больше времени
+								</p>
+							</div>
+
+							<div class="swiper-slide__bottom">
+
+								<p class="modal-text">
+									С уважением<br>к вам и вашему бизнесу
+								</p>
+
+								<div class="modal__logo logo">
+									<a class="logo__link" href="/">
+										<span class="logo__text">Business</span>
+										<span class="logo__text-colored">GROW</span>
+										<span class="logo__up"><i></i></span>
+										<span class="logo__line"></span>
+									</a>
+								</div>
+				
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="modal__footer-clone mobile-only"></div>
+			</div>
+		</div>
+	</div>
 </section>
 
 
@@ -846,8 +1108,8 @@ get_template_part('parts/header');
 				<i class="icon-vc"></i>
 			</a>
 		</div>
-		<a class="footer__policy" href="#">Personal data policy</a>
-		<a class="footer__policy" href="#">Safety policy</a>
+		<a class="footer__policy" href="404.html">Personal data policy</a>
+		<a class="footer__policy" href="404.html">Safety policy</a>
 
 	</div>
 </footer>
