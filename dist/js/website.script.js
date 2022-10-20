@@ -334,14 +334,14 @@ const header = {
 				this.closeButtons[i].addEventListener('click', this.close.bind(this));
 			}
 		},
-		toggle: function(e, noScrollLock) {
+		toggle: function(e, noTransLock) {
 			if (!this.isLoaded) return;
-			if (this.menuElem.classList.contains('_active')) this.close(noScrollLock);
-			else if (e) this.open(noScrollLock);
+			if (this.menuElem.classList.contains('_active')) this.close(false, noTransLock);
+			else if (e) this.open(e, noTransLock);
 		},
-		open: function(noScrollLock) {
+		open: function(e, noTransLock) {
 			if (!this.isLoaded) return;
-			if (!noScrollLock && this.root.refs.translock.check(this.timeout)) return;
+			if (!noTransLock && this.root.refs.translock.check(this.timeout)) return;
 
 			this.menuElem.classList.add('_active');
 			this.root.headerElem.classList.add('_active');
@@ -354,9 +354,11 @@ const header = {
 			this.root.refs.scrlock.lock();
 			this.root.hidingHeader.scroll(0, true); // hidingHeader reference
 		},
-		close: function(noScrollLock) {
+		close: function(e, noTransLock) {
+			console.log('this')
+			console.log(noTransLock)
 			if (!this.isLoaded) return;
-			if (!noScrollLock && this.root.refs.translock.check(this.timeout)) return;
+			if (!noTransLock && this.root.refs.translock.check(this.timeout)) return;
 
 			this.menuElem.classList.remove('_active');
 			this.root.headerElem.classList.remove('_active');
@@ -681,8 +683,8 @@ const modal = {
 
 		if (!elemToClose) this.toggleMainWindow(this.check());
 	},
-	closeAll: function(noScrollLock){
-		if (!noScrollLock && this.refs.translock.check(this.timeout)) return;
+	closeAll: function(noTransLock){
+		if (!noTransLock && this.refs.translock.check(this.timeout)) return;
 		for (let i = 0; i < this.windows.length; i++) {
 			if (this.windows[i].classList.contains('_open')) {
 				this.windows[i].classList.remove('_open');
@@ -744,8 +746,14 @@ modal.init({
 			open: function(event, content, timeout) {
 				header.headerElem.classList.add('_active-modal-z');
 
-				if (content.className.match(/--light/)) header.headerElem.classList.add('_active-modal-light');
-				if (content.className.match(/--dark/)) header.headerElem.classList.add('_active-modal-dark');
+				if (content.className.match(/--light/)) {
+					header.headerElem.classList.remove('_active-modal-dark');
+					header.headerElem.classList.add('_active-modal-light');
+				}
+				if (content.className.match(/--dark/)) {
+					header.headerElem.classList.remove('_active-modal-light');
+					header.headerElem.classList.add('_active-modal-dark');
+				}
 				
 				headerMenuCloseButton.classList.add('_active');
 			},

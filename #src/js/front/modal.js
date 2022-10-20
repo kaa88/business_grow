@@ -106,8 +106,8 @@ const modal = {
 
 		if (!elemToClose) this.toggleMainWindow(this.check());
 	},
-	closeAll: function(noScrollLock){
-		if (!noScrollLock && this.refs.translock.check(this.timeout)) return;
+	closeAll: function(noTransLock){
+		if (!noTransLock && this.refs.translock.check(this.timeout)) return;
 		for (let i = 0; i < this.windows.length; i++) {
 			if (this.windows[i].classList.contains('_open')) {
 				this.windows[i].classList.remove('_open');

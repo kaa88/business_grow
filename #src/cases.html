@@ -6,7 +6,7 @@ get_template_part('parts/header');
 	'title': 'Cases | Business Grow',
 	'descr': 'Description',
 	'robots': 'noindex, nofollow',
-	'bodyclass': '',
+	'bodyclass': 'page-cases no-background',
 	'feedback_button_class': 'feedback-button modal-link'
 })
 <script id="header-menu-options">
@@ -22,25 +22,28 @@ get_template_part('parts/header');
 </script>
 
 
-<main class="main page-cases">
+<main class="main">
 	<div class="main__container container">
 
 		<!-- <section class="main__cases cases"> -->
 			<!-- <div class="cases__container container"> -->
 				
 				<a class="main__backlink" href="categories.html">
-					<i class="icon-arrow"></i>
+					<i class="icon-arrow desktop-only"></i>
+					<i class="icon-arrow2 mobile-only"></i>
 					<span>категории</span>
 				</a>
  
 				<div class="main__cases-slider cases-slider swiper">
 					<div class="cases-slider__nav-buttons">
-						<p class="cases-slider__nav-text">предыдущий кейс</p>
+						
 						<div class="cases-slider__nav-prev">
+							<p>предыдущий кейс</p>
 							<i class="icon-arrow"></i>
 						</div>
-						<p class="cases-slider__nav-text">следующий кейс</p>
+						
 						<div class="cases-slider__nav-next">
+							<p>следующий кейс</p>
 							<i class="icon-arrow"></i>
 						</div>
 					</div>
@@ -50,7 +53,7 @@ get_template_part('parts/header');
 
 							<div class="cases-slider__header">
 								<h2 class="g-h2">
-									Продажи тренинга Сергея Азимова на $38 000
+									Продажи тренинга Сергея Азимова на <span class="currency">$38 000</span>
 								</h2>
 							</div>
 
@@ -71,7 +74,7 @@ get_template_part('parts/header');
 
 							<div class="cases-slider__header">
 								<h2 class="g-h2">
-									Продажи тренинга Сергея Азимова на $76 000
+									Продажи тренинга Сергея Азимова на <span class="currency">$76 000</span>
 								</h2>
 							</div>
 
@@ -120,6 +123,7 @@ get_template_part('parts/header');
 	<!-- <?php get_template_part('parts/modal-info'); ?> -->
 	@@include('parts/modal-consult.html')
 	@@include('parts/modal-confirm.html')
+	@@include('parts/modal-call.html')
 	@@include('parts/modal-message.html')
 </section>
 

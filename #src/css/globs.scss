@@ -1,5 +1,100 @@
 @import "colors";
 
+
+/* Body settings */
+html {
+	max-width: 1920px;
+	margin: 0 auto;
+}
+body {
+	width: 100%;
+	// max-width: $page-max-width+px;
+	max-width: 240vh;
+	margin: 0 auto; //REQ! if max-width
+	font-family: $font-1;
+	font-size: $font-size-default;
+	color: $color03;
+	background-color: $color02;
+	// overflow: hidden;
+	// @media (min-width: $mobile+1+px) {
+		&._locked {overflow: hidden;} //REQ!
+	// }
+
+	// @media (max-aspect-ratio: 6/4) {
+	// 	background-color: lime;
+	// }
+	
+	@media (min-width: $mobile+1+px) {
+		// font-size: resize-multiplier(16, $desktop, 1);
+		font-size: calc(16 * 1 / 1080 * 100vh);
+	}
+	@media (max-width: $mobile+px) {
+		font-size: 10px;
+	}
+	@media (min-width: $mobile+1+px) {
+		padding-left: 3.54%;//68px;
+		@media (max-aspect-ratio: 6/4) {
+			padding-left: 20px;
+		}
+	}
+
+	// Variables for JS manipulations:
+	--header-position: 0px; //REQ!
+	--header-offset: 0px; //REQ!
+	--header-height: 0px; //REQ!
+	--footer-height: 0px; //REQ!
+	--media-mobile: #{$mobile}; //REQ!
+	--timer-menu: #{$timer-menu}; //REQ!
+	--timer-modal: #{$timer-modal}; //REQ!
+// }
+	position: relative;
+	height: 1080px;
+	max-height: 100vh;
+	display: grid;
+	grid-template-columns: auto em(360);
+	grid-template-rows: auto 1fr auto;
+	&.page-home {
+		grid-template-columns: 100%;
+	}
+	@media (min-width: $mobile+1+px) {
+		&::-webkit-scrollbar {
+			width: 0.4166vw;
+		}
+		&::-webkit-scrollbar-track {
+			background: transparent;
+		}
+		&::-webkit-scrollbar-thumb {
+			background: $color06;
+		}
+		scrollbar-width: thin;
+		scrollbar-color: $color06 transparent;
+	}
+	@media (max-width: $mobile+px) {
+		grid-template-columns: 100%;
+	}
+}
+.container {
+	width: 100%; //REQ!
+	max-width: em(1380);//$container-width+px; //REQ!
+	min-width: calc($page-min-width - (100vw - 100%)); //REQ!
+	// margin: 0 auto; //REQ!
+	@media (min-width: $mobile+1+px) {
+		padding-left: 3.68vw;//68px;
+		@media (max-aspect-ratio: 6/4) {
+			padding-left: 15px;
+		}
+		@media (min-aspect-ratio: 18/9) {
+			margin-left: calc(68 * -6 / 1080 * 100vh + 68 * (1 - -6) * 1px);
+			padding-left: 0;
+		}
+	}
+	@media (max-width: $mobile+px) {
+		padding: 0 30px;
+	}
+}
+
+
+
 /* Global elements */
 // .g-h1 {
 // 	font-size: 40px;
@@ -23,6 +118,10 @@
 	font-size: em(24);
 	line-height: 1.67;
 	letter-spacing: 0.05em;
+	@media (max-width: $media-mobile+px) {
+		font-size: 10px;
+		line-height: 1.4;
+	}
 }
 // .g-button, .g-button:visited {}
 // .g-link, .g-link:visited {}
@@ -391,3 +490,6 @@ i {
 	}
 }
 
+.currency {
+	white-space: nowrap;
+}

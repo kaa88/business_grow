@@ -6,7 +6,7 @@ get_template_part('parts/header');
 	'title': 'Knowledge base | Business Grow',
 	'descr': 'Description',
 	'robots': 'noindex, nofollow',
-	'bodyclass': 'knowledgepage-body',
+	'bodyclass': 'page-knowledge',
 	'feedback_button_class': 'feedback-button modal-link'
 })
 <script id="header-menu-options">
@@ -22,7 +22,7 @@ get_template_part('parts/header');
 </script>
 
 
-<main class="main page-knowledge">
+<main class="main">
 
 	<div class="main__mobile-background mobile-background scroll-lock-item-m">
 		<img src="media/img/main.png" srcset="media/img/main.png 2x" alt="" loading="lazy">
@@ -60,7 +60,8 @@ get_template_part('parts/header');
 
 				<a class="main__text-button-with-arrow text-button-with-arrow modal-link" href="#modal-access">
 					<span class="text-button-with-arrow__text">
-						<span>получить бесплатный доступ к материалам</span>
+						<span class="desktop-only">получить бесплатный доступ к материалам</span>
+						<span class="mobile-only">получить бесплатный доступ</span>
 					</span>
 					<span class="text-button-with-arrow__arrow">
 						<i class="icon-arrow"></i>
@@ -74,9 +75,9 @@ get_template_part('parts/header');
 			@@include('parts/features.html')
 		</section>
 
-		<div class="main__knowledgebase-slide-btn">
+		<!-- <div class="main__knowledgebase-slide-btn">
 			<i class="icon-arrow"></i>
-		</div>
+		</div> -->  <!-- не буду делать -->
 
 	</div>
 </main>
@@ -87,6 +88,9 @@ get_template_part('parts/header');
 
 <section class="modal">
 	<!-- <?php get_template_part('parts/modal-info'); ?> -->
+	@@include('parts/modal-consult.html')
+	@@include('parts/modal-confirm.html')
+	@@include('parts/modal-call.html')
 	@@include('parts/modal-message.html')
 	@@include('parts/modal-access.html')
 </section>

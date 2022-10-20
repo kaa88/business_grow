@@ -6,7 +6,7 @@ get_template_part('parts/header');
 	'title': 'Cases - Categories | Business Grow',
 	'descr': 'Description',
 	'robots': 'noindex, nofollow',
-	'bodyclass': '',
+	'bodyclass': 'page-categories no-background',
 	'feedback_button_class': 'feedback-button modal-link'
 })
 <script id="header-menu-options">
@@ -22,7 +22,7 @@ get_template_part('parts/header');
 </script>
 
 
-<main class="main page-categories">
+<main class="main">
 	<div class="main__container container">
 
 		<section class="main__categories categories">
@@ -65,6 +65,9 @@ get_template_part('parts/header');
 
 <section class="modal">
 	<!-- <?php get_template_part('parts/modal-info'); ?> -->
+	@@include('parts/modal-consult.html')
+	@@include('parts/modal-confirm.html')
+	@@include('parts/modal-call.html')
 	@@include('parts/modal-message.html')
 </section>
 

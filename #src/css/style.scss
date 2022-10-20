@@ -35,6 +35,11 @@ $desktop: 1920;
 $tablet: 992;
 $mobile: 782;
 $mobile-s: 480;
+$media-desktop: $desktop;
+$media-desktop2: 1030;
+$media-tablet: $tablet;
+$media-mobile: $mobile;
+$media-mobile-s: $mobile-s;
 
 $media-header: $mobile;
 $media-header2: 450;
@@ -44,7 +49,6 @@ $media-footer2: 448;
 
 $media-modal: $mobile;
 $media-modal2: 448;
-
 
 //////////////////////////////////////////////////
 
@@ -60,6 +64,28 @@ $timer-tabs: 0.8s;
 $timer-progress: 0.3s;
 
 //////////////////////////////////////////////////
+
+@import "globs";
+
+/* Modules */
+// @import "modules/accordion_css";
+// @import "modules/accordion_js";
+@import "modules/footer";
+@import "modules/form";
+@import "modules/header";
+@import "modules/input_checkbox";
+@import "modules/input_radio";
+// @import "modules/input_range_colored";
+// @import "modules/input_range_double";
+// @import "modules/loadscreen";
+@import "modules/modal";
+// @import "modules/pagination";
+// @import "modules/popup";
+@import "modules/select";
+// @import "modules/spoiler";
+// @import "modules/tabs";
+// @import "modules/up_button";
+// @import "modules/video_player";
 
 @import "main";
 @import "404";

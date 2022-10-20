@@ -92,8 +92,14 @@ modal.init({
 			open: function(event, content, timeout) {
 				header.headerElem.classList.add('_active-modal-z');
 
-				if (content.className.match(/--light/)) header.headerElem.classList.add('_active-modal-light');
-				if (content.className.match(/--dark/)) header.headerElem.classList.add('_active-modal-dark');
+				if (content.className.match(/--light/)) {
+					header.headerElem.classList.remove('_active-modal-dark');
+					header.headerElem.classList.add('_active-modal-light');
+				}
+				if (content.className.match(/--dark/)) {
+					header.headerElem.classList.remove('_active-modal-light');
+					header.headerElem.classList.add('_active-modal-dark');
+				}
 				
 				headerMenuCloseButton.classList.add('_active');
 			},

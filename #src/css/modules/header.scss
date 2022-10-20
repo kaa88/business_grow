@@ -18,7 +18,7 @@
 	@media (max-width: $media-header+px) {
 		padding: 28px 0 22px 15px;
 	}
-	.homepage-body & {
+	.page-home & {
 		max-width: 1920px;
 		padding-right: em(30);
 	}
@@ -47,8 +47,9 @@
 		opacity: 1;
 		transition: opacity $timer-modal;
 		@media (max-width: $media-header+px) {
-			.homepage-body & {
-				background-image: linear-gradient(to top, transparent, $color03);
+			background-image: linear-gradient(to top, transparent, $color03);
+			.no-background & {
+				background-image: none;
 			}
 			._active-modal-light & {//, ._active-modal-dark & {
 				opacity: 0;
@@ -92,9 +93,12 @@
 	@media (min-width: $media-header+1+px) {
 		display: none; //REQ!
 	}
-	.homepage-body & {
+	// .page-home & {
 		color: $color02;
-	}
+	// }
+	.no-background & {
+		color: $color03;
+	}	
 	&._hidden { // for modal
 		opacity: 0;
 		visibility: hidden;
@@ -221,7 +225,9 @@
 	}
 	&--top {
 		@media (min-width: $media-header+1+px) {
-			width: 100%;
+			// flex: 0 1 em(728);
+			flex: 0 1 37.9166vw;
+			// width: 100%;
 			max-width: em(812);
 			margin: 0 em(20) em(3);
 			display: flex;
@@ -232,7 +238,10 @@
 		}
 	}
 	&--middle {
-		margin-left: em(200);
+		flex-grow: 1;
+		display: flex;
+		justify-content: flex-end;
+		// margin-left: em(200);
 		position: relative;
 		@media (max-width: $media-header+px) {
 			display: none;
@@ -241,7 +250,7 @@
 			position: absolute;
 			right: 0;
 			top: calc(100% + em(15));
-			&:not(.homepage-body &) {
+			&:not(.page-home &) {
 				display: none;
 			}
 		}
@@ -251,8 +260,7 @@
 		align-items: center;
 		padding: 3.95vh 0;
 	}
-	&--footer {
-	}
+	&--footer {}
 	@media (min-width: $media-header+1+px) {
 		&--bottom, &--footer {
 			display: none;
@@ -263,8 +271,7 @@
 			margin-left: 8px;
 		}
 	}
-	&__header-menu {
-	}
+	&__header-menu {}
 	&__button-box {
 		position: relative;
 		width: 50px;
@@ -274,9 +281,6 @@
 
 .logo {
 	font-size: em(19);
-	// @media (max-width: $desktop+px) {
-	// 	font-size: resize-multiplier(19, $desktop, 0.6);
-	// }
 	@media (max-width: $media-header+px) {
 		font-size: 14px;
 	}
@@ -284,7 +288,6 @@
 		display: flex;
 		flex-direction: column;
 		position: relative;
-		// background-color: yellow;
 		padding-left: em(35);
 	}
 	&__text {
@@ -297,14 +300,12 @@
 			color: $color02;
 		}	
 		@media (max-width: $mobile+px) {
-			.homepage-body & {
-				color: $color02;
-			}
-			// .header._active-modal-dark & {
-			// 	color: $color02;
-			// }
-			.header._active-modal-light & {
+			color: $color02;
+			.header._active-modal-light &, .no-background & {
 				color: $color03;
+			}	
+			.header._active-modal-dark & {
+				color: $color02;
 			}	
 		}
 	}
@@ -317,14 +318,17 @@
 		background-clip: text;
 		color: transparent;
 		transition: color $timer-menu;
+		.header._active & {
+			color: $color02;
+		}	
 		@media (max-width: $media-header+px) {
 			background: none;
 			color: $color02;
-			// .header._active &, .header._active-modal-dark & {
-			// 	color: $color02;
-			// }	
-			.header._active-modal-light & {
+			.header._active-modal-light &, .no-background & {
 				color: $color03;
+			}	
+			.header._active-modal-dark & {
+				color: $color02;
 			}	
 		}
 	}
@@ -341,11 +345,12 @@
 			color: $color02;
 		}	
 		@media (max-width: $mobile+px) {
-			.homepage-body & {
-				color: $color02;
-			}
-			.header._active-modal-light & {
+			color: $color02;
+			.header._active-modal-light &, .no-background & {
 				color: $color03;
+			}	
+			.header._active-modal-dark & {
+				color: $color02;
 			}	
 		}
 	}
@@ -421,7 +426,8 @@
 		@media (min-width: $media-header+1+px) {
 			position: relative;
 			&:not(:first-child) {
-				margin-left: em(105);
+				// margin-left: em(105);
+				margin-left: 5.46875vw;
 			}
 		}
 	}
