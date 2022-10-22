@@ -2,39 +2,48 @@
 
 
 /* Body settings */
-html {
-	max-width: 1920px;
-	margin: 0 auto;
-}
+// html {
+// 	max-width: 1920px;
+// 	margin: 0 auto;
+// }
 body {
 	width: 100%;
 	// max-width: $page-max-width+px;
-	max-width: 240vh;
+	max-width: 240vh;//240
 	margin: 0 auto; //REQ! if max-width
 	font-family: $font-1;
 	font-size: $font-size-default;
 	color: $color03;
 	background-color: $color02;
-	// overflow: hidden;
-	// @media (min-width: $mobile+1+px) {
-		&._locked {overflow: hidden;} //REQ!
-	// }
-
-	// @media (max-aspect-ratio: 6/4) {
-	// 	background-color: lime;
-	// }
+	position: relative;
+	height: 1080px;
+	max-height: 100vh;
+	display: grid;
+	grid-template-columns: auto em(360);//360 + padding
+	grid-template-rows: auto 1fr auto;
+	&.page-home {
+		grid-template-columns: 100%;
+	}
+	&._locked {overflow: hidden;} //REQ!
 	
 	@media (min-width: $mobile+1+px) {
-		// font-size: resize-multiplier(16, $desktop, 1);
 		font-size: calc(16 * 1 / 1080 * 100vh);
 	}
 	@media (max-width: $mobile+px) {
+		grid-template-columns: 100%;
 		font-size: 10px;
 	}
 	@media (min-width: $mobile+1+px) {
 		padding-left: 3.54%;//68px;
-		@media (max-aspect-ratio: 6/4) {
+		@media (max-aspect-ratio: 6/4) {//6/4
 			padding-left: 20px;
+		}
+		@media (min-aspect-ratio: 20/9) {
+			max-width: 200vh;
+			padding-left: em(68);
+		}
+		@media (max-aspect-ratio: 15/9) {
+			grid-template-columns: auto em(250);
 		}
 	}
 
@@ -47,15 +56,6 @@ body {
 	--timer-menu: #{$timer-menu}; //REQ!
 	--timer-modal: #{$timer-modal}; //REQ!
 // }
-	position: relative;
-	height: 1080px;
-	max-height: 100vh;
-	display: grid;
-	grid-template-columns: auto em(360);
-	grid-template-rows: auto 1fr auto;
-	&.page-home {
-		grid-template-columns: 100%;
-	}
 	@media (min-width: $mobile+1+px) {
 		&::-webkit-scrollbar {
 			width: 0.4166vw;
@@ -69,30 +69,26 @@ body {
 		scrollbar-width: thin;
 		scrollbar-color: $color06 transparent;
 	}
-	@media (max-width: $mobile+px) {
-		grid-template-columns: 100%;
-	}
 }
 .container {
 	width: 100%; //REQ!
 	max-width: em(1380);//$container-width+px; //REQ!
 	min-width: calc($page-min-width - (100vw - 100%)); //REQ!
-	// margin: 0 auto; //REQ!
+	margin: 0 auto; //REQ!
 	@media (min-width: $mobile+1+px) {
 		padding-left: 3.68vw;//68px;
 		@media (max-aspect-ratio: 6/4) {
 			padding-left: 15px;
 		}
-		@media (min-aspect-ratio: 18/9) {
-			margin-left: calc(68 * -6 / 1080 * 100vh + 68 * (1 - -6) * 1px);
-			padding-left: 0;
+		@media (min-aspect-ratio: 20/9) {
+			max-width: 86%;
+			padding-left: em(68);
 		}
 	}
 	@media (max-width: $mobile+px) {
 		padding: 0 30px;
 	}
 }
-
 
 
 /* Global elements */
@@ -313,6 +309,7 @@ body {
 	overflow: hidden;
 }
 #svg-play-button-shape {transform: scale(0.003893, 0.00572);}
+// #svg-decor-shape {transform: scale(0.001,77734375, 0.001);}
 
 .socials {
 	display: flex;

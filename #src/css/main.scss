@@ -6,6 +6,12 @@
 	padding: 3.7vh 0;
 	@media (min-width: $mobile+1+px) {
 		border-left: solid 1px $color08;
+		.page-home & {
+			padding-right: em(360);
+			@media (max-aspect-ratio: 6/4) {//6/4
+				padding-right: 0;
+			}
+		}
 	}
 	@media (max-width: $mobile+px) {
 		padding-bottom: calc(3.7vh + 15px);
@@ -257,18 +263,29 @@
 
 
 
+// @keyframes decor-anim {
+// 	from {transform: rotate(45deg);}
+// 	to {transform: rotate(405deg);}
+// }
 
-
-.decor-triangle {
+.decor-img {
+	// background-color: orange;
 	position: absolute;
 	top: 0;
+	// top: em(100);
 	right: 0;
 	z-index: -1;
 	height: 100%;
+	// width: em(910);
 	width: em(910);
 	overflow: hidden;
+	opacity: 0;
+	transition: opacity .3s linear;
+	&.loaded {
+		opacity: 1;
+	}
 	@media (max-height: 1000px) {
-		position: fixed;
+		// position: fixed;
 		height: 100vh;
 	}
 	@media (max-width: $mobile+px) {
@@ -276,16 +293,24 @@
 	}
 	&__container {
 		position: absolute;
-		top: 0;
-		left: 0;
-		width: calc(1.1531531 * em(1080));
-}
+		top: -5%;
+		left: 26%;
+		width: calc(1.1531531 * em(1280));
+		// width: em(1080);
+		transform: rotate(177deg);
+		@media (max-aspect-ratio: 14/9) {
+			left: 30%;
+			opacity: 0.5;
+		}
+	}
 	&__shape {
 		position: relative;
 		width: 100%;
 		height: 0;
-		padding-bottom: 86.71875%;
-		clip-path: polygon(0 100%, 50% 0, 100% 100%);
+		// padding-bottom: 86.71875%;
+		padding-bottom: 100%;
+		// clip-path: polygon(0 100%, 50% 0, 100% 100%);
+		clip-path: url('#svg-decor-shape');
 		background: $gradient-3;
 	}
 	img {
@@ -295,7 +320,10 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		opacity: 0.2;
+		opacity: 0.1;
+		// transform: rotate(138deg);
+		// transform: rotate(195deg);
+		// animation: decor-anim 25s infinite ease-in-out;
 	}
 	&__inner {
 		width: 50%;
@@ -314,14 +342,15 @@
 		}
 		&:before {
 			z-index: 2;
-			height: 46.667%;
+			// height: 46.667%;
+			height: 120%;
 			background-color: $color02;
 		}
-		&:after {
-			height: 100%;
-			background-color: $color04;
-			opacity: 0.4;
-		}
+		// &:after {
+		// 	height: 100%;
+		// 	background-color: $color04;
+		// 	opacity: 0.4;
+		// }
 	}
 }
 .triangle-arrow {
@@ -487,6 +516,7 @@
 }
 
 .materials-slider {
+	margin-left: em(15);
 	@media (min-width: $mobile+1+px) {
 		grid-column: 2;
 		grid-row: 1 / span 3;
@@ -494,12 +524,12 @@
 		flex-direction: column;
 		height: 100%;
 	}
-	@media (max-width: $media-desktop2+px) {
-		margin-left: em(15);
-		padding-left: em(15);
-		border-left: solid 5px $color05;
-		background-color: $color02;
-	}
+	// @media (max-width: $media-desktop2+px) {
+	// @media (max-aspect-ratio: 15/9) {
+		// padding-left: em(10);
+		// border-left: solid 5px $color05;
+		// background-color: $color02;
+	// }
 	@media (max-width: $mobile+px) {
 		display: none;
 		.page-knowledge & {
@@ -512,10 +542,10 @@
 		@media (min-width: $mobile+1+px) {
 			background-color: $c03;
 		}
-		@media (max-width: $mobile+px) {
+		// @media (max-width: $mobile+px) {
 			// width: calc(100% - 30px);
 			// margin-left: 0;
-		}
+		// }
 	}
 	.swiper-wrapper {
 	}
@@ -535,6 +565,9 @@
 		}
 		&:not(._empty, .last-slide) {
 			cursor: pointer;
+		}
+		@media (max-width: $media-desktop2+px) {
+			padding: em(10) em(15);
 		}
 		@media (max-width: $mobile+px) {
 			width: 100px;
@@ -598,15 +631,17 @@
 			width: 100%;
 			height: 100%;
 			display: inline-block;
-			transition: all $timer-hover linear;
+			transition: left .1s linear, opacity .1s ease-in;
 		}
 		&:before {
 			background-image: linear-gradient(to bottom, #8500FFE5, #8500FF99);
 		}
 		&:after {
-			background-image: linear-gradient(to bottom, transparent, #02FEFF);
-			top: 70%;
+			width: 150%;
+			background-image: linear-gradient(to right, transparent , transparent 33%, #02FEFF);
+			left: 0;
 			opacity: 0;
+			box-shadow: inset em(8) 0 em(15) em(3) #8500FF;
 		}
 		img {
 			width: 100%;
@@ -621,7 +656,7 @@
 	}
 	.swiper-slide:hover &__image:after {
 		opacity: 1;
-		top: 0;
+		left: -50%;
 	}
 	&__icon {
 		display: inline-block;
@@ -684,6 +719,14 @@
 	}
 }
 
+// .grid-fill {
+// 	grid-column: 2;
+// 	grid-row: 1 / span 3;
+// 	@media (max-width: $mobile+px) {
+// 		display: none;
+// 	}
+// }
+
 .mobile-background {
 	width: 100%;
 	height: 60vh;//390
@@ -714,6 +757,12 @@
 	display: flex;
 	justify-content: center;
 	// background-color: yellow;
+	@media (min-width: $media-mobile+1+px) {
+		@media (max-aspect-ratio: 6/4) {
+			max-width: em(500);
+			opacity: 0.4;
+		}
+	}
 	@media (max-width: $media-mobile+px) {
 		display: none;
 	}

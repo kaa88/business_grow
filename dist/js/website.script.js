@@ -4,7 +4,17 @@ const mobileSwitchWidth = parseFloat(getComputedStyle(document.body).getProperty
 //////////////////////////////////////////////////
 
 // Random //
-// @ @include('front/random.js')
+function getRandomNumber(min = 0, max = 99) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+function getRandomId(length = 10) {
+	let symbols = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+	let result = '';
+	for (let i = 0; i < length; i++) {
+		result += symbols[getRandomNumber(0, symbols.length-1)];
+	}
+	return result;
+}
 
 //////////////////////////////////////////////////
 
@@ -1472,6 +1482,65 @@ formToEmail.init({
 
 //////////////////////////////////////////////////
 
+// Aspect ratio (developer use only)
+let aspectRatioCalculator = {
+	init: function() {
+		let newBox = document.createElement('div');
+		document.body.appendChild(newBox);
+		newBox.id = 'aspect-ratio-calculator';
+		let style = '#aspect-ratio-calculator {position: fixed; top: 0; left: 0; z-index: 9999; display: flex; justify-content: center; align-items: center; padding: 15px 30px; background-color: yellow;} #aspect-ratio-calculator span {font-size: 3vmin; font-family: Arial;}'
+		newBox.innerHTML = '<span></span><style>' + style + '</style>';
+		this.box = newBox.children[0];
+		this.calc(false,true);
+		window.addEventListener('resize', this.calc.bind(this));
+	},
+	calc: function(e, init) {
+		// function gcd (a, b) {return (b == 0) ? a : gcd (b, a%b);}
+		let
+			w = window.innerWidth,
+			h = window.innerHeight,
+			wh = Math.round(w / h * 100) / 100,
+			hx = 9,
+			wx = Math.round(hx * wh);
+			
+		if (wx == 12) {
+			wx = 4;
+			hx = 3;
+		}
+		if (wx == 15) {
+			wx = 5;
+			hx = 3;
+		}
+		if (wx == 9) {
+			wx = 1;
+			hx = 1;
+		}
+		this.box.innerHTML = 'aspect ratio: ' + wh + ' = ' + wx + ' / ' + hx;
+
+			// if (h % 2 > 0) h++;
+
+		// if (init)
+		// 	for (let i = w; i > 0; i--) {
+		// 		let ux = gcd (i, h);
+		// 		if (i / ux <= 50) {
+		// 			x = ux;
+		// 			w = i;
+		// 			break;
+		// 		}
+		// 	}
+		// else x = gcd(w, h);
+	
+		// let wx = w/x, hx = h/x;
+		// console.log(w + ' ' + h)
+		// console.log(wx + ' ' + hx)
+		// if (wx <= 50 && hx <= 50) {this.wx = wx; this.hx = hx; console.log('ok')}
+		// this.box.innerHTML = 'aspect ratio: ' + wh + ' = ' + this.wx + ' / ' + this.hx;
+	},
+}
+aspectRatioCalculator.init();
+
+//////////////////////////////////////////////////
+
 // Time select
 let timeSelect = {
 	names: {
@@ -1613,3 +1682,21 @@ let timeSelect = {
 	},
 }
 timeSelect.init();
+
+//////////////////////////////////////////////////
+
+// Decor img angle
+let decorImage = {
+	init: function() {
+		this.elem = document.querySelector('.decor-img');
+		this.img = this.elem.querySelector('img');
+		this.img.style.transform = 'rotate(' + getRandomNumber(0, 360) + 'deg)';
+		let that = this;
+		window.addEventListener('DOMContentLoaded', function() {
+			setTimeout(()=> {
+				that.elem.classList.add('loaded');
+			}, 200)
+		})
+	}
+}
+decorImage.init();

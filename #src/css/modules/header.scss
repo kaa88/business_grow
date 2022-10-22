@@ -170,6 +170,9 @@
 	justify-content: space-between;
 	align-items: flex-end;
 	// max-width: 890px;
+	@media (min-width: $media-header+1+px) {
+		padding-bottom: em(18);
+	}
 	@media (max-width: $media-header+px) {
 		flex-direction: column;
 		position: fixed; //REQ!
