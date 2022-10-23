@@ -92,7 +92,7 @@ const header = {
 	},
 	mobileViewService: function() {
 		this.menu.toggle();
-		// this.menu.hideOnViewChange();
+		this.menu.hideOnViewChange();
 		// this.hidingHeader.calc();
 	},
 
@@ -162,8 +162,6 @@ const header = {
 			this.root.hidingHeader.scroll(0, true); // hidingHeader reference
 		},
 		close: function(e, noTransLock) {
-			console.log('this')
-			console.log(noTransLock)
 			if (!this.isLoaded) return;
 			if (!noTransLock && this.root.refs.translock.check(this.timeout)) return;
 
@@ -183,9 +181,10 @@ const header = {
 			// this func prevents menu blinking on mobile view switch
 			if (this.isLoaded) {
 				let that = this;
-				this.menuElem.style.visibility = 'hidden';
+				// this.menuElem.style.visibility = 'hidden';
+				this.menuElem.style.display = 'none';
 				setTimeout(() => {
-					that.menuElem.style.visibility = '';
+					that.menuElem.style.display = '';
 					that.root.calcHeaderHeight();
 				}, that.timeout)
 			}

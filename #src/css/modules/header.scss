@@ -4,6 +4,7 @@
 	// Set position absolute if header is static, else set fixed
 	position: relative; //REQ!
 	// position: absolute; //REQ!
+	// position: fixed; //REQ!
 	top: var(--header-position); //REQ!
 	left: 0; //REQ!
 	z-index: 49; //REQ!
@@ -16,11 +17,13 @@
 	align-items: flex-end;
 	transition: background-color $timer-menu;
 	@media (max-width: $media-header+px) {
-		padding: 28px 0 22px 15px;
+		padding: 28px 10px 22px 15px;
 	}
-	.page-home & {
-		max-width: 1920px;
-		padding-right: em(30);
+	@media (min-width: $media-header+1+px) {
+		.page-home & {
+			max-width: 1920px;
+			padding-right: em(30);
+		}
 	}
 	&._active {
 		background-color: $color03;
@@ -85,7 +88,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: 12px;
+	font-size: 27px;
 	cursor: pointer; //REQ!
 	user-select: none; //REQ!
 	position: relative;
@@ -205,6 +208,7 @@
 	}
 	@media (max-width: $media-header2+px) {
 		width: 100%;
+		align-items: center;
 	}
 }
 
@@ -279,6 +283,7 @@
 		position: relative;
 		width: 50px;
 		height: 50px;
+		// margin-right: 10px;
 	}
 }
 

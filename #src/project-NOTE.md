@@ -71,3 +71,5 @@ New site template v3.02
 - цвета в main - чтобы не глючили, перенести body в globs, a инклуды в style (глючит, когда происходит двойное подключение файла colors)
 - style.scss - переменные типа $mobile переименовать в $media-mobile (для удобства сниппетов)
 - script.js - aspectRatioCalculator
+- header - mobileViewService сделать проверки на наличие частей, чтобы не лазить вручную не отключать
+- header - если выключен scroll header, то при нажатии появляется разрыв, надо сделать scroll header всегда

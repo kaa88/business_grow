@@ -295,7 +295,7 @@ const header = {
 	},
 	mobileViewService: function() {
 		this.menu.toggle();
-		// this.menu.hideOnViewChange();
+		this.menu.hideOnViewChange();
 		// this.hidingHeader.calc();
 	},
 
@@ -365,8 +365,6 @@ const header = {
 			this.root.hidingHeader.scroll(0, true); // hidingHeader reference
 		},
 		close: function(e, noTransLock) {
-			console.log('this')
-			console.log(noTransLock)
 			if (!this.isLoaded) return;
 			if (!noTransLock && this.root.refs.translock.check(this.timeout)) return;
 
@@ -386,9 +384,10 @@ const header = {
 			// this func prevents menu blinking on mobile view switch
 			if (this.isLoaded) {
 				let that = this;
-				this.menuElem.style.visibility = 'hidden';
+				// this.menuElem.style.visibility = 'hidden';
+				this.menuElem.style.display = 'none';
 				setTimeout(() => {
-					that.menuElem.style.visibility = '';
+					that.menuElem.style.display = '';
 					that.root.calcHeaderHeight();
 				}, that.timeout)
 			}
@@ -554,6 +553,11 @@ header.init({
 	// submenu: true,
 	// hidingHeader: true,
 	// elemAboveHeader: true
+})
+
+let headerMenuOpenButton = document.querySelector('.header-menu-open-btn');
+headerMenuOpenButton.addEventListener('click', function() {
+	window.scroll({top: 0, behavior: 'smooth'});
 })
 
 //////////////////////////////////////////////////
@@ -766,6 +770,7 @@ modal.init({
 				}
 				
 				headerMenuCloseButton.classList.add('_active');
+				window.scroll({top: 0, behavior: 'smooth'});
 			},
 			close: function(event, content, timeout) {
 				let openedModals = modal.check();
@@ -1537,7 +1542,7 @@ let aspectRatioCalculator = {
 		// this.box.innerHTML = 'aspect ratio: ' + wh + ' = ' + this.wx + ' / ' + this.hx;
 	},
 }
-aspectRatioCalculator.init();
+// aspectRatioCalculator.init();
 
 //////////////////////////////////////////////////
 
@@ -1685,18 +1690,39 @@ timeSelect.init();
 
 //////////////////////////////////////////////////
 
-// Decor img angle
+// Decor image settings
 let decorImage = {
 	init: function() {
 		this.elem = document.querySelector('.decor-img');
-		this.img = this.elem.querySelector('img');
-		this.img.style.transform = 'rotate(' + getRandomNumber(0, 360) + 'deg)';
+		if (!this.elem) return;
+
+		this.clone = document.querySelector('.about__image');
+		if (this.clone) {
+			this.clone.innerHTML = this.elem.outerHTML;
+			this.clone = this.clone.children[0];
+		}
+
+		let angle = 'rotate(' + getRandomNumber(0, 360) + 'deg)';
+		this.elem.querySelector('img').style.transform = angle;
+		if (this.clone) this.clone.querySelector('img').style.transform = angle;
+
 		let that = this;
 		window.addEventListener('DOMContentLoaded', function() {
 			setTimeout(()=> {
 				that.elem.classList.add('loaded');
+				if (that.clone) that.clone.classList.add('loaded');
 			}, 200)
 		})
 	}
 }
 decorImage.init();
+
+//////////////////////////////////////////////////
+
+// Screen lock orientation ?
+console.log(screen.orientation.angle)
+// window.addEventListener('resize', function(e) {
+// 	console.log(e)
+// })
+
+// сделать виндов эвент на ресайз, и передать angle в стиль html эл-та

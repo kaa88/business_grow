@@ -15,9 +15,9 @@
 	opacity: 0;
 	visibility: hidden;
 	transition: opacity $timer-modal, visibility $timer-modal;
-	@media (max-width: $media-modal+px) {
-		position: absolute;//
-	}
+	// @media (max-width: $media-modal+px) {
+	// 	position: absolute;//
+	// }
 	&._visible {
 		opacity: 1;
 		visibility: visible;

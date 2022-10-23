@@ -58,6 +58,11 @@ header.init({
 	// elemAboveHeader: true
 })
 
+let headerMenuOpenButton = document.querySelector('.header-menu-open-btn');
+headerMenuOpenButton.addEventListener('click', function() {
+	window.scroll({top: 0, behavior: 'smooth'});
+})
+
 //////////////////////////////////////////////////
 
 // Footer //
@@ -102,6 +107,7 @@ modal.init({
 				}
 				
 				headerMenuCloseButton.classList.add('_active');
+				window.scroll({top: 0, behavior: 'smooth'});
 			},
 			close: function(event, content, timeout) {
 				let openedModals = modal.check();
@@ -521,7 +527,7 @@ let aspectRatioCalculator = {
 		// this.box.innerHTML = 'aspect ratio: ' + wh + ' = ' + this.wx + ' / ' + this.hx;
 	},
 }
-aspectRatioCalculator.init();
+// aspectRatioCalculator.init();
 
 //////////////////////////////////////////////////
 
@@ -669,18 +675,39 @@ timeSelect.init();
 
 //////////////////////////////////////////////////
 
-// Decor img angle
+// Decor image settings
 let decorImage = {
 	init: function() {
 		this.elem = document.querySelector('.decor-img');
-		this.img = this.elem.querySelector('img');
-		this.img.style.transform = 'rotate(' + getRandomNumber(0, 360) + 'deg)';
+		if (!this.elem) return;
+
+		this.clone = document.querySelector('.about__image');
+		if (this.clone) {
+			this.clone.innerHTML = this.elem.outerHTML;
+			this.clone = this.clone.children[0];
+		}
+
+		let angle = 'rotate(' + getRandomNumber(0, 360) + 'deg)';
+		this.elem.querySelector('img').style.transform = angle;
+		if (this.clone) this.clone.querySelector('img').style.transform = angle;
+
 		let that = this;
 		window.addEventListener('DOMContentLoaded', function() {
 			setTimeout(()=> {
 				that.elem.classList.add('loaded');
+				if (that.clone) that.clone.classList.add('loaded');
 			}, 200)
 		})
 	}
 }
 decorImage.init();
+
+//////////////////////////////////////////////////
+
+// Screen lock orientation ?
+console.log(screen.orientation.angle)
+// window.addEventListener('resize', function(e) {
+// 	console.log(e)
+// })
+
+// сделать виндов эвент на ресайз, и передать angle в стиль html эл-та
