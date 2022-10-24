@@ -5,9 +5,9 @@
 html {
 // 	max-width: 1920px;
 // 	margin: 0 auto;
-	@media (max-width: $media-mobile+px) and (orientation: landscape) {
-		transform: rotate(90deg);
-	}
+	// @media (max-width: $media-mobile+px) and (orientation: landscape) {
+	// 	transform: rotate(90deg);
+	// }
 }
 body {
 	width: 100%;
