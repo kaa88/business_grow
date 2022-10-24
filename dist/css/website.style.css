@@ -3588,6 +3588,7 @@ form button {
   }
 }
 .main__homepage-title-bottom {
+  color: red;
   font-size: 5.625em;
   font-weight: 700;
   text-transform: uppercase;
