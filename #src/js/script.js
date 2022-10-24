@@ -1,3 +1,9 @@
+// Developer panel //
+@@include('front/dev_panel.js')
+// window.onload = developer_panel.init();
+
+//////////////////////////////////////////////////
+
 // Constants //
 const mobileSwitchWidth = parseFloat(getComputedStyle(document.body).getPropertyValue('--media-mobile')) || 768;
 
@@ -58,7 +64,7 @@ header.init({
 	// elemAboveHeader: true
 })
 
-let headerMenuOpenButton = document.querySelector('.header-menu-open-btn');
+const headerMenuOpenButton = document.querySelector('.header-menu-open-btn');
 headerMenuOpenButton.addEventListener('click', function() {
 	window.scroll({top: 0, behavior: 'smooth'});
 })
@@ -77,14 +83,14 @@ footer.init()
 @@include('front/modal.js')
 
 // modal closing with header menu button
-let headerMenuCloseButton = document.querySelector('.header-menu-close-btn');
+const headerMenuCloseButton = document.querySelector('.header-menu-close-btn');
 headerMenuCloseButton.addEventListener('click', function() {
 	modal.closeAll(true);
 })
 //
 
 // clone footer to modal window to provide scrolling
-let footerCloneContainers = document.body.querySelectorAll('.modal__footer-clone');
+const footerCloneContainers = document.body.querySelectorAll('.modal__footer-clone');
 for (let i = 0; i < footerCloneContainers.length; i++) {
 	footerCloneContainers[i].innerHTML = document.body.querySelector('.footer').outerHTML;
 }
@@ -364,7 +370,7 @@ else {
 //
 
 // Quiz
-let modalProgressBar = {
+const modalProgressBar = {
 	init: function() {
 		let modalCheck = document.querySelector('#modal-consult');
 		if (!modalCheck) return;
@@ -472,67 +478,8 @@ formToEmail.init({
 
 //////////////////////////////////////////////////
 
-// Aspect ratio (developer use only)
-let aspectRatioCalculator = {
-	init: function() {
-		let newBox = document.createElement('div');
-		document.body.appendChild(newBox);
-		newBox.id = 'aspect-ratio-calculator';
-		let style = '#aspect-ratio-calculator {position: fixed; top: 0; left: 0; z-index: 9999; display: flex; justify-content: center; align-items: center; padding: 15px 30px; background-color: yellow;} #aspect-ratio-calculator span {font-size: 3vmin; font-family: Arial;}'
-		newBox.innerHTML = '<span></span><style>' + style + '</style>';
-		this.box = newBox.children[0];
-		this.calc(false,true);
-		window.addEventListener('resize', this.calc.bind(this));
-	},
-	calc: function(e, init) {
-		// function gcd (a, b) {return (b == 0) ? a : gcd (b, a%b);}
-		let
-			w = window.innerWidth,
-			h = window.innerHeight,
-			wh = Math.round(w / h * 100) / 100,
-			hx = 9,
-			wx = Math.round(hx * wh);
-			
-		if (wx == 12) {
-			wx = 4;
-			hx = 3;
-		}
-		if (wx == 15) {
-			wx = 5;
-			hx = 3;
-		}
-		if (wx == 9) {
-			wx = 1;
-			hx = 1;
-		}
-		this.box.innerHTML = 'aspect ratio: ' + wh + ' = ' + wx + ' / ' + hx;
-
-			// if (h % 2 > 0) h++;
-
-		// if (init)
-		// 	for (let i = w; i > 0; i--) {
-		// 		let ux = gcd (i, h);
-		// 		if (i / ux <= 50) {
-		// 			x = ux;
-		// 			w = i;
-		// 			break;
-		// 		}
-		// 	}
-		// else x = gcd(w, h);
-	
-		// let wx = w/x, hx = h/x;
-		// console.log(w + ' ' + h)
-		// console.log(wx + ' ' + hx)
-		// if (wx <= 50 && hx <= 50) {this.wx = wx; this.hx = hx; console.log('ok')}
-		// this.box.innerHTML = 'aspect ratio: ' + wh + ' = ' + this.wx + ' / ' + this.hx;
-	},
-}
-// aspectRatioCalculator.init();
-
-//////////////////////////////////////////////////
-
 // Time select
-let timeSelect = {
+const timeSelect = {
 	names: {
 		activeClass: '_active',
 		selectedClass: '_selected'
@@ -563,10 +510,10 @@ let timeSelect = {
 		function fillSelector(that, selector, i) {
 			let timeStr = i.toString();
 			if (i < 10) timeStr = '0' + timeStr;
-			let newItem = document.createElement('span');
-			newItem.innerHTML = timeStr;
-			selector.appendChild(newItem);
-			newItem.addEventListener('mousedown', that.selectTime.bind(that));
+			let item = document.createElement('span');
+			item.innerHTML = timeStr;
+			selector.appendChild(item);
+			item.addEventListener('mousedown', that.selectTime.bind(that));
 		}
 		for (let i = 0; i <= 23; i++) {
 			fillSelector(this, this.selectorH, i);
@@ -649,14 +596,14 @@ let timeSelect = {
 				}
 			}
 			// scroll into view
-			if (markingTarget) markingTarget.parentElement.scrollTop = this.selectorItemHeight * (index - 2);
+			if (markingTarget) markingTarget.parentElement.scrollTop = this.selectorHeight * (index - 2);
 		}
 		else markingTarget = e.target;
 		if (markingTarget) markingTarget.classList.add(this.names.selectedClass);
 	},
 
 	computeSelectorHeight: function() {
-		this.selectorItemHeight = parseFloat(getComputedStyle(this.selectorItem).height);
+		this.selectorHeight = parseFloat(getComputedStyle(this.selectorItem).height);
 	},
 
 	toggleSelectorBox: function(e) {
@@ -676,7 +623,7 @@ timeSelect.init();
 //////////////////////////////////////////////////
 
 // Decor image settings
-let decorImage = {
+const decorImage = {
 	init: function() {
 		this.elem = document.querySelector('.decor-img');
 		if (!this.elem) return;
@@ -704,8 +651,34 @@ decorImage.init();
 
 //////////////////////////////////////////////////
 
+// Mobile background height calculator
+const mobileBackground = {
+	init: function() {
+		this.elem = document.body.querySelector('.mobile-background');
+		this.calcItem = document.body.querySelector('.mob-bg-calc');
+		if (!this.elem || !this.calcItem) return;
+		
+		this.iScroll = this.iHeight = 0;
+		window.addEventListener('resize', this.setHeight.bind(this));
+		this.setHeight();
+	},
+	setHeight: function() {
+		let iScroll = Math.round(this.calcItem.getBoundingClientRect().y + scrollY);
+		let iHeight = this.calcItem.offsetHeight;
+		if (iScroll != this.iScroll || iHeight != this.iHeight) {
+			this.iScroll = iScroll;
+			this.iHeight = iHeight;
+			this.elem.style.height = this.iScroll + this.iHeight + 'px';
+		}
+	}
+}
+mobileBackground.init();
+
+//////////////////////////////////////////////////
+
 // Screen lock orientation ?
-console.log(screen.orientation.angle)
+// screen.orientation.lock('landscape');
+// console.log(screen.orientation.angle)
 // window.addEventListener('resize', function(e) {
 // 	console.log(e)
 // })

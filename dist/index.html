@@ -108,7 +108,7 @@ get_template_part('parts/header');
 
 
 		<div class="header-level__logo logo">
-			<a class="logo__link" href="/">
+			<a class="logo__link" href="index.html">
 				<span class="logo__text">Business</span>
 				<span class="logo__text-colored">GROW</span>
 				<span class="logo__bottom-text">
@@ -133,7 +133,8 @@ get_template_part('parts/header');
 			<nav class="header-level__header-menu header-menu">
 				<ul class="header-menu__items">
 					<li class="header-menu__item" data-name="home">
-						<a class="header-menu__link" href="/">Главная</a>
+						<a class="header-menu__link" href="index.html">Главная</a>
+						<!-- если страница в корне сайта, ставить '/', если нет - 'index.html' -->
 					</li>
 					<li class="header-menu__item" data-name="knowledge">
 						<a class="header-menu__link" href="knowledge.html">Источник знаний</a>
@@ -274,12 +275,13 @@ get_template_part('parts/header');
 			&nbsp;
 			<span class="main__homepage-title-bottom">Business Grow</span>
 		</h1>
-		<span class="triangle-arrow mobile-only"></span>
+		<span class="triangle-arrow mobile-only"><span></span></span>
 		<p class="main__homepage-title-description">
 			Lorem ipsum dolor sit amet consectetur adipisicing elit iusto consequatur cumque inventore.
 		</p>
 
 		<div class="main__features-slider features-slider swiper mobile-only">
+			<div class="mob-bg-calc"></div>
 			<div class="swiper-wrapper">
 				<div class="swiper-slide">
 					<div class="features-slider__img">
@@ -332,7 +334,7 @@ get_template_part('parts/header');
 			</div>
 		</div>
 	
-		<a class="main__text-button-with-arrow text-button-with-arrow modal-link" href="#modal-consult">
+		<a class="main__text-button-with-arrow text-button-with-arrow modal-link" href="#modal-video-player">
 			<span class="text-button-with-arrow__text">
 				<span class="desktop-only">получить бесплатную консультацию</span>
 				<span class="mobile-only">получить консультацию</span>
@@ -381,7 +383,7 @@ get_template_part('parts/header');
 						Выполнить более <span>300 проектов</span>
 					</p>
 					<div class="achievements__divider">
-						<span class="triangle-arrow"></span>
+						<span class="triangle-arrow"><span></span></span>
 					</div>
 					<a class="achievements__link" href="cases.html">
 						<span>в кейсы</span>
@@ -393,7 +395,7 @@ get_template_part('parts/header');
 						Поработать с компаниями из <span>60 направлений бизнеса</span>
 					</p>
 					<div class="achievements__divider">
-						<span class="triangle-arrow"></span>
+						<span class="triangle-arrow"><span></span></span>
 					</div>
 					<a class="achievements__link" href="cases.html">
 						<span>в кейсы</span>
@@ -405,7 +407,7 @@ get_template_part('parts/header');
 						Запустить более <span>150 обучающих онлайн-мероприятий</span>
 					</p>
 					<div class="achievements__divider">
-						<span class="triangle-arrow"></span>
+						<span class="triangle-arrow"><span></span></span>
 					</div>
 					<a class="achievements__link" href="cases.html">
 						<span>в кейсы</span>
@@ -846,14 +848,14 @@ get_template_part('parts/header');
 						Если вы еще не с нами, поспешите присоединиться к закрытым материалам — видео, инструкции, статьи, закрытые онлайн мастер-классы, чат предпринимателей-единомышленников
 					</p>
 
-					<div class="confirm-content__video-player video-player">
-						<div class="video-player__container">
-							<div class="video-player__back-image">
+					<div class="confirm-content__video-player-link video-player-link">
+						<div class="video-player-link__container">
+							<div class="video-player-link__back-image">
 								<img src="media/img/main.png" alt="" loading="lazy">
 							</div>
-							<div class="video-player__wrapper">
-								<p class="video-player__info">60 секунд о том, что внутри</p>
-								<a class="video-player__video-button video-button" href="#">
+							<div class="video-player-link__wrapper">
+								<p class="video-player-link__info">60 секунд о том, что внутри</p>
+								<a class="video-player-link__video-button video-button modal-link" href="#modal-video-player">
 									<span></span>
 									<i class="icon-play"></i>
 								</a>
@@ -874,6 +876,42 @@ get_template_part('parts/header');
 				</div>
 
 				<div class="modal__footer-clone mobile-only"></div>
+
+			</div>
+		</div>
+	</div>
+	<div class="modal__window" id="modal-video-player">
+		<div class="modal__wrapper">
+			<div class="modal__content">
+				<div class="modal__close-button"><i class="icon-cross"></i></div>
+
+				<div class="modal__header-cover modal__header-cover--light mobile-only"></div>
+
+				<div class="modal__video-player video-player">
+					<div class="video-player__title">Video Player</div>
+					<video src="media/video/videosample.mp4" preload="metadata"></video>
+					<div class="video-controls">
+						<div class="video-controls__area">
+							<div class="video-controls__area-btn"><i class="icon-play"></i></div>
+						</div>
+						<div class="video-controls__panel">
+							<button class="video-controls__play-pause"><i class="icon-play"></i></button>
+							<div class="video-controls__seek-bar">
+								<input type="range" value="0">
+							</div>
+							<div class="video-controls__volume">
+								<div class="video-controls__wrapper">
+									<div class="video-controls__volume-bar">
+										<input type="range">
+									</div>
+								</div>
+								<button class="video-controls__volume-btn">vol</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				</div>
 
 			</div>
 		</div>

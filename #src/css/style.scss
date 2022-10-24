@@ -51,6 +51,8 @@ $media-footer2: 448;
 $media-modal: $mobile;
 $media-modal2: 448;
 
+$mobile-content-maxw: 480px;
+
 //////////////////////////////////////////////////
 
 // Transitions //
@@ -86,7 +88,7 @@ $timer-progress: 0.3s;
 // @import "modules/spoiler";
 // @import "modules/tabs";
 // @import "modules/up_button";
-// @import "modules/video_player";
+@import "modules/video_player";
 
 @import "main";
 @import "404";

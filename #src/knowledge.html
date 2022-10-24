@@ -30,47 +30,43 @@ get_template_part('parts/header');
 
 	<div class="main__container container">
 
-		<!-- <section class="main__knowledge-content knowledge-content"> -->
-
-			<div class="main__complex-image complex-image">
-				<div class="complex-image__circles">
-					<img src="media/img/circles.svg" alt="" loading="lazy">
-				</div>
-				<div class="complex-image__img">
-					<img class="materialimg-video" src="media/img/materials-big-01.png" srcset="media/img/materials-big-01.png 2x" alt="" loading="lazy">
-				</div>
+		<div class="main__complex-image complex-image">
+			<div class="complex-image__circles">
+				<img src="media/img/circles.svg" alt="" loading="lazy">
 			</div>
+			<div class="complex-image__img">
+				<img class="materialimg-video" src="media/img/materials-big-01.png" srcset="media/img/materials-big-01.png 2x" alt="" loading="lazy">
+			</div>
+		</div>
 
-			<!-- <div class="knowledge-content__container"> -->
-				<h2 class="g-h2">
-					Закрытый источник знаний для предпринимателей, маркетологов и первых лиц компаний
-				</h2>
+		<h2 class="g-h2">
+			Закрытый источник знаний для предпринимателей, маркетологов и первых лиц компаний
+		</h2>
 
-				<div class="main__video-link">
-					<a class="video-button" href="#">
-						<span></span>
-						<i class="icon-play"></i>
-					</a>
-					<p class="main__video-link-text">видео о том, что внутри</p>
-				</div>
+		<div class="main__video-link mob-bg-calc">
+			<a class="video-button modal-link" href="#modal-video-player">
+				<span></span>
+				<i class="icon-play"></i>
+			</a>
+			<p class="main__video-link-text">видео о том, что внутри</p>
+		</div>
 
-				<p class="g-text">
-					Получите бесплатный доступ к закрытым материалам по бизнесу и растите вместе с нами
-				</p>
+		<div class="main__access-box">
+			<p class="g-text">
+				Получите бесплатный доступ к закрытым материалам по бизнесу и растите вместе с нами
+			</p>
 
-				<a class="main__text-button-with-arrow text-button-with-arrow modal-link" href="#modal-access">
-					<span class="text-button-with-arrow__text">
-						<span class="desktop-only">получить бесплатный доступ к материалам</span>
-						<span class="mobile-only">получить бесплатный доступ</span>
-					</span>
-					<span class="text-button-with-arrow__arrow">
-						<i class="icon-arrow"></i>
-					</span>
-				</a>
+			<a class="main__text-button-with-arrow text-button-with-arrow modal-link" href="#modal-access">
+				<span class="text-button-with-arrow__text">
+					<span class="desktop-only">получить бесплатный доступ к материалам</span>
+					<span class="mobile-only">получить бесплатный доступ</span>
+				</span>
+				<span class="text-button-with-arrow__arrow">
+					<i class="icon-arrow"></i>
+				</span>
+			</a>
+		</div>
 		
-			<!-- </div> -->
-		<!-- </section> -->
-
 		<section class="main__features features">
 			@@include('parts/features.html')
 		</section>
@@ -90,6 +86,7 @@ get_template_part('parts/header');
 	<!-- <?php get_template_part('parts/modal-info'); ?> -->
 	@@include('parts/modal-consult.html')
 	@@include('parts/modal-confirm.html')
+	@@include('parts/modal-video-player.html')
 	@@include('parts/modal-call.html')
 	@@include('parts/modal-message.html')
 	@@include('parts/modal-access.html')

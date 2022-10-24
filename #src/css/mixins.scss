@@ -44,3 +44,10 @@
 	// media - граница отсчета
 	// multiplier - значения от 0 до 1 - понижающие (замедляют ресайз), от 1 и выше - повышающие (ускоряют), отрицательные значания - дают реверс
 }
+
+@mixin mobile-centered-block() {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	max-width: $mobile-content-maxw;
+}

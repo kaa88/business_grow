@@ -18,19 +18,20 @@
 		position: relative;
 		flex-wrap: wrap;
 		@media (max-width: $media-footer+px) and (min-width: $media-footer2+1+px) {
-			justify-content: space-between;
+			// justify-content: space-between;
 			& > *:not(:last-child) {
 				margin-right: 10px;
 			}
 		}
 		@media (max-width: $media-footer+px) {
-			background-color: $color02;
-		}
-		@media (max-width: $media-footer2+px) {
-			height: 90px;
+			height: auto;
 			padding-top: 18px;
 			padding-bottom: 20px;
+			background-color: $color02;
 			justify-content: space-between;
+		}
+		@media (max-width: $media-footer2+px) {
+			// height: 90px;
 			& > *:nth-child(even) {
 				margin-right: 30%;
 			}

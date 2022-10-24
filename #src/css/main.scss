@@ -40,22 +40,16 @@
 		}
 		@media (max-width: $media-mobile+px) {
 			.page-cases &, .page-categories & {
-				max-width: 480px;
-				margin-left: auto;
-				margin-right: auto;
+				@include mobile-centered-block();
+				max-width: 540px;
 			}
 		}
 	}
 	&__homepage-title {
 		@media (max-width: $mobile+px) {
-			.page-home & {
-				color: $color02;
-			}
+			@include mobile-centered-block();
+			color: $color02;
 		}
-		// @media (max-width: $mobile-s+px) {
-		// 	text-align: center;
-		// 	width: 100%;
-		// }
 		@media (min-width: $mobile+1+px) {
 			span {
 				display: block;
@@ -88,6 +82,8 @@
 	}
 	.triangle-arrow {
 		margin-top: 8px;
+		margin-left: auto;
+		margin-right: auto;
 	}
 	&__homepage-title-description {
 		// margin-top: em(22);
@@ -97,11 +93,10 @@
 		letter-spacing: 0.05em;
 		color: $color10;
 		@media (max-width: $mobile+px) {
+			@include mobile-centered-block();
 			font-weight: 500;
 			font-size: 14px;
-			.page-home & {
-				color: $color02;
-			}
+			color: $color02;
 		}
 	}
 	&__text-button-with-arrow {
@@ -129,8 +124,12 @@
 			// margin-bottom: 7.685vh;//20px;
 			// расчет от 1080
 		// }
+		@media (max-width: $media-mobile+px) {
+			margin-top: 25px;
+		}
 	}
 	&__features-slider {
+		margin-top: 30px;
 		// position: relative;
 		// left: -30px;
 	}
@@ -159,16 +158,13 @@
 			letter-spacing: 0.03em;
 		}
 		@media (max-width: $media-mobile+px) {
-			// background-color: lime;
-			// backdrop-filter: sepia(90%);
-			margin-top: 20px;
-			margin-left: auto;
-			margin-right: auto;
+			margin: 20px auto 30px auto;
+			padding-bottom: 20px;
 			flex-direction: column-reverse;
 			.video-button {
 				margin-right: 0;
 				margin-top: 15px;
-				filter: drop-shadow(0 0 10px $color04);
+				filter: drop-shadow(0 0 10px #ff80ff);
 				span {
 					background-image: none;
 					background-color: $c02;
@@ -249,6 +245,15 @@
 	&__about {
 		margin: 60px auto 30px;
 	}
+	&__access-box {
+		@media (max-width: $media-mobile+px) {
+			margin: 0 auto;
+			width: min-content;
+			.text-button-with-arrow {
+				margin-top: 10px;
+			}
+		}
+	}
 
 }
 .page-knowledge {
@@ -260,8 +265,18 @@
 	}
 	@media (max-width: $media-mobile+px) {
 		.g-h2 {
+			@include mobile-centered-block();
 			color: $c02;
 			line-height: 1.21;
+		}
+		.g-text {
+			text-align: center;
+			font-size: 13px;
+		}
+	}
+	@media (max-width: $media-mobile-s+px) {
+		.g-text {
+			font-size: 10px;
 		}
 	}
 }
@@ -362,17 +377,24 @@
 	}
 }
 .triangle-arrow {
-	transform: rotate(90deg);
-	&:before, &:after {
-		content: '';
+	width: 100%;
+	max-width: $mobile-content-maxw;
+	span {
 		display: inline-block;
-		width: 6px;
-		height: 7px;
-		clip-path: polygon(0 0, 100% 50%, 0 100%);
-		background-color: $color02;
-	}
-	&:before {
-		opacity: 0.3;
+		&:not(.achievements &) {
+			transform: rotate(90deg);
+		}
+		&:before, &:after {
+			content: '';
+			display: inline-block;
+			width: 6px;
+			height: 7px;
+			clip-path: polygon(0 0, 100% 50%, 0 100%);
+			background-color: $color02;
+		}
+		&:before {
+			opacity: 0.3;
+		}
 	}
 }
 
@@ -474,11 +496,18 @@
 	}
 }
 .features-slider {
-	// background-color: yellow;//
 	// display: none;//
 	left: -30px;
 	width: calc(100% + 60px); // container padding left 30, right 10 = 40
-	padding: 35px 0 25px;
+	padding: 5px 0 25px;
+	.mob-bg-calc {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 5px;
+		height: 63px;
+		// background-color: yellow;//
+	}
 	.swiper-wrapper {
 		width: 100%;
 	}
@@ -542,6 +571,7 @@
 		display: none;
 		.page-knowledge & {
 			display: block;
+			margin-bottom: 30px;
 		}
 	}
 	.swiper {
@@ -662,9 +692,11 @@
 			border-radius: 10px;
 		}
 	}
-	.swiper-slide:hover &__image:after {
-		opacity: 1;
-		left: -50%;
+	@media (min-width: $media-mobile+1+px) {
+		.swiper-slide:hover &__image:after {
+			opacity: 1;
+			left: -50%;
+		}
 	}
 	&__icon {
 		display: inline-block;
@@ -738,7 +770,7 @@
 .mobile-background {
 	width: 100%;
 	height: 330px;//390 60%
-	min-height: 300px;
+	// min-height: 300px;
 	background: $gradient-3;
 	border-radius: 0px 0px 30px 30px;
 	overflow: hidden;
@@ -969,9 +1001,7 @@
 		}
 	}
 	&__title {
-		margin: 0 auto;
-		width: 100%;
-		max-width: 480px;
+		@include mobile-centered-block();
 		padding-right: 60px;
 		font-weight: 600;
 		font-size: 22px;
@@ -987,7 +1017,7 @@
 }
 .achievements {
 	width: calc(100% + 10px);
-	max-width: 480px;
+	max-width: $mobile-content-maxw;
 	display: grid;
 	grid-template-columns: auto auto min-content;
 	grid-column-gap: 4vw;//13
@@ -1005,7 +1035,7 @@
 		}
 	}
 	&__divider {
-		.triangle-arrow {
+		.triangle-arrow span {
 			&:before, &:after {
 				background-color: $color05;
 			}
@@ -1035,6 +1065,8 @@
 			animation: button-animation 5s infinite alternate;
 		}
 		span {
+			position: relative;
+			z-index: 2;
 			font-weight: 500;
 			font-size: 12px;
 			letter-spacing: 0.03em;

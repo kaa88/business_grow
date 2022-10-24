@@ -80,6 +80,10 @@
 		overflow-y: auto;
 		overflow-x: hidden;
 		@media (min-width: $media-modal+1+px) {
+			#modal-video-player & {
+				justify-content: center;
+				align-items: center;
+			}
 			scrollbar-width: thin;
 			scrollbar-color: $color07 transparent;
 			&::-webkit-scrollbar {
@@ -319,6 +323,9 @@
 		}
 	}
 	&__msg-slider {
+	}
+	&__video-player {
+		// margin: 0 auto;
 	}
 }
 
@@ -569,13 +576,14 @@
 			font-size: 9px;
 		}
 	}
-	&__video-player {
+	&__video-player-link {
 		@media (max-width: $media-modal+px) {
 			margin: 18px auto 0;
 		}
 	}
 }
-.video-player {
+.video-player-link {
+	display: block;
 	position: relative;
 	width: em(750);
 	height: em(370);
@@ -633,7 +641,6 @@
 	&__video-button {
 	}
 }
-
 
 .user-contact-input {
 	width: em(390);

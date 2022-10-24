@@ -108,7 +108,7 @@ get_template_part('parts/header');
 
 
 		<div class="header-level__logo logo">
-			<a class="logo__link" href="/">
+			<a class="logo__link" href="index.html">
 				<span class="logo__text">Business</span>
 				<span class="logo__text-colored">GROW</span>
 				<span class="logo__bottom-text">
@@ -133,7 +133,8 @@ get_template_part('parts/header');
 			<nav class="header-level__header-menu header-menu">
 				<ul class="header-menu__items">
 					<li class="header-menu__item" data-name="home">
-						<a class="header-menu__link" href="/">Главная</a>
+						<a class="header-menu__link" href="index.html">Главная</a>
+						<!-- если страница в корне сайта, ставить '/', если нет - 'index.html' -->
 					</li>
 					<li class="header-menu__item" data-name="knowledge">
 						<a class="header-menu__link" href="knowledge.html">Источник знаний</a>
@@ -268,7 +269,7 @@ get_template_part('parts/header');
 			<h1>404</h1>
 			<h2>Page Not Found</h2>
 			<p>Sorry, but the page you were trying to view does not exist.</p>
-			<a href="/">Go to Homepage</a>
+			<a href="index.html">Go to Homepage</a>
 		</div>
 	
 	</div>

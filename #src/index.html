@@ -35,12 +35,13 @@ get_template_part('parts/header');
 			&nbsp;
 			<span class="main__homepage-title-bottom">Business Grow</span>
 		</h1>
-		<span class="triangle-arrow mobile-only"></span>
+		<span class="triangle-arrow mobile-only"><span></span></span>
 		<p class="main__homepage-title-description">
 			Lorem ipsum dolor sit amet consectetur adipisicing elit iusto consequatur cumque inventore.
 		</p>
 
 		<div class="main__features-slider features-slider swiper mobile-only">
+			<div class="mob-bg-calc"></div>
 			<div class="swiper-wrapper">
 				<div class="swiper-slide">
 					<div class="features-slider__img">
@@ -93,7 +94,7 @@ get_template_part('parts/header');
 			</div>
 		</div>
 	
-		<a class="main__text-button-with-arrow text-button-with-arrow modal-link" href="#modal-consult">
+		<a class="main__text-button-with-arrow text-button-with-arrow modal-link" href="#modal-video-player">
 			<span class="text-button-with-arrow__text">
 				<span class="desktop-only">получить бесплатную консультацию</span>
 				<span class="mobile-only">получить консультацию</span>
@@ -117,7 +118,7 @@ get_template_part('parts/header');
 						Выполнить более <span>300 проектов</span>
 					</p>
 					<div class="achievements__divider">
-						<span class="triangle-arrow"></span>
+						<span class="triangle-arrow"><span></span></span>
 					</div>
 					<a class="achievements__link" href="cases.html">
 						<span>в кейсы</span>
@@ -129,7 +130,7 @@ get_template_part('parts/header');
 						Поработать с компаниями из <span>60 направлений бизнеса</span>
 					</p>
 					<div class="achievements__divider">
-						<span class="triangle-arrow"></span>
+						<span class="triangle-arrow"><span></span></span>
 					</div>
 					<a class="achievements__link" href="cases.html">
 						<span>в кейсы</span>
@@ -141,7 +142,7 @@ get_template_part('parts/header');
 						Запустить более <span>150 обучающих онлайн-мероприятий</span>
 					</p>
 					<div class="achievements__divider">
-						<span class="triangle-arrow"></span>
+						<span class="triangle-arrow"><span></span></span>
 					</div>
 					<a class="achievements__link" href="cases.html">
 						<span>в кейсы</span>
@@ -189,6 +190,7 @@ get_template_part('parts/header');
 	<!-- <?php get_template_part('parts/modal-info'); ?> -->
 	@@include('parts/modal-consult.html')
 	@@include('parts/modal-confirm.html')
+	@@include('parts/modal-video-player.html')
 	@@include('parts/modal-call.html')
 	@@include('parts/modal-message.html')
 	@@include('parts/modal-access.html')
