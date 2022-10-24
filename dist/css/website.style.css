@@ -256,6 +256,13 @@ body {
   --timer-menu: 0.4s;
   --timer-modal: 0.7s;
 }
+@media (max-width: 782px) and (orientation: landscape) {
+  body {
+    -webkit-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
+}
 body.page-home {
   grid-template-columns: 100%;
 }
@@ -3588,7 +3595,7 @@ form button {
   }
 }
 .main__homepage-title-bottom {
-  color: red;
+  color: green;
   font-size: 5.625em;
   font-weight: 700;
   text-transform: uppercase;

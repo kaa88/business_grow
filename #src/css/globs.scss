@@ -5,11 +5,11 @@
 html {
 // 	max-width: 1920px;
 // 	margin: 0 auto;
-	// @media (max-width: $media-mobile+px) and (orientation: landscape) {
-	// 	transform: rotate(90deg);
-	// }
 }
 body {
+	@media (max-width: $media-mobile+px) and (orientation: landscape) {
+		transform: rotate(90deg);
+	}
 	width: 100%;
 	// max-width: $page-max-width+px;
 	max-width: 240vh;//240

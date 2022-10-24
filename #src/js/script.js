@@ -677,7 +677,7 @@ mobileBackground.init();
 //////////////////////////////////////////////////
 
 // Screen lock orientation ?
-screen.orientation.lock('portrait');
+// screen.orientation.lock('landscape');
 // console.log(screen.orientation.angle)
 // window.addEventListener('resize', function(e) {
 // 	console.log(e)
