@@ -11,6 +11,7 @@
 		// z-index: 599;
 	// }
 	&__container {
+		margin-left: 0;
 		max-width: em(1400);
 		height: em(60);
 		display: flex;
@@ -57,7 +58,7 @@
 			z-index: 2;
 		}
 	}
-	&__copy, &__policy, &__policy:visited {
+	&__copy, &__copy:visited, &__policy, &__policy:visited {
 		display: inline-block;
 		font-size: em(13);
 		letter-spacing: 0.03em;
@@ -69,7 +70,7 @@
 			font-size: resize-multiplier(11, $media-footer, 0.46);
 		}
 	}
-	&__policy {
+	&__copy, &__policy {
 		border-bottom: 2px solid transparent;
 		transition: all $timer-hover;
 		&:hover {

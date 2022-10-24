@@ -41,6 +41,15 @@ const aspectRatioCalculator = {
 	},
 }
 
+//////////////////////////////////////////////////
+
+// Body 'em' checker
+// window.addEventListener('resize', bodyEmCheck);
+// function bodyEmCheck() {
+// 	console.log('Body "em" checker. Current font-size: ' + getComputedStyle(document.body).fontSize);
+// }
+// bodyEmCheck();
+
 // window.onload = developer_panel.init();
 
 //////////////////////////////////////////////////
@@ -1043,13 +1052,15 @@ const select_consult_activity = new Select({
 
 // Swiper //
 const swipers = {
-	features: '.features-slider',
-	consult_top: '.modal__title-slider',
-	consult_bot: '.consult-form__slider',
-	modal_call: '.modal__call-slider',
-	modal_msg: '.modal__msg-slider',
-	cases: '.cases-slider',
-	materials: '.materials-slider .swiper',
+	selectors: {
+		features: '.features-slider',
+		consult_top: '.modal__title-slider',
+		consult_bot: '.consult-form__slider',
+		modal_call: '.modal__call-slider',
+		modal_msg: '.modal__msg-slider',
+		cases: '.cases-slider',
+		materials: '.materials-slider .swiper',
+	},
 	settings: {
 		speed: 500,
 		spaceBetween: 30,
@@ -1076,40 +1087,34 @@ swipers.checkMaterialSlides();
 
 // Building Swipers
 if (typeof Swiper !== 'undefined') {
-	swipers.new = swipers.features;
-	swipers.features = new Swiper(swipers.new, {
+	swipers.features = new Swiper(swipers.selectors.features, {
 		slidesPerView: 'auto',
 		slidesOffsetBefore: 30,
 		slidesOffsetAfter: 15,
 		spaceBetween: 10,
 		freeMode: true,
 	})
-	swipers.new = swipers.consult_top;
-	swipers.consult_top = new Swiper(swipers.new, {
+	swipers.consult_top = new Swiper(swipers.selectors.consult_top, {
 		speed: swipers.settings.speed,
 		spaceBetween: swipers.settings.spaceBetween,
 		allowTouchMove: false
 	})
-	swipers.new = swipers.consult_bot;
-	swipers.consult_bot = new Swiper(swipers.new, {
+	swipers.consult_bot = new Swiper(swipers.selectors.consult_bot, {
 		speed: swipers.settings.speed,
 		spaceBetween: swipers.settings.spaceBetween,
 		allowTouchMove: false
 	})
-	swipers.new = swipers.modal_call;
-	swipers.modal_call = new Swiper(swipers.new, {
+	swipers.modal_call = new Swiper(swipers.selectors.modal_call, {
 		speed: swipers.settings.speed,
 		spaceBetween: swipers.settings.spaceBetween,
 		allowTouchMove: false
 	})
-	swipers.new = swipers.modal_msg;
-	swipers.modal_msg = new Swiper(swipers.new, {
+	swipers.modal_msg = new Swiper(swipers.selectors.modal_msg, {
 		speed: swipers.settings.speed,
 		spaceBetween: swipers.settings.spaceBetween,
 		allowTouchMove: false
 	})
-	swipers.new = swipers.cases;
-	swipers.cases = new Swiper(swipers.new, {
+	swipers.cases = new Swiper(swipers.selectors.cases, {
 		navigation: {
 			nextEl: '.cases-slider__nav-next',
 			prevEl: '.cases-slider__nav-prev',
@@ -1118,8 +1123,7 @@ if (typeof Swiper !== 'undefined') {
 		speed: swipers.settings.speed,
 		spaceBetween: 20,
 	})
-	swipers.new = swipers.materials;
-	swipers.materials = new Swiper(swipers.new, {
+	swipers.materials = new Swiper(swipers.selectors.materials, {
 		navigation: {
 			prevEl: '.materials-slider__button-prev',
 			nextEl: '.materials-slider__button-next',
@@ -1196,11 +1200,10 @@ addSwiperReserveMovingScript = function(elem) {
 	}
 }
 
-for (let swiperElem in swipers) {
-	if (swiperElem == 'settings') continue;
-	let newSwiperSelector = swipers[swiperElem] + ' .swiper-wrapper';
-	swipers[swiperElem] = document.querySelector(newSwiperSelector);
-	addSwiperReserveMovingScript(swipers[swiperElem]);
+for (let swiperElem in swipers.selectors) {
+	let newSwiperSelector = swipers.selectors[swiperElem] + ' .swiper-wrapper';
+	swipers[swiperElem] = document.body.querySelector(newSwiperSelector);
+	if (swipers[swiperElem]) addSwiperReserveMovingScript(swipers[swiperElem]);
 }
 
 let swiperReserveStyles = document.createElement('style');
@@ -1522,15 +1525,6 @@ formToEmail.init({
 
 // JSON Load //
 // @ @include('back/json_load.js')
-
-//////////////////////////////////////////////////
-
-// Body 'em' checker
-// window.addEventListener('resize', bodyEmCheck);
-// function bodyEmCheck() {
-// 	console.log('Body "em" checker. Current font-size: ' + getComputedStyle(document.body).fontSize);
-// }
-// bodyEmCheck();
 
 //////////////////////////////////////////////////
 

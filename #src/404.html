@@ -3,35 +3,71 @@
 get_template_part('parts/header');
 ?> -->
 @@include('parts/header.html', {
-	'title': '404 - Page not found',
-	'descr': 'Page does not exist',
+	'title': 'Page not found | Business Grow',
+	'descr': '404',
 	'robots': 'noindex, nofollow',
+	'bodyclass': 'page-404',
+	'feedback_button_class': 'feedback-button modal-link'
 })
-<!-- <script id="header-menu-options">
-	// список пунктов меню в header.html
-	// наличие и порядок устанавливаются в массиве 'links'
-	// 'activeLink' добавляет класс 'this-page'
-	// тег 'script' можно удалить
-	
-	let headerMenuOptions = {
-	// 	links: ['home','products','about','contacts'],
-	// 	activeLink: 'home'
-	}
-</script> -->
 
 
-<main class="main page-404">
-	<div class="page-404__container container">
-	
-		<div class="page-404__content">
-			<h1>404</h1>
-			<h2>Page Not Found</h2>
-			<p>Sorry, but the page you were trying to view does not exist.</p>
-			<a href="index.html">Go to Homepage</a>
+<main class="main">
+
+	<div class="main__mobile-background mobile-background scroll-lock-item-m">
+		<img src="media/img/main.png" srcset="media/img/main.png 2x" alt="" loading="lazy">
+	</div>
+
+	<div class="main__container container">
+
+		<div class="main__pp404-content pp404-content">
+			<div class="p404-content__404">
+				<span>404</span><span>404</span>
+			</div>
+			<p class="p404-content__text mob-bg-calc">
+				Sorry, but the page you were trying to view does not exist.
+			</p>
+			<p class="p404-content__text">
+				Try to find your answer on
+			</p>
+
+			<a class="p404-content__text-button-with-arrow text-button-with-arrow" href="index.html">
+				<span class="text-button-with-arrow__text">
+					<span>home page</span>
+				</span>
+				<span class="text-button-with-arrow__arrow">
+					<i class="icon-arrow"></i>
+				</span>
+			</a>
 		</div>
-	
+		
 	</div>
 </main>
+
+<div class="decor-img scroll-lock-item-m">
+	<div class="decor-img__container">
+		<div class="decor-img__shape">
+			<img src="media/img/decor-img.jpg" srcset="media/img/decor-img.jpg 2x" alt="" loading="lazy">
+		</div>
+		<div class="decor-img__inner"></div>
+	</div>
+</div>
+
+
+<!-- @@include('parts/materials.html') -->
+
+
+<!-- <section class="modal"> -->
+	<!-- <?php get_template_part('parts/modal-info'); ?> -->
+	<!-- @@include('parts/modal-consult.html')
+	@@include('parts/modal-confirm.html')
+	@@include('parts/modal-video-player.html')
+	@@include('parts/modal-call.html')
+	@@include('parts/modal-message.html')
+	@@include('parts/modal-access.html') -->
+<!-- </section> -->
+
+
+@@include('parts/svg.html')
 
 
 <!-- <?php get_template_part('parts/footer'); ?> -->

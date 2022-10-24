@@ -253,6 +253,9 @@
 		@media (max-width: $media-header+px) {
 			display: none;
 		}
+		.page-404 & {
+			display: none;
+		}
 		.socials {
 			position: absolute;
 			right: 0;
@@ -476,6 +479,9 @@
 			}
 			&:hover:before {
 				height: em(14);
+			}
+			&.this-page:before {
+				height: em(2);
 			}
 		}
 	}

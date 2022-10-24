@@ -42,11 +42,10 @@ addSwiperReserveMovingScript = function(elem) {
 	}
 }
 
-for (let swiperElem in swipers) {
-	if (swiperElem == 'settings') continue;
-	let newSwiperSelector = swipers[swiperElem] + ' .swiper-wrapper';
-	swipers[swiperElem] = document.querySelector(newSwiperSelector);
-	addSwiperReserveMovingScript(swipers[swiperElem]);
+for (let swiperElem in swipers.selectors) {
+	let newSwiperSelector = swipers.selectors[swiperElem] + ' .swiper-wrapper';
+	swipers[swiperElem] = document.body.querySelector(newSwiperSelector);
+	if (swipers[swiperElem]) addSwiperReserveMovingScript(swipers[swiperElem]);
 }
 
 let swiperReserveStyles = document.createElement('style');

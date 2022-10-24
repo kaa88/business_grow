@@ -39,3 +39,12 @@ const aspectRatioCalculator = {
 		this.box.innerHTML = 'aspect ratio: ' + wh + ' = ' + wx + ' / ' + hx;
 	},
 }
+
+//////////////////////////////////////////////////
+
+// Body 'em' checker
+// window.addEventListener('resize', bodyEmCheck);
+// function bodyEmCheck() {
+// 	console.log('Body "em" checker. Current font-size: ' + getComputedStyle(document.body).fontSize);
+// }
+// bodyEmCheck();

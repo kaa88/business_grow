@@ -12,11 +12,10 @@ get_template_part('parts/header');
 
 	<!-- Delete if WP -->
 	<!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'"> -->
-	<title>404 - Page not found</title>
-	<meta name="description" content="Page does not exist">
+	<title>Page not found | Business Grow</title>
+	<meta name="description" content="404">
 	<meta name="robots" content="noindex, nofollow">
 	<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-	<!-- <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css"> -->
 	<link rel="stylesheet" href="css/website.style.css">
 	<!-- <link rel="stylesheet" href="css/website.style.min.css"> -->
 	<link rel="icon" href="media/img/favicon-32.png" sizes="32x32">
@@ -28,7 +27,7 @@ get_template_part('parts/header');
 	<!-- <?php wp_head(); ?> -->
 </head>
 
-<body class="@@bodyclass">
+<body class="page-404">
 	<!-- <?php wp_body_open(); ?> -->
 
 	<noscript>
@@ -133,23 +132,23 @@ get_template_part('parts/header');
 			<nav class="header-level__header-menu header-menu">
 				<ul class="header-menu__items">
 					<li class="header-menu__item" data-name="home">
-						<a class="header-menu__link" href="index.html">Главная</a>
+						<a class="header-menu__link" href="index.html">Home</a>
 						<!-- если страница в корне сайта, ставить '/', если нет - 'index.html' -->
 					</li>
 					<li class="header-menu__item" data-name="knowledge">
-						<a class="header-menu__link" href="knowledge.html">Источник знаний</a>
+						<a class="header-menu__link" href="knowledge.html">Knowledge base</a>
 					</li>
 					<li class="header-menu__item" data-name="cases">
-						<a class="header-menu__link" href="categories.html">Кейсы</a>
+						<a class="header-menu__link" href="categories.html">Cases</a>
 					</li>
 					<li class="header-menu__item mobile-only" data-name="consult">
-						<a class="header-menu__link modal-link" href="#modal-consult">Получить консультацию</a>
+						<a class="header-menu__link modal-link" href="#modal-consult">Get a consultation</a>
 					</li>
 					<li class="header-menu__item mobile-only" data-name="question">
-						<a class="header-menu__link modal-link" href="#modal-message">Задать вопрос</a>
+						<a class="header-menu__link modal-link" href="#modal-message">Send a question</a>
 					</li>
 					<li class="header-menu__item mobile-only" data-name="call">
-						<a class="header-menu__link modal-link" href="#modal-call">Заказать звонок</a>
+						<a class="header-menu__link modal-link" href="#modal-call">Order a call</a>
 					</li>
 				</ul>
 			</nav>
@@ -158,32 +157,32 @@ get_template_part('parts/header');
 
 		<div class="header-level header-level--middle">
 
-			<a class="@@feedback_button_class" href="#modal-message">
-				обратная связь
+			<a class="feedback-button modal-link" href="#modal-message">
+				feedback
 			</a>
 			<div class="header-level__socials socials socials--vertical">
-				<a class="socials__link modal-link" href="#modal-confirm">
+				<a class="socials__link" href="#vk">
 					<span>vk</span>
 					<i class="icon-vk"></i>
 				</a>
-				<a class="socials__link modal-link" href="#modal-call">
+				<a class="socials__link" href="#telegram">
 					<span>telegram</span>
 					<i class="icon-telegram"></i>
 				</a>
-				<a class="socials__link modal-link" href="#modal-message">
-					<span>ya.zen</span>
-					<i class="icon-zen"></i>
+				<a class="socials__link" href="#whatsapp">
+					<span>whatsapp</span>
+					<i class="icon-whatsapp"></i>
 				</a>
-				<a class="socials__link modal-link" href="#modal-access">
-					<span>vc.ru</span>
-					<i class="icon-vc"></i>
+				<a class="socials__link" href="#viber">
+					<span>viber</span>
+					<i class="icon-viber"></i>
 				</a>
 			</div>
 			
 		</div>
 
 		<div class="header-level header-level--bottom">
-			<a class="mail-button" href="#">sendmail@example.com</a>
+			<a class="mail-button" href="#mailto">sendmail@example.com</a>
 		</div>
 
 		<div class="header-level header-level--footer">
@@ -191,23 +190,23 @@ get_template_part('parts/header');
 				
 				<p class="menu-footer__copy">© 2022</p>
 				<div class="menu-footer__socials socials">
-					<a class="socials__link" href="#">
+					<a class="socials__link" href="#vk">
 						<span>vk</span>
 						<i class="icon-vk"></i>
 					</a>
-					<a class="socials__link" href="#">
+					<a class="socials__link" href="#telegram">
 						<span>telegram</span>
 						<i class="icon-telegram"></i>
 					</a>
-					<a class="socials__link" href="#">
-						<span>ya.zen</span>
-						<i class="icon-zen"></i>
+					<a class="socials__link" href="#whatsapp">
+						<span>whatsapp</span>
+						<i class="icon-whatsapp"></i>
 					</a>
-					<a class="socials__link" href="#">
-						<span>vc.ru</span>
-						<i class="icon-vc"></i>
+					<a class="socials__link" href="#viber">
+						<span>viber</span>
+						<i class="icon-viber"></i>
 					</a>
-				</div>
+					</div>
 				<a class="menu-footer__policy" href="#">Personal data policy</a>
 				<a class="menu-footer__policy" href="#">Safety policy</a>
 		
@@ -249,31 +248,72 @@ get_template_part('parts/header');
 // }
 ?> -->
 
-<!-- <script id="header-menu-options">
-	// список пунктов меню в header.html
-	// наличие и порядок устанавливаются в массиве 'links'
-	// 'activeLink' добавляет класс 'this-page'
-	// тег 'script' можно удалить
-	
-	let headerMenuOptions = {
-	// 	links: ['home','products','about','contacts'],
-	// 	activeLink: 'home'
-	}
-</script> -->
 
 
-<main class="main page-404">
-	<div class="page-404__container container">
-	
-		<div class="page-404__content">
-			<h1>404</h1>
-			<h2>Page Not Found</h2>
-			<p>Sorry, but the page you were trying to view does not exist.</p>
-			<a href="index.html">Go to Homepage</a>
+<main class="main">
+
+	<div class="main__mobile-background mobile-background scroll-lock-item-m">
+		<img src="media/img/main.png" srcset="media/img/main.png 2x" alt="" loading="lazy">
+	</div>
+
+	<div class="main__container container">
+
+		<div class="main__pp404-content pp404-content">
+			<div class="p404-content__404">
+				<span>404</span><span>404</span>
+			</div>
+			<p class="p404-content__text mob-bg-calc">
+				Sorry, but the page you were trying to view does not exist.
+			</p>
+			<p class="p404-content__text">
+				Try to find your answer on
+			</p>
+
+			<a class="p404-content__text-button-with-arrow text-button-with-arrow" href="index.html">
+				<span class="text-button-with-arrow__text">
+					<span>home page</span>
+				</span>
+				<span class="text-button-with-arrow__arrow">
+					<i class="icon-arrow"></i>
+				</span>
+			</a>
 		</div>
-	
+		
 	</div>
 </main>
+
+<div class="decor-img scroll-lock-item-m">
+	<div class="decor-img__container">
+		<div class="decor-img__shape">
+			<img src="media/img/decor-img.jpg" srcset="media/img/decor-img.jpg 2x" alt="" loading="lazy">
+		</div>
+		<div class="decor-img__inner"></div>
+	</div>
+</div>
+
+
+
+
+
+<!-- <section class="modal"> -->
+	<!-- <?php get_template_part('parts/modal-info'); ?> -->
+	
+<!-- </section> -->
+
+
+<section class="svg-templates">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256.22708 174.82484">
+		<clipPath id="svg-play-button-shape" clipPathUnits="objectBoundingBox">
+			<path d="M 112.25895,174.70234 C 76.714874,174.43549 43.56529,172.77588 30.937747,170.63105 19.118689,168.62353 10.335812,161.43323 6.5609344,150.67441 3.3503734,141.52396 1.1110384,124.06103 0.18238144,100.93275 -0.15903056,92.42985 0.00385744,71.1239 0.46354944,64.15566 2.1247334,38.97465 5.5436784,22.86896 10.882384,15.07546 c 1.103372,-1.61071 4.038248,-4.47373 6.05824,-5.9099095 5.577949,-3.96582 9.835925,-5.42291 18.286415,-6.25766 C 54.252093,1.0285705 87.415201,8.4047393e-4 129.05999,4.7392633e-7 179.73906,-9.9952607e-4 217.75491,1.5805905 228.14645,4.1224005 c 5.2248,1.278 10.41045,4.2399 14.3166,8.1772395 3.3291,3.35566 5.58944,6.99157 7.23588,11.63936 5.06066,14.2859 7.63284,49.39734 6.07648,82.94687 -1.0994,23.6996 -4.11049,41.46469 -8.33534,49.17775 -3.53134,6.44695 -9.95749,11.86357 -16.03946,13.51969 -7.30309,1.98864 -26.59457,3.56574 -55.11249,4.50548 -10.01962,0.33018 -43.5117,0.8071 -51.06458,0.72716 -2.91042,-0.0308 -8.74448,-0.0819 -12.96459,-0.11361 z" />
+		</clipPath>
+	</svg>
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1">
+		<clipPath id="svg-decor-shape" clipPathUnits="objectBoundingBox">
+			<path d="M0.367422 0.411602L0.279023 0.5L0.367402 0.588379L0.455801 0.5L0.367422 0.411602ZM0.588379 0.367422L0.5 0.279023L0.411621 0.367402L0.5 0.455801L0.588379 0.367422ZM0.411621 0.632578L0.5 0.720977L0.588398 0.632578L0.5 0.544199L0.411621 0.632578ZM0.5 0C0.223867 0 0 0.223867 0 0.5C0 0.776133 0.223867 1 0.5 1C0.776133 1 1 0.776133 1 0.5C1 0.223867 0.776133 0 0.5 0ZM0.864609 0.577344L0.84252 0.599434C0.836426 0.605527 0.826523 0.605527 0.82043 0.599434L0.765176 0.54418L0.676797 0.632559L0.743086 0.698848L0.77623 0.665703C0.782324 0.659609 0.792227 0.659609 0.79832 0.665703L0.82041 0.687793C0.826504 0.693887 0.826504 0.703789 0.82041 0.709883L0.787266 0.743027L0.82041 0.776172C0.826504 0.782266 0.826504 0.792168 0.82041 0.798262L0.79832 0.820352C0.792227 0.826445 0.782324 0.826445 0.77623 0.820352L0.743086 0.787207L0.709941 0.820352C0.703848 0.826445 0.693945 0.826445 0.687852 0.820352L0.665762 0.798262C0.659668 0.792168 0.659668 0.782266 0.665762 0.776172L0.698906 0.743027L0.632617 0.676738L0.544219 0.765137L0.599473 0.820391C0.605566 0.826484 0.605566 0.836387 0.599473 0.84248L0.577383 0.86457C0.571289 0.870664 0.561387 0.870664 0.555293 0.86457L0.5 0.809355L0.444746 0.864609C0.438652 0.870703 0.42875 0.870703 0.422656 0.864609L0.400566 0.84252C0.394473 0.836426 0.394473 0.826523 0.400566 0.82043L0.45582 0.765176L0.367441 0.676777L0.301152 0.743066L0.334297 0.776211C0.340391 0.782305 0.340391 0.792207 0.334297 0.798301L0.312207 0.820391C0.306113 0.826484 0.296211 0.826484 0.290117 0.820391L0.256973 0.787246L0.223828 0.820391C0.217734 0.826484 0.207832 0.826484 0.201738 0.820391L0.179648 0.798301C0.173555 0.792207 0.173555 0.782305 0.179648 0.776211L0.212793 0.743066L0.179648 0.709922C0.173555 0.703828 0.173555 0.693926 0.179648 0.687832L0.201738 0.665742C0.207832 0.659648 0.217734 0.659648 0.223828 0.665742L0.256973 0.698887L0.323262 0.632598L0.234883 0.544219L0.179629 0.599473C0.173535 0.605566 0.163633 0.605566 0.157539 0.599473L0.135391 0.577344C0.129297 0.57125 0.129297 0.561348 0.135391 0.555254L0.190645 0.5L0.135391 0.444746C0.129297 0.438652 0.129297 0.42875 0.135391 0.422656L0.15748 0.400566C0.163574 0.394473 0.173477 0.394473 0.17957 0.400566L0.234824 0.45582L0.323203 0.367422L0.256914 0.301133L0.22377 0.334277C0.217676 0.340371 0.207773 0.340371 0.20168 0.334277L0.17959 0.312187C0.173496 0.306094 0.173496 0.296191 0.17959 0.290098L0.212734 0.256953L0.17959 0.223809C0.173496 0.217715 0.173496 0.207812 0.17959 0.201719L0.20168 0.179629C0.207773 0.173535 0.217676 0.173535 0.22377 0.179629L0.256914 0.212773L0.290059 0.179629C0.296152 0.173535 0.306055 0.173535 0.312148 0.179629L0.334238 0.201719C0.340332 0.207812 0.340332 0.217715 0.334238 0.223809L0.301094 0.256953L0.367383 0.323242L0.455781 0.234863L0.400527 0.179609C0.394434 0.173516 0.394434 0.163613 0.400527 0.15752L0.422617 0.13543C0.428711 0.129336 0.438613 0.129336 0.444707 0.13543L0.5 0.190645L0.555254 0.135391C0.561348 0.129297 0.57125 0.129297 0.577344 0.135391L0.599434 0.15748C0.605527 0.163574 0.605527 0.173477 0.599434 0.17957L0.54418 0.234824L0.632578 0.323203L0.698867 0.256914L0.665723 0.22377C0.659629 0.217676 0.659629 0.207773 0.665723 0.20168L0.687813 0.17959C0.693906 0.173496 0.703809 0.173496 0.709902 0.17959L0.743047 0.212734L0.776191 0.17959C0.782285 0.173496 0.792188 0.173496 0.798281 0.17959L0.820371 0.20168C0.826465 0.207773 0.826465 0.217676 0.820371 0.22377L0.787227 0.256914L0.820371 0.290059C0.826465 0.296152 0.826465 0.306055 0.820371 0.312148L0.798281 0.334238C0.792188 0.340332 0.782285 0.340332 0.776191 0.334238L0.743047 0.301094L0.676758 0.367383L0.765137 0.455781L0.820391 0.400527C0.826484 0.394434 0.836387 0.394434 0.84248 0.400527L0.86457 0.422617C0.870664 0.428711 0.870664 0.438613 0.86457 0.444707L0.809355 0.5L0.864609 0.555234C0.867536 0.558169 0.86918 0.562144 0.86918 0.566289C0.86918 0.570434 0.867536 0.574409 0.864609 0.577344ZM0.544199 0.5L0.632598 0.588379L0.720977 0.5L0.632598 0.411602L0.544199 0.5Z"/>
+		</clipPath>
+	</svg>
+</section>
+
 
 
 <!-- <?php get_template_part('parts/footer'); ?> -->
@@ -282,23 +322,24 @@ get_template_part('parts/header');
 
 		<div class="footer__line"></div>
 		
-		<p class="footer__copy">© 2022</p>
+		<!-- <p class="footer__copy">© 2022</p> -->
+		<a class="footer__copy" href="404.html">© 2022</a>
 		<div class="footer__socials socials">
-			<a class="socials__link" href="#">
+			<a class="socials__link" href="#vk">
 				<span>vk</span>
 				<i class="icon-vk"></i>
 			</a>
-			<a class="socials__link" href="#">
+			<a class="socials__link" href="#telegram">
 				<span>telegram</span>
 				<i class="icon-telegram"></i>
 			</a>
-			<a class="socials__link" href="#">
-				<span>ya.zen</span>
-				<i class="icon-zen"></i>
+			<a class="socials__link" href="#whatsapp">
+				<span>whatsapp</span>
+				<i class="icon-whatsapp"></i>
 			</a>
-			<a class="socials__link" href="#">
-				<span>vc.ru</span>
-				<i class="icon-vc"></i>
+			<a class="socials__link" href="#viber">
+				<span>viber</span>
+				<i class="icon-viber"></i>
 			</a>
 		</div>
 		<a class="footer__policy" href="404.html">Personal data policy</a>
@@ -355,9 +396,6 @@ get_template_part('parts/header');
 
 
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
-<!-- <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script> -->
-<!-- <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script> -->
 <script src="js/website.script.js"></script>
 <!-- <script src="js/website.script.min.js"></script> -->
 

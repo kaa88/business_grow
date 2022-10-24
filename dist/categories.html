@@ -16,7 +16,6 @@ get_template_part('parts/header');
 	<meta name="description" content="Description">
 	<meta name="robots" content="noindex, nofollow">
 	<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-	<!-- <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css"> -->
 	<link rel="stylesheet" href="css/website.style.css">
 	<!-- <link rel="stylesheet" href="css/website.style.min.css"> -->
 	<link rel="icon" href="media/img/favicon-32.png" sizes="32x32">
@@ -133,23 +132,23 @@ get_template_part('parts/header');
 			<nav class="header-level__header-menu header-menu">
 				<ul class="header-menu__items">
 					<li class="header-menu__item" data-name="home">
-						<a class="header-menu__link" href="index.html">Главная</a>
+						<a class="header-menu__link" href="index.html">Home</a>
 						<!-- если страница в корне сайта, ставить '/', если нет - 'index.html' -->
 					</li>
 					<li class="header-menu__item" data-name="knowledge">
-						<a class="header-menu__link" href="knowledge.html">Источник знаний</a>
+						<a class="header-menu__link" href="knowledge.html">Knowledge base</a>
 					</li>
 					<li class="header-menu__item" data-name="cases">
-						<a class="header-menu__link" href="categories.html">Кейсы</a>
+						<a class="header-menu__link" href="categories.html">Cases</a>
 					</li>
 					<li class="header-menu__item mobile-only" data-name="consult">
-						<a class="header-menu__link modal-link" href="#modal-consult">Получить консультацию</a>
+						<a class="header-menu__link modal-link" href="#modal-consult">Get a consultation</a>
 					</li>
 					<li class="header-menu__item mobile-only" data-name="question">
-						<a class="header-menu__link modal-link" href="#modal-message">Задать вопрос</a>
+						<a class="header-menu__link modal-link" href="#modal-message">Send a question</a>
 					</li>
 					<li class="header-menu__item mobile-only" data-name="call">
-						<a class="header-menu__link modal-link" href="#modal-call">Заказать звонок</a>
+						<a class="header-menu__link modal-link" href="#modal-call">Order a call</a>
 					</li>
 				</ul>
 			</nav>
@@ -159,31 +158,31 @@ get_template_part('parts/header');
 		<div class="header-level header-level--middle">
 
 			<a class="feedback-button modal-link" href="#modal-message">
-				обратная связь
+				feedback
 			</a>
 			<div class="header-level__socials socials socials--vertical">
-				<a class="socials__link modal-link" href="#modal-confirm">
+				<a class="socials__link" href="#vk">
 					<span>vk</span>
 					<i class="icon-vk"></i>
 				</a>
-				<a class="socials__link modal-link" href="#modal-call">
+				<a class="socials__link" href="#telegram">
 					<span>telegram</span>
 					<i class="icon-telegram"></i>
 				</a>
-				<a class="socials__link modal-link" href="#modal-message">
-					<span>ya.zen</span>
-					<i class="icon-zen"></i>
+				<a class="socials__link" href="#whatsapp">
+					<span>whatsapp</span>
+					<i class="icon-whatsapp"></i>
 				</a>
-				<a class="socials__link modal-link" href="#modal-access">
-					<span>vc.ru</span>
-					<i class="icon-vc"></i>
+				<a class="socials__link" href="#viber">
+					<span>viber</span>
+					<i class="icon-viber"></i>
 				</a>
 			</div>
 			
 		</div>
 
 		<div class="header-level header-level--bottom">
-			<a class="mail-button" href="#">sendmail@example.com</a>
+			<a class="mail-button" href="#mailto">sendmail@example.com</a>
 		</div>
 
 		<div class="header-level header-level--footer">
@@ -191,23 +190,23 @@ get_template_part('parts/header');
 				
 				<p class="menu-footer__copy">© 2022</p>
 				<div class="menu-footer__socials socials">
-					<a class="socials__link" href="#">
+					<a class="socials__link" href="#vk">
 						<span>vk</span>
 						<i class="icon-vk"></i>
 					</a>
-					<a class="socials__link" href="#">
+					<a class="socials__link" href="#telegram">
 						<span>telegram</span>
 						<i class="icon-telegram"></i>
 					</a>
-					<a class="socials__link" href="#">
-						<span>ya.zen</span>
-						<i class="icon-zen"></i>
+					<a class="socials__link" href="#whatsapp">
+						<span>whatsapp</span>
+						<i class="icon-whatsapp"></i>
 					</a>
-					<a class="socials__link" href="#">
-						<span>vc.ru</span>
-						<i class="icon-vc"></i>
+					<a class="socials__link" href="#viber">
+						<span>viber</span>
+						<i class="icon-viber"></i>
 					</a>
-				</div>
+					</div>
 				<a class="menu-footer__policy" href="#">Personal data policy</a>
 				<a class="menu-footer__policy" href="#">Safety policy</a>
 		
@@ -266,41 +265,47 @@ get_template_part('parts/header');
 	<div class="main__container container">
 
 		<section class="main__categories categories">
-			<!-- <div class="categories__container container"> -->
-				<h2 class="g-h2">
-					Выберите категорию
-				</h2>
-				<div class="categories__items">
-					<a class="categories__item" href="cases.html">
-						Производство
-					</a>
-					<a class="categories__item" href="cases.html">
-						Товары
-					</a>
-					<a class="categories__item" href="cases.html">
-						Оффлайн
-					</a>
-					<a class="categories__item" href="cases.html">
-						Строительство и недвижимость
-					</a>
-					<a class="categories__item" href="cases.html">
-						Онлайн и оффлайн образование
-					</a>
-					<a class="categories__item" href="cases.html">
-						Услуги населению и бизнесу
-					</a>
-				</div>
-			<!-- </div> -->
+			<h2 class="g-h2">
+				Choose a category
+			</h2>
+			<div class="categories__items">
+				<a class="categories__item" href="cases.html">
+					Production
+				</a>
+				<a class="categories__item" href="cases.html">
+					Marketing
+				</a>
+				<a class="categories__item" href="cases.html">
+					Retail
+				</a>
+				<a class="categories__item" href="cases.html">
+					Construction and Realty
+				</a>
+				<a class="categories__item" href="cases.html">
+					Education
+				</a>
+				<a class="categories__item" href="cases.html">
+					Services
+				</a>
+			</div>
 		</section>
 
 		<section class="main__features features">
 			<div class="features__items desktop-only">
 				<div class="features__item">
 					<div class="features__item-img">
+						<img src="media/img/features-3.svg" alt="" loading="lazy">
+					</div>
+					<p class="features__item-text">
+						Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore perferendis quaerat aliquid
+					</p>
+				</div>
+				<div class="features__item">
+					<div class="features__item-img">
 						<img src="media/img/features-1.svg" alt="" loading="lazy">
 					</div>
 					<p class="features__item-text">
-						Выполнили более 300 проектов из более 60 сфер бизнеса за 10 лет работы
+						Officia ipsam pariatur labore maiores qui laborum. Quas error aut atque provident
 					</p>
 				</div>
 				<div class="features__item">
@@ -308,15 +313,7 @@ get_template_part('parts/header');
 						<img src="media/img/features-2.svg" alt="" loading="lazy">
 					</div>
 					<p class="features__item-text">
-						Делаем: сайты, трафик, автоворонки, а также продюсируем экспертов онлайн образования
-					</p>
-				</div>
-				<div class="features__item">
-					<div class="features__item-img">
-						<img src="media/img/features-3.svg" alt="" loading="lazy">
-					</div>
-					<p class="features__item-text">
-						Провели более 125 онлайн и офлайн мероприятий по маркетингу, своих и партнеров
+						Ratione aliquid molestiae ea accusamus amet possimus ullam iure culpa sit, obcaecati explicabo
 					</p>
 				</div>
 			</div>
@@ -339,9 +336,9 @@ get_template_part('parts/header');
 					<img src="media/img/main.png" alt="" loading="lazy">
 				</div>
 				<div class="materials-slider__icon"><i class="icon-lock"></i></div>
-				<p class="materials-slider__type">Видео 1</p>
+				<p class="materials-slider__type">Item 1</p>
 				<p class="materials-slider__title">
-					19 способов увеличить конверсию сайта
+					Inventore quae delectus tempore esse quod
 				</p>
 			</div>
 
@@ -350,9 +347,9 @@ get_template_part('parts/header');
 					<img src="media/img/main.png" alt="" loading="lazy">
 				</div>
 				<div class="materials-slider__icon"><i class="icon-lock"></i></div>
-				<p class="materials-slider__type">Видео 2</p>
+				<p class="materials-slider__type">Item 2</p>
 				<p class="materials-slider__title">
-					19 способов увеличить конверсию сайта
+					Perspiciatis reprehenderit
 				</p>
 			</div>
 
@@ -361,9 +358,9 @@ get_template_part('parts/header');
 					<img src="media/img/main.png" alt="" loading="lazy">
 				</div>
 				<div class="materials-slider__icon"><i class="icon-lock"></i></div>
-				<p class="materials-slider__type">Видео 3</p>
+				<p class="materials-slider__type">Item 3</p>
 				<p class="materials-slider__title">
-					19 способов увеличить конверсию сайта
+					Esse asperiores officia eveniet
 				</p>
 			</div>
 
@@ -372,9 +369,9 @@ get_template_part('parts/header');
 					<img src="media/img/main.png" alt="" loading="lazy">
 				</div>
 				<div class="materials-slider__icon"><i class="icon-lock"></i></div>
-				<p class="materials-slider__type">Видео 4</p>
+				<p class="materials-slider__type">Item 4</p>
 				<p class="materials-slider__title">
-					19 способов увеличить конверсию сайта
+					Earum aliquid nesciunt ipsa illum
 				</p>
 			</div>
 
@@ -383,9 +380,9 @@ get_template_part('parts/header');
 					<img src="media/img/main.png" alt="" loading="lazy">
 				</div>
 				<div class="materials-slider__icon"><i class="icon-lock"></i></div>
-				<p class="materials-slider__type">Видео 5</p>
+				<p class="materials-slider__type">Item 5</p>
 				<p class="materials-slider__title">
-					19 способов увеличить конверсию сайта
+					Ad tempore, esse asperiores officia
 				</p>
 			</div>
 
@@ -394,9 +391,9 @@ get_template_part('parts/header');
 					<img src="media/img/main.png" alt="" loading="lazy">
 				</div>
 				<div class="materials-slider__icon"><i class="icon-lock"></i></div>
-				<p class="materials-slider__type">Видео 6</p>
+				<p class="materials-slider__type">Item 6</p>
 				<p class="materials-slider__title">
-					19 способов увеличить конверсию сайта
+					Blanditiis doloribus iusto
 				</p>
 			</div>
 
@@ -405,9 +402,9 @@ get_template_part('parts/header');
 					<img src="media/img/main.png" alt="" loading="lazy">
 				</div>
 				<div class="materials-slider__icon"><i class="icon-lock"></i></div>
-				<p class="materials-slider__type">Видео 7</p>
+				<p class="materials-slider__type">Item 7</p>
 				<p class="materials-slider__title">
-					19 способов увеличить конверсию сайта
+					Possimus iste neque sint quasi nemo
 				</p>
 			</div>
 
@@ -416,9 +413,9 @@ get_template_part('parts/header');
 					<img src="media/img/main.png" alt="" loading="lazy">
 				</div>
 				<div class="materials-slider__icon"><i class="icon-lock"></i></div>
-				<p class="materials-slider__type">Видео 8</p>
+				<p class="materials-slider__type">Item 8</p>
 				<p class="materials-slider__title">
-					19 способов увеличить конверсию сайта
+					Necessitatibus eius
 				</p>
 			</div>
 
@@ -427,15 +424,15 @@ get_template_part('parts/header');
 					<img src="media/img/main.png" alt="" loading="lazy">
 				</div>
 				<div class="materials-slider__icon"><i class="icon-lock"></i></div>
-				<p class="materials-slider__type">Видео 9</p>
+				<p class="materials-slider__type">Item 9</p>
 				<p class="materials-slider__title">
-					19 способов увеличить конверсию сайта
+					Aliquam commodi suscipit facere
 				</p>
 			</div>
 			
 			<div class="swiper-slide last-slide">
 				<p class="materials-slider__title">
-					и масса другого огненного контента
+					and many more great stuff
 				</p>
 			</div>
 
@@ -461,28 +458,28 @@ get_template_part('parts/header');
 						<div class="swiper-slide">
 							<p class="modal__title">
 								<span>
-									Чтобы наша консультация была для вас более предметной и точной, пожалуйста ответьте всего на 3 вопроса
+									Answer 3 questions to make our consultation more useful
 								</span>
 							</p>
 						</div>
 						<div class="swiper-slide">
 							<p class="modal__title">
 								<span>
-									Отлично, 2 шага до консультации, go-go-go! В решении какой задачи, мы можем вам помочь?
+									Great! 2 more questions. What food do you prefer?
 								</span>
 							</p>
 						</div>
 						<div class="swiper-slide">
 							<p class="modal__title">
 								<span>
-									Остался последний вопрос! Сколько сейчас в цифрах, ежемесячный оборот вашего бизнеса?
+									The last one. What color of socks do you wear?
 								</span>
 							</p>
 						</div>
 						<div class="swiper-slide">
 							<p class="modal__title modal__title--bold">
 								<span>
-									БЛАГОДАРИМ ЗА ВАШЕ ВРЕМЯ!
+									THANK YOU FOR YOUR TIME!
 								</span>
 							</p>
 						</div>
@@ -503,7 +500,7 @@ get_template_part('parts/header');
 
 									<div class="modal-textbox">
 										<p class="modal-text">
-											В какой сфере бизнеса вы работаете или собираетесь работать?
+											What weather is the most comfortable for you?
 										</p>
 									</div>
 
@@ -513,22 +510,24 @@ get_template_part('parts/header');
 											<span class="select__header-icon"><i class="icon-arrow2"></i></span>
 										</div>
 										<div class="select__list-wrapper"><!-- script-fill --></div>
-										<select name="type-of-business">
+										<select name="weather">
 											<option value="none" selected disabled>Select...</option>
-											<option value="retail">Розничная торговля</option>
-											<option value="transport">Транспорт</option>
-											<option value="tourism">Туризм</option>
-											<option value="service">Услуги</option>
+											<option value="sunny">Sunny</option>
+											<option value="cloudy">Cloudy</option>
+											<option value="windy">Windy</option>
+											<option value="rainy">Rainy</option>
+											<option value="snowy">Snowy</option>
+											<option value="other">Other</option>
 										</select>
 									</div>
 
 									<div class="modal-textbox">
 										<p class="modal-text">
-											Введите ссылку на ваш сайт/аккаунт в соц.сетях, или просто пропустите этот шаг
+											Type a link of your social media account or just go to next question
 										</p>
 									</div>
 
-									<input class="consult-form__input" type="text" name="user-account-href" placeholder="ссылка на сайт или аккаунт в соц.сетях">
+									<input class="consult-form__input" type="text" name="user-account-href" placeholder="link of your social media account">
 
 								</div>
 
@@ -538,14 +537,14 @@ get_template_part('parts/header');
 										<div class="aside-info-list__item">
 											<div class="aside-info-list__item-icon"><i class="icon-cross2"></i></div>
 											<p class="aside-info-list__item-text">
-												Мы реализовали более 300 проектов по увеличению прибыли предприятий из более 60 сфер бизнеса.
+												Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi sequi sed quos deleniti.
 											</p>
 										</div>
 
 										<div class="aside-info-list__item">
 											<div class="aside-info-list__item-icon"><i class="icon-cross2"></i></div>
 											<p class="aside-info-list__item-text">
-												Информация о вашем бизнесе позволит нам сформулировать консультацию более продуктивно.
+												Vitae quod obcaecati quisquam id cupiditate veritatis nostrum inventore necessitatibus autem.
 											</p>
 										</div>
 
@@ -554,17 +553,15 @@ get_template_part('parts/header');
 								</div>
 
 
-
 								<div class="consult-form__bottom">
 									<!-- <div class="slider-back-button" style="font-size: 30px;">BACK</div> --> <!-- // -->
 									<a class="text-button-with-arrow swiper-slide-button" href="#">
-										<span class="text-button-with-arrow__text"><span>едем дальше</span></span>
+										<span class="text-button-with-arrow__text"><span>go further</span></span>
 										<span class="text-button-with-arrow__arrow">
 											<i class="icon-arrow"></i>
 										</span>
 									</a>
 								</div>
-
 
 
 							</div>
@@ -574,35 +571,35 @@ get_template_part('parts/header');
 
 									<div class="modal-textbox">
 										<p class="modal-text">
-											Можете выбрать несколько вариантов ответа:
+											Please answer honestly:
 										</p>
 									</div>
 
 									<div class="consult-form__radio radio">
-										<input type="radio" id="radio-business-goal-1" name="business-goal" value="clients" checked>
-										<label for="radio-business-goal-1">
+										<input type="radio" id="radio-food-1" name="food" value="american" checked>
+										<label for="radio-food-1">
 											<span class="label-box"></span>
-											<span class="label-text">Увеличить количество клиентов</span>
+											<span class="label-text">American</span>
 										</label>
-										<input type="radio" id="radio-business-goal-2" name="business-goal" value="income">
-										<label for="radio-business-goal-2">
+										<input type="radio" id="radio-food-2" name="food" value="mideterian">
+										<label for="radio-food-2">
 											<span class="label-box"></span>
-											<span class="label-text">Повысить прибыль, средний чек</span>
+											<span class="label-text">Mideterian</span>
 										</label>
-										<input type="radio" id="radio-business-goal-3" name="business-goal" value="reputation">
-										<label for="radio-business-goal-3">
+										<input type="radio" id="radio-food-4" name="food" value="asian">
+										<label for="radio-food-4">
 											<span class="label-box"></span>
-											<span class="label-text">Создать образ компании в веб пространстве</span>
+											<span class="label-text">Asian</span>
 										</label>
-										<input type="radio" id="radio-business-goal-4" name="business-goal" value="solve-problem">
-										<label for="radio-business-goal-4">
+										<input type="radio" id="radio-food-3" name="food" value="arabic">
+										<label for="radio-food-3">
 											<span class="label-box"></span>
-											<span class="label-text">Решить конкретную задачу</span>
+											<span class="label-text">Arabic</span>
 										</label>
-										<input type="radio" id="radio-business-goal-5" name="business-goal" value="unknown">
-										<label for="radio-business-goal-5">
+										<input type="radio" id="radio-food-5" name="food" value="other">
+										<label for="radio-food-5">
 											<span class="label-box"></span>
-											<span class="label-text">Расскажу на консультации</span>
+											<span class="label-text">Other</span>
 										</label>
 									</div>
 								
@@ -614,21 +611,21 @@ get_template_part('parts/header');
 										<div class="aside-info-list__item">
 											<div class="aside-info-list__item-icon"><i class="icon-cross2"></i></div>
 											<p class="aside-info-list__item-text">
-												От задачи зависит набор инструментов, которые мы предлложим для ее решения.
+												Ut iure aperiam at fugiat esse est incidunt! Eius, nisi.
 											</p>
 										</div>
 
 										<div class="aside-info-list__item">
 											<div class="aside-info-list__item-icon"><i class="icon-cross2"></i></div>
 											<p class="aside-info-list__item-text">
-												Каждый бизнес индивидуален, поэтому у нас никогда не было и не будет стандартного коммерческого предложения.
+												Magnam nihil est totam consectetur architecto quam tempora commodi atque cum! Voluptates consequatur qui deleniti iure dolor.
 											</p>
 										</div>
 
 										<div class="aside-info-list__item">
 											<div class="aside-info-list__item-icon"><i class="icon-cross2"></i></div>
 											<p class="aside-info-list__item-text">
-												К каждому конкретному случаю, мы подходим индивидуально, так как не всем помогут одни и те же решения.
+												Optio qui reprehenderit, culpa iste praesentium laborum esse veniam voluptate, nihil modi unde commodi.
 											</p>
 										</div>
 
@@ -640,13 +637,12 @@ get_template_part('parts/header');
 								<div class="consult-form__bottom">
 									<!-- <div class="slider-back-button" style="font-size: 30px;">BACK</div> --> <!-- // -->
 									<a class="text-button-with-arrow swiper-slide-button" href="#">
-										<span class="text-button-with-arrow__text"><span>к последнему вопросу</span></span>
+										<span class="text-button-with-arrow__text"><span>to last question</span></span>
 										<span class="text-button-with-arrow__arrow">
 											<i class="icon-arrow"></i>
 										</span>
 									</a>
 								</div>
-
 
 
 							</div>
@@ -655,30 +651,30 @@ get_template_part('parts/header');
 								<div class="consult-form__main">
 
 									<div class="consult-form__radio radio">
-										<input type="radio" id="radio-business-turnover-1" name="business-turnover" value="0+" checked>
-										<label for="radio-business-turnover-1">
+										<input type="radio" id="radio-socks-1" name="socks" value="classic-mono" checked>
+										<label for="radio-socks-1">
 											<span class="label-box"></span>
-											<span class="label-text">0 — 300 000 ₽</span>
+											<span class="label-text">classic mono color (black, white)</span>
 										</label>
-										<input type="radio" id="radio-business-turnover-2" name="business-turnover" value="300k+">
-										<label for="radio-business-turnover-2">
+										<input type="radio" id="radio-socks-2" name="socks" value="classic-geometry">
+										<label for="radio-socks-2">
 											<span class="label-box"></span>
-											<span class="label-text">300 000 — 1 000 000 ₽</span>
+											<span class="label-text">classic with stripes or geometry</span>
 										</label>
-										<input type="radio" id="radio-business-turnover-3" name="business-turnover" value="1m+">
-										<label for="radio-business-turnover-3">
+										<input type="radio" id="radio-socks-3" name="socks" value="restrained">
+										<label for="radio-socks-3">
 											<span class="label-box"></span>
-											<span class="label-text">1 000 000 — 10 000 000 ₽</span>
+											<span class="label-text">restrained color with print</span>
 										</label>
-										<input type="radio" id="radio-business-turnover-4" name="business-turnover" value="10m+">
-										<label for="radio-business-turnover-4">
+										<input type="radio" id="radio-socks-4" name="socks" value="cartoon">
+										<label for="radio-socks-4">
 											<span class="label-box"></span>
-											<span class="label-text">10 000 000 — 100 000 000 ₽</span>
+											<span class="label-text">with cartoon print</span>
 										</label>
-										<input type="radio" id="radio-business-turnover-5" name="business-turnover" value="startup">
-										<label for="radio-business-turnover-5">
+										<input type="radio" id="radio-socks-5" name="socks" value="madness">
+										<label for="radio-socks-5">
 											<span class="label-box"></span>
-											<span class="label-text">Только запускаю новый бизнес</span>
+											<span class="label-text">psychodelic madness</span>
 										</label>
 									</div>
 
@@ -690,7 +686,7 @@ get_template_part('parts/header');
 										<div class="aside-info-list__item">
 											<div class="aside-info-list__item-icon"><i class="icon-cross2"></i></div>
 											<p class="aside-info-list__item-text">
-												От оборота вашего бизнеса зависит многое: стратегия, инструменты и даже, выделенная конкретно под ваш случай, проектная команда.
+												Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam incidunt iusto sunt blanditiis maiores voluptas ea officiis, debitis ducimus quod.
 											</p>
 										</div>
 
@@ -702,7 +698,7 @@ get_template_part('parts/header');
 								<div class="consult-form__bottom">
 									<!-- <div class="slider-back-button" style="font-size: 30px;">BACK</div> --> <!-- // -->
 									<a class="text-button-with-arrow swiper-slide-button" href="#">
-										<span class="text-button-with-arrow__text"><span>ГОТОВО</span></span>
+										<span class="text-button-with-arrow__text"><span>READY</span></span>
 										<span class="text-button-with-arrow__arrow">
 											<i class="icon-arrow"></i>
 										</span>
@@ -718,13 +714,13 @@ get_template_part('parts/header');
 
 									<div class="modal-textbox">
 										<p class="modal-text modal-text--large desktop-only">
-											Выберите удобный вам способ связи,
+											Choose contact method,
 										</p>
 										<p class="modal-text desktop-only">
-											мы свяжемся с вами в ближайшие 12 часов и постараемся найти решение ваших бизнес задач
+											we will contact you and try to help with the problems you may be have
 										</p>
 										<p class="modal-text mobile-only">
-											Выберите удобный вам способ связи и введите ваш номер телефона
+											Choose contact method and type a phone number
 										</p>
 									</div>
 
@@ -766,7 +762,7 @@ get_template_part('parts/header');
 
 										<div class="aside-info-list__item">
 											<p class="aside-info-list__item-text aside-info-list__item-text--large">
-												Спасибо за интерес к нашей компании!
+												Thanks for your interest to our company!
 											</p>
 										</div>
 
@@ -778,12 +774,12 @@ get_template_part('parts/header');
 								<div class="consult-form__bottom">
 
 									<div class="consult-form__user-contact-input user-contact-input">
-										<p class="user-contact-input__title">Телефон*</p>
-										<input class="user-contact-input__input _req" type="text" name="phone" placeholder="Введите ваш номер телефона">
+										<p class="user-contact-input__title">Phone*</p>
+										<input class="user-contact-input__input _req" type="text" name="phone" placeholder="Type your phone number">
 									</div>
 			
 									<button class="text-button-with-arrow" type="submit">
-										<span class="text-button-with-arrow__text"><span>получить консультацию</span></span>
+										<span class="text-button-with-arrow__text"><span>get a consultation</span></span>
 										<span class="submit-progress">
 											<span class="submit-progress__box">
 												<i></i><i></i><i></i>
@@ -796,8 +792,8 @@ get_template_part('parts/header');
 										<label for="consultform-policy-checkbox">
 											<span class="label-box"><i class="icon-ok"></i></span>
 											<span class="label-text">
-												<span>оставляя свои контактные данные, вы соглашаетесь</span>
-												<a class="policy-link" href="404.html" target="_blank" title="Откроется на новой вкладке">с политикой защиты и обработки персональных данных пользователей сайта</a>
+												<span>typing your personal data you are agree with</span>
+												<a class="policy-link" href="404.html" target="_blank" title="Opens in new layer">website user's security and personal data processing policy</a>
 											</span>
 										</label>
 									</div>
@@ -828,20 +824,19 @@ get_template_part('parts/header');
 
 				<p class="modal__title modal__title--bold">
 					<span>
-						СПАСИБО ЗА ВАШУ ЗАЯВКУ!
+						THANKS FOR YOUR REQUEST!
 					</span>
 				</p>
 				<p class="modal__subtitle">
-					Я лично или один из специалистов нашей компании свяжется с вами в течение 24 часов
+					We will contact you in 24 hours
 				</p>
 
 				<div class="modal-line mobile-only"></div>
-
 				<div class="modal__confirm-content confirm-content">
 					<p class="confirm-content__text">
-						Мы создали источник знаний для предпринимателей, маркетологов и первых лиц компаний
+						Architecto quos, dolorum voluptas, laboriosam expedita, nihil minus repellendus
 						<br><br>
-						Если вы еще не с нами, поспешите присоединиться к закрытым материалам — видео, инструкции, статьи, закрытые онлайн мастер-классы, чат предпринимателей-единомышленников
+						Repellat sed at obcaecati earum necessitatibus, nesciunt ipsum veritatis id amet voluptatum perferendis! Aliquid cum at aliquam perspiciatis vitae. Sunt earum eaque odit!
 					</p>
 
 					<div class="confirm-content__video-player-link video-player-link">
@@ -850,7 +845,7 @@ get_template_part('parts/header');
 								<img src="media/img/main.png" alt="" loading="lazy">
 							</div>
 							<div class="video-player-link__wrapper">
-								<p class="video-player-link__info">60 секунд о том, что внутри</p>
+								<p class="video-player-link__info">60 seconds about what's inside</p>
 								<a class="video-player-link__video-button video-button modal-link" href="#modal-video-player">
 									<span></span>
 									<i class="icon-play"></i>
@@ -863,8 +858,8 @@ get_template_part('parts/header');
 				</div>
 
 				<div class="modal__confirm-btn">
-					<a class="text-button-with-arrow" href="#">
-						<span class="text-button-with-arrow__text"><span>получить бесплатный доступ</span></span>
+					<a class="text-button-with-arrow modal-link" href="#modal-access">
+						<span class="text-button-with-arrow__text"><span>get free access</span></span>
 						<span class="text-button-with-arrow__arrow">
 							<i class="icon-arrow"></i>
 						</span>
@@ -907,7 +902,16 @@ get_template_part('parts/header');
 					</div>
 				</div>
 				
+				<div class="modal__logo logo">
+					<a class="logo__link" href="/">
+						<span class="logo__text">Business</span>
+						<span class="logo__text-colored">GROW</span>
+						<span class="logo__up"><i></i></span>
+						<span class="logo__line"></span>
+					</a>
 				</div>
+			
+			</div>
 
 			</div>
 		</div>
@@ -925,11 +929,11 @@ get_template_part('parts/header');
 
 							<p class="modal__title modal__title--bold">
 								<span>
-									Введите ваш номер телефона или задайте вопрос онлайн
+									Type your phone number or ask a question online
 								</span>
 							</p>
 							<p class="modal__subtitle desktop-only">
-								Обычно мы отвечаем в течение 15 минут, но иногда на ответ может потребоваться до 24-х часов
+								You will get an answer in 15 minutes, but sometimes it may take up to 24 hours
 							</p>
 					
 							<form class="modal__feedback-content feedback-content" name="call-form" action="#">
@@ -937,7 +941,7 @@ get_template_part('parts/header');
 								<div class="feedback-content__main">
 			
 									<p class="modal-text">
-										Выберите удобное время звонка:
+										Choose a call time:
 									</p>
 			
 									<div class="feedback-content__time-select time-select" ondragstart="return false;">
@@ -960,12 +964,12 @@ get_template_part('parts/header');
 			
 			
 									<div class="feedback-content__user-contact-input user-contact-input">
-										<p class="user-contact-input__title">Телефон*</p>
-										<input class="user-contact-input__input _req" type="text" name="phone" placeholder="Введите ваш номер телефона">
+										<p class="user-contact-input__title">Phone*</p>
+										<input class="user-contact-input__input _req" type="text" name="phone" placeholder="Type your phone number">
 									</div>
 			
 									<button class="text-button-simple" type="submit">
-										<span class="text-button-simple__text">Заказать звонок</span>
+										<span class="text-button-simple__text">Order a call</span>
 										<span class="submit-progress">
 											<span class="submit-progress__box">
 												<i></i><i></i><i></i>
@@ -982,28 +986,28 @@ get_template_part('parts/header');
 											<span class="label-box label-box--style2">
 												<i class="colored-icon icon-telegram"></i>
 											</span>
-											<span class="label-text">Задать вопрос в Telegram</span>
+											<span class="label-text">Ask in Telegram</span>
 										</label>
 										<input type="radio" id="radio-call-contact-method-1" name="call-contact-method" value="whatsapp">
 										<label for="radio-call-contact-method-1">
 											<span class="label-box label-box--style2">
 												<i class="colored-icon icon-whatsapp"></i>
 											</span>
-											<span class="label-text">Задать вопрос в WhatsApp</span>
+											<span class="label-text">Ask in WhatsApp</span>
 										</label>
 										<input type="radio" id="radio-call-contact-method-2" name="call-contact-method" value="viber">
 										<label for="radio-call-contact-method-2">
 											<span class="label-box label-box--style2">
 												<i class="colored-icon icon-viber"></i>
 											</span>
-											<span class="label-text">Задать вопрос в Viber</span>
+											<span class="label-text">Ask in Viber</span>
 										</label>
 										<input type="radio" id="radio-call-contact-method-4" name="call-contact-method" value="vk">
 										<label for="radio-call-contact-method-4">
 											<span class="label-box label-box--style2">
 												<i class="colored-icon icon-vk"></i>
 											</span>
-											<span class="label-text">Задать вопрос в VK</span>
+											<span class="label-text">Ask in VK</span>
 										</label>
 									</div>
 								</div>
@@ -1014,8 +1018,8 @@ get_template_part('parts/header');
 										<label for="callform-policy-checkbox">
 											<span class="label-box"><i class="icon-ok"></i></span>
 											<span class="label-text">
-												<span>оставляя свои контактные данные, вы соглашаетесь</span>
-												<a class="policy-link" href="404.html" target="_blank" title="Откроется на новой вкладке">с политикой защиты и обработки персональных данных пользователей сайта</a>
+												<span>typing your personal data you are agree with</span>
+												<a class="policy-link" href="404.html" target="_blank" title="Opens in new layer">website user's security and personal data processing policy</a>
 											</span>
 										</label>
 									</div>
@@ -1032,11 +1036,11 @@ get_template_part('parts/header');
 							<div class="swiper-slide__main">
 								<p class="modal__title modal__title--bold">
 									<span>
-										СПАСИБО<br>ЗА ВАШУ ЗАЯВКУ НА ЗВОНОК!
+										THANK YOU<br>FOR YOUR REQUEST!
 									</span>
 								</p>
 								<p class="modal__subtitle">
-									Мы свяжемся с вами в выбранное вами время
+									We will contact you at a time you have chosen
 								</p>
 							</div>
 
@@ -1044,7 +1048,7 @@ get_template_part('parts/header');
 							<div class="swiper-slide__bottom">
 
 								<p class="modal-text">
-									С уважением<br>к вам и вашему бизнесу
+									Best regards<br>to You and Your Business
 								</p>
 
 								<div class="modal__logo logo">
@@ -1079,11 +1083,11 @@ get_template_part('parts/header');
 
 							<p class="modal__title modal__title--bold">
 								<span>
-									Введите ваш вопрос в форму или сразу пишите в любой из наших мессенджеров
+									Type your question here or contact us in messengers directly
 								</span>
 							</p>
 							<p class="modal__subtitle">
-								Обычно мы отвечаем в течение 15 минут, но иногда на ответ может потребоваться до 24-х часов
+								You will get an answer in 15 minutes, but sometimes it may take up to 24 hours
 							</p>
 					
 							<form class="modal__feedback-content feedback-content feedback-content--message" name="message-form" action="#">
@@ -1091,27 +1095,27 @@ get_template_part('parts/header');
 								<div class="feedback-content__main">
 
 									<p class="modal-text">
-										В произвольной форме напишите ваш вопрос, если требуется прикрепите файл
+										Type your question here
 									</p>
 
 									<div class="feedback-content__textarea">
 										<textarea class="_req" name="message"></textarea>
-										<div class="feedback-content__attachment-icon" title="Прикрепить файл"><i class="icon-folder"></i></div>
+										<!-- <div class="feedback-content__attachment-icon" title="Прикрепить файл"><i class="icon-folder"></i></div> -->
 									</div>
 
 									<div class="feedback-content__user-contact-input user-contact-input">
-										<p class="user-contact-input__title">Телефон*</p>
-										<input class="user-contact-input__input _req" type="text" name="phone" placeholder="Номер телефона">
+										<p class="user-contact-input__title">Phone*</p>
+										<input class="user-contact-input__input _req" type="text" name="phone" placeholder="Phone number">
 									</div>
 
 									<div class="feedback-content__user-contact-input user-contact-input">
 										<p class="user-contact-input__title">E-mail*</p>
-										<input class="user-contact-input__input _req" type="text" name="email" placeholder="E-mail адрес">
+										<input class="user-contact-input__input _req" type="text" name="email" placeholder="E-mail address">
 									</div>
 
 									<button class="text-button-simple" type="submit">
-										<span class="text-button-simple__text desktop-only">Получить ответ</span>
-										<span class="text-button-simple__text mobile-only">Задать вопрос</span>
+										<span class="text-button-simple__text desktop-only">Get an answer</span>
+										<span class="text-button-simple__text mobile-only">Ask a question</span>
 										<span class="submit-progress">
 											<span class="submit-progress__box">
 												<i></i><i></i><i></i>
@@ -1128,28 +1132,28 @@ get_template_part('parts/header');
 											<span class="label-box label-box--style2">
 												<i class="colored-icon icon-telegram"></i>
 											</span>
-											<span class="label-text">Задать вопрос в Telegram</span>
+											<span class="label-text">Ask in Telegram</span>
 										</label>
 										<input type="radio" id="radio-message-contact-method-1" name="message-contact-method" value="whatsapp">
 										<label for="radio-message-contact-method-1">
 											<span class="label-box label-box--style2">
 												<i class="colored-icon icon-whatsapp"></i>
 											</span>
-											<span class="label-text">Задать вопрос в WhatsApp</span>
+											<span class="label-text">Ask in WhatsApp</span>
 										</label>
 										<input type="radio" id="radio-message-contact-method-2" name="message-contact-method" value="viber">
 										<label for="radio-message-contact-method-2">
 											<span class="label-box label-box--style2">
 												<i class="colored-icon icon-viber"></i>
 											</span>
-											<span class="label-text">Задать вопрос в Viber</span>
+											<span class="label-text">Ask in Viber</span>
 										</label>
 										<input type="radio" id="radio-message-contact-method-4" name="message-contact-method" value="vk">
 										<label for="radio-message-contact-method-4">
 											<span class="label-box label-box--style2">
 												<i class="colored-icon icon-vk"></i>
 											</span>
-											<span class="label-text">Задать вопрос в VK</span>
+											<span class="label-text">Ask in VK</span>
 										</label>
 									</div>
 								</div>
@@ -1160,8 +1164,8 @@ get_template_part('parts/header');
 										<label for="msg-policy-checkbox">
 											<span class="label-box"><i class="icon-ok"></i></span>
 											<span class="label-text">
-												<span>оставляя свои контактные данные, вы соглашаетесь</span>
-												<a class="policy-link" href="404.html" target="_blank" title="Откроется на новой вкладке">с политикой защиты и обработки персональных данных пользователей сайта</a>
+												<span>typing your personal data you are agree with</span>
+												<a class="policy-link" href="404.html" target="_blank" title="Opens in new layer">website user's security and personal data processing policy</a>
 											</span>
 										</label>
 									</div>
@@ -1177,18 +1181,18 @@ get_template_part('parts/header');
 							<div class="swiper-slide__main">
 								<p class="modal__title modal__title--bold">
 									<span>
-										СПАСИБО ЗА ВАШ ВОПРОС!
+										THANKS FOR YOUR QUESTION!
 									</span>
 								</p>
 								<p class="modal__subtitle">
-									Обычно мы отвечаем в течение 15 минут, но иногда на ответ может потребоваться больше времени
+									You will get an answer in 15 minutes, but sometimes it may take more time
 								</p>
 							</div>
 
 							<div class="swiper-slide__bottom">
 
 								<p class="modal-text">
-									С уважением<br>к вам и вашему бизнесу
+									Best regards<br>to You and Your Business
 								</p>
 
 								<div class="modal__logo logo">
@@ -1233,23 +1237,24 @@ get_template_part('parts/header');
 
 		<div class="footer__line"></div>
 		
-		<p class="footer__copy">© 2022</p>
+		<!-- <p class="footer__copy">© 2022</p> -->
+		<a class="footer__copy" href="404.html">© 2022</a>
 		<div class="footer__socials socials">
-			<a class="socials__link" href="#">
+			<a class="socials__link" href="#vk">
 				<span>vk</span>
 				<i class="icon-vk"></i>
 			</a>
-			<a class="socials__link" href="#">
+			<a class="socials__link" href="#telegram">
 				<span>telegram</span>
 				<i class="icon-telegram"></i>
 			</a>
-			<a class="socials__link" href="#">
-				<span>ya.zen</span>
-				<i class="icon-zen"></i>
+			<a class="socials__link" href="#whatsapp">
+				<span>whatsapp</span>
+				<i class="icon-whatsapp"></i>
 			</a>
-			<a class="socials__link" href="#">
-				<span>vc.ru</span>
-				<i class="icon-vc"></i>
+			<a class="socials__link" href="#viber">
+				<span>viber</span>
+				<i class="icon-viber"></i>
 			</a>
 		</div>
 		<a class="footer__policy" href="404.html">Personal data policy</a>
@@ -1306,9 +1311,6 @@ get_template_part('parts/header');
 
 
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
-<!-- <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script> -->
-<!-- <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script> -->
 <script src="js/website.script.js"></script>
 <!-- <script src="js/website.script.min.js"></script> -->
 

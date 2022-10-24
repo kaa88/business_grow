@@ -68,7 +68,7 @@
 		}
 	}
 	&__homepage-title-bottom {
-		color: green;
+		// color: green;//
 		font-size: em(90);
 		font-weight: 700;
 		text-transform: uppercase;
@@ -255,7 +255,8 @@
 			}
 		}
 	}
-
+	&__p404-content {
+	}
 }
 .page-knowledge {
 	.g-h2 {
@@ -1081,3 +1082,32 @@
 	100% {left: 0;}
 }
 
+.p404-content {
+	&__404 {
+		display: flex;
+		flex-direction: column;
+		span {
+			font-weight: 300;
+			font-size: em(250);
+			line-height: 0.75;
+			letter-spacing: -0.03em;
+			&:last-child {
+				transform: scaleY(-100%);
+				background-image: linear-gradient(to bottom, transparent 10%, $color03);
+				background-clip: text;
+				color: transparent;
+				opacity: 0.4;
+			}
+			@media (max-width: $media-mobile+px) {
+				color: $color02;
+				&:last-child {
+					background-image: linear-gradient(to bottom, transparent 10%, $color02);
+				}
+			}
+		}
+	}
+	&__text {
+	}
+	&__text-button-with-arrow {
+	}
+}
