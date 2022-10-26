@@ -1,26 +1,30 @@
 @import "../colors";
 
 .form-report {
-	position: absolute;
-	bottom: em(90);
-	left: 0;
+	// position: absolute;
+	// bottom: em(90);
+	// left: 0;
 	width: 100%;
 	text-align: center;
 	font-size: em(20);
+	height: em(20);
 	font-weight: 700;
 	visibility: hidden;
-	.feedback-content & {
-		bottom: em(40);
-	}
+	// @media (min-width: $media-mobile+1+px) {
+	// 	left: em(47);
+	// }
+	// .feedback-content & {
+	// 	bottom: em(40);
+	// }
 	&.ok, &.er {visibility: visible;}
 	&.ok {color: transparent}
 	&.er {color: $color12}
-	@media (max-width: $media-modal+px) {
-		bottom: 2px;
-		.feedback-content & {
-			bottom: 2px;
-		}
-	}
+	// @media (max-width: $media-modal+px) {
+	// 	bottom: 2px;
+	// 	.feedback-content & {
+	// 		bottom: 2px;
+	// 	}
+	// }
 }
 form._sending {
 	position: relative;

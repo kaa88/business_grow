@@ -178,7 +178,7 @@ body {
 	font-size: 1em;
 	// font-size: 16px;//22px;
 	height: em(90);//4.091em;
-	display: flex;//inline-flex
+	display: inline-flex;//inline-flex
 	background-color: transparent;
 	// transition: background-color $timer-hover;
 	// overflow: hidden;
@@ -223,18 +223,38 @@ body {
 		background-color: $color02;
 		color: $color03;
 		border: solid 1px $color03;
-		// transition: color $timer-hover;
+		position: relative;
+		overflow: hidden;
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: -100%;
+			display: inline-block;
+			width: 100%;
+			height: 100%;
+			background-color: $color03;
+			transition: left $timer-hover ease-out;
+		}
+		i {
+			position: relative;
+			z-index: 2;
+			transition: color $timer-hover;
+		}
 	}
 	&:hover &__text span:before {
 		background-color: $color02;
 	}
 	@media (min-width: $media-modal+1+px) {
-		&:hover {
-			background-color: $color03;
-		}
+		// &:hover {
+		// 	background-color: $color03;
+		// }
 		&:hover &__arrow {
-			background-color: $color03;
+			// background-color: $color03;
 			color: $color02;
+		}
+		&:hover &__arrow:before {
+			left: 0%;
 		}
 	}
 	@media (max-width: $media-modal+px) {

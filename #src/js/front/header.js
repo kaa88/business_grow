@@ -141,14 +141,14 @@ const header = {
 				this.closeButtons[i].addEventListener('click', this.close.bind(this));
 			}
 		},
-		toggle: function(e, noTransLock) {
+		toggle: function(e, noLock) {
 			if (!this.isLoaded) return;
-			if (this.menuElem.classList.contains('_active')) this.close(false, noTransLock);
-			else if (e) this.open(e, noTransLock);
+			if (this.menuElem.classList.contains('_active')) this.close(false, noLock);
+			else if (e) this.open(e, noLock);
 		},
-		open: function(e, noTransLock) {
+		open: function(e, noLock) {
 			if (!this.isLoaded) return;
-			if (!noTransLock && this.root.refs.translock.check(this.timeout)) return;
+			if (!noLock && this.root.refs.translock.check(this.timeout)) return;
 
 			this.menuElem.classList.add('_active');
 			this.root.headerElem.classList.add('_active');
@@ -158,12 +158,12 @@ const header = {
 			for (let i = 0; i < this.closeButtons.length; i++) {
 				this.closeButtons[i].classList.add('_active');
 			}
-			this.root.refs.scrlock.lock();
+			if (!noLock) this.root.refs.scrlock.lock();
 			this.root.hidingHeader.scroll(0, true); // hidingHeader reference
 		},
-		close: function(e, noTransLock) {
+		close: function(e, noLock) {
 			if (!this.isLoaded) return;
-			if (!noTransLock && this.root.refs.translock.check(this.timeout)) return;
+			if (!noLock && this.root.refs.translock.check(this.timeout)) return;
 
 			this.menuElem.classList.remove('_active');
 			this.root.headerElem.classList.remove('_active');
@@ -173,7 +173,7 @@ const header = {
 			for (let i = 0; i < this.closeButtons.length; i++) {
 				this.closeButtons[i].classList.remove('_active');
 			}
-			this.root.refs.scrlock.unlock(this.timeout);
+			if (!noLock) this.root.refs.scrlock.unlock(this.timeout);
 			this.root.submenu.closeAll(); // submenu reference
 		},
 

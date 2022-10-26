@@ -139,6 +139,13 @@ modal.init({
 					swipers.modal_msg.slidePrev();
 				}, timeout);
 			}
+		},
+		'modal-access': {
+			close: function(event, content, timeout) {
+				setTimeout(() => {
+					swipers.modal_access.slidePrev();
+				}, timeout);
+			}
 		}
 	}
 })
@@ -262,6 +269,7 @@ const swipers = {
 		consult_bot: '.consult-form__slider',
 		modal_call: '.modal__call-slider',
 		modal_msg: '.modal__msg-slider',
+		modal_access: '.modal__access-slider',
 		cases: '.cases-slider',
 		materials: '.materials-slider .swiper',
 	},
@@ -314,6 +322,11 @@ if (typeof Swiper !== 'undefined') {
 		allowTouchMove: false
 	})
 	swipers.modal_msg = new Swiper(swipers.selectors.modal_msg, {
+		speed: swipers.settings.speed,
+		spaceBetween: swipers.settings.spaceBetween,
+		allowTouchMove: false
+	})
+	swipers.modal_access = new Swiper(swipers.selectors.modal_access, {
 		speed: swipers.settings.speed,
 		spaceBetween: swipers.settings.spaceBetween,
 		allowTouchMove: false
@@ -453,6 +466,9 @@ formToEmail.init({
 		}
 		if (form.name == 'message-form') {
 			swipers.modal_msg.slideNext();
+		}
+		if (form.name == 'access-form') {
+			swipers.modal_access.slideNext();
 		}
 	}
 });

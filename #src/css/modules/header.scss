@@ -389,7 +389,7 @@
 			content: '';
 			width: em(24);
 			height: em(30);
-			background: linear-gradient(to top, #B05CFF, $color05);
+			background: linear-gradient(to top, #8080ff, $color05);//#B05CFF
 		}
 	}
 	&__line {
@@ -512,9 +512,10 @@
 		font-size: 8px;
 	}
 	&__socials {
-		margin-bottom: 2.24vh;//17
+		// margin-bottom: 2.24vh;//17
 	}
 	&__policy {
+		margin-top: 2.24vh;//17
 		font-weight: 300;
 		font-size: 6px;
 	}

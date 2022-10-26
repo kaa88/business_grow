@@ -7,7 +7,7 @@
 	Only for developers use! Make sure to delete this script from final version.
 */
 
-console.log('Swiper reserve "non-internet" script included!');
+console.log('WARN! Swiper reserve "non-internet" script included!');
 
 addSwiperReserveMovingScript = function(elem) {
 	elem.children[0].classList.add('active-slide');

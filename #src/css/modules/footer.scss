@@ -43,7 +43,7 @@
 		top: 0;
 		left: 0;
 		width: 100%;
-		height: 100%;
+		height: 5%;//100%
 		z-index: -2;
 		border-top: solid 1px $color08;
 		@media (min-width: $media-footer+1+px) {
@@ -84,12 +84,17 @@
 			margin-left: em(60);
 		}
 	}
+	&__policy {
+		@media (max-width: $media-footer2+px) {
+			margin-top: 12px;
+	}
+	}
 	&__socials {
 		@media (min-width: $media-footer+1+px) {
 			display: none;
 		}
-		@media (max-width: $media-footer2+px) {
-			margin-bottom: 12px;
-		}
+		// @media (max-width: $media-footer2+px) {
+		// 	margin-bottom: 12px;
+		// }
 	}
 }

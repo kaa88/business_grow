@@ -3,64 +3,126 @@
 		<div class="modal__content">
 			<div class="modal__close-button"><i class="icon-cross"></i></div>
 
-			<p class="modal__title modal__title--bold">
-				<span>
-					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias, illo?
-				</span>
-			</p>
-		
-			<div class="modal__feedback-content feedback-content feedback-content--access">
+			<div class="modal__header-cover modal__header-cover--light mobile-only"></div>
 
-				<div class="feedback-content__main">
+			<div class="modal__access-slider swiper">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
 
-					<div class="radio">
-						<input type="radio" id="radio-access-contact-method-1" name="radio-access-contact-method" value="telegram" checked>
-						<label for="radio-access-contact-method-1">
-							<span class="label-box label-box--style2">
-								<i class="colored-icon icon-telegram"></i>
+						<p class="modal__title modal__title--bold">
+							<span>
+								Get your free access today and enjoy it whenever you want!
 							</span>
-						</label>
-						<input type="radio" id="radio-access-contact-method-2" name="radio-access-contact-method" value="vk">
-						<label for="radio-access-contact-method-2">
-							<span class="label-box label-box--style2">
-								<i class="colored-icon icon-vk"></i>
-							</span>
-						</label>
-					</div>
+						</p>
+					
+						<form class="modal__feedback-content feedback-content feedback-content--access" name="access-form" action="#">
+							<div class="feedback-content__container container">
+								<div class="feedback-content__main">
 
-					<p class="modal-text">
-						get the access via email:
-					</p>
-
-					<div class="feedback-content__user-contact-input user-contact-input">
-						<p class="user-contact-input__title">E-mail*</p>
-						<input class="user-contact-input__input" type="text" name="email" placeholder="E-mail адрес">
-					</div>
-
-					<a class="text-button-simple" href="#">
-						<span>
-							get the access
-						</span>
-					</a>
+									<p class="modal-text">
+										Choose prefered messenger and type your phone number:
+									</p>
 				
-				</div>
+									<div class="feedback-content__user-contact-input user-contact-input">
+										<!-- <p class="user-contact-input__title">Phone</p> -->
+										<input class="user-contact-input__input _req-one" type="text" name="phone" placeholder="Type your phone number">
+									</div>
+				
+									<div class="radio">
+										<input type="radio" id="radio-access-contact-method-1" name="radio-access-contact-method" value="telegram" checked>
+										<label for="radio-access-contact-method-1">
+											<span class="label-box label-box--style2">
+												<i class="colored-icon icon-telegram"></i>
+											</span>
+										</label>
+										<input type="radio" id="radio-access-contact-method-3" name="radio-access-contact-method" value="whatsapp">
+										<label for="radio-access-contact-method-3">
+											<span class="label-box label-box--style2">
+												<i class="colored-icon icon-whatsapp"></i>
+											</span>
+										</label>
+										<input type="radio" id="radio-access-contact-method-4" name="radio-access-contact-method" value="viber">
+										<label for="radio-access-contact-method-4">
+											<span class="label-box label-box--style2">
+												<i class="colored-icon icon-viber"></i>
+											</span>
+										</label>
+									</div>
+				
+									<p class="modal-text">
+										or get the access on email:
+									</p>
+				
+									<div class="feedback-content__user-contact-input user-contact-input">
+										<!-- <p class="user-contact-input__title">E-mail</p> -->
+										<input class="user-contact-input__input _req-one" type="text" name="email" placeholder="E-mail адрес">
+									</div>
+				
+									<button class="text-button-simple" type="submit">
+										<span class="text-button-simple__text">get free access</span>
+										<span class="submit-progress">
+											<span class="submit-progress__box">
+												<i></i><i></i><i></i>
+											</span>
+										</span>
+									</button>
+									<div class="form-report"></div>
+									
+								</div>
+				
+								<div class="feedback-content__bottom">
+									<div class="feedback-content__checkbox checkbox">
+										<input type="checkbox" id="access-policy-checkbox" name="checked" value="policy-ok" checked>
+										<label for="msg-policy-checkbox">
+											<span class="label-box"><i class="icon-ok"></i></span>
+											<span class="label-text">
+												<span>typing your personal data you are agree with</span>
+												<a class="policy-link" href="404.html" target="_blank" title="Opens in new layer">website user's security and personal data processing policy</a>
+											</span>
+										</label>
+									</div>
+									<p class="feedback-content__if-no-msg">
+										if you did not recieve a mail in 5 minutes,<br>please use this <a class="modal-link" href="#modal-message">form</a>
+									</p>
+								</div>
+							</div>
 
-				<div class="feedback-content__bottom">
-					<div class="feedback-content__checkbox checkbox">
-						<input type="checkbox" id="access-policy-checkbox" name="checked" value="policy-ok" checked>
-						<label for="msg-policy-checkbox">
-							<span class="label-box"><i class="icon-ok"></i></span>
-							<span class="label-text">
-								<span>typing your personal data you are agree with</span>
-								<a class="policy-link" href="404.html" target="_blank" title="Opens in new layer">website user's security and personal data processing policy</a>
-							</span>
-						</label>
+
+						</form>
+
 					</div>
-					<p class="feedback-content__if-no-msg">
-						if you did not recieve a mail in 5 minutes,<br>please use this <a class="modal-link" href="#modal-message">form</a>
-					</p>
-				</div>
+					<div class="swiper-slide">
 
+						<div class="swiper-slide__main">
+							<p class="modal__title modal__title--bold">
+								<span>
+									THANK YOU<br>FOR YOUR REQUEST!
+								</span>
+							</p>
+							<p class="modal__subtitle">
+								We will send you a message with access link
+							</p>
+						</div>
+
+
+						<div class="swiper-slide__bottom">
+
+							<p class="modal-text">
+								Best regards<br>to You and Your Business
+							</p>
+
+							<div class="modal__logo logo">
+								<a class="logo__link" href="/">
+									<span class="logo__text">Business</span>
+									<span class="logo__text-colored">GROW</span>
+									<span class="logo__up"><i></i></span>
+									<span class="logo__line"></span>
+								</a>
+							</div>
+				
+						</div>
+					</div>
+				</div>
 			</div>
 
 			<div class="modal__footer-clone mobile-only"></div>

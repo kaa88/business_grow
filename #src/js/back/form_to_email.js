@@ -9,6 +9,7 @@ const formToEmail = {
 		okDemo: 'Your message has been sent (demo)',
 		error: 'Error when sending a message',
 		emptyReqField: 'Fill in the required fields, please',
+		emptyReqOneOfFields: 'Fill in one of the required fields, please',
 		incorrectName: 'Incorrect name',
 		incorrectPhone: 'Incorrect phone number',
 		incorrectEmail: 'Incorrect email',
@@ -100,7 +101,29 @@ const formToEmail = {
 	},
 
 	check: function(form) {
-		let errors = [];
+		let that = this, errors = [];
+		function correctness(item) {
+			switch (item.getAttribute('name')) {
+				case 'name':
+					if (item.value && /^.{2,99}$/.test(item.value) == false) {
+						item.classList.add('_error');
+						errors.push(that.messages.incorrectName);
+					}
+					break;
+				case 'email':
+					if (item.value && /^.{2,99}@.{2,99}\..{2,20}$/.test(item.value) == false) {
+						item.classList.add('_error');
+						errors.push(that.messages.incorrectEmail);
+					}
+					break;
+				case 'phone':
+					if (item.value && /^\+\d\s\(\d{3}\)\s\d{3}(-\d\d){2}$/.test(item.value) == false) {
+						item.classList.add('_error');
+						errors.push(that.messages.incorrectPhone);
+					}
+					break;
+			}
+		}
 		let inputs = form.querySelectorAll('input, textarea');
 		for (let i = 0; i < inputs.length; i++) {
 			inputs[i].classList.remove('_error');
@@ -109,27 +132,27 @@ const formToEmail = {
 				errors.push(this.messages.emptyReqField);
 				continue;
 			}
-			switch (inputs[i].getAttribute('name')) {
-				case 'name':
-					if (inputs[i].value && /^.{2,99}$/.test(inputs[i].value) == false) {
-						inputs[i].classList.add('_error');
-						errors.push(this.messages.incorrectName);
-					}
-					break;
-				case 'email':
-					if (inputs[i].value && /^.{2,99}@.{2,99}\..{2,20}$/.test(inputs[i].value) == false) {
-						inputs[i].classList.add('_error');
-						errors.push(this.messages.incorrectEmail);
-					}
-					break;
-				case 'phone':
-					if (inputs[i].value && /^\+\d\s\(\d{3}\)\s\d{3}(-\d\d){2}$/.test(inputs[i].value) == false) {
-						inputs[i].classList.add('_error');
-						errors.push(this.messages.incorrectPhone);
-					}
-					break;
+			if (inputs[i].classList.contains('_req-one')) continue;
+			correctness(inputs[i]);
+		}
+		// this script for group of elems that has at least one requered elem
+		let inputsReqOne = form.querySelectorAll('._req-one');
+		let reqOneFilled = [];
+		for (let i = 0; i < inputsReqOne.length; i++) {
+			if (inputsReqOne[i].value != '') reqOneFilled.push(i);
+		}
+		if (inputsReqOne.length > 0 && reqOneFilled.length == 0) {
+			for (let i = 0; i < inputsReqOne.length; i++) {
+				inputsReqOne[i].classList.add('_error');
+			}
+			errors.push(this.messages.emptyReqOneOfFields);
+		}
+		else {
+			for (let i = 0; i < reqOneFilled.length; i++) {
+				correctness(inputsReqOne[reqOneFilled[i]]);
 			}
 		}
+		//
 		return [errors.length, errors];
 	},
 

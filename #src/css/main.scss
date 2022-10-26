@@ -6,7 +6,7 @@
 	@media (min-width: $mobile+1+px) {
 		padding: 3.7vh 0;
 		border-left: solid 1px $color08;
-		.page-home & {
+		.page-home &, .page-404 & {
 			padding-right: em(360);
 			@media (max-aspect-ratio: 6/4) {//6/4
 				padding-right: 0;
@@ -249,7 +249,7 @@
 	&__access-box {
 		@media (max-width: $media-mobile+px) {
 			margin: 0 auto;
-			width: min-content;
+			// width: min-content;
 			.text-button-with-arrow {
 				margin-top: 10px;
 			}
@@ -761,19 +761,11 @@
 	}
 }
 
-// .grid-fill {
-// 	grid-column: 2;
-// 	grid-row: 1 / span 3;
-// 	@media (max-width: $mobile+px) {
-// 		display: none;
-// 	}
-// }
-
 .mobile-background {
 	width: 100%;
 	height: 330px;//390 60%
 	// min-height: 300px;
-	background: $gradient-3;
+	background: $gradient-5;
 	border-radius: 0px 0px 30px 30px;
 	overflow: hidden;
 	img {
@@ -1083,31 +1075,81 @@
 }
 
 .p404-content {
+	width: 100%;
+	max-width: em(920);
+	// background-color: #ccc;
+	display: grid;
+	grid-template-columns: repeat(2, auto);
+	grid-column-gap: em(50);
+	@media (max-width: $media-mobile+px) {
+		@include mobile-centered-block();
+		max-width: 280px;
+		grid-template-columns: 100%;
+	}
 	&__404 {
+		grid-row: span 3;
 		display: flex;
 		flex-direction: column;
+		@media (min-width: $media-mobile+1+px) {
+			margin-top: em(9);
+		}
 		span {
+			text-align: center;
 			font-weight: 300;
 			font-size: em(250);
 			line-height: 0.75;
 			letter-spacing: -0.03em;
 			&:last-child {
-				transform: scaleY(-100%);
+				margin-top: -8px;
+				transform: scaleY(-75%);
 				background-image: linear-gradient(to bottom, transparent 10%, $color03);
 				background-clip: text;
 				color: transparent;
-				opacity: 0.4;
+				opacity: 0.3;
 			}
 			@media (max-width: $media-mobile+px) {
+				font-size: 120px;
 				color: $color02;
 				&:last-child {
+					opacity: 0.7;
 					background-image: linear-gradient(to bottom, transparent 10%, $color02);
 				}
+			}
+			@media (max-width: $mobile-s+px) {
+				font-size: 100px;
 			}
 		}
 	}
 	&__text {
+		font-weight: 500;
+		font-size: em(40);
+		line-height: 1.33;
+		&--small {
+			font-size: em(30);
+			text-align: center;
+		}
+		@media (max-width: $mobile+px) {
+			padding-bottom: 20px;
+			color: $c02;
+			font-size: 20px;
+			&--small {
+				margin-top: 20px;
+				color: $c03;
+				font-size: 14px;
+			}
+		}
+		@media (max-width: $mobile-s+px) {
+			font-size: 16px;
+			&--small {
+				// margin-top: 10px;
+				font-size: 12px;
+			}
+		}
 	}
-	&__text-button-with-arrow {
+	.text-button-with-arrow__text {
+		width: 100%;
+	}
+	.text-button-with-arrow__arrow {
+		display: none;
 	}
 }

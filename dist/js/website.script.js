@@ -7,6 +7,7 @@ const developer_panel = {
 	// добавить вывод текущего body font size
 	// добавить отслеживание переменной
 	// возможно еще:
+	// кнопки навигации, которые листают сразу все свайперы
 	// координаты мыши
 	// кнопка, которая включает подсветку эл-тов, которые создают гориз прокрутку
 }
@@ -400,14 +401,14 @@ const header = {
 				this.closeButtons[i].addEventListener('click', this.close.bind(this));
 			}
 		},
-		toggle: function(e, noTransLock) {
+		toggle: function(e, noLock) {
 			if (!this.isLoaded) return;
-			if (this.menuElem.classList.contains('_active')) this.close(false, noTransLock);
-			else if (e) this.open(e, noTransLock);
+			if (this.menuElem.classList.contains('_active')) this.close(false, noLock);
+			else if (e) this.open(e, noLock);
 		},
-		open: function(e, noTransLock) {
+		open: function(e, noLock) {
 			if (!this.isLoaded) return;
-			if (!noTransLock && this.root.refs.translock.check(this.timeout)) return;
+			if (!noLock && this.root.refs.translock.check(this.timeout)) return;
 
 			this.menuElem.classList.add('_active');
 			this.root.headerElem.classList.add('_active');
@@ -417,12 +418,12 @@ const header = {
 			for (let i = 0; i < this.closeButtons.length; i++) {
 				this.closeButtons[i].classList.add('_active');
 			}
-			this.root.refs.scrlock.lock();
+			if (!noLock) this.root.refs.scrlock.lock();
 			this.root.hidingHeader.scroll(0, true); // hidingHeader reference
 		},
-		close: function(e, noTransLock) {
+		close: function(e, noLock) {
 			if (!this.isLoaded) return;
-			if (!noTransLock && this.root.refs.translock.check(this.timeout)) return;
+			if (!noLock && this.root.refs.translock.check(this.timeout)) return;
 
 			this.menuElem.classList.remove('_active');
 			this.root.headerElem.classList.remove('_active');
@@ -432,7 +433,7 @@ const header = {
 			for (let i = 0; i < this.closeButtons.length; i++) {
 				this.closeButtons[i].classList.remove('_active');
 			}
-			this.root.refs.scrlock.unlock(this.timeout);
+			if (!noLock) this.root.refs.scrlock.unlock(this.timeout);
 			this.root.submenu.closeAll(); // submenu reference
 		},
 
@@ -852,6 +853,13 @@ modal.init({
 					swipers.modal_msg.slidePrev();
 				}, timeout);
 			}
+		},
+		'modal-access': {
+			close: function(event, content, timeout) {
+				setTimeout(() => {
+					swipers.modal_access.slidePrev();
+				}, timeout);
+			}
 		}
 	}
 })
@@ -1058,6 +1066,7 @@ const swipers = {
 		consult_bot: '.consult-form__slider',
 		modal_call: '.modal__call-slider',
 		modal_msg: '.modal__msg-slider',
+		modal_access: '.modal__access-slider',
 		cases: '.cases-slider',
 		materials: '.materials-slider .swiper',
 	},
@@ -1114,6 +1123,11 @@ if (typeof Swiper !== 'undefined') {
 		spaceBetween: swipers.settings.spaceBetween,
 		allowTouchMove: false
 	})
+	swipers.modal_access = new Swiper(swipers.selectors.modal_access, {
+		speed: swipers.settings.speed,
+		spaceBetween: swipers.settings.spaceBetween,
+		allowTouchMove: false
+	})
 	swipers.cases = new Swiper(swipers.selectors.cases, {
 		navigation: {
 			nextEl: '.cases-slider__nav-next',
@@ -1165,7 +1179,7 @@ else {
 	Only for developers use! Make sure to delete this script from final version.
 */
 
-console.log('Swiper reserve "non-internet" script included!');
+console.log('WARN! Swiper reserve "non-internet" script included!');
 
 addSwiperReserveMovingScript = function(elem) {
 	elem.children[0].classList.add('active-slide');
@@ -1297,6 +1311,7 @@ const formToEmail = {
 		okDemo: 'Your message has been sent (demo)',
 		error: 'Error when sending a message',
 		emptyReqField: 'Fill in the required fields, please',
+		emptyReqOneOfFields: 'Fill in one of the required fields, please',
 		incorrectName: 'Incorrect name',
 		incorrectPhone: 'Incorrect phone number',
 		incorrectEmail: 'Incorrect email',
@@ -1388,7 +1403,29 @@ const formToEmail = {
 	},
 
 	check: function(form) {
-		let errors = [];
+		let that = this, errors = [];
+		function correctness(item) {
+			switch (item.getAttribute('name')) {
+				case 'name':
+					if (item.value && /^.{2,99}$/.test(item.value) == false) {
+						item.classList.add('_error');
+						errors.push(that.messages.incorrectName);
+					}
+					break;
+				case 'email':
+					if (item.value && /^.{2,99}@.{2,99}\..{2,20}$/.test(item.value) == false) {
+						item.classList.add('_error');
+						errors.push(that.messages.incorrectEmail);
+					}
+					break;
+				case 'phone':
+					if (item.value && /^\+\d\s\(\d{3}\)\s\d{3}(-\d\d){2}$/.test(item.value) == false) {
+						item.classList.add('_error');
+						errors.push(that.messages.incorrectPhone);
+					}
+					break;
+			}
+		}
 		let inputs = form.querySelectorAll('input, textarea');
 		for (let i = 0; i < inputs.length; i++) {
 			inputs[i].classList.remove('_error');
@@ -1397,27 +1434,27 @@ const formToEmail = {
 				errors.push(this.messages.emptyReqField);
 				continue;
 			}
-			switch (inputs[i].getAttribute('name')) {
-				case 'name':
-					if (inputs[i].value && /^.{2,99}$/.test(inputs[i].value) == false) {
-						inputs[i].classList.add('_error');
-						errors.push(this.messages.incorrectName);
-					}
-					break;
-				case 'email':
-					if (inputs[i].value && /^.{2,99}@.{2,99}\..{2,20}$/.test(inputs[i].value) == false) {
-						inputs[i].classList.add('_error');
-						errors.push(this.messages.incorrectEmail);
-					}
-					break;
-				case 'phone':
-					if (inputs[i].value && /^\+\d\s\(\d{3}\)\s\d{3}(-\d\d){2}$/.test(inputs[i].value) == false) {
-						inputs[i].classList.add('_error');
-						errors.push(this.messages.incorrectPhone);
-					}
-					break;
+			if (inputs[i].classList.contains('_req-one')) continue;
+			correctness(inputs[i]);
+		}
+		// this script for group of elems that has at least one requered elem
+		let inputsReqOne = form.querySelectorAll('._req-one');
+		let reqOneFilled = [];
+		for (let i = 0; i < inputsReqOne.length; i++) {
+			if (inputsReqOne[i].value != '') reqOneFilled.push(i);
+		}
+		if (inputsReqOne.length > 0 && reqOneFilled.length == 0) {
+			for (let i = 0; i < inputsReqOne.length; i++) {
+				inputsReqOne[i].classList.add('_error');
+			}
+			errors.push(this.messages.emptyReqOneOfFields);
+		}
+		else {
+			for (let i = 0; i < reqOneFilled.length; i++) {
+				correctness(inputsReqOne[reqOneFilled[i]]);
 			}
 		}
+		//
 		return [errors.length, errors];
 	},
 
@@ -1517,6 +1554,9 @@ formToEmail.init({
 		}
 		if (form.name == 'message-form') {
 			swipers.modal_msg.slideNext();
+		}
+		if (form.name == 'access-form') {
+			swipers.modal_access.slideNext();
 		}
 	}
 });

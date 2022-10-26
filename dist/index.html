@@ -188,7 +188,7 @@ get_template_part('parts/header');
 		<div class="header-level header-level--footer">
 			<div class="menu-footer">
 				
-				<p class="menu-footer__copy">© 2022</p>
+				<a class="menu-footer__copy" href="404.html">© 2022</a>
 				<div class="menu-footer__socials socials">
 					<a class="socials__link" href="#vk">
 						<span>vk</span>
@@ -207,8 +207,8 @@ get_template_part('parts/header');
 						<i class="icon-viber"></i>
 					</a>
 					</div>
-				<a class="menu-footer__policy" href="#">Personal data policy</a>
-				<a class="menu-footer__policy" href="#">Safety policy</a>
+				<a class="menu-footer__policy" href="404.html">Personal data policy</a>
+				<a class="menu-footer__policy" href="404.html">Safety policy</a>
 		
 			</div>
 		</div>
@@ -464,14 +464,14 @@ get_template_part('parts/header');
 						<div class="swiper-slide">
 							<p class="modal__title">
 								<span>
-									Answer 3 questions to make our consultation more useful
+									Answer 3 questions to make our consultation more useful.
 								</span>
 							</p>
 						</div>
 						<div class="swiper-slide">
 							<p class="modal__title">
 								<span>
-									Great! 2 more questions. What food do you prefer?
+									Great! 2 more questions. Please answer honestly.
 								</span>
 							</p>
 						</div>
@@ -577,7 +577,7 @@ get_template_part('parts/header');
 
 									<div class="modal-textbox">
 										<p class="modal-text">
-											Please answer honestly:
+											What food do you prefer?
 										</p>
 									</div>
 
@@ -600,7 +600,7 @@ get_template_part('parts/header');
 										<input type="radio" id="radio-food-3" name="food" value="arabic">
 										<label for="radio-food-3">
 											<span class="label-box"></span>
-											<span class="label-text">Arabic</span>
+											<span class="label-text">Arabian</span>
 										</label>
 										<input type="radio" id="radio-food-5" name="food" value="other">
 										<label for="radio-food-5">
@@ -643,7 +643,7 @@ get_template_part('parts/header');
 								<div class="consult-form__bottom">
 									<!-- <div class="slider-back-button" style="font-size: 30px;">BACK</div> --> <!-- // -->
 									<a class="text-button-with-arrow swiper-slide-button" href="#">
-										<span class="text-button-with-arrow__text"><span>to last question</span></span>
+										<span class="text-button-with-arrow__text"><span>to the last question</span></span>
 										<span class="text-button-with-arrow__arrow">
 											<i class="icon-arrow"></i>
 										</span>
@@ -837,7 +837,6 @@ get_template_part('parts/header');
 					We will contact you in 24 hours
 				</p>
 
-				<div class="modal-line mobile-only"></div>
 				<div class="modal__confirm-content confirm-content">
 					<p class="confirm-content__text">
 						Architecto quos, dolorum voluptas, laboriosam expedita, nihil minus repellendus
@@ -863,14 +862,14 @@ get_template_part('parts/header');
 	
 				</div>
 
-				<div class="modal__confirm-btn">
+				<!-- <div class="modal__confirm-btn">
 					<a class="text-button-with-arrow modal-link" href="#modal-access">
 						<span class="text-button-with-arrow__text"><span>get free access</span></span>
 						<span class="text-button-with-arrow__arrow">
 							<i class="icon-arrow"></i>
 						</span>
 					</a>
-				</div>
+				</div> -->
 
 				<div class="modal__footer-clone mobile-only"></div>
 
@@ -882,11 +881,11 @@ get_template_part('parts/header');
 			<div class="modal__content">
 				<div class="modal__close-button"><i class="icon-cross"></i></div>
 
-				<div class="modal__header-cover modal__header-cover--light mobile-only"></div>
+				<div class="modal__header-cover modal__header-cover--dark mobile-only"></div>
 
 				<div class="modal__video-player video-player">
 					<div class="video-player__title">Video Player</div>
-					<video src="media/video/videosample.mp4" preload="metadata"></video>
+					<video src="" preload="metadata"></video>
 					<div class="video-controls">
 						<div class="video-controls__area">
 							<div class="video-controls__area-btn"><i class="icon-play"></i></div>
@@ -908,15 +907,6 @@ get_template_part('parts/header');
 					</div>
 				</div>
 				
-				<div class="modal__logo logo">
-					<a class="logo__link" href="/">
-						<span class="logo__text">Business</span>
-						<span class="logo__text-colored">GROW</span>
-						<span class="logo__up"><i></i></span>
-						<span class="logo__line"></span>
-					</a>
-				</div>
-			
 			</div>
 
 			</div>
@@ -982,6 +972,7 @@ get_template_part('parts/header');
 											</span>
 										</span>
 									</button>
+									<div class="form-report"></div>
 							
 								</div>
 			
@@ -1030,7 +1021,6 @@ get_template_part('parts/header');
 										</label>
 									</div>
 
-									<div class="form-report"></div>
 								</div>
 			
 							</form>
@@ -1121,13 +1111,14 @@ get_template_part('parts/header');
 
 									<button class="text-button-simple" type="submit">
 										<span class="text-button-simple__text desktop-only">Get an answer</span>
-										<span class="text-button-simple__text mobile-only">Ask a question</span>
+										<span class="text-button-simple__text mobile-only">Send question</span>
 										<span class="submit-progress">
 											<span class="submit-progress__box">
 												<i></i><i></i><i></i>
 											</span>
 										</span>
 									</button>
+									<div class="form-report"></div>
 							
 								</div>
 
@@ -1176,7 +1167,6 @@ get_template_part('parts/header');
 										</label>
 									</div>
 
-									<div class="form-report"></div>
 								</div>
 
 							</form>
@@ -1224,64 +1214,126 @@ get_template_part('parts/header');
 			<div class="modal__content">
 				<div class="modal__close-button"><i class="icon-cross"></i></div>
 
-				<p class="modal__title modal__title--bold">
-					<span>
-						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias, illo?
-					</span>
-				</p>
-		
-				<div class="modal__feedback-content feedback-content feedback-content--access">
+				<div class="modal__header-cover modal__header-cover--light mobile-only"></div>
 
-					<div class="feedback-content__main">
+				<div class="modal__access-slider swiper">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
 
-						<div class="radio">
-							<input type="radio" id="radio-access-contact-method-1" name="radio-access-contact-method" value="telegram" checked>
-							<label for="radio-access-contact-method-1">
-								<span class="label-box label-box--style2">
-									<i class="colored-icon icon-telegram"></i>
+							<p class="modal__title modal__title--bold">
+								<span>
+									Get your free access today and enjoy it whenever you want!
 								</span>
-							</label>
-							<input type="radio" id="radio-access-contact-method-2" name="radio-access-contact-method" value="vk">
-							<label for="radio-access-contact-method-2">
-								<span class="label-box label-box--style2">
-									<i class="colored-icon icon-vk"></i>
-								</span>
-							</label>
-						</div>
+							</p>
+					
+							<form class="modal__feedback-content feedback-content feedback-content--access" name="access-form" action="#">
+								<div class="feedback-content__container container">
+									<div class="feedback-content__main">
 
-						<p class="modal-text">
-							get the access via email:
-						</p>
-
-						<div class="feedback-content__user-contact-input user-contact-input">
-							<p class="user-contact-input__title">E-mail*</p>
-							<input class="user-contact-input__input" type="text" name="email" placeholder="E-mail адрес">
-						</div>
-
-						<a class="text-button-simple" href="#">
-							<span>
-								get the access
-							</span>
-						</a>
+										<p class="modal-text">
+											Choose prefered messenger and type your phone number:
+										</p>
 				
-					</div>
+										<div class="feedback-content__user-contact-input user-contact-input">
+											<!-- <p class="user-contact-input__title">Phone</p> -->
+											<input class="user-contact-input__input _req-one" type="text" name="phone" placeholder="Type your phone number">
+										</div>
+				
+										<div class="radio">
+											<input type="radio" id="radio-access-contact-method-1" name="radio-access-contact-method" value="telegram" checked>
+											<label for="radio-access-contact-method-1">
+												<span class="label-box label-box--style2">
+													<i class="colored-icon icon-telegram"></i>
+												</span>
+											</label>
+											<input type="radio" id="radio-access-contact-method-3" name="radio-access-contact-method" value="whatsapp">
+											<label for="radio-access-contact-method-3">
+												<span class="label-box label-box--style2">
+													<i class="colored-icon icon-whatsapp"></i>
+												</span>
+											</label>
+											<input type="radio" id="radio-access-contact-method-4" name="radio-access-contact-method" value="viber">
+											<label for="radio-access-contact-method-4">
+												<span class="label-box label-box--style2">
+													<i class="colored-icon icon-viber"></i>
+												</span>
+											</label>
+										</div>
+				
+										<p class="modal-text">
+											or get the access on email:
+										</p>
+				
+										<div class="feedback-content__user-contact-input user-contact-input">
+											<!-- <p class="user-contact-input__title">E-mail</p> -->
+											<input class="user-contact-input__input _req-one" type="text" name="email" placeholder="E-mail адрес">
+										</div>
+				
+										<button class="text-button-simple" type="submit">
+											<span class="text-button-simple__text">get free access</span>
+											<span class="submit-progress">
+												<span class="submit-progress__box">
+													<i></i><i></i><i></i>
+												</span>
+											</span>
+										</button>
+										<div class="form-report"></div>
+									
+									</div>
+				
+									<div class="feedback-content__bottom">
+										<div class="feedback-content__checkbox checkbox">
+											<input type="checkbox" id="access-policy-checkbox" name="checked" value="policy-ok" checked>
+											<label for="msg-policy-checkbox">
+												<span class="label-box"><i class="icon-ok"></i></span>
+												<span class="label-text">
+													<span>typing your personal data you are agree with</span>
+													<a class="policy-link" href="404.html" target="_blank" title="Opens in new layer">website user's security and personal data processing policy</a>
+												</span>
+											</label>
+										</div>
+										<p class="feedback-content__if-no-msg">
+											if you did not recieve a mail in 5 minutes,<br>please use this <a class="modal-link" href="#modal-message">form</a>
+										</p>
+									</div>
+								</div>
 
-					<div class="feedback-content__bottom">
-						<div class="feedback-content__checkbox checkbox">
-							<input type="checkbox" id="access-policy-checkbox" name="checked" value="policy-ok" checked>
-							<label for="msg-policy-checkbox">
-								<span class="label-box"><i class="icon-ok"></i></span>
-								<span class="label-text">
-									<span>typing your personal data you are agree with</span>
-									<a class="policy-link" href="404.html" target="_blank" title="Opens in new layer">website user's security and personal data processing policy</a>
-								</span>
-							</label>
+
+							</form>
+
 						</div>
-						<p class="feedback-content__if-no-msg">
-							if you did not recieve a mail in 5 minutes,<br>please use this <a class="modal-link" href="#modal-message">form</a>
-						</p>
-					</div>
+						<div class="swiper-slide">
 
+							<div class="swiper-slide__main">
+								<p class="modal__title modal__title--bold">
+									<span>
+										THANK YOU<br>FOR YOUR REQUEST!
+									</span>
+								</p>
+								<p class="modal__subtitle">
+									We will send you a message with access link
+								</p>
+							</div>
+
+
+							<div class="swiper-slide__bottom">
+
+								<p class="modal-text">
+									Best regards<br>to You and Your Business
+								</p>
+
+								<div class="modal__logo logo">
+									<a class="logo__link" href="/">
+										<span class="logo__text">Business</span>
+										<span class="logo__text-colored">GROW</span>
+										<span class="logo__up"><i></i></span>
+										<span class="logo__line"></span>
+									</a>
+								</div>
+				
+							</div>
+						</div>
+					</div>
 				</div>
 
 				<div class="modal__footer-clone mobile-only"></div>
