@@ -430,6 +430,7 @@
 		display: flex;
 		justify-content: space-around;//center
 		align-items: flex-end;
+		flex-wrap: wrap;//
 		@media (max-width: $media-modal+px) {
 			padding-left: 0;
 			flex: 0 0 auto;
@@ -440,6 +441,15 @@
 			margin-right: 0;//auto;
 			// margin-left: auto;
 			// max-width: 260px;
+		}
+		.form-report {
+			flex: 0 0 100%;
+			// margin-top: 10px;
+			@media (min-width: $media-modal+1+px) {
+				// position: absolute;
+				// top: em(-5);
+				// left: 0;
+			}
 		}
 	}
 	.text-button-with-arrow {
@@ -694,6 +704,10 @@
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	padding-top: em(50);
+	width: fit-content;
+	margin-left: auto;
+	margin-right: auto;
+	// max-width: em(1016);
 	@media (max-width: $media-modal+px) {
 		grid-template-columns: 100%;
 		padding-top: 20px;
@@ -879,6 +893,9 @@
 			padding-left: em(40);
 		}
 	}
+	&--access &__container {
+		padding-left: 0;
+	}
 	&--access &__main {
 		width: 100%;
 		max-width: em(1016);
@@ -886,7 +903,7 @@
 		margin-left: auto;
 		margin-right: auto;
 		display: grid;
-		grid-template-columns: em(493) em(493);
+		grid-template-columns: 1fr 1fr;//em(493) em(493);
 		grid-column-gap: em(40);
 		grid-row-gap: em(30);
 		justify-content: space-between;

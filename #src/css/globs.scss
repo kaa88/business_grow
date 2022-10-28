@@ -3,8 +3,9 @@
 
 /* Body settings */
 // html {
-// 	max-width: 1920px;
-// 	margin: 0 auto;
+// 	@media (max-width: $mobile+px), (max-height: $mobile-s+px) {//
+// 		transform: rotate(180deg);
+// 	}
 // }
 body {
 	// @media (max-width: $media-mobile+px) and (orientation: landscape) {
@@ -23,10 +24,14 @@ body {
 	background-color: $color02;
 	position: relative;
 	display: grid;
-	grid-template-columns: auto em(360);//360 + padding
+	grid-template-columns: calc(100% - em(428) - 3px) em(428);//360 + padding 68 ... 'calc' is for correct swiper width calculation
+	justify-content: space-between;
 	grid-template-rows: auto 1fr auto;
 	&.page-home, &.page-404 {
 		grid-template-columns: 100%;
+	}
+	&.page-knowledge {
+		grid-template-rows: auto auto 1fr auto;
 	}
 	&._locked {overflow: hidden;} //REQ!
 	
@@ -47,7 +52,7 @@ body {
 			padding-left: em(68);
 		}
 		@media (max-aspect-ratio: 15/9) {
-			grid-template-columns: auto em(250);
+			grid-template-columns: calc(100% - em(250) - 3px) em(250);//225 + padding 25
 		}
 	}
 
@@ -82,10 +87,10 @@ body {
 	@media (min-width: $mobile+1+px) {
 		padding-left: 3.68vw;//68px;
 		@media (max-aspect-ratio: 6/4) {
-			padding-left: 15px;
+			padding-left: em(25);//15px
 		}
 		@media (min-aspect-ratio: 20/9) {
-			max-width: 86%;
+			// max-width: 86%;
 			padding-left: em(68);
 		}
 	}
@@ -521,6 +526,6 @@ i {
 	}
 }
 
-.currency {
+.nowrap {
 	white-space: nowrap;
 }
