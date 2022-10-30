@@ -29,9 +29,33 @@
 	</div>
 </footer>
 
+<div class="rotation-alert">
+	<p class="rotation-alert__text">Please, turn the device</p>
+	<div class="rotation-alert__image">
+		<div class="rotation-alert__image-outer">
+			<svg>
+				<use href="media/img/device-rotate-sprite.svg#icon-arrows"></use>
+			</svg>
+		</div>
+		<div class="rotation-alert__image-inner">
+			<svg>
+				<use href="media/img/device-rotate-sprite.svg#icon-mobile"></use>
+			</svg>
+		</div>
+	</div>
+</div>
+
+
 @@if (light == true) {
 	@@include('#light-build.html')
 }
+
+<noscript>
+	<div class="noscript-alert">
+		<p>For full functionality of this site it is necessary to enable JavaScript.<br>Here are the <a href="https://www.enable-javascript.com/">instructions how to enable JavaScript in your web browser</a>.</p><br>
+		<p>Для полной функциональности этого сайта необходимо включить JavaScript.<br>Вот <a href="https://www.enable-javascript.com/ru/">инструкции, как включить JavaScript в вашем браузере</a>.</p>
+	</div>
+</noscript>
 
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 <script src="js/website.script.js"></script>

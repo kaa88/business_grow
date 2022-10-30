@@ -890,14 +890,14 @@ class Select {
 
 		this.header = this.elem.querySelector('.select__header');
 		this.headertext = this.elem.querySelector('.select__header-text');
-		this.list = this.elem.querySelector('.select__list-wrapper');
-		this.list.innerHTML = '';
+		this.listWrapper = this.elem.querySelector('.select__list-wrapper');
+		this.listWrapper.innerHTML = '';
 
 		this.basicSelect = this.elem.querySelectorAll('select option');
 
 		let newList = document.createElement('ul');
 		newList.classList.add('select__list');
-		this.list.appendChild(newList);
+		this.listWrapper.appendChild(newList);
 		for (let i = 0; i < this.basicSelect.length; i++) {
 			if (this.basicSelect[i].hasAttribute('disabled')) continue;
 			let newLi = document.createElement('li');
@@ -907,7 +907,6 @@ class Select {
 		}
 
 		this.options = this.elem.querySelectorAll('.select__option');
-		this.listMaxHeight = this.elem.querySelector('.select__list').offsetHeight;
 		let that = this;
 		for (let i = 0; i < this.options.length; i++) {
 			this.options[i].addEventListener('click', function() {
@@ -916,6 +915,7 @@ class Select {
 		};
 		this.header.addEventListener('click', this.showList.bind(this));
 		window.addEventListener('click', this.hideList.bind(this), {capture: true});
+		window.addEventListener('resize', this.hideList.bind(this));
 		this.isOpened = false;
 
 		if (params.firstOptSelected) {
@@ -930,17 +930,17 @@ class Select {
 	}
 	hideList(e) {
 		if (!this.isOpened) return;
-		this.list.style.height = '';
+		this.listWrapper.style.height = '';
 		this.elem.classList.remove('_active');
-		this.list.classList.remove('_active');
+		this.listWrapper.classList.remove('_active');
 		let that = this;
 		setTimeout(() => {that.isOpened = false}, 100);
 	}
 	showList(e) {
 		if (this.isOpened) return;
-		this.list.style.height = this.listMaxHeight + 'px';
+		this.listWrapper.style.height = this.listWrapper.children[0].offsetHeight + 'px';
 		this.elem.classList.add('_active');
-		this.list.classList.add('_active');
+		this.listWrapper.classList.add('_active');
 		this.isOpened = true;
 	}
 	selectItem(e, that, i) {

@@ -2,7 +2,9 @@
 
 .select {
 	position: relative;
-	width: em(690);
+	z-index: 2;
+	width: 100%;
+	// width: em(690);
 	height: em(90);
 	cursor: pointer;
 	transition: all $timer-select;
@@ -74,7 +76,6 @@
 	&__option {
 		display: flex;
 		align-items: center;
-		// background-color: $color02;
 		height: em(35);
 		padding: 0 em(47);
 		white-space: nowrap;

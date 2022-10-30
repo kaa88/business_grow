@@ -30,13 +30,6 @@ get_template_part('parts/header');
 <body class="page-cases no-background">
 	<!-- <?php wp_body_open(); ?> -->
 
-	<noscript>
-		<div class="noscript-alert">
-			<p>For full functionality of this site it is necessary to enable JavaScript.<br>Here are the <a href="https://www.enable-javascript.com/">instructions how to enable JavaScript in your web browser</a>.</p><br>
-			<p>Для полной функциональности этого сайта необходимо включить JavaScript.<br>Вот <a href="https://www.enable-javascript.com/ru/">инструкции, как включить JavaScript в вашем браузере</a>.</p>
-		</div>
-	</noscript>
-
 <!-- <div class="window"> -->
 
 	<!-- <div class="loadscreen _locked">
@@ -161,19 +154,19 @@ get_template_part('parts/header');
 				feedback
 			</a>
 			<div class="header-level__socials socials socials--vertical">
-				<a class="socials__link" href="#vk">
+				<a class="socials__link modal-link" href="#modal-call">
 					<span>vk</span>
 					<i class="icon-vk"></i>
 				</a>
-				<a class="socials__link" href="#telegram">
+				<a class="socials__link modal-link" href="#modal-access">
 					<span>telegram</span>
 					<i class="icon-telegram"></i>
 				</a>
-				<a class="socials__link" href="#whatsapp">
+				<a class="socials__link modal-link" href="#modal-video-player">
 					<span>whatsapp</span>
 					<i class="icon-whatsapp"></i>
 				</a>
-				<a class="socials__link" href="#viber">
+				<a class="socials__link modal-link" href="#modal-confirm">
 					<span>viber</span>
 					<i class="icon-viber"></i>
 				</a>
@@ -292,30 +285,6 @@ get_template_part('parts/header');
 
 							<div class="cases-slider__header">
 								<h2 class="g-h2">
-									How to abolish slavery and save <span class="nowrap">$1 000 000</span>
-								</h2>
-							</div>
-
-							<div class="cases-slider__client">
-								<span>Client -</span>
-								<a class="cases-slider__client-link" href="404.html">
-									Abraham Lincoln
-								</a>
-							</div>
-
-							<div class="cases-slider__image">
-								<picture>
-									<source media="(max-width: 770px)" srcset="media/img/cases-lincoln-s.jpg, media/img/cases-lincoln-s@2x.jpg 2x">
-									<img src="media/img/cases-lincoln.jpg" srcset="media/img/cases-lincoln@2x.jpg 2x" alt="" loading="lazy">
-								</picture>
-							</div>
-			
-						</div>
-						
-						<div class="swiper-slide">
-
-							<div class="cases-slider__header">
-								<h2 class="g-h2">
 									How to compose the text of the declaration of independence in <span class="nowrap">2 days</span>
 								</h2>
 							</div>
@@ -331,6 +300,30 @@ get_template_part('parts/header');
 								<picture>
 									<source media="(max-width: 770px)" srcset="media/img/cases-washington-s.jpg, media/img/cases-washington-s@2x.jpg 2x">
 									<img src="media/img/cases-washington.jpg" srcset="media/img/cases-washington@2x.jpg 2x" alt="" loading="lazy">
+								</picture>
+							</div>
+			
+						</div>
+
+						<div class="swiper-slide">
+
+							<div class="cases-slider__header">
+								<h2 class="g-h2">
+									How to abolish slavery and save <span class="nowrap">$1 000 000</span>
+								</h2>
+							</div>
+
+							<div class="cases-slider__client">
+								<span>Client -</span>
+								<a class="cases-slider__client-link" href="404.html">
+									Abraham Lincoln
+								</a>
+							</div>
+
+							<div class="cases-slider__image">
+								<picture>
+									<source media="(max-width: 770px)" srcset="media/img/cases-lincoln-s.jpg, media/img/cases-lincoln-s@2x.jpg 2x">
+									<img src="media/img/cases-lincoln.jpg" srcset="media/img/cases-lincoln@2x.jpg 2x" alt="" loading="lazy">
 								</picture>
 							</div>
 			
@@ -595,6 +588,8 @@ get_template_part('parts/header');
 
 								</div>
 
+								<div class="vertical-divider"></div>
+
 								<div class="consult-form__aside">
 									<div class="consult-form__aside-info-list aside-info-list aside-info-list--small">
 
@@ -668,6 +663,8 @@ get_template_part('parts/header');
 									</div>
 								
 								</div>
+
+								<div class="vertical-divider"></div>
 
 								<div class="consult-form__aside">
 									<div class="consult-form__aside-info-list aside-info-list">
@@ -744,6 +741,8 @@ get_template_part('parts/header');
 
 								</div>
 
+								<div class="vertical-divider"></div>
+
 								<div class="consult-form__aside">
 									<div class="consult-form__aside-info-list aside-info-list aside-info-list--small">
 
@@ -768,12 +767,10 @@ get_template_part('parts/header');
 										</span>
 									</a>
 								</div>
-				
-
 
 							</div>
 
-							<div class="swiper-slide">
+							<div class="swiper-slide last-slide">
 								<div class="consult-form__main">
 
 									<div class="modal-textbox">
@@ -820,6 +817,8 @@ get_template_part('parts/header');
 									</div>
 
 								</div>
+
+								<div class="vertical-divider"></div>
 
 								<div class="consult-form__aside">
 									<div class="consult-form__aside-info-list aside-info-list aside-info-list--small">
@@ -906,7 +905,7 @@ get_template_part('parts/header');
 					<div class="confirm-content__video-player-link video-player-link">
 						<div class="video-player-link__container">
 							<div class="video-player-link__back-image">
-								<img src="media/img/material-small-04.jpg" srcset="media/img/material-small-04@2x.jpg 2x" alt="" loading="lazy">
+								<img src="media/img/material-preview-04.jpg" srcset="media/img/material-preview-04@2x.jpg 2x" alt="" loading="lazy">
 							</div>
 							<div class="video-player-link__wrapper">
 								<p class="video-player-link__info">60 seconds about what's inside</p>
@@ -1034,6 +1033,8 @@ get_template_part('parts/header');
 									<div class="form-report"></div>
 							
 								</div>
+
+								<div class="vertical-divider"></div>
 			
 								<div class="feedback-content__contact-method">
 									<div class="radio">
@@ -1181,6 +1182,8 @@ get_template_part('parts/header');
 							
 								</div>
 
+								<div class="vertical-divider"></div>
+
 								<div class="feedback-content__contact-method">
 									<div class="radio">
 										<input type="radio" id="radio-message-contact-method-3" name="message-contact-method" value="telegram" checked>
@@ -1318,6 +1321,23 @@ get_template_part('parts/header');
 	</div>
 </footer>
 
+<div class="rotation-alert">
+	<p class="rotation-alert__text">Please, turn the device</p>
+	<div class="rotation-alert__image">
+		<div class="rotation-alert__image-outer">
+			<svg>
+				<use href="media/img/device-rotate-sprite.svg#icon-arrows"></use>
+			</svg>
+		</div>
+		<div class="rotation-alert__image-inner">
+			<svg>
+				<use href="media/img/device-rotate-sprite.svg#icon-mobile"></use>
+			</svg>
+		</div>
+	</div>
+</div>
+
+
 
 	<div id="light-build-notification" class="scroll-lock-item-m">L</div>
 	<style>
@@ -1364,6 +1384,13 @@ get_template_part('parts/header');
 		if (lbn_cookie && lbn_cookie == 'left') lbn_elem.classList.add('lbn-left');
 	</script>
 
+
+<noscript>
+	<div class="noscript-alert">
+		<p>For full functionality of this site it is necessary to enable JavaScript.<br>Here are the <a href="https://www.enable-javascript.com/">instructions how to enable JavaScript in your web browser</a>.</p><br>
+		<p>Для полной функциональности этого сайта необходимо включить JavaScript.<br>Вот <a href="https://www.enable-javascript.com/ru/">инструкции, как включить JavaScript в вашем браузере</a>.</p>
+	</div>
+</noscript>
 
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 <script src="js/website.script.js"></script>

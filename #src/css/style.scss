@@ -34,7 +34,7 @@ $container-width: $container-padding * 2 + $container-base-width;
 $desktop: 1920;
 $tablet: 992;
 $mobile: 770;
-$mobile-s: 480;
+$mobile-s: 480; // used for width and height
 $media-desktop: $desktop;
 $media-desktop2: 1030;
 // $media-desktop3: 1030;
@@ -43,7 +43,7 @@ $media-mobile: $mobile;
 $media-mobile-s: $mobile-s;
 
 $media-header: $mobile;
-$media-header2: 450;
+$media-header2: $mobile-s;
 
 $media-footer: $mobile;
 $media-footer2: 448;

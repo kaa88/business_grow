@@ -17,14 +17,17 @@
 	justify-content: space-between;
 	align-items: flex-end;
 	transition: background-color $timer-menu;
-	@media (max-width: $media-header+px) {
-		padding: 28px 10px 22px 15px;
-	}
 	@media (min-width: $media-header+1+px) {
 		.page-home & {
 			// max-width: 1920px;
 			padding-right: em(30);
 		}
+	}
+	@media (max-width: $media-header+px) {
+		padding: 28px 10px 22px 15px;
+	}
+	@media (max-width: $media-header2+px) {
+		padding: 18px 10px 17px 15px;
 	}
 	&._active {
 		background-color: $color03;
@@ -93,13 +96,13 @@
 	cursor: pointer; //REQ!
 	user-select: none; //REQ!
 	position: relative;
-	// transition: all;
 	@media (min-width: $media-header+1+px) {
 		display: none; //REQ!
 	}
-	// .page-home & {
-		color: $color02;
-	// }
+	@media (max-width: $media-header2+px) {
+		font-size: 22px;
+	}
+	color: $color02;
 	.no-background & {
 		color: $color03;
 	}	
@@ -305,6 +308,9 @@
 	font-size: em(19);
 	@media (max-width: $media-header+px) {
 		font-size: 14px;
+	}
+	@media (max-width: $media-header2+px) {
+		font-size: 11px;
 	}
 	&__link {
 		display: flex;

@@ -14,9 +14,12 @@
 			}
 		}
 	}
-	@media (max-width: $mobile+px){// (max-height: $mobile-s+px) {//
+	@media (max-width: $mobile+px) {//
 		align-self: start;
 		padding-top: 15px;
+		.page-home &, .page-404 &, .page-knowledge & {
+			padding-top: 30px;
+		}
 	// 	padding-bottom: 0;//calc(3.7vh + 15px);
 	// 	.page-cases &, .page-categories & {
 	// 		padding-top: 0;
