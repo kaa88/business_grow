@@ -157,9 +157,11 @@ const formToEmail = {
 	},
 
 	log: function(formData) {
+		console.log('# # # Form entries: # # #');
 		for (let pair of formData.entries()) {
 			console.log(pair[0] + ': ' + pair[1]);
 		}
+		console.log('# # # end # # #');
 	},
 
 	addCustomInputs: function(e, form, elemName) {

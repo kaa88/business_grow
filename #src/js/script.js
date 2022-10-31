@@ -46,7 +46,9 @@ jsMediaQueries.init({
 
 // Scroll lock //
 @@include('front/scroll_lock.js')
-scrollLock.init()
+scrollLock.init({
+	useDefaultGroups: false
+})
 
 //////////////////////////////////////////////////
 
@@ -96,59 +98,7 @@ for (let i = 0; i < footerCloneContainers.length; i++) {
 }
 //
 
-modal.init({
-	closeOldIfNew: true,
-	on: {
-		'any': {
-			open: function(event, content, timeout) {
-				header.headerElem.classList.add('_active-modal-z');
-
-				if (content.className.match(/--light/)) {
-					header.headerElem.classList.remove('_active-modal-dark');
-					header.headerElem.classList.add('_active-modal-light');
-				}
-				if (content.className.match(/--dark/)) {
-					header.headerElem.classList.remove('_active-modal-light');
-					header.headerElem.classList.add('_active-modal-dark');
-				}
-				
-				headerMenuCloseButton.classList.add('_active');
-				window.scroll({top: 0, behavior: 'smooth'});
-			},
-			close: function(event, content, timeout) {
-				let openedModals = modal.check();
-				if (!openedModals) {
-					header.headerElem.classList.remove('_active-modal-light');
-					header.headerElem.classList.remove('_active-modal-dark');
-					header.headerElem.classList.remove('_active-modal-transform'); //?
-					headerMenuCloseButton.classList.remove('_active');
-					setTimeout(()=>{header.headerElem.classList.remove('_active-modal-z')}, timeout);
-				}
-			},
-		},
-		'modal-call': {
-			close: function(event, content, timeout) {
-				setTimeout(() => {
-					swipers.modal_call.slidePrev();
-				}, timeout);
-			}
-		},
-		'modal-message': {
-			close: function(event, content, timeout) {
-				setTimeout(() => {
-					swipers.modal_msg.slidePrev();
-				}, timeout);
-			}
-		},
-		'modal-access': {
-			close: function(event, content, timeout) {
-				setTimeout(() => {
-					swipers.modal_access.slidePrev();
-				}, timeout);
-			}
-		}
-	}
-})
+// moved modal.init to the end because of swiper links late loading
 
 //////////////////////////////////////////////////
 
@@ -270,7 +220,8 @@ const swipers = {
 		modal_call: '.modal__call-slider',
 		modal_msg: '.modal__msg-slider',
 		modal_access: '.modal__access-slider',
-		cases: '.cases-slider',
+		cases_top: '.cases-slider__top',
+		cases_bot: '.cases-slider__bottom',
 		materials: '.materials-slider .swiper',
 	},
 	settings: {
@@ -281,15 +232,16 @@ const swipers = {
 
 // Check number of slides in materials-slide
 swipers.checkMaterialSlides = function() {
-	let sliderWrapperEl = document.querySelector(this.materials + ' .swiper-wrapper');
+	let maxSlides = 9;
+	let sliderWrapperEl = document.querySelector(this.selectors.materials + ' .swiper-wrapper');
 	if (!sliderWrapperEl) return;
 	let newWrapperString = '', lastSlideElString = sliderWrapperEl.querySelector('.last-slide').outerHTML;
-	for (let i = 0; i <= 9; i++) {
-		if (i == 9 && sliderWrapperEl.children[i]) {
+	for (let i = 0; i <= maxSlides; i++) {
+		if (i == maxSlides && sliderWrapperEl.children[i]) {
 			newWrapperString += lastSlideElString;
 			break;
 		}
-		if (i > sliderWrapperEl.children.length -1) newWrapperString += '<div class="swiper-slide _empty"></div>';
+		if (i > sliderWrapperEl.children.length -1) newWrapperString += '<span class="swiper-slide _empty"></span>';
 		else newWrapperString += sliderWrapperEl.children[i].outerHTML;
 	}
 	sliderWrapperEl.innerHTML = newWrapperString;
@@ -331,7 +283,7 @@ if (typeof Swiper !== 'undefined') {
 		spaceBetween: swipers.settings.spaceBetween,
 		allowTouchMove: false
 	})
-	swipers.cases = new Swiper(swipers.selectors.cases, {
+	swipers.cases_top = new Swiper(swipers.selectors.cases_top, {
 		navigation: {
 			nextEl: '.cases-slider__nav-next',
 			prevEl: '.cases-slider__nav-prev',
@@ -340,6 +292,13 @@ if (typeof Swiper !== 'undefined') {
 		speed: swipers.settings.speed,
 		spaceBetween: 20,
 	})
+	swipers.cases_bot = new Swiper(swipers.selectors.cases_bot, {
+		loop: true,
+		speed: swipers.settings.speed,
+		spaceBetween: 20,
+	})
+	swipers.cases_top.controller.control = swipers.cases_bot;
+	swipers.cases_bot.controller.control = swipers.cases_top;
 	swipers.materials = new Swiper(swipers.selectors.materials, {
 		navigation: {
 			prevEl: '.materials-slider__button-prev',
@@ -678,11 +637,56 @@ mobileBackground.init();
 
 //////////////////////////////////////////////////
 
-// Screen lock orientation ?
-// screen.orientation.lock('landscape');
-// console.log(screen.orientation.angle)
-// window.addEventListener('resize', function(e) {
-// 	console.log(e)
-// })
+modal.init({
+	closeOldIfNew: true,
+	on: {
+		'any': {
+			open: function(event, content, timeout) {
+				header.headerElem.classList.add('_active-modal-z');
 
-// сделать виндов эвент на ресайз, и передать angle в стиль html эл-та
+				if (content.className.match(/--light/)) {
+					header.headerElem.classList.remove('_active-modal-dark');
+					header.headerElem.classList.add('_active-modal-light');
+				}
+				if (content.className.match(/--dark/)) {
+					header.headerElem.classList.remove('_active-modal-light');
+					header.headerElem.classList.add('_active-modal-dark');
+				}
+				
+				headerMenuCloseButton.classList.add('_active');
+				window.scroll({top: 0, behavior: 'smooth'});
+			},
+			close: function(event, content, timeout) {
+				let openedModals = modal.check();
+				if (!openedModals) {
+					header.headerElem.classList.remove('_active-modal-light');
+					header.headerElem.classList.remove('_active-modal-dark');
+					header.headerElem.classList.remove('_active-modal-transform'); //?
+					headerMenuCloseButton.classList.remove('_active');
+					setTimeout(()=>{header.headerElem.classList.remove('_active-modal-z')}, timeout);
+				}
+			},
+		},
+		'modal-call': {
+			close: function(event, content, timeout) {
+				setTimeout(() => {
+					swipers.modal_call.slidePrev();
+				}, timeout);
+			}
+		},
+		'modal-message': {
+			close: function(event, content, timeout) {
+				setTimeout(() => {
+					swipers.modal_msg.slidePrev();
+				}, timeout);
+			}
+		},
+		'modal-access': {
+			close: function(event, content, timeout) {
+				setTimeout(() => {
+					swipers.modal_access.slidePrev();
+				}, timeout);
+			}
+		}
+	}
+})

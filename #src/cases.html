@@ -25,83 +25,89 @@ get_template_part('parts/header');
 <main class="main">
 	<div class="main__container container">
 
-		<!-- <section class="main__cases cases"> -->
-			<!-- <div class="cases__container container"> -->
-				
-				<a class="main__backlink" href="categories.html">
-					<i class="icon-arrow desktop-only"></i>
-					<i class="icon-arrow2 mobile-only"></i>
-					<span>categories</span>
-				</a>
- 
-				<div class="main__cases-slider cases-slider swiper">
-					<div class="cases-slider__nav-buttons">
-						
-						<div class="cases-slider__nav-prev">
-							<p>previous case</p>
-							<i class="icon-arrow"></i>
+		<a class="main__backlink" href="categories.html">
+			<i class="icon-arrow desktop-only"></i>
+			<i class="icon-arrow2 mobile-only"></i>
+			<span>categories</span>
+		</a>
+
+		<div class="main__cases-slider cases-slider swiper">
+			
+			<div class="cases-slider__top swiper">
+				<div class="swiper-wrapper">
+
+					<div class="swiper-slide">
+						<div class="cases-slider__header">
+							<h2 class="g-h2">
+								How to compose the text of the declaration of independence in <span class="nowrap">2 days</span>
+							</h2>
 						</div>
-						
-						<div class="cases-slider__nav-next">
-							<p>next case</p>
-							<i class="icon-arrow"></i>
+
+						<div class="cases-slider__client">
+							<span>Client -</span>
+							<a class="cases-slider__client-link" href="404.html">
+								George Washington
+							</a>
 						</div>
 					</div>
-					<div class="swiper-wrapper">
 
-						<div class="swiper-slide">
-
-							<div class="cases-slider__header">
-								<h2 class="g-h2">
-									How to compose the text of the declaration of independence in <span class="nowrap">2 days</span>
-								</h2>
-							</div>
-
-							<div class="cases-slider__client">
-								<span>Client -</span>
-								<a class="cases-slider__client-link" href="404.html">
-									George Washington
-								</a>
-							</div>
-
-							<div class="cases-slider__image">
-								<picture>
-									<source media="(max-width: 770px)" srcset="media/img/cases-washington-s.jpg, media/img/cases-washington-s@2x.jpg 2x">
-									<img src="media/img/cases-washington.jpg" srcset="media/img/cases-washington@2x.jpg 2x" alt="" loading="lazy">
-								</picture>
-							</div>
-			
+					<div class="swiper-slide">
+						<div class="cases-slider__header">
+							<h2 class="g-h2">
+								How to abolish slavery and save <span class="nowrap">$1 000 000</span>
+							</h2>
 						</div>
 
-						<div class="swiper-slide">
-
-							<div class="cases-slider__header">
-								<h2 class="g-h2">
-									How to abolish slavery and save <span class="nowrap">$1 000 000</span>
-								</h2>
-							</div>
-
-							<div class="cases-slider__client">
-								<span>Client -</span>
-								<a class="cases-slider__client-link" href="404.html">
-									Abraham Lincoln
-								</a>
-							</div>
-
-							<div class="cases-slider__image">
-								<picture>
-									<source media="(max-width: 770px)" srcset="media/img/cases-lincoln-s.jpg, media/img/cases-lincoln-s@2x.jpg 2x">
-									<img src="media/img/cases-lincoln.jpg" srcset="media/img/cases-lincoln@2x.jpg 2x" alt="" loading="lazy">
-								</picture>
-							</div>
-			
+						<div class="cases-slider__client">
+							<span>Client -</span>
+							<a class="cases-slider__client-link" href="404.html">
+								Abraham Lincoln
+							</a>
 						</div>
-						
 					</div>
+
 				</div>
+			</div>
 
-			<!-- </div> -->
-		<!-- </section> -->
+			<div class="cases-slider__nav-buttons">
+				<div class="cases-slider__nav-prev">
+					<p>previous case</p>
+					<i class="icon-arrow"></i>
+				</div>
+				<div class="cases-slider__nav-next">
+					<p>next case</p>
+					<i class="icon-arrow"></i>
+				</div>
+			</div>
+
+			<div class="cases-slider__bottom swiper">
+				<div class="swiper-wrapper">
+
+					<div class="swiper-slide">
+
+						<div class="cases-slider__image">
+							<picture>
+								<source media="(max-width: 770px)" srcset="media/img/cases-washington-s.jpg, media/img/cases-washington-s@2x.jpg 2x">
+								<img src="media/img/cases-washington.jpg" srcset="media/img/cases-washington@2x.jpg 2x" alt="" loading="lazy">
+							</picture>
+						</div>
+		
+					</div>
+
+					<div class="swiper-slide">
+
+						<div class="cases-slider__image">
+							<picture>
+								<source media="(max-width: 770px)" srcset="media/img/cases-lincoln-s.jpg, media/img/cases-lincoln-s@2x.jpg 2x">
+								<img src="media/img/cases-lincoln.jpg" srcset="media/img/cases-lincoln@2x.jpg 2x" alt="" loading="lazy">
+							</picture>
+						</div>
+		
+					</div>
+
+				</div>
+			</div>
+		</div>
 
 		<section class="main__features features">
 			@@include('parts/features.html')
@@ -129,9 +135,11 @@ get_template_part('parts/header');
 	<!-- <?php get_template_part('parts/modal-info'); ?> -->
 	@@include('parts/modal-consult.html')
 	@@include('parts/modal-confirm.html')
-	@@include('parts/modal-video-player.html')
-	@@include('parts/modal-call.html')
 	@@include('parts/modal-message.html')
+	@@include('parts/modal-call.html')
+	@@include('parts/modal-video-player.html')
+	@@include('parts/modal-access.html')
+	@@include('parts/modal-copyright.html')
 </section>
 
 

@@ -51,3 +51,8 @@
 	width: 100%;
 	max-width: $mobile-content-maxw;
 }
+
+// aspect-ratio concat
+@function ratio($one, $two) {
+	@return #{$one + ' / ' + $two};
+}

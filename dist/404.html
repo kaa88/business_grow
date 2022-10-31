@@ -90,7 +90,8 @@ get_template_part('parts/header');
 	Для Animated burger оставить span внутри.
 -->
 
-<header class="header scroll-lock-item-p">
+<!-- <header class="header scroll-lock-item-p"> -->
+<header class="header">
 	<div class="header__bg"></div>
 	<div class="header-menu-turn-off-area"></div>
 	<div class="header__print-address-qr">QR</div>
@@ -154,19 +155,19 @@ get_template_part('parts/header');
 				feedback
 			</a>
 			<div class="header-level__socials socials socials--vertical">
-				<a class="socials__link modal-link" href="#modal-call">
+				<a class="socials__link" href="#vk">
 					<span>vk</span>
 					<i class="icon-vk"></i>
 				</a>
-				<a class="socials__link modal-link" href="#modal-access">
+				<a class="socials__link" href="#telegram">
 					<span>telegram</span>
 					<i class="icon-telegram"></i>
 				</a>
-				<a class="socials__link modal-link" href="#modal-video-player">
+				<a class="socials__link" href="#whatsapp">
 					<span>whatsapp</span>
 					<i class="icon-whatsapp"></i>
 				</a>
-				<a class="socials__link modal-link" href="#modal-confirm">
+				<a class="socials__link" href="#viber">
 					<span>viber</span>
 					<i class="icon-viber"></i>
 				</a>
@@ -181,7 +182,7 @@ get_template_part('parts/header');
 		<div class="header-level header-level--footer">
 			<div class="menu-footer">
 				
-				<a class="menu-footer__copy" href="404.html">© 2022</a>
+				<a class="menu-footer__copy modal-link" href="#modal-copyright">© Author 2022</a>
 				<div class="menu-footer__socials socials">
 					<a class="socials__link" href="#vk">
 						<span>vk</span>
@@ -284,14 +285,54 @@ get_template_part('parts/header');
 	</div>
 </div>
 
-
-
-
-
-<!-- <section class="modal"> -->
+<section class="modal">
 	<!-- <?php get_template_part('parts/modal-info'); ?> -->
-	
-<!-- </section> -->
+	<div class="modal__window" id="modal-copyright">
+		<div class="modal__wrapper">
+			<div class="modal__content">
+				<div class="modal__close-button"><i class="icon-cross"></i></div>
+
+				<div class="modal__header-cover modal__header-cover--light mobile-only"></div>
+
+				<div class="modal__copyright-content copyright-content">
+					<div class="copyright-content__anchor" id="copyright-en"></div>
+					<div class="copyright-content__anchor" id="copyright-ru"></div>
+					<div class="copyright-content__wrapper">
+						<div class="copyright-content__slide">
+							<p class="copyright-content__title">
+								<span>
+									Copyright
+								</span>
+								<a href="#copyright-ru">RU</a>
+							</p>
+							<p class="copyright-content__text">
+								This site was created solely for educational purposes and is not a commercial project. The layout of this site was taken from third-party designers (developers) or from publicly available sources.
+							</p>
+							<p class="copyright-content__text">
+								If you are the author of this layout, write to me by <a class="copyright-content__mail" href="mailto:dre021088@gmail.com">email</a> and I will post a link with your contacts below.
+							</p>
+						</div>
+						<div class="copyright-content__slide">
+							<p class="copyright-content__title">
+								<span>
+									Авторские права
+								</span>
+								<a href="#copyright-en">EN</a>
+							</p>
+							<p class="copyright-content__text">
+								Данный сайт создан исключительно в образовательных целях и не является коммерческим проектом. Макет для верстки данного сайта был взят у сторонних дизайнеров (разработчиков) или из общедоступных источников.
+							</p>
+							<p class="copyright-content__text">
+								Если Вы являетесь автором данного макета, напишите мне на <a class="copyright-content__mail" href="mailto:dre021088@gmail.com">почту</a>, и я размещу ссылку с вашими контактами ниже.
+							</p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</section>
 
 
 <section class="svg-templates">
@@ -315,8 +356,7 @@ get_template_part('parts/header');
 
 		<div class="footer__line"></div>
 		
-		<!-- <p class="footer__copy">© 2022</p> -->
-		<a class="footer__copy" href="404.html">© 2022</a>
+		<a class="footer__copy modal-link" href="#modal-copyright" title="Click me">© Author 2022</a>
 		<div class="footer__socials socials">
 			<a class="socials__link" href="#vk">
 				<span>vk</span>

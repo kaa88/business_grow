@@ -33,14 +33,16 @@ $container-width: $container-padding * 2 + $container-base-width;
 // Media breakpoints //
 $desktop: 1920;
 $tablet: 992;
-$mobile: 770;
+$mobile: 768;
 $mobile-s: 480; // used for width and height
 $media-desktop: $desktop;
 $media-desktop2: 1030;
-// $media-desktop3: 1030;
+$media-desktop3: 1020;
+$media-desktop-s: 1280;
 $media-tablet: $tablet;
 $media-mobile: $mobile;
 $media-mobile-s: $mobile-s;
+$media-mobile-s2: 362;
 
 $media-header: $mobile;
 $media-header2: $mobile-s;
@@ -52,6 +54,14 @@ $media-modal: $mobile;
 $media-modal2: 448;
 
 $mobile-content-maxw: 480px;
+
+$media-ratio: ratio(16, 9);
+$media-ratio2: ratio(5, 4);
+$media-ratio3: ratio(1, 1);
+$media-ratio4: ratio(6, 4);
+$media-ratio5: ratio(15, 9);
+$media-ratio6: ratio(20, 9);
+$media-ratio7: ratio(14, 9);
 
 //////////////////////////////////////////////////
 

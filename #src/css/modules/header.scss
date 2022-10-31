@@ -10,6 +10,7 @@
 	left: 0; //REQ!
 	z-index: 49; //REQ!
 	width: 100%; //REQ!
+	min-width: calc($page-min-width - (100vw - 100%)); //REQ!
 	// max-width: em(1370);
 	padding: 3.7vh 0 2vh 0;
 	// font-size: 0;
@@ -106,7 +107,7 @@
 	.no-background & {
 		color: $color03;
 	}	
-	&._hidden { // for modal
+	&._hidden, .page-404 & { // for modal
 		opacity: 0;
 		visibility: hidden;
 	}
@@ -515,14 +516,14 @@
 .menu-footer{
 	font-size: 16px;
 	max-width: 260px;
-	display: flex;
-	flex-wrap: wrap;
+	display: grid;
+	grid-template-columns: repeat(2, auto);
 	justify-content: space-between;
 	align-items: center;
 	color: $color02;
 	padding: 2.24vh 0px;//17
-	& > *:nth-child(odd) {
-		margin-right: 30%;
+	& > *:nth-child(even) {
+		justify-self: end;
 	}
 	&__copy {
 		font-weight: 500;
