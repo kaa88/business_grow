@@ -30,7 +30,9 @@ body {
 	&.page-home, &.page-404 {
 		grid-template-columns: 100%;
 	}
-	&._locked {overflow: hidden;} //REQ!
+	&._locked {
+		overflow: hidden;
+	} //REQ!
 	
 	@media (min-width: $mobile+1+px) {
 		font-size: calc(16 * 1 / 1080 * 100vmin);
@@ -71,7 +73,19 @@ body {
 		scrollbar-width: thin;
 		scrollbar-color: $color06 transparent;
 	}
+	@media (min-width: $mobile+1+px) {
+		scrollbar-width: thin;
+	}
 }
+
+@-moz-document url-prefix() {
+	body {
+		@media (max-width: $media-mobile+px) {
+			overflow-x: hidden;
+		}
+	}
+}
+
 .container {
 	width: 100%; //REQ!
 	max-width: em(1380);//$container-width+px; //REQ!
@@ -648,7 +662,7 @@ i {
 		position: relative;
 		width: 100%;
 		height: 100%;
-		transition: transform 1s;
+		transition: transform .8s;
 		transform-style: preserve-3d;
 	}
 	&__slide {
@@ -662,6 +676,7 @@ i {
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		transform-style: preserve-3d;
 		&:nth-child(2) {
 			transform: rotateY(180deg);
 		}

@@ -314,7 +314,7 @@
 	- url (ссылка на html-объект или файл (файл плохо поддерживается))
 		css:
 			clip-path: url("#svg-shape"); // ссылка на svg
-			#svg-shape {transform: scale(0.001133, 0.001923);} // настройка координат (разм. svg-файла / разм. эл-та / 100), нужна ручная подгонка
+			#svg-shape {transform: scale(0.001133, 0.001923);} // настройка координат (разм. svg-файла / разм. эл-та / 100), нужна ручная подгонка... или сделать в редакторе размер '1x1' (viewbox '0 0 1 1'), тогда transform не нужен
 			.svg-templates {
 				position: fixed;
 				top: 0;
@@ -334,6 +334,15 @@
 /* Замена базового стиля автозаполнения форм
 	box-shadow: inset 0 1000px 0 0 #fff;
 	-webkit-text-fill-color: #222;
+*/
+
+/* Input number убрать стандартные стрелки
+	-moz-appearance: textfield;
+	&::-webkit-outer-spin-button,
+	&::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
 */
 
 /* Скроллбар
@@ -368,6 +377,12 @@
 	li :before {
 		content: counter(num) '.';
 		counter-increment: num;
+	}
+*/
+
+/* Firefox hack (css query that other browsers ignore)
+	@-moz-document url-prefix() {
+		// .elem { styles }
 	}
 */
 

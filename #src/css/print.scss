@@ -1,4 +1,6 @@
-@media print {
+@import 'colors';
+
+@media print { // ~720px
 	* {
 		background: #fff !important;
 		color: #000 !important;
@@ -16,6 +18,12 @@
 	h1, h2, h3, h4, h5, h6 {
 		page-break-after: avoid;
 	}
+	
+	body {
+		display: block;
+		max-width: 100vw;
+		overflow: hidden;
+	}
 
 	.header-menu-turn-off-area,
 	.header-menu-open-btn,
@@ -25,9 +33,38 @@
 	.header-submenu-hide-wrapper,
 	.breadcrumbs,
 	.form,
+	.modal,
+	.features-slider,
+	.text-button-simple,
+	.text-button-with-arrow,
 	.up-button,
+	.decor-img,
+	.complex-image,
+	.main__video-link,
+	.cases-slider__nav-buttons,
+	.main__backlink,
 	.noscript-alert {
 		display: none;
+	}
+
+	.features {
+		margin: 30px auto 0;
+		max-width: 480px;
+		&__items {
+			display: flex !important;
+		}
+	}
+	.main__about {
+		margin-top: 30px;
+	}
+	.about__achievements {
+		margin-top: 20px;
+	}
+	.achievements {
+		grid-template-columns: 100%;
+		&__divider, &__link {
+			display: none;
+		}
 	}
 
 	.header {
@@ -35,10 +72,14 @@
 		display: flex;
 		flex-direction: row-reverse;
 		justify-content: space-between;
+		align-items: flex-start;
 		&__print-address, &__print-address-qr {
 			display: block;
 			font-family: Arial;
 			font-size: 26px;
+		}
+		&__print-address-qr {
+			margin-left: 20px;
 		}
 	}
 
@@ -47,6 +88,36 @@
 		text-decoration: underline;
 	}
 
+	.logo a {
+		text-decoration: none;
+	}
+	.logo__up i {
+		background-color: $color04 !important;
+	}
+
+	.main {
+		padding-top: 0 !important;
+		border: none;
+		&__container > * {
+			max-width: 600px !important;
+		}
+	}
+
+	.footer {
+		padding: 10px 30px;
+		&__socials a {
+			text-decoration: none;
+		}
+	}
+	.page-knowledge .g-text {
+		margin-top: 20px;
+	}
+	.materials-slider .swiper-wrapper {
+		width: calc(100vw - 60px);
+		display: grid;
+		grid-template-columns: repeat(auto-fit, 100px);
+		align-items: start;
+	}
 }
 // Перенос строк. Применяется к блочным эл-там. В Chrome работает только с body.children
 // page-break-inside: avoid;

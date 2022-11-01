@@ -30,10 +30,10 @@ $container-width: $container-padding * 2 + $container-base-width;
 
 //////////////////////////////////////////////////
 
-// Media breakpoints //
-$desktop: 1920;
-$tablet: 992;
-$mobile: 768;
+// Media breakpoints // xs s m l xl
+$desktop: 1920; // 1280 - 4k?
+$tablet: 992; // 768 - 1280
+$mobile: 768; // 280 - 768
 $mobile-s: 480; // used for width and height
 $media-desktop: $desktop;
 $media-desktop2: 1030;
@@ -48,10 +48,12 @@ $media-header: $mobile;
 $media-header2: $mobile-s;
 
 $media-footer: $mobile;
-$media-footer2: 448;
+$media-footer2: $mobile-s;
+// $media-footer2: 448;
 
 $media-modal: $mobile;
-$media-modal2: 448;
+$media-modal2: $mobile-s;
+// $media-modal2: 448;
 
 $mobile-content-maxw: 480px;
 
@@ -62,6 +64,7 @@ $media-ratio4: ratio(6, 4);
 $media-ratio5: ratio(15, 9);
 $media-ratio6: ratio(20, 9);
 $media-ratio7: ratio(14, 9);
+// $m-ratio-159
 
 //////////////////////////////////////////////////
 
@@ -75,6 +78,7 @@ $timer-slider: 0.5s;
 $timer-accordion: 0.3s;
 $timer-tabs: 0.8s;
 $timer-progress: 0.3s;
+// $t-hover
 
 //////////////////////////////////////////////////
 

@@ -46,17 +46,16 @@
 		@media (max-width: $media-modal+px) {
 			padding: 0 22px;
 			&-text {
-				font-size: 10px;
+				font-size: 13px;
 			}
 			&-icon {
-				font-size: 7px;
-				margin-top: 1px;
+				font-size: 8px;
+				margin-top: 2px;
 			}
 		}
 	}
 	&__list-wrapper {
 		position: absolute;
-		// top: 100%;
 		top: em(45);
 		left: 0;
 		width: 100%;
@@ -70,7 +69,7 @@
 	&__list {
 		padding: em(50) 0 em(15);
 		@media (max-width: $media-modal+px) {
-			padding: 25px 0 0;
+			padding: 25px 0 1px;
 		}
 	}
 	&__option {
@@ -84,7 +83,7 @@
 		@media (max-width: $media-modal+px) {
 			height: 40px;
 			padding: 0 22px;
-			font-size: 10px;
+			font-size: 12px;
 		}
 		&:last-child {
 			margin-bottom: em(10);

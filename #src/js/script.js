@@ -254,7 +254,7 @@ if (typeof Swiper !== 'undefined') {
 	swipers.features = new Swiper(swipers.selectors.features, {
 		slidesPerView: 'auto',
 		slidesOffsetBefore: 30,
-		slidesOffsetAfter: 15,
+		slidesOffsetAfter: 30,
 		spaceBetween: 10,
 		freeMode: true,
 	})
@@ -400,8 +400,8 @@ for (let i = 0; i < swipers.consultSlideButtons.length; i++) {
 //////////////////////////////////////////////////
 
 // Print version QR-code //
-// @ @include('front/qr_code.js')
-// printQRcode();
+@@include('front/qr_code.js')
+printQRcode(100); // param = size
 
 //////////////////////////////////////////////////
 
@@ -443,7 +443,8 @@ formToEmail.init({
 const timeSelect = {
 	names: {
 		activeClass: '_active',
-		selectedClass: '_selected'
+		selectedClass: '_selected',
+		selectionClass: '_selection',
 	},
 	init: function() {
 		this.elem = document.querySelector('.time-select');
@@ -455,6 +456,8 @@ const timeSelect = {
 		this.inputM = inputs[1];
 		this.inputH.addEventListener('click', function() {this.select()})
 		this.inputM.addEventListener('click', function() {this.select()})
+		this.inputH.addEventListener('select', function(e) {this.selection = e.target}.bind(this))
+		this.inputM.addEventListener('select', function(e) {this.selection = e.target}.bind(this))
 		this.inputH.addEventListener('keydown', this.checkInputHourValue.bind(this))
 		this.inputM.addEventListener('keydown', this.checkInputMinuteValue.bind(this))
 		this.inputH.addEventListener('input', this.checkInputTimeFormat.bind(this))
@@ -506,26 +509,31 @@ const timeSelect = {
 		if (item == this.selectorH) return this.inputH;
 		if (item == this.selectorM) return this.inputM;
 	},
-
+	removeSelection: function() {
+		this.selection = false;
+	},
 	checkInputHourValue: function(e) {
-		if (window.getSelection().type != 'Range' && e.target.value.length >= 2 && e.key.match(/[0-9]/)) {
+		if (this.selection != e.target && e.target.value.length >= 2 && e.key.match(/[0-9]/)) {
 			this.inputM.select();
 		}
 	},
 	checkInputMinuteValue: function(e) {
-		if (window.getSelection().type != 'Range' && e.target.value.length >= 2 && e.key.match(/[0-9]/)) {
+		if (this.selection != e.target && e.target.value.length >= 2 && e.key.match(/[0-9]/)) {
 			e.preventDefault();
 		}
 		if (e.target.value.length == 0 && e.key == 'Backspace') {
 			this.inputH.select();
+			e.preventDefault();
 		}
 	},
 	checkInputTimeFormat: function(e) {
+		this.removeSelection();
 		let maxValue = 23; // hours
 		if (e.target == this.inputM) maxValue = 59; // minutes
 		if (e.target.value > maxValue) e.target.value = maxValue;
 	},
 	checkInputBlur: function(e) {
+		this.removeSelection();
 		if (e.target.value.length == 0) e.target.value = '00';
 		if (e.target.value.length == 1) e.target.value = '0' + e.target.value;
 
@@ -690,3 +698,13 @@ modal.init({
 		}
 	}
 })
+
+//////////////////////////////////////////////////
+
+// Firefox scroll block
+// document.addEventListener('scroll', function(e) {
+// 	console.log('привет дефолт')
+// 	if (document.body.classList.contains('_locked')) {
+// 		e.preventDefault();
+// 	}
+// })
