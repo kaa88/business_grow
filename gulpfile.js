@@ -5,7 +5,7 @@ let isLiteBuild = isWP = false, load = {};
 // Basic settings //
 let scriptsPrefix = 'website.'
 
-isLiteBuild = true
+isLiteBuild = false
 // load.media = true
 // load.libs = true
 // load.service = true
