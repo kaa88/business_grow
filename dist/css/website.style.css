@@ -309,9 +309,12 @@ body._locked {
     background: #8D97A1;
   }
 }
-@media (min-width: 769px) {
+@media (max-width: 768px) {
   body {
-    scrollbar-width: thin;
+    scrollbar-width: none;
+  }
+  body::-webkit-scrollbar {
+    width: 0;
   }
 }
 
@@ -1018,12 +1021,13 @@ i {
 .copyright-content {
   width: 100%;
   max-width: 53.75em;
+  height: 100%;
   padding: 0 1.875em;
-  overflow: hidden;
 }
 @media (max-width: 768px) {
   .copyright-content {
     padding: 0 30px;
+    padding-top: calc(25vh - 72px);
   }
 }
 .copyright-content__anchor {
@@ -1040,19 +1044,15 @@ i {
 .copyright-content__wrapper {
   position: relative;
   width: 100%;
-  height: 100%;
-  -webkit-transition: -webkit-transform 0.8s;
-  transition: -webkit-transform 0.8s;
-  -o-transition: transform 0.8s;
-  transition: transform 0.8s;
-  transition: transform 0.8s, -webkit-transform 0.8s;
+  -webkit-transition: -webkit-transform 0.7s;
+  transition: -webkit-transform 0.7s;
+  -o-transition: transform 0.7s;
+  transition: transform 0.7s;
+  transition: transform 0.7s, -webkit-transform 0.7s;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
 }
 .copyright-content__slide {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   -webkit-backface-visibility: hidden;
@@ -1064,9 +1064,9 @@ i {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -1074,6 +1074,9 @@ i {
           transform-style: preserve-3d;
 }
 .copyright-content__slide:nth-child(2) {
+  position: absolute;
+  top: 0;
+  left: 0;
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
 }
@@ -1087,6 +1090,12 @@ i {
   line-height: 1.7142857143em;
   text-align: center;
   position: relative;
+  z-index: 2;
+}
+@media (max-width: 362px) {
+  .copyright-content__title {
+    font-size: 18px;
+  }
 }
 .copyright-content__title a, .copyright-content__title a:visited {
   position: absolute;
@@ -1106,6 +1115,11 @@ i {
   -o-transition: all 0.15s;
   transition: all 0.15s;
 }
+@media (max-width: 362px) {
+  .copyright-content__title a, .copyright-content__title a:visited {
+    font-size: 11px;
+  }
+}
 .copyright-content__title a:hover {
   background-color: #fff;
   border-color: #8D97A1;
@@ -1116,6 +1130,11 @@ i {
   text-align: justify;
   text-indent: 1.875em;
 }
+@media (max-width: 362px) {
+  .copyright-content__text {
+    font-size: 12px;
+  }
+}
 .copyright-content__mail, .copyright-content__mail:visited {
   font-weight: 700;
   color: #0f73a8;
@@ -1123,6 +1142,7 @@ i {
 }
 /* Modules */
 .footer {
+  width: 100%;
   position: relative;
 }
 @media (min-width: 769px) {
@@ -1180,6 +1200,7 @@ i {
   .footer__line {
     left: 30px;
     width: calc(100% - 60px);
+    min-width: 1px;
     z-index: 2;
   }
 }
@@ -1679,12 +1700,15 @@ form button {
   display: none;
 }
 .header-level--middle .socials {
+  display: none;
   position: absolute;
   right: 0;
   top: calc(100% + 0.9375em);
 }
-.header-level--middle .socials:not(.page-home .header-level--middle .socials) {
-  display: none;
+.page-home .header-level--middle .socials {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 .header-level--bottom {
   display: -webkit-box;
@@ -2372,6 +2396,11 @@ form button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+@media (max-width: 768px) {
+  #modal-video-player .modal__content {
+    padding-bottom: var(--header-height);
+  }
 }
 @media (max-width: 768px) {
   .modal._visible .modal__content {
@@ -4106,10 +4135,15 @@ form button {
     text-transform: inherit;
   }
 }
-.main .triangle-arrow {
+.main__triangle-arrow {
   margin-top: 8px;
   margin-left: auto;
   margin-right: auto;
+}
+.main__triangle-arrow span {
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
 }
 .main__homepage-title-description {
   max-width: 28.125em;
@@ -4402,11 +4436,6 @@ form button {
 }
 .triangle-arrow span {
   display: inline-block;
-}
-.triangle-arrow span:not(.achievements .triangle-arrow span) {
-  -webkit-transform: rotate(90deg);
-      -ms-transform: rotate(90deg);
-          transform: rotate(90deg);
 }
 .triangle-arrow span:before, .triangle-arrow span:after {
   content: "";

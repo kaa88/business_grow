@@ -10,6 +10,7 @@ const developer_panel = {
 	// кнопки навигации, которые листают сразу все свайперы
 	// координаты мыши
 	// кнопка, которая включает подсветку эл-тов, которые создают гориз прокрутку
+	// размер скроллбара
 }
 
 
@@ -51,7 +52,7 @@ const aspectRatioCalculator = {
 // }
 // bodyEmCheck();
 
-// window.onload = developer_panel.init();
+// window.addEventListener('load', developer_panel.init);
 
 //////////////////////////////////////////////////
 
@@ -1644,6 +1645,7 @@ const timeSelect = {
 		if (e && e != 'init') {
 			let targetInput = this.getPair(e.target.parentElement);
 			targetInput.setAttribute('value', e.target.innerHTML);
+			targetInput.value = e.target.innerHTML;
 		}
 		//
 
@@ -1706,13 +1708,13 @@ const decorImage = {
 		this.elem.querySelector('img').style.transform = angle;
 		if (this.clone) this.clone.querySelector('img').style.transform = angle;
 
-		let that = this;
-		window.addEventListener('DOMContentLoaded', function() {
-			setTimeout(()=> {
-				that.elem.classList.add('loaded');
-				if (that.clone) that.clone.classList.add('loaded');
-			}, 200)
-		})
+		// let that = this;
+		// window.addEventListener('DOMContentLoaded', function() {
+		// 	setTimeout(()=> {
+		// 		that.elem.classList.add('loaded');
+		// 		if (that.clone) that.clone.classList.add('loaded');
+		// 	}, 200)
+		// })
 	}
 }
 decorImage.init();

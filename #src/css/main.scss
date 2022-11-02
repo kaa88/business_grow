@@ -82,10 +82,13 @@
 			text-transform: inherit;
 		}
 	}
-	.triangle-arrow {
+	&__triangle-arrow {
 		margin-top: 8px;
 		margin-left: auto;
 		margin-right: auto;
+		span {
+			transform: rotate(90deg);
+		}
 	}
 	&__homepage-title-description {
 		// margin-top: em(22);
@@ -358,9 +361,6 @@
 	max-width: $mobile-content-maxw;
 	span {
 		display: inline-block;
-		&:not(.achievements &) {
-			transform: rotate(90deg);
-		}
 		&:before, &:after {
 			content: '';
 			display: inline-block;

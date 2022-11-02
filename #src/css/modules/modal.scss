@@ -114,7 +114,18 @@
 		#modal-video-player & {
 			justify-content: center;
 			align-items: center;
+			@media (max-width: $media-modal+px) {
+				padding-bottom: var(--header-height);
+			}
 		}
+		// #modal-copyright & {
+		// 	justify-content: center;
+		// 	align-items: center;
+		// 	@media (max-width: $media-modal+px) {
+		// 		padding-top: 0;
+		// 		padding-bottom: var(--header-height);
+		// 	}
+		// }
 	}
 	&._visible &__content {
 		@media (max-width: $media-modal+px) {

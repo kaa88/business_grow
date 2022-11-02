@@ -23,6 +23,7 @@ body {
 	color: $color03;
 	background-color: $color02;
 	position: relative;
+	// overflow-x: hidden;
 	display: grid;
 	grid-template-columns: calc(100% - em(428) - 3px) em(428);//360 + padding 68 ... 'calc' is for correct swiper width calculation
 	justify-content: space-between;
@@ -73,8 +74,11 @@ body {
 		scrollbar-width: thin;
 		scrollbar-color: $color06 transparent;
 	}
-	@media (min-width: $mobile+1+px) {
-		scrollbar-width: thin;
+	@media (max-width: $mobile+px) {
+		&::-webkit-scrollbar {
+			width: 0;
+		}
+		scrollbar-width: none;
 	}
 }
 
@@ -642,12 +646,16 @@ i {
 }
 
 .copyright-content {
+	// background-color: #ccc;
 	width: 100%;
 	max-width: em(860);
+	height: 100%;
 	padding: 0 em(30);
-	overflow: hidden;
+	// overflow: hidden;
 	@media (max-width: $media-mobile+px) {
 		padding: 0 30px;
+		padding-top: resize-multiplier(120, $mobile, 1.6, 100vh);
+		// padding-bottom: var(--header-height);
 	}
 	&__anchor {
 		display: none;
@@ -661,23 +669,24 @@ i {
 	&__wrapper {
 		position: relative;
 		width: 100%;
-		height: 100%;
-		transition: transform .8s;
+		// height: 100%;
+		transition: transform .7s;
 		transform-style: preserve-3d;
 	}
 	&__slide {
-		position: absolute;
-		top: 0;
-		left: 0;
 		width: 100%;
 		height: 100%;
 		backface-visibility: hidden;
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
+		justify-content: flex-start;
+		// justify-content: center;
 		align-items: center;
 		transform-style: preserve-3d;
 		&:nth-child(2) {
+			position: absolute;
+			top: 0;
+			left: 0;
 			transform: rotateY(180deg);
 		}
 		& > *:not(:last-child) {
@@ -691,6 +700,10 @@ i {
 		line-height: em(60, 35);
 		text-align: center;
 		position: relative;
+		z-index: 2;
+		@media (max-width: $media-mobile-s2+px) {
+			font-size: 18px;
+		}
 		a, a:visited {
 			position: absolute;
 			top: calc(50% - em(20));
@@ -706,6 +719,9 @@ i {
 			border-radius: 50%;
 			color: $color06;
 			transition: all $timer-hover;
+			@media (max-width: $media-mobile-s2+px) {
+				font-size: 11px;
+			}
 		}
 		a:hover {
 			background-color: $color02;
@@ -717,6 +733,9 @@ i {
 		line-height: 1.5;
 		text-align: justify;
 		text-indent: em(30);
+		@media (max-width: $media-mobile-s2+px) {
+			font-size: 12px;
+		}
 	}
 	&__mail, &__mail:visited {
 		font-weight: 700;
