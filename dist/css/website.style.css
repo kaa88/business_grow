@@ -4383,8 +4383,6 @@ form button {
   width: 100%;
   height: 0;
   padding-bottom: 100%;
-  -webkit-clip-path: url("#svg-decor-shape");
-          clip-path: url("#svg-decor-shape");
   background: -webkit-gradient(linear, left top, left bottom, from(#0f73a8), to(#00fbaf));
   background: -o-linear-gradient(top, #0f73a8 0%, #00fbaf 100%);
   background: linear-gradient(180deg, #0f73a8 0%, #00fbaf 100%);

@@ -1715,6 +1715,8 @@ const decorImage = {
 		// 		if (that.clone) that.clone.classList.add('loaded');
 		// 	}, 200)
 		// })
+
+		// ВЕРНУТЬ посте теста сафари
 	}
 }
 decorImage.init();
