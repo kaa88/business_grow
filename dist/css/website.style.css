@@ -4337,23 +4337,39 @@ form button {
 .decor-img {
   position: absolute;
   top: 0;
-  right: 0;
+  right: -1px;
   width: 30vw;
   height: 30vw;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s linear;
+  -o-transition: opacity 0.3s linear;
+  transition: opacity 0.3s linear;
+}
+.decor-img.loaded {
+  opacity: 1;
+}
+.decor-img__container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  height: 0;
+  padding-bottom: 98%;
+  -webkit-transform: rotate(16deg);
+      -ms-transform: rotate(16deg);
+          transform: rotate(16deg);
   border-radius: 50%;
   overflow: hidden;
 }
-.decor-img__container {
+.decor-img__shape {
+  position: absolute;
+  top: 1%;
+  left: 1%;
   width: 98%;
   height: 98%;
-  margin: 1%;
-}
-.decor-img__shape {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background: -o-linear-gradient(150deg, #0f73a8 20%, #00fbaf 100%);
-  background: linear-gradient(-60deg, #0f73a8 20%, #00fbaf 100%);
+  background: -o-linear-gradient(158deg, #0f73a8 20%, #00fbaf 100%);
+  background: linear-gradient(-68deg, #0f73a8 20%, #00fbaf 100%);
   -webkit-clip-path: url("#svg-decor-shape");
           clip-path: url("#svg-decor-shape");
 }
@@ -4377,7 +4393,7 @@ form button {
   left: -5%;
   background-color: #fff;
   width: 110%;
-  height: 55%;
+  height: 54.4%;
   -webkit-clip-path: polygon(0 0, 100% 0, 50% 100%);
           clip-path: polygon(0 0, 100% 0, 50% 100%);
 }
