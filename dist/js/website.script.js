@@ -1708,15 +1708,13 @@ const decorImage = {
 		this.elem.querySelector('img').style.transform = angle;
 		if (this.clone) this.clone.querySelector('img').style.transform = angle;
 
-		// let that = this;
-		// window.addEventListener('DOMContentLoaded', function() {
-		// 	setTimeout(()=> {
-		// 		that.elem.classList.add('loaded');
-		// 		if (that.clone) that.clone.classList.add('loaded');
-		// 	}, 200)
-		// })
-
-		// ВЕРНУТЬ посте теста сафари
+		let that = this;
+		window.addEventListener('DOMContentLoaded', function() {
+			setTimeout(()=> {
+				that.elem.classList.add('loaded');
+				if (that.clone) that.clone.classList.add('loaded');
+			}, 200)
+		})
 	}
 }
 decorImage.init();

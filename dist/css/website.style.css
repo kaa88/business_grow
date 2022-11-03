@@ -4340,6 +4340,21 @@ form button {
   }
 }
 
+.decor-img2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30vw;
+  height: 30vw;
+}
+.decor-img2__container {
+  width: 100%;
+  height: 100%;
+  background-color: lime;
+  -webkit-clip-path: url("#svg-decor-shape");
+          clip-path: url("#svg-decor-shape");
+}
+
 .decor-img {
   position: absolute;
   top: 0;
@@ -4389,8 +4404,8 @@ form button {
   width: 100%;
   height: 0;
   padding-bottom: 100%;
-  -webkit-clip-path: url("#svg-play-button-shape");
-          clip-path: url("#svg-play-button-shape");
+  -webkit-clip-path: url("#svg-decor-shape");
+          clip-path: url("#svg-decor-shape");
   background: -webkit-gradient(linear, left top, left bottom, from(#0f73a8), to(#00fbaf));
   background: -o-linear-gradient(top, #0f73a8 0%, #00fbaf 100%);
   background: linear-gradient(180deg, #0f73a8 0%, #00fbaf 100%);
