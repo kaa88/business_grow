@@ -4418,9 +4418,9 @@ form button {
   width: 100%;
   max-width: 87.5em;
   height: 100%;
-  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), color-stop(60%, #ffffff), to(rgba(0, 0, 0, 0)));
-  background-image: -o-linear-gradient(left, #ffffff, #ffffff 60%, rgba(0, 0, 0, 0));
-  background-image: linear-gradient(to right, #ffffff, #ffffff 60%, rgba(0, 0, 0, 0));
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), color-stop(60%, #ffffff), to(rgba(255, 255, 255, 0)));
+  background-image: -o-linear-gradient(left, #ffffff, #ffffff 60%, rgba(255, 255, 255, 0));
+  background-image: linear-gradient(to right, #ffffff, #ffffff 60%, rgba(255, 255, 255, 0));
   opacity: 0.8;
 }
 
