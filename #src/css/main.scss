@@ -1186,32 +1186,31 @@
 		@media (max-width: $media-mobile-s2+px) {
 			width: 100px;
 		}
-		span {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			width: 100%;
+		&-bg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			// z-index: -1;
+			display: inline-block;
+			width: 200%;
 			height: 100%;
+			background-image: linear-gradient(to right, transparent, $color04, transparent);
+			opacity: 0.8;
+			animation: button-animation 5s infinite alternate;
+		}
+		&-text {
+			// display: flex;
+			// justify-content: center;
+			// align-items: center;
+			// width: 100%;
+			// height: 100%;
 			position: relative;
 			z-index: 2;
 			font-weight: 500;
 			font-size: 12px;
 			letter-spacing: 0.03em;
 			color: $color02;
-			overflow: hidden;
-			&:before {
-				content: '';
-				position: absolute;
-				top: 0;
-				left: 0;
-				z-index: -1;
-				display: inline-block;
-				width: 200%;
-				height: 100%;
-				background-image: linear-gradient(to right, transparent, $color04, transparent);
-				opacity: 0.8;
-				animation: button-animation 5s infinite alternate;
-			}
+			// overflow: hidden;
 		}
 	}
 }
