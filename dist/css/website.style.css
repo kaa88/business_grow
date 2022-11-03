@@ -2896,7 +2896,7 @@ form button {
 .consult-form .last-slide .modal-text {
   margin-top: 1.25em;
 }
-.last-slide .consult-form .text-button-with-arrow {
+.last-slide .consult-form__text-button-with-arrow {
   background-color: #333333;
 }
 .consult-form .text-button-with-arrow__text {

@@ -520,10 +520,10 @@
 	.last-slide .modal-text {
 		margin-top: em(20);
 	}
+	.last-slide &__text-button-with-arrow {
+		background-color: $c03;
+	}
 	.text-button-with-arrow {
-		.last-slide & {
-			background-color: $c03;
-		}
 		&__text {
 			width: em(319);
 			@media (max-width: $media-modal+px) {
