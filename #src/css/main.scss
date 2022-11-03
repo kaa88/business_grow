@@ -266,11 +266,15 @@
 
 
 .decor-img {
+	// background-color: #ccc;
 	position: absolute;
 	top: 0;
-	right: -1px;
-	width: 30vw;
-	height: 30vw;
+	right: 0;
+	z-index: -1;
+	width: em(750);
+	height: 100vh;
+	max-height: 100%;
+	overflow: hidden;
 	opacity: 0;
 	transition: opacity .3s linear;
 	&.loaded {
@@ -278,26 +282,32 @@
 	}
 	&__container {
 		position: absolute;
-		top: 0;
+		top: calc(3.7vh - 1%); // header padding top
 		left: 0;
-		width: 100%;
-		height: 100%;
-		height: 0;
-		padding-bottom: 98%;
+		width: em(1300);
+		height: em(1300);
 		transform: rotate(16deg);
 		border-radius: 50%;
 		overflow: hidden;
 	}
+	&__wrapper {
+		position: absolute;
+		top: 0.5%;
+		left: 0.5%;
+		width: 99%;
+		height: 0;
+		padding-bottom: 99%;
+	}
 	&__shape {
 		position: absolute;
-		top: 1%;
-		left: 1%;
-		width: 98%;
-		height: 98%;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
 		background: $gradient-6;
 		clip-path: url('#svg-decor-shape');
 	}
-	&__wrapper {
+	&__imgbox {
 		width: 100%;
 		height: 100%;
 		position: absolute;
@@ -312,12 +322,13 @@
 	}
 	&__inner {
 		position: absolute;
-		top: 0;
-		left: -5%;
+		top: -30%;
+		left: -50%;
 		background-color: $color02;
-		width: 110%;
-		height: 54.4%;
-		clip-path: polygon(0 0, 100% 0, 50% 100%);
+		width: 200%;
+		height: 50%;
+		transform: rotate(45deg);
+		// clip-path: polygon(0 0, 100% 0, 50% 100%);
 	}
 }
 
