@@ -1162,6 +1162,9 @@
 			background-image: linear-gradient(to right, transparent, $color04, transparent);
 			opacity: 0.8;
 			animation: button-animation 5s infinite alternate;
+			.useragent-safari & {
+				animation: none;
+			}
 		}
 		span {
 			position: relative;

@@ -3714,6 +3714,10 @@ form button {
   -webkit-filter: drop-shadow(0 0.1875em 0.125em #333);
           filter: drop-shadow(0 0.1875em 0.125em #333);
 }
+.useragent-safari .select._active {
+  -webkit-filter: none;
+          filter: none;
+}
 @media (max-width: 768px) {
   .select {
     width: 100%;
@@ -5330,6 +5334,10 @@ form button {
   opacity: 0.8;
   -webkit-animation: button-animation 5s infinite alternate;
           animation: button-animation 5s infinite alternate;
+}
+.useragent-safari .achievements__link:before {
+  -webkit-animation: none;
+          animation: none;
 }
 .achievements__link span {
   position: relative;
