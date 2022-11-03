@@ -56,6 +56,23 @@ const aspectRatioCalculator = {
 
 //////////////////////////////////////////////////
 
+// User Agent
+	console.log(navigator.userAgent)
+	// console.log(navigator.platform)
+	// if (navigator.userAgent.includes('Firefox')) console.log('Firefox');
+
+		// Ключевые слова по браузерам:
+		// Chrome / Safari - Chrome Safari
+		// Firefox - Firefox
+		// Opera - Chrome Safari OPR
+		// Edge - Chrome Safari Edg
+		// Yandex - Chrome Safari YaBrowser Yowser
+
+		// chrome - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36
+		// Firefox - Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0
+
+//////////////////////////////////////////////////
+
 // Constants //
 const mobileSwitchWidth = parseFloat(getComputedStyle(document.body).getPropertyValue('--media-mobile')) || 768;
 
