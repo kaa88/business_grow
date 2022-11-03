@@ -5316,11 +5316,32 @@ form button {
     width: 100px;
   }
 }
-.achievements__link:before {
+.achievements__link span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  color: #ffffff;
+  overflow: hidden;
+}
+.achievements__link span:before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
+  z-index: -1;
   display: inline-block;
   width: 200%;
   height: 100%;
@@ -5330,14 +5351,6 @@ form button {
   opacity: 0.8;
   -webkit-animation: button-animation 5s infinite alternate;
           animation: button-animation 5s infinite alternate;
-}
-.achievements__link span {
-  position: relative;
-  z-index: 2;
-  font-weight: 500;
-  font-size: 12px;
-  letter-spacing: 0.03em;
-  color: #ffffff;
 }
 
 @-webkit-keyframes button-animation {

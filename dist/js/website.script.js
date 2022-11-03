@@ -70,6 +70,7 @@ const aspectRatioCalculator = {
 
 		// chrome - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36
 		// Firefox - Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0
+		// Safari - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/ ... Version/12.1.2. Safari/605.1.15
 
 //////////////////////////////////////////////////
 
