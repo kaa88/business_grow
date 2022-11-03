@@ -1,6 +1,6 @@
-$color01: #000;
-$color02: #fff;
-$color03: #333;
+$color01: #000000;
+$color02: #ffffff;
+$color03: #333333;
 $color04: #00fbaf; //#02FEFF;
 $color05: #0f73a8; //#8500FF;
 $color06: #8D97A1;
@@ -13,7 +13,7 @@ $color12: #fb0000;
 
 $c01: $color01;
 $c02: $color02;
-$c03: #333;
+$c03: #333333;
 $c04: $color04;
 $c05: $color05;
 $c06: $color06;
@@ -29,6 +29,6 @@ $gradient-2: linear-gradient(0deg, $color05 0%, $color04 100%);
 $gradient-3: linear-gradient(180deg, $color05 0%, $color04 100%);
 $gradient-4: linear-gradient(-90deg, $color05 0%, $color04 100%);
 $gradient-5: linear-gradient(0deg, $color05 20%, $color04 100%);
-$gradient-6: linear-gradient(-68deg, $color05 20%, $color04 100%);
+$gradient-6: linear-gradient(-35deg, $color05 20%, $color04 100%);
 
 //#008040

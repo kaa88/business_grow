@@ -16,8 +16,9 @@ body {
 	// max-width: $page-max-width+px;
 	max-width: 240vh;//240
 	margin: 0 auto; //REQ! if max-width
-	height: 1080px;
-	max-height: 100vh;
+	// height: 1080px;
+	// max-height: 100vh;
+	height: 100vh;
 	font-family: $font-1;
 	font-size: $font-size-default;
 	color: $color03;
