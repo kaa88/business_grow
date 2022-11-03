@@ -4340,15 +4340,20 @@ form button {
   right: 0;
   width: 30vw;
   height: 30vw;
+  border-radius: 50%;
+  overflow: hidden;
 }
 .decor-img__container {
-  width: 100%;
-  height: 100%;
+  width: 98%;
+  height: 98%;
+  margin: 1%;
 }
 .decor-img__shape {
+  position: relative;
   width: 100%;
   height: 100%;
-  background-color: lime;
+  background: -o-linear-gradient(150deg, #0f73a8 20%, #00fbaf 100%);
+  background: linear-gradient(-60deg, #0f73a8 20%, #00fbaf 100%);
   -webkit-clip-path: url("#svg-decor-shape");
           clip-path: url("#svg-decor-shape");
 }
@@ -4364,7 +4369,19 @@ form button {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  opacity: 0.1;
 }
+.decor-img__inner {
+  position: absolute;
+  top: 0;
+  left: -5%;
+  background-color: #fff;
+  width: 110%;
+  height: 55%;
+  -webkit-clip-path: polygon(0 0, 100% 0, 50% 100%);
+          clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
 .triangle-arrow {
   width: 100%;
   max-width: 480px;

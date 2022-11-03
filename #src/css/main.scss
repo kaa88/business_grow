@@ -271,14 +271,18 @@
 	right: 0;
 	width: 30vw;
 	height: 30vw;
+	border-radius: 50%;
+	overflow: hidden;
 	&__container {
-		width: 100%;
-		height: 100%;
+		width: 98%;
+		height: 98%;
+		margin: 1%;
 	}
 	&__shape {
+		position: relative;
 		width: 100%;
 		height: 100%;
-		background-color: lime;
+		background: $gradient-6;
 		clip-path: url('#svg-decor-shape');
 	}
 	&__wrapper {
@@ -291,9 +295,17 @@
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
+			opacity: 0.1;
 		}
 	}
 	&__inner {
+		position: absolute;
+		top: 0;
+		left: -5%;
+		background-color: $color02;
+		width: 110%;
+		height: 55%;
+		clip-path: polygon(0 0, 100% 0, 50% 100%);
 	}
 }
 
