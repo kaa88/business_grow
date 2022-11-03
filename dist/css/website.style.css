@@ -5323,6 +5323,17 @@ form button {
   display: inline-block;
   width: 200%;
   height: 100%;
+  border-radius: 30px;
+  overflow: hidden;
+}
+.achievements__link-bg:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
   background-image: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(#00fbaf), to(transparent));
   background-image: -o-linear-gradient(left, transparent, #00fbaf, transparent);
   background-image: linear-gradient(to right, transparent, #00fbaf, transparent);
