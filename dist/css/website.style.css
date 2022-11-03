@@ -611,9 +611,9 @@ body._locked {
 }
 
 #svg-decor-shape {
-  -webkit-transform: scale(1, 1);
-      -ms-transform: scale(1, 1);
-          transform: scale(1, 1);
+  -webkit-transform: scale(0.0019, 0.0019);
+      -ms-transform: scale(0.0019, 0.0019);
+          transform: scale(0.0019, 0.0019);
 }
 
 .socials {
