@@ -5316,23 +5316,13 @@ form button {
     width: 100px;
   }
 }
-.achievements__link-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: inline-block;
-  width: 200%;
-  height: 100%;
-  border-radius: 30px;
-  overflow: hidden;
-}
-.achievements__link-bg:before {
+.achievements__link:before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   display: inline-block;
-  width: 100%;
+  width: 200%;
   height: 100%;
   background-image: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(#00fbaf), to(transparent));
   background-image: -o-linear-gradient(left, transparent, #00fbaf, transparent);
@@ -5341,7 +5331,7 @@ form button {
   -webkit-animation: button-animation 5s infinite alternate;
           animation: button-animation 5s infinite alternate;
 }
-.achievements__link-text {
+.achievements__link span {
   position: relative;
   z-index: 2;
   font-weight: 500;

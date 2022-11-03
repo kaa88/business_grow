@@ -6,6 +6,7 @@
 
 // User Agent
 	console.log(navigator.userAgent)
+	if (navigator.userAgent.toLowerCase().match(/mac|iphone|ipad|ipod/)) document.body.classList.add('useragent-safari');
 	// console.log(navigator.platform)
 	// if (navigator.userAgent.includes('Firefox')) console.log('Firefox');
 
