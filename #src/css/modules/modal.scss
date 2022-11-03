@@ -521,6 +521,9 @@
 		margin-top: em(20);
 	}
 	.text-button-with-arrow {
+		.last-slide & {
+			background-color: $c03;
+		}
 		&__text {
 			width: em(319);
 			@media (max-width: $media-modal+px) {
@@ -591,9 +594,9 @@
 		position: absolute;
 		top: em(-13);
 		left: em(-30);
-		background: $gradient-1;
-		background-clip: text;
-		i {
+		i:before {
+			background: $gradient-1;
+			background-clip: text;
 			font-size: em(20);
 			color: transparent;
 		}

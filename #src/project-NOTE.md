@@ -81,3 +81,4 @@ New site template v3.02
 - header menu - для FF у враппера заменить в height в формуле 100% на 100vh ? лечится отключением эмуляции сенсорного ввода
 - сохранить mob-bg-calc (css js)
 - mixins - resize-multi обновлен
+- user agent script добавляет класс в body (script.js)

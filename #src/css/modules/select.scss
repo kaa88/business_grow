@@ -8,18 +8,15 @@
 	height: em(90);
 	cursor: pointer;
 	transition: all $timer-select;
-	select {display: none;}
 	&._active {
 		filter: drop-shadow(0 em(3) em(2) #333);
-		.useragent-safari & {
-			filter: none;
-		}
 	}
 	@media (max-width: $media-modal+px) {
 		// width: calc(100% - 60px);
 		width: 100%;
 		height: 50px;
 	}
+	select {display: none;}
 	&__header {
 		height: 100%;
 		padding: 0 em(47);
