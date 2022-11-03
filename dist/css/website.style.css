@@ -610,12 +610,6 @@ body._locked {
           transform: scale(0.003893, 0.00572);
 }
 
-#svg-decor-shape {
-  -webkit-transform: scale(0.0019, 0.0019);
-      -ms-transform: scale(0.0019, 0.0019);
-          transform: scale(0.0019, 0.0019);
-}
-
 .socials {
   display: -webkit-box;
   display: -ms-flexbox;
