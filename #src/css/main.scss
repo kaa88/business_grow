@@ -313,7 +313,7 @@
 		// padding-bottom: 86.71875%;
 		padding-bottom: 100%;
 		// clip-path: polygon(0 100%, 50% 0, 100% 100%);
-		// clip-path: url('#svg-decor-shape');
+		clip-path: url('#svg-decor-shape');
 		background: $gradient-3;
 	}
 	&__wrapper {
