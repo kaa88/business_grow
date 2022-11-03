@@ -265,8 +265,7 @@
 
 
 
-
-.decor-img2 {
+.decor-img {
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -275,99 +274,117 @@
 	&__container {
 		width: 100%;
 		height: 100%;
+	}
+	&__shape {
+		width: 100%;
+		height: 100%;
 		background-color: lime;
 		clip-path: url('#svg-decor-shape');
 	}
-}
-
-.decor-img {
-	// background-color: orange;
-	position: absolute;
-	top: 0;
-	// top: em(100);
-	right: 0;
-	z-index: -1;
-	height: 100%;
-	// width: em(910);
-	width: em(910);
-	overflow: hidden;
-	opacity: 0;
-	transition: opacity .3s linear;
-	&.loaded {
-		opacity: 1;
-	}
-	@media (max-height: 1000px) {
-		// position: fixed;
-		height: 100vh;
-	}
-	@media (max-width: $mobile+px) {
-		display: none;
-		.about & {
-			display: block;
-		}
-	}
-	&__container {
-		position: absolute;
-		top: -5%;
-		left: 26%;
-		width: calc(1.1531531 * em(1280));
-		// width: em(1080);
-		transform: rotate(177deg);
-		@media (min-width: $mobile+1+px) and (max-aspect-ratio: $media-ratio7) {
-			left: 30%;
-			opacity: 0.5;
-		}
-	}
-	&__shape {
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding-bottom: 100%;
-		// padding-bottom: 86.71875%;
-		// clip-path: polygon(0 100%, 50% 0, 100% 100%);
-		clip-path: url('#svg-decor-shape');
-		background: $gradient-3;
-	}
 	&__wrapper {
+		width: 100%;
+		height: 100%;
 		position: absolute;
 		top: 0;
 		left: 0;
-		width: 100%;
-		height: 100%;
-		overflow: hidden;
-	}
-	img {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		opacity: 0.1;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
 	}
 	&__inner {
-		width: 50%;
-		height: 45.94594%;
-		position: absolute;
-		bottom: 0;
-		left: 25%;
-		clip-path: polygon(0 100%, 50% 0, 100% 100%);
-		&:before, &:after {
-			content: '';
-			position: absolute;
-			top: 0;
-			left: 0;
-			display: inline-block;
-			width: 100%;
-		}
-		&:before {
-			z-index: 2;
-			// height: 46.667%;
-			height: 120%;
-			background-color: $color02;
-		}
 	}
 }
+
+// .decor-img {
+// 	// background-color: orange;
+// 	position: absolute;
+// 	top: 0;
+// 	// top: em(100);
+// 	right: 0;
+// 	z-index: -1;
+// 	height: 100%;
+// 	// width: em(910);
+// 	width: em(910);
+// 	overflow: hidden;
+// 	opacity: 0;
+// 	transition: opacity .3s linear;
+// 	&.loaded {
+// 		opacity: 1;
+// 	}
+// 	@media (max-height: 1000px) {
+// 		// position: fixed;
+// 		height: 100vh;
+// 	}
+// 	@media (max-width: $mobile+px) {
+// 		display: none;
+// 		.about & {
+// 			display: block;
+// 		}
+// 	}
+// 	&__container {
+// 		position: absolute;
+// 		top: -5%;
+// 		left: 26%;
+// 		width: calc(1.1531531 * em(1280));
+// 		// width: em(1080);
+// 		transform: rotate(177deg);
+// 		@media (min-width: $mobile+1+px) and (max-aspect-ratio: $media-ratio7) {
+// 			left: 30%;
+// 			opacity: 0.5;
+// 		}
+// 	}
+// 	&__shape {
+// 		position: relative;
+// 		width: 100%;
+// 		height: 0;
+// 		padding-bottom: 100%;
+// 		// padding-bottom: 86.71875%;
+// 		// clip-path: polygon(0 100%, 50% 0, 100% 100%);
+// 		clip-path: url('#svg-decor-shape');
+// 		background: $gradient-3;
+// 	}
+// 	&__wrapper {
+// 		position: absolute;
+// 		top: 0;
+// 		left: 0;
+// 		width: 100%;
+// 		height: 100%;
+// 		overflow: hidden;
+// 	}
+// 	img {
+// 		position: absolute;
+// 		top: 0;
+// 		left: 0;
+// 		width: 100%;
+// 		height: 100%;
+// 		object-fit: cover;
+// 		opacity: 0.1;
+// 	}
+// 	&__inner {
+// 		width: 50%;
+// 		height: 45.94594%;
+// 		position: absolute;
+// 		bottom: 0;
+// 		left: 25%;
+// 		clip-path: polygon(0 100%, 50% 0, 100% 100%);
+// 		&:before, &:after {
+// 			content: '';
+// 			position: absolute;
+// 			top: 0;
+// 			left: 0;
+// 			display: inline-block;
+// 			width: 100%;
+// 		}
+// 		&:before {
+// 			z-index: 2;
+// 			// height: 46.667%;
+// 			height: 120%;
+// 			background-color: $color02;
+// 		}
+// 	}
+// }
 .triangle-arrow {
 	width: 100%;
 	max-width: $mobile-content-maxw;

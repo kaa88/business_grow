@@ -4334,117 +4334,37 @@ form button {
   }
 }
 
-.decor-img2 {
+.decor-img {
   position: absolute;
   top: 0;
   right: 0;
   width: 30vw;
   height: 30vw;
 }
-.decor-img2__container {
+.decor-img__container {
+  width: 100%;
+  height: 100%;
+}
+.decor-img__shape {
   width: 100%;
   height: 100%;
   background-color: lime;
   -webkit-clip-path: url("#svg-decor-shape");
           clip-path: url("#svg-decor-shape");
 }
-
-.decor-img {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: -1;
-  height: 100%;
-  width: 56.875em;
-  overflow: hidden;
-  opacity: 0;
-  -webkit-transition: opacity 0.3s linear;
-  -o-transition: opacity 0.3s linear;
-  transition: opacity 0.3s linear;
-}
-.decor-img.loaded {
-  opacity: 1;
-}
-@media (max-height: 1000px) {
-  .decor-img {
-    height: 100vh;
-  }
-}
-@media (max-width: 768px) {
-  .decor-img {
-    display: none;
-  }
-  .about .decor-img {
-    display: block;
-  }
-}
-.decor-img__container {
-  position: absolute;
-  top: -5%;
-  left: 26%;
-  width: 92.252248em;
-  -webkit-transform: rotate(177deg);
-      -ms-transform: rotate(177deg);
-          transform: rotate(177deg);
-}
-@media (min-width: 769px) and (max-aspect-ratio: 14 / 9) {
-  .decor-img__container {
-    left: 30%;
-    opacity: 0.5;
-  }
-}
-.decor-img__shape {
-  position: relative;
-  width: 100%;
-  height: 0;
-  padding-bottom: 100%;
-  -webkit-clip-path: url("#svg-decor-shape");
-          clip-path: url("#svg-decor-shape");
-  background: -webkit-gradient(linear, left top, left bottom, from(#0f73a8), to(#00fbaf));
-  background: -o-linear-gradient(top, #0f73a8 0%, #00fbaf 100%);
-  background: linear-gradient(180deg, #0f73a8 0%, #00fbaf 100%);
-}
 .decor-img__wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
-}
-.decor-img img {
   position: absolute;
   top: 0;
   left: 0;
+}
+.decor-img__wrapper img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  opacity: 0.1;
 }
-.decor-img__inner {
-  width: 50%;
-  height: 45.94594%;
-  position: absolute;
-  bottom: 0;
-  left: 25%;
-  -webkit-clip-path: polygon(0 100%, 50% 0, 100% 100%);
-          clip-path: polygon(0 100%, 50% 0, 100% 100%);
-}
-.decor-img__inner:before, .decor-img__inner:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: inline-block;
-  width: 100%;
-}
-.decor-img__inner:before {
-  z-index: 2;
-  height: 120%;
-  background-color: #fff;
-}
-
 .triangle-arrow {
   width: 100%;
   max-width: 480px;
