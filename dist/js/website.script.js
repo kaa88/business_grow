@@ -1574,16 +1574,14 @@ const timeSelect = {
 		let inputs = this.elem.querySelectorAll('.time-select__input');
 		this.inputH = inputs[0];
 		this.inputM = inputs[1];
-		this.inputH.addEventListener('click', function() {this.select()})
-		this.inputM.addEventListener('click', function() {this.select()})
-		this.inputH.addEventListener('select', function(e) {this.selection = e.target}.bind(this))
-		this.inputM.addEventListener('select', function(e) {this.selection = e.target}.bind(this))
-		this.inputH.addEventListener('keydown', this.checkInputHourValue.bind(this))
-		this.inputM.addEventListener('keydown', this.checkInputMinuteValue.bind(this))
-		this.inputH.addEventListener('input', this.checkInputTimeFormat.bind(this))
-		this.inputM.addEventListener('input', this.checkInputTimeFormat.bind(this))
+		this.inputH.addEventListener('click', this.focusInput.bind(this))
+		this.inputM.addEventListener('click', this.focusInput.bind(this))
 		this.inputH.addEventListener('blur', this.checkInputBlur.bind(this))
 		this.inputM.addEventListener('blur', this.checkInputBlur.bind(this))
+		this.inputH.addEventListener('keydown', this.checkInputValue.bind(this))
+		this.inputM.addEventListener('keydown', this.checkInputValue.bind(this))
+		this.inputH.addEventListener('input', this.checkInputTimeFormat.bind(this))
+		this.inputM.addEventListener('input', this.checkInputTimeFormat.bind(this))
 		//
 
 		// Selectors
@@ -1629,31 +1627,67 @@ const timeSelect = {
 		if (item == this.selectorH) return this.inputH;
 		if (item == this.selectorM) return this.inputM;
 	},
+
+	focusInput: function(e, elem) {
+		if (e) elem = e.target;
+		this.selection = elem;
+		elem.select();
+	},
+
 	removeSelection: function() {
 		this.selection = false;
 	},
-	checkInputHourValue: function(e) {
-		if (this.selection != e.target && e.target.value.length >= 2 && e.key.match(/[0-9]/)) {
-			this.inputM.select();
+
+	checkInputValue: function(e) {
+		// choose the input
+		let isHour = true;
+		if (e.target == this.inputM) isHour = false;
+		// clear the input
+		if (this.selection == e.target && e.key != 'Tab') {
+			e.target.setAttribute('value', '');
+			e.target.value = '';
+			this.removeSelection();
+		}
+		// check value
+		if (e.key.match(/[0-9]/) && e.target.value.length >= 2) {
+			if (isHour) this.inputM.select();
+			else e.preventDefault();
+		}
+		if (e.key == 'Backspace' && e.target.value.length == 0) {
+			if (!isHour) {
+				e.preventDefault();
+				this.focusInput(false, this.inputH);
+			}
+		}
+		if (e.key == 'Tab') {
+			e.preventDefault();
+			if (isHour) this.focusInput(false, this.inputM);
+			else this.focusInput(false, this.inputH);
 		}
 	},
-	checkInputMinuteValue: function(e) {
-		if (this.selection != e.target && e.target.value.length >= 2 && e.key.match(/[0-9]/)) {
-			e.preventDefault();
-		}
-		if (e.target.value.length == 0 && e.key == 'Backspace') {
-			this.inputH.select();
-			e.preventDefault();
-		}
-	},
+	
+	// checkInputHourValue: function(e) {
+	// 	if (this.selection != e.target && e.target.value.length >= 2 && e.key.match(/[0-9]/)) {
+	// 		this.inputM.select();
+	// 	}
+	// },
+	// checkInputMinuteValue: function(e) {
+	// 	if (this.selection != e.target && e.target.value.length >= 2 && e.key.match(/[0-9]/)) {
+	// 		e.preventDefault();
+	// 	}
+	// 	if (e.target.value.length == 0 && e.key == 'Backspace') {
+	// 		e.preventDefault();
+	// 		this.inputH.select();
+	// 	}
+	// },
 	checkInputTimeFormat: function(e) {
-		this.removeSelection();
+		// this.removeSelection();
 		let maxValue = 23; // hours
 		if (e.target == this.inputM) maxValue = 59; // minutes
 		if (e.target.value > maxValue) e.target.value = maxValue;
 	},
 	checkInputBlur: function(e) {
-		this.removeSelection();
+		// this.removeSelection();
 		if (e.target.value.length == 0) e.target.value = '00';
 		if (e.target.value.length == 1) e.target.value = '0' + e.target.value;
 
@@ -1822,10 +1856,8 @@ modal.init({
 
 //////////////////////////////////////////////////
 
-// Firefox scroll block
-// document.addEventListener('scroll', function(e) {
-// 	console.log('привет дефолт')
-// 	if (document.body.classList.contains('_locked')) {
-// 		e.preventDefault();
-// 	}
-// })
+// Prevent 'tabbing'
+let noTabElements = document.body.querySelectorAll('a, button, input, textarea');
+for (let i = 0; i < noTabElements.length; i++) {
+	noTabElements[i].setAttribute('tabindex','-1');
+}

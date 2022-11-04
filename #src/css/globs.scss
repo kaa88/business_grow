@@ -3,6 +3,9 @@
 
 /* Body settings */
 body {
+	* {
+		nav-index: -1;
+	}
 	// Variables for JS manipulations:
 	--header-position: 0px; //REQ!
 	--header-offset: 0px; //REQ!

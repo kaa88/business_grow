@@ -298,6 +298,7 @@
 	}
 	&__call-slider, &__msg-slider, &__access-slider {
 		width: 100%;
+		height: fit-content;//safari
 		@media (max-width: $media-modal+px) {
 			max-width: $mobile-content-maxw;
 			margin-left: auto;
@@ -348,7 +349,8 @@
 		margin: 0 auto;
 		width: em(150);
 		@media (max-width: $media-modal+px) {
-			width: 130px;
+			width: 112px;
+			font-size: 12px;
 		}
 		&__text, &__text-colored {
 			color: $color03;

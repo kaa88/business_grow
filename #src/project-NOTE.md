@@ -3,7 +3,8 @@ New site template v3.02
 
 
 ### TO DO:
-- safari: флексы не растягиваются (меню)
+- safari: флексы не растягиваются (меню)... проверить остальное
+- по Табу перебирается все подряд, перелистываются слайдеры ...(надо tabindex="-1")
 - перенести в шаблон и почистить
 
 = научить transition lock разпознавать модули, чтобы не было отказов при нескольких действиях сразу... и scrolllock по идее тоже (хотя лучше сделать noTransLock более удобным)
@@ -82,3 +83,4 @@ New site template v3.02
 - сохранить mob-bg-calc (css js)
 - mixins - resize-multi обновлен
 - user agent script добавляет класс в body (script.js)
+- prevent tabbing (script.js)

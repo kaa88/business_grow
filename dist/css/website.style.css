@@ -251,6 +251,9 @@ body {
           justify-content: space-between;
   grid-template-rows: auto 1fr auto;
 }
+body * {
+  nav-index: -1;
+}
 body.page-home, body.page-404 {
   grid-template-columns: 100%;
 }
@@ -1676,8 +1679,8 @@ form button {
 @media (max-width: 768px) {
   .header-level--top {
     -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1;
+        -ms-flex: 1 1 100%;
+            flex: 1 1 100%;
   }
 }
 .header-level--middle {
@@ -2627,6 +2630,9 @@ form button {
 }
 .modal__call-slider, .modal__msg-slider, .modal__access-slider {
   width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 @media (max-width: 768px) {
   .modal__call-slider, .modal__msg-slider, .modal__access-slider {
@@ -2697,7 +2703,8 @@ form button {
 }
 @media (max-width: 768px) {
   .modal .logo {
-    width: 130px;
+    width: 112px;
+    font-size: 12px;
   }
 }
 .modal .logo__text, .modal .logo__text-colored {
