@@ -61,7 +61,7 @@ const header = {
 
 		this.calcHeaderHeight();
 		window.addEventListener('resize', this.calcHeaderHeight.bind(this));
-		window.addEventListener('scroll', this.calcHeaderHeight.bind(this));
+		window.addEventListener('scroll', this.calcHeaderHeight.bind(this));// тест плавающие панельки браузера
 
 		if (params.menu) this.menu.init(this, timeout, this.names);
 		if (params.submenu) this.submenu.init(this, timeout, this.names);
@@ -69,13 +69,16 @@ const header = {
 	},
 	calcHeaderHeight: function() {
 		// This func controls the mobile menu height variable in css
-		this.headerHeight = this.headerElem.offsetHeight;
-		if (this.elemAboveHeader) {
-			this.headerOffset = this.headerPosition = this.elemAboveHeader.offsetHeight;
-		}
-		else this.headerOffset = this.headerPosition = 0;
-		this.setCssVar();
-		this.hidingHeader.calc();
+		let that = this;
+		setTimeout(() => {
+			that.headerHeight = that.headerElem.offsetHeight;
+			if (that.elemAboveHeader) {
+				that.headerOffset = that.headerPosition = that.elemAboveHeader.offsetHeight;
+			}
+			else that.headerOffset = that.headerPosition = 0;
+			that.setCssVar();
+			that.hidingHeader.calc();
+		},1000)
 	},
 	setCssVar: function() {
 		console.log('setcssvar')
