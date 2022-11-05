@@ -1595,8 +1595,7 @@ form button {
     position: fixed;
     top: calc(var(--header-height) + var(--header-position));
     right: 0;
-    height: calc(var(--window-inner-height) - var(--header-height) - var(--header-position));
-    max-height: 100vh;
+    height: calc(var(--window-height) - var(--header-height) - var(--header-position));
     background-color: #333333;
     visibility: hidden;
     opacity: 0;

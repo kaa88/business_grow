@@ -84,3 +84,4 @@ New site template v3.02
 - prevent tabbing (script.js)
 - html добавил if light с выбором обычного файла и .min (header.html, footer.html)
 - gulpfile - коммент в css
+- добавить переменную --window-height для правильного расчета высоты меню в мобильных браузерах с плавающими пнелями (header.js, header.css)

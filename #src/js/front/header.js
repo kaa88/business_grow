@@ -33,6 +33,7 @@ const header = {
 		thisPageClass: 'this-page',
 		// css variable names:
 		varTimer: '--timer-menu',
+		varWinHeight: '--window-height',
 		varHeight: '--header-height',
 		varPos: '--header-position',
 		varOffset: '--header-offset',
@@ -47,6 +48,8 @@ const header = {
 		}
 		let timeout = parseFloat(getComputedStyle(document.body).getPropertyValue(this.names.varTimer))*1000 || 0;
 
+		this.windowHeight =
+		this.windowHeightPrev =
 		this.headerHeight =
 		this.headerHeightPrev =
 		this.headerPosition =
@@ -68,6 +71,7 @@ const header = {
 	},
 	calcHeaderHeight: function() {
 		// This func controls the mobile menu height variable in css
+		this.windowHeight = window.innerHeight;
 		this.headerHeight = this.headerElem.offsetHeight;
 		if (this.elemAboveHeader) {
 			this.headerOffset = this.headerPosition = this.elemAboveHeader.offsetHeight;
@@ -77,6 +81,10 @@ const header = {
 		this.hidingHeader.calc();
 	},
 	setCssVar: function() {
+		if (this.windowHeight != this.windowHeightPrev) {
+			document.body.style.setProperty(this.names.varWinHeight, this.windowHeight + 'px');
+			this.windowHeightPrev = this.windowHeight;
+		}
 		if (this.headerHeight != this.headerHeightPrev) {
 			document.body.style.setProperty(this.names.varHeight, this.headerHeight + 'px');
 			this.headerHeightPrev = this.headerHeight;

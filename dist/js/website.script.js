@@ -29,22 +29,17 @@ const aspectRatioCalculator = {
 	calc: function() {
 		// function gcd (a, b) {return (b == 0) ? a : gcd (b, a%b);} // функция вычисляет минимальный общий делитель для ширины и высоты, потом надо поделить стороны на него и получить соотношение сторон
 		// а у меня проще: всегда беру высоту за 9 и подгоняю ширину через коэффициент
-		// let
-		// 	w = window.innerWidth,
-		// 	h = window.innerHeight,
-		// 	wh = Math.round(w / h * 100) / 100,
-		// 	hx = 9,
-		// 	wx = Math.round(hx * wh);
+		let
+			w = window.innerWidth,
+			h = window.innerHeight,
+			wh = Math.round(w / h * 100) / 100,
+			hx = 9,
+			wx = Math.round(hx * wh);
 			
-		// if (wx == 9) {wx = 1; hx = 1;}
-		// if (wx == 12) {wx = 4; hx = 3;}
-		// if (wx == 15) {wx = 5; hx = 3;}
-		// this.box.innerHTML = 'aspect ratio: ' + wh + ' = ' + wx + ' / ' + hx;
-
-		//#####################
-
-		this.box.innerHTML = 'wh: ' + window.innerHeight;
-		document.body.style.setProperty('--window-inner-height', window.innerHeight + 'px');
+		if (wx == 9) {wx = 1; hx = 1;}
+		if (wx == 12) {wx = 4; hx = 3;}
+		if (wx == 15) {wx = 5; hx = 3;}
+		this.box.innerHTML = 'aspect ratio: ' + wh + ' = ' + wx + ' / ' + hx;
 	},
 }
 
@@ -57,7 +52,7 @@ const aspectRatioCalculator = {
 // }
 // bodyEmCheck();
 
-window.addEventListener('load', developer_panel.init);
+// window.addEventListener('load', developer_panel.init);
 
 //////////////////////////////////////////////////
 
@@ -323,6 +318,7 @@ const header = {
 		thisPageClass: 'this-page',
 		// css variable names:
 		varTimer: '--timer-menu',
+		varWinHeight: '--window-height',
 		varHeight: '--header-height',
 		varPos: '--header-position',
 		varOffset: '--header-offset',
@@ -337,6 +333,8 @@ const header = {
 		}
 		let timeout = parseFloat(getComputedStyle(document.body).getPropertyValue(this.names.varTimer))*1000 || 0;
 
+		this.windowHeight =
+		this.windowHeightPrev =
 		this.headerHeight =
 		this.headerHeightPrev =
 		this.headerPosition =
@@ -358,6 +356,7 @@ const header = {
 	},
 	calcHeaderHeight: function() {
 		// This func controls the mobile menu height variable in css
+		this.windowHeight = window.innerHeight;
 		this.headerHeight = this.headerElem.offsetHeight;
 		if (this.elemAboveHeader) {
 			this.headerOffset = this.headerPosition = this.elemAboveHeader.offsetHeight;
@@ -367,6 +366,10 @@ const header = {
 		this.hidingHeader.calc();
 	},
 	setCssVar: function() {
+		if (this.windowHeight != this.windowHeightPrev) {
+			document.body.style.setProperty(this.names.varWinHeight, this.windowHeight + 'px');
+			this.windowHeightPrev = this.windowHeight;
+		}
 		if (this.headerHeight != this.headerHeightPrev) {
 			document.body.style.setProperty(this.names.varHeight, this.headerHeight + 'px');
 			this.headerHeightPrev = this.headerHeight;
