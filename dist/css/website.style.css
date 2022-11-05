@@ -5325,6 +5325,8 @@ form button {
   border-radius: 30px;
   position: relative;
   overflow: hidden;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
 }
 @media (max-width: 362px) {
   .achievements__link {

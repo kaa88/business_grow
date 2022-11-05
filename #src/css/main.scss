@@ -1148,6 +1148,7 @@
 		border-radius: 30px;
 		position: relative;
 		overflow: hidden;
+		transform: translateZ(0);
 		@media (max-width: $media-mobile-s2+px) {
 			width: 100px;
 		}
