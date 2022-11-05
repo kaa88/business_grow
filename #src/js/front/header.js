@@ -61,6 +61,7 @@ const header = {
 
 		this.calcHeaderHeight();
 		window.addEventListener('resize', this.calcHeaderHeight.bind(this));
+		window.addEventListener('scroll', this.calcHeaderHeight.bind(this));
 
 		if (params.menu) this.menu.init(this, timeout, this.names);
 		if (params.submenu) this.submenu.init(this, timeout, this.names);
@@ -77,6 +78,7 @@ const header = {
 		this.hidingHeader.calc();
 	},
 	setCssVar: function() {
+		console.log('setcssvar')
 		if (this.headerHeight != this.headerHeightPrev) {
 			document.body.style.setProperty(this.names.varHeight, this.headerHeight + 'px');
 			this.headerHeightPrev = this.headerHeight;
