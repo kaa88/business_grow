@@ -2866,6 +2866,7 @@ form button {
     grid-column: span 3;
   }
   .last-slide .consult-form__bottom {
+    height: 100px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 1.25em;
@@ -2939,6 +2940,7 @@ form button {
   .consult-form__radio.radio--messengers {
     margin-top: 20px;
     font-size: 16px;
+    grid-auto-rows: 70px;
   }
 }
 .consult-form__radio.radio--messengers .label-text {
@@ -3056,6 +3058,8 @@ form button {
     background-color: #ffffff;
     grid-template-columns: 100%;
     padding: 0 30px 15px;
+    grid-auto-rows: -webkit-min-content;
+    grid-auto-rows: min-content;
   }
 }
 .confirm-content__text {
@@ -5341,10 +5345,6 @@ form button {
   opacity: 0.8;
   -webkit-animation: button-animation 5s infinite alternate;
           animation: button-animation 5s infinite alternate;
-}
-.useragent-safari .achievements__link:before {
-  -webkit-animation: none;
-          animation: none;
 }
 .achievements__link span {
   position: relative;

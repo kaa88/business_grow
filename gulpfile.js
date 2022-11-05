@@ -157,6 +157,7 @@ function css() {
 			cascade: true
 		}))
 		// .pipe(css_media_queries())
+		// отключил т.к. считаю, что медиа должны быть сразу за эл-том
 		.pipe(rename({
 			prefix: scriptsPrefix
 		}));
@@ -169,6 +170,7 @@ function css() {
 				extname: '.min.css'
 			}));
 	// пробовал объединить оригинал и .min в streamqueue, но rename меняет имя оригинала (т.к. копия объекта по ссылке), нужно ставить модуль gulp-clone наверное
+	// для чего streamqueue? в browsersync проходит инфа только о последнем файле (.min), и если в html подключен не.min, не обновляет страницу (типо style.css не менялся)
 
 	return stream
 		.pipe(dest(path.build.css))

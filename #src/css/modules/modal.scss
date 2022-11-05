@@ -485,6 +485,7 @@
 		@media (min-width: $media-modal+1+px) {
 			grid-column: span 3;
 			.last-slide & {
+				height: 100px;
 				display: grid;
 				grid-template-columns: repeat(3, 1fr);
 				grid-column-gap: em(20);
@@ -548,6 +549,7 @@
 				margin-top: 20px;
 				// height: 50px;
 				font-size: 16px;
+				grid-auto-rows: 70px;
 			}
 			.label-text {
 				margin-left: em(80);
@@ -656,6 +658,7 @@
 		background-color: $color02;
 		grid-template-columns: 100%;
 		padding: 0 30px 15px;
+		grid-auto-rows: min-content;
 	}
 	&__text {
 		font-weight: 300;
