@@ -28,17 +28,21 @@ const aspectRatioCalculator = {
 	calc: function() {
 		// function gcd (a, b) {return (b == 0) ? a : gcd (b, a%b);} // функция вычисляет минимальный общий делитель для ширины и высоты, потом надо поделить стороны на него и получить соотношение сторон
 		// а у меня проще: всегда беру высоту за 9 и подгоняю ширину через коэффициент
-		let
-			w = window.innerWidth,
-			h = window.innerHeight,
-			wh = Math.round(w / h * 100) / 100,
-			hx = 9,
-			wx = Math.round(hx * wh);
+		// let
+		// 	w = window.innerWidth,
+		// 	h = window.innerHeight,
+		// 	wh = Math.round(w / h * 100) / 100,
+		// 	hx = 9,
+		// 	wx = Math.round(hx * wh);
 			
-		if (wx == 9) {wx = 1; hx = 1;}
-		if (wx == 12) {wx = 4; hx = 3;}
-		if (wx == 15) {wx = 5; hx = 3;}
-		this.box.innerHTML = 'aspect ratio: ' + wh + ' = ' + wx + ' / ' + hx;
+		// if (wx == 9) {wx = 1; hx = 1;}
+		// if (wx == 12) {wx = 4; hx = 3;}
+		// if (wx == 15) {wx = 5; hx = 3;}
+		// this.box.innerHTML = 'aspect ratio: ' + wh + ' = ' + wx + ' / ' + hx;
+
+		//#####################
+
+		this.box.innerHTML = 'wh: ' + window.innerHeight;
 	},
 }
 

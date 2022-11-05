@@ -1,6 +1,6 @@
 // Developer panel //
-@@include('front/dev_panel.js')
-// window.addEventListener('load', developer_panel.init);
+@@include('front/_dev_panel.js')
+window.addEventListener('load', developer_panel.init);
 
 //////////////////////////////////////////////////
 

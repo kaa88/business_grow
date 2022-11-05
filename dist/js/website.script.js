@@ -29,17 +29,21 @@ const aspectRatioCalculator = {
 	calc: function() {
 		// function gcd (a, b) {return (b == 0) ? a : gcd (b, a%b);} // функция вычисляет минимальный общий делитель для ширины и высоты, потом надо поделить стороны на него и получить соотношение сторон
 		// а у меня проще: всегда беру высоту за 9 и подгоняю ширину через коэффициент
-		let
-			w = window.innerWidth,
-			h = window.innerHeight,
-			wh = Math.round(w / h * 100) / 100,
-			hx = 9,
-			wx = Math.round(hx * wh);
+		// let
+		// 	w = window.innerWidth,
+		// 	h = window.innerHeight,
+		// 	wh = Math.round(w / h * 100) / 100,
+		// 	hx = 9,
+		// 	wx = Math.round(hx * wh);
 			
-		if (wx == 9) {wx = 1; hx = 1;}
-		if (wx == 12) {wx = 4; hx = 3;}
-		if (wx == 15) {wx = 5; hx = 3;}
-		this.box.innerHTML = 'aspect ratio: ' + wh + ' = ' + wx + ' / ' + hx;
+		// if (wx == 9) {wx = 1; hx = 1;}
+		// if (wx == 12) {wx = 4; hx = 3;}
+		// if (wx == 15) {wx = 5; hx = 3;}
+		// this.box.innerHTML = 'aspect ratio: ' + wh + ' = ' + wx + ' / ' + hx;
+
+		//#####################
+
+		this.box.innerHTML = 'wh: ' + window.innerHeight;
 	},
 }
 
@@ -52,7 +56,7 @@ const aspectRatioCalculator = {
 // }
 // bodyEmCheck();
 
-// window.addEventListener('load', developer_panel.init);
+window.addEventListener('load', developer_panel.init);
 
 //////////////////////////////////////////////////
 
@@ -346,7 +350,6 @@ const header = {
 
 		this.calcHeaderHeight();
 		window.addEventListener('resize', this.calcHeaderHeight.bind(this));
-		window.addEventListener('scroll', this.calcHeaderHeight.bind(this));// тест плавающие панельки браузера
 
 		if (params.menu) this.menu.init(this, timeout, this.names);
 		if (params.submenu) this.submenu.init(this, timeout, this.names);
@@ -354,19 +357,15 @@ const header = {
 	},
 	calcHeaderHeight: function() {
 		// This func controls the mobile menu height variable in css
-		let that = this;
-		setTimeout(() => {
-			that.headerHeight = that.headerElem.offsetHeight;
-			if (that.elemAboveHeader) {
-				that.headerOffset = that.headerPosition = that.elemAboveHeader.offsetHeight;
-			}
-			else that.headerOffset = that.headerPosition = 0;
-			that.setCssVar();
-			that.hidingHeader.calc();
-		},1000)
+		this.headerHeight = this.headerElem.offsetHeight;
+		if (this.elemAboveHeader) {
+			this.headerOffset = this.headerPosition = this.elemAboveHeader.offsetHeight;
+		}
+		else this.headerOffset = this.headerPosition = 0;
+		this.setCssVar();
+		this.hidingHeader.calc();
 	},
 	setCssVar: function() {
-		console.log('setcssvar')
 		if (this.headerHeight != this.headerHeightPrev) {
 			document.body.style.setProperty(this.names.varHeight, this.headerHeight + 'px');
 			this.headerHeightPrev = this.headerHeight;
