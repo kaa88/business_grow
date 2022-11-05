@@ -118,14 +118,11 @@
 				padding-bottom: var(--header-height);
 			}
 		}
-		// #modal-copyright & {
-		// 	justify-content: center;
-		// 	align-items: center;
-		// 	@media (max-width: $media-modal+px) {
-		// 		padding-top: 0;
-		// 		padding-bottom: var(--header-height);
-		// 	}
-		// }
+		#modal-copyright & {
+			@media (min-width: $media-modal+1+px) {
+				justify-content: center;
+			}
+		}
 	}
 	&._visible &__content {
 		@media (max-width: $media-modal+px) {
@@ -364,7 +361,7 @@
 	&__access-slider {
 	}
 	&__copyright-content {
-		flex-grow: 1;
+		// flex-grow: 1;
 		justify-self: center;
 		align-self: center;
 	}

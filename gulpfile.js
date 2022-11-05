@@ -168,6 +168,7 @@ function css() {
 			.pipe(rename({
 				extname: '.min.css'
 			}));
+	// пробовал объединить оригинал и .min в streamqueue, но rename меняет имя оригинала (т.к. копия объекта по ссылке), нужно ставить модуль gulp-clone наверное
 
 	return stream
 		.pipe(dest(path.build.css))

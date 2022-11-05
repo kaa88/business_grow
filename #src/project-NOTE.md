@@ -3,6 +3,7 @@ New site template v3.02
 
 
 ### TO DO:
+- копирайт опять съехал
 - safari: флексы не растягиваются (меню)... проверить остальное
 - по Табу перебирается все подряд, перелистываются слайдеры ...(надо tabindex="-1")
 - перенести в шаблон и почистить
@@ -84,3 +85,5 @@ New site template v3.02
 - mixins - resize-multi обновлен
 - user agent script добавляет класс в body (script.js)
 - prevent tabbing (script.js)
+- html добавил if light с выбором обычного файла и .min (header.html, footer.html)
+- gulpfile - коммент в css

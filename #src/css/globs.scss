@@ -3,9 +3,6 @@
 
 /* Body settings */
 body {
-	* {
-		nav-index: -1;
-	}
 	// Variables for JS manipulations:
 	--header-position: 0px; //REQ!
 	--header-offset: 0px; //REQ!
@@ -650,16 +647,14 @@ i {
 }
 
 .copyright-content {
-	// background-color: #ccc;
 	width: 100%;
 	max-width: em(860);
-	height: 100%;
 	padding: 0 em(30);
-	// overflow: hidden;
+	// overflow: hidden;//dfsdfsdf
 	@media (max-width: $media-mobile+px) {
+		height: 100%;
 		padding: 0 30px;
 		padding-top: resize-multiplier(120, $mobile, 1.6, 100vh);
-		// padding-bottom: var(--header-height);
 	}
 	&__anchor {
 		display: none;

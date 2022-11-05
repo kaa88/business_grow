@@ -57,10 +57,9 @@
 </noscript>
 
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-<script src="js/website.script.js"></script>
-<!-- <script src="js/website.script.min.js"></script> -->
+@@if (light == true) {<script src="js/website.script.js"></script>}
+@@if (light == false) {<script src="js/website.script.min.js"></script>}
 
-<!-- </div> -->
 <!-- <?php wp_footer() ?> -->
 </body>
 </html>
