@@ -756,6 +756,8 @@ const modal = {
 		currentModal.classList.add('_open');
 		currentModal.style.zIndex = this.cssZindex++;
 
+		this.toggleMainWindow(this.check()); // поставил перед on.func, т.к. там window.scroll, а scroll-lock его блокирует, надо было поменять очередность
+
 		let onFuncContent = currentModal.querySelector('.' + this.elemName + '__content > *:not(.' + this.elemName + '__close-button)');
 		if (this.on[currentModal.id] && this.on[currentModal.id].open)
 			this.on[currentModal.id].open(e ? e : false, onFuncContent, this.timeout);
@@ -765,7 +767,6 @@ const modal = {
 		// closeOldIfNew part 2 (wrong turn-off fix, must run after on-function)
 		if (this.closeOldIfNew) this.closeThis(false, oldWindow);
 		//
-		this.toggleMainWindow(this.check());
 	},
 	closeThis: function(e, elemToClose){
 		if (!elemToClose && this.refs.translock.check(this.timeout)) return;
