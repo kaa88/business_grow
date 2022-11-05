@@ -5,8 +5,9 @@
 //////////////////////////////////////////////////
 
 // User Agent
-	if (navigator.userAgent.toLowerCase().match(/mac|iphone|ipad|ipod/)) document.body.classList.add('useragent-safari');
-	if (navigator.userAgent.toLowerCase().match(/firefox/)) document.body.classList.add('useragent-firefox');
+	// if (navigator.userAgent.toLowerCase().match(/mac|ios|iphone|ipad/)) document.body.classList.add('useragent-safari');
+	// if (navigator.userAgent.toLowerCase().match(/firefox/)) document.body.classList.add('useragent-firefox');
+
 	// console.log(navigator.userAgent)
 	// console.log(navigator.platform)
 	// if (navigator.userAgent.includes('Firefox')) console.log('Firefox');
@@ -18,9 +19,10 @@
 		// Edge - Chrome Safari Edg
 		// Yandex - Chrome Safari YaBrowser Yowser
 
+		// navigator.userAgent в консоли:
 		// chrome - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36
-		// Firefox - Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0
 		// Safari - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/ ... Version/12.1.2. Safari/605.1.15
+		// Firefox - Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0
 
 //////////////////////////////////////////////////
 
