@@ -44,6 +44,7 @@ const aspectRatioCalculator = {
 		//#####################
 
 		this.box.innerHTML = 'wh: ' + window.innerHeight;
+		document.body.style.setProperty('--window-inner-height', window.innerHeight + 'px');
 	},
 }
 
