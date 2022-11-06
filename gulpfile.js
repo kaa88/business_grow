@@ -1,16 +1,32 @@
-let isLiteBuild = isWP = false, load = {};
+// INFO //
+
+// npm i --save-dev *plugin*
+
+// npm i -g browser-sync
+// browser-sync start --proxy "localhost" --files "**/*" --no-notify
+
+// isLiteBuild:
+// - добавляет переменную (isLiteBuild), с которой могут работать html-сборщик и scss-препроцессор
+// - не минифицирует и не создает файлы .min.css и .min.js
+// - не копирует (без доп настроек) libs, service, media (кроме img)
+// - не сжимает изображения, но нарезает @1x и @2x
+// - favicon нарезает только S-размер
+// - не конвертирует шрифты, а копирует только базовый otf; в scss отключает загрузку остальных шрифтов (чтобы не было ошибок в консоли), кроме iconfont
 
 //////////////////////////////////////////////////
 
 // Basic settings //
-let scriptsPrefix = 'website.'
+const scriptsPrefix = 'website.'
+const faviconSizes = { L: 270, M: 180, S: 32 }
 
-isLiteBuild = false
+// Lite build //
+let isLiteBuild = isWP = false, load = {};
+
+// isLiteBuild = true
 // load.media = true
 // load.libs = true
 // load.service = true
 // isWP = true
-
 
 if (isWP) isLiteBuild = false // important
 
@@ -110,7 +126,7 @@ function clean() {
 	return del(path.clean);
 }
 
-function tellCssAboutLightBuild() {
+function setCssLiteBuildVar() {
 	fs.writeFile($source + '/css/light-build-option.scss', '$isLightBuild: ' + isLiteBuild + ';', cb);
 	return Promise.resolve('ok');
 }
@@ -247,8 +263,6 @@ function media(cb, file) {
 }
 
 //////////////////////////////////////////////////
-
-const faviconSizes = { L: 270, M: 180, S: 32 }
 
 function scaleFavicon(file, size) {
 	file = file.clone();
@@ -462,7 +476,7 @@ let start = gulp.parallel(
 	watchFiles,
 	gulp.series(
 		clean,
-		tellCssAboutLightBuild,
+		setCssLiteBuildVar,
 		otf,
 		fonts,
 		gulp.parallel(html, css, js, data, service, libs, media, images),
@@ -470,7 +484,7 @@ let start = gulp.parallel(
 	)
 );
 
-exports.tellCssAboutLightBuild = tellCssAboutLightBuild;
+exports.setCssLiteBuildVar = setCssLiteBuildVar;
 exports.otf = otf;
 exports.fonts = fonts;
 exports.fontsStyle = fontsStyle;
@@ -484,11 +498,3 @@ exports.css = css;
 exports.html = html;
 exports.start = start;
 exports.default = start;
-
-//////////////////////////////////////////////////
-
-// Info
-// npm i --save-dev *plugin*
-
-// npm i -g browser-sync
-// browser-sync start --proxy "localhost" --files "**/*" --no-notify

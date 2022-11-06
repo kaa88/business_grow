@@ -12,7 +12,7 @@ body {
 	--timer-menu: #{$timer-menu}; //REQ!
 	--timer-modal: #{$timer-modal}; //REQ!
 	//
-	width: 100%;
+	// width: 100%; // есть в ресете
 	// max-width: $page-max-width+px;
 	max-width: 240vh;//240
 	margin: 0 auto; //REQ! if max-width
@@ -401,7 +401,8 @@ i {
 }
 .icon-vk {
 	&:before {
-		margin-top: 5%;//em(2);
+		margin-top: 10%;//em(2);
+		margin-left: 5%;
 		font-size: em(8);
 	}
 	&.colored-icon {
@@ -413,16 +414,16 @@ i {
 		}
 	}
 }
-.icon-vc {
-	&:before {
-		margin-top: 1%;//em(1);
-		font-size: em(11);
-	}
-}
+// .icon-vc {
+// 	&:before {
+// 		margin-top: 1%;//em(1);
+// 		font-size: em(11);
+// 	}
+// }
 .icon-telegram {
 	&:before {
 		// margin: em(1) em(2) 0 0;
-		margin-top: 10%;
+		margin-top: 20%;
 		margin-left: -1%;
 		font-size: em(12);
 	}
@@ -435,12 +436,12 @@ i {
 		}
 	}
 }
-.icon-zen {
-	&:before {
-		margin-top: 2%;//em(1.5);
-		font-size: em(14);
-	}
-}
+// .icon-zen {
+// 	&:before {
+// 		margin-top: 2%;//em(1.5);
+// 		font-size: em(14);
+// 	}
+// }
 .icon-whatsapp {
 	&:before {
 		margin-top: 5%;//em(2);
@@ -650,7 +651,7 @@ i {
 	width: 100%;
 	max-width: em(860);
 	padding: 0 em(30);
-	// overflow: hidden;//dfsdfsdf
+	// overflow: hidden;
 	@media (max-width: $media-mobile+px) {
 		height: 100%;
 		padding: 0 30px;
@@ -742,4 +743,24 @@ i {
 		text-decoration: underline;
 	}
 	&__author-link {}
+}
+
+textarea {
+	resize: none; // none, both, horizontal, vertical
+	@media (min-width: $media-mobile+1+px) {
+		scrollbar-width: thin; // none, thin, auto
+		scrollbar-color: $color06 transparent;
+		&::-webkit-scrollbar {
+			width: 0.4166vw;
+		}
+		&::-webkit-scrollbar-button {
+			height: em(8);
+		}
+		&::-webkit-scrollbar-track {
+			background: transparent;
+		}
+		&::-webkit-scrollbar-thumb {
+			background: $color06;
+		}
+	}
 }

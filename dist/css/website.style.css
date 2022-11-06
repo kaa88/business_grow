@@ -16,13 +16,17 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: inherit;
 }
 
+:focus, :active {
+  outline: none;
+}
+
+ul {
+  list-style: none;
+}
+
 a, a:visited {
   text-decoration: none;
   color: inherit;
-}
-
-:focus, :active {
-  outline: none;
 }
 
 button, input, textarea {
@@ -37,34 +41,38 @@ input::-ms-clear {
   display: none;
 }
 
-ul {
-  list-style: none;
+input[type=number] {
+  -moz-appearance: textfield;
+}
+input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
-/* WordPress admin-bar position fix */
+/* WordPress admin-bar force position */
 #wpadminbar {
   position: fixed !important;
 }
 
-.noscript-alert {
-  position: fixed !important;
-  bottom: 0 !important;
-  left: 0 !important;
-  z-index: 999 !important;
-  width: 100vw !important;
-  padding: 25px !important;
-  background-color: #ccc !important;
-  -webkit-box-shadow: 0 -2px 7px 0 #333 !important;
-          box-shadow: 0 -2px 7px 0 #333 !important;
-  text-align: center !important;
-  font-family: Arial, sans-serif !important;
-  font-size: 18px !important;
-  line-height: 26px !important;
-  color: #000 !important;
+#noscript-alert {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  width: 100vw;
+  padding: 25px;
+  background-color: #ccc;
+  -webkit-box-shadow: 0 -2px 7px 0 #333;
+          box-shadow: 0 -2px 7px 0 #333;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  line-height: 26px;
+  color: #000;
 }
-.noscript-alert a, .noscript-alert a:visited {
-  text-decoration: underline !important;
-  color: #00f !important;
+#noscript-alert a, #noscript-alert a:visited {
+  text-decoration: underline;
+  color: #00f;
 }
 
 /* Icon font (IcoMoon) */
@@ -235,7 +243,6 @@ body {
   --media-mobile: 768;
   --timer-menu: 0.4s;
   --timer-modal: 0.7s;
-  width: 100%;
   max-width: 240vh;
   margin: 0 auto;
   height: 100vh;
@@ -677,7 +684,8 @@ i {
 }
 
 .icon-vk:before {
-  margin-top: 5%;
+  margin-top: 10%;
+  margin-left: 5%;
   font-size: 0.5em;
 }
 .icon-vk.colored-icon {
@@ -688,13 +696,8 @@ i {
   font-size: 0.8125em;
 }
 
-.icon-vc:before {
-  margin-top: 1%;
-  font-size: 0.6875em;
-}
-
 .icon-telegram:before {
-  margin-top: 10%;
+  margin-top: 20%;
   margin-left: -1%;
   font-size: 0.75em;
 }
@@ -704,11 +707,6 @@ i {
 .icon-telegram.colored-icon:before {
   margin-top: 5%;
   font-size: 1.0625em;
-}
-
-.icon-zen:before {
-  margin-top: 2%;
-  font-size: 0.875em;
 }
 
 .icon-whatsapp:before {
@@ -1139,6 +1137,28 @@ i {
   color: #0f73a8;
   text-decoration: underline;
 }
+textarea {
+  resize: none;
+}
+@media (min-width: 769px) {
+  textarea {
+    scrollbar-width: thin;
+    scrollbar-color: #8D97A1 transparent;
+  }
+  textarea::-webkit-scrollbar {
+    width: 0.4166vw;
+  }
+  textarea::-webkit-scrollbar-button {
+    height: 0.5em;
+  }
+  textarea::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  textarea::-webkit-scrollbar-thumb {
+    background: #8D97A1;
+  }
+}
+
 /* Modules */
 .footer {
   width: 100%;
@@ -3358,7 +3378,6 @@ form button {
   border-radius: 5px;
   background-color: #E2E7EC;
   color: #2B2A29;
-  resize: none;
   font-size: 1.25em;
 }
 .feedback-content__textarea textarea._error {
@@ -3637,11 +3656,6 @@ form button {
   font-size: 1.875em;
   letter-spacing: 0.05em;
   text-align: center;
-  -moz-appearance: textfield;
-}
-.time-select__input::-webkit-outer-spin-button, .time-select__input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
 }
 .time-select__divider {
   display: inline-block;
@@ -4304,7 +4318,7 @@ form button {
     font-size: 14px;
   }
   .main__backlink i:before, .main__backlink:visited i:before {
-    margin-top: 2px;
+    margin-top: 0px;
     -webkit-transform: rotate(90deg);
         -ms-transform: rotate(90deg);
             transform: rotate(90deg);

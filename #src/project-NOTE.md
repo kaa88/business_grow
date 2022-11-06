@@ -85,3 +85,9 @@ New site template v3.02
 - html добавил if light с выбором обычного файла и .min (header.html, footer.html)
 - gulpfile - коммент в css
 - добавить переменную --window-height для правильного расчета высоты меню в мобильных браузерах с плавающими пнелями (header.js, header.css)
+- сделать базовый спрайт иконок
+- #templates
+- noscript - поменял class на id, убрал important (footer.html, noscript.css)
+- reset - добавил input number стрелки
+- textarea - в globs добавил стили с скроллбаром (globs.scss)
+- html - переменную light переделать в isLiteBuild (html, gulpfile)

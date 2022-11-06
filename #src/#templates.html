@@ -336,16 +336,7 @@
 	-webkit-text-fill-color: #222;
 */
 
-/* Input number убрать стандартные стрелки
-	-moz-appearance: textfield;
-	&::-webkit-outer-spin-button,
-	&::-webkit-inner-spin-button {
-		-webkit-appearance: none;
-		margin: 0;
-	}
-*/
-
-/* Скроллбар
+/* Скроллбар - стилизация
 	&::-webkit-scrollbar {
 		width: 8px;
 	}
@@ -360,6 +351,12 @@
 	// - Firefox
 	scrollbar-width: thin;
 	scrollbar-color: $color01 transparent; // thumb track
+*/
+
+/* Скроллбар - поведение
+	scroll-padding: 20px; // отступ полосы прокрутки (поддерживает стороны, типа scroll-padding-top)
+	scroll-behavior: smooth; // плавность прокрутки
+	overscroll-behavior: contain; // предотвращает прокрутку в родителе, если в текущем эл-те прокрутка дошла до конца
 */
 
 /* Градиент
