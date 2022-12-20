@@ -28,7 +28,7 @@ const scrollLock = {
 	marginItemClassName: 'scroll-lock-item-m',
 	lockedClassName: '_locked',
 
-	init: function(params = {}) {
+	init: async function(params = {}) {
 		this.paddingItems = document.querySelectorAll('.' + this.paddingItemClassName);
 		this.paddingMenuItems = document.querySelectorAll('.' + this.paddingMenuItemClassName);
 		this.marginItems = document.querySelectorAll('.' + this.marginItemClassName);

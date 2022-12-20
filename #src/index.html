@@ -1,7 +1,3 @@
-<!-- <?php
-/* Template Name: Home */
-get_template_part('parts/header');
-?> -->
 @@include('parts/header.html', {
 	'title': 'Business Grow - Developing & Marketing Company',
 	'descr': 'Description',
@@ -10,13 +6,7 @@ get_template_part('parts/header');
 	'feedback_button_class': 'feedback-button feedback-button--clipped modal-link'
 })
 <script id="header-menu-options">
-	// список пунктов меню в header.html
-	// наличие и порядок устанавливаются в массиве 'links'
-	// 'activeLink' добавляет класс 'this-page'
-	// тег 'script' можно удалить
-	
 	let headerMenuOptions = {
-	// 	links: ['home','products','about','contacts'],
 		activeLink: 'home'
 	}
 </script>
@@ -113,41 +103,35 @@ get_template_part('parts/header');
 			<h3 class="about__title">We are <span>proud</span> to tell about our <span>achievements</span>:</h3>
 			<div class="about__achievements achievements">
 
-				<!-- <div class="achievements__item"> -->
-					<p class="achievements__text">
-						Libero atque mollitia <span>175 delectus aperiam</span>
-					</p>
-					<div class="achievements__divider">
-						<span class="triangle-arrow"><span></span></span>
-					</div>
-					<a class="achievements__link" href="cases.html">
-						<span>see cases</span>
-					</a>
-				<!-- </div> -->
+				<p class="achievements__text">
+					Libero atque mollitia <span>175 delectus aperiam</span>
+				</p>
+				<div class="achievements__divider">
+					<span class="triangle-arrow"><span></span></span>
+				</div>
+				<a class="achievements__link" href="cases.html">
+					<span>see cases</span>
+				</a>
 
-				<!-- <div class="achievements__item"> -->
-					<p class="achievements__text">
-						Consectetur adipisicing elit <span>30 voluptate odit</span>
-					</p>
-					<div class="achievements__divider">
-						<span class="triangle-arrow"><span></span></span>
-					</div>
-					<a class="achievements__link" href="cases.html">
-						<span>see cases</span>
-					</a>
-				<!-- </div> -->
-				
-				<!-- <div class="achievements__item"> -->
-					<p class="achievements__text">
-						blanditiis voluptates <span>250 fuga obcaecati placeat molestias ut</span>
-					</p>
-					<div class="achievements__divider">
-						<span class="triangle-arrow"><span></span></span>
-					</div>
-					<a class="achievements__link" href="cases.html">
-						<span>see cases</span>
-					</a>
-				<!-- </div> -->
+				<p class="achievements__text">
+					Consectetur adipisicing elit <span>30 voluptate odit</span>
+				</p>
+				<div class="achievements__divider">
+					<span class="triangle-arrow"><span></span></span>
+				</div>
+				<a class="achievements__link" href="cases.html">
+					<span>see cases</span>
+				</a>
+			
+				<p class="achievements__text">
+					blanditiis voluptates <span>250 fuga obcaecati placeat molestias ut</span>
+				</p>
+				<div class="achievements__divider">
+					<span class="triangle-arrow"><span></span></span>
+				</div>
+				<a class="achievements__link" href="cases.html">
+					<span>see cases</span>
+				</a>
 				
 			</div>
 	
@@ -180,21 +164,8 @@ get_template_part('parts/header');
 	</div>
 	<div class="decor-img__fader"></div>
 </div>
-<!-- <div class="decor-img scroll-lock-item-m">
-	<div class="decor-img__container">
-		<div class="decor-img__shape">
-			<div class="decor-img__wrapper">
-				<img src="media/img/decor-img.jpg" alt="" loading="lazy">
-			</div>
-		</div>
-		<div class="decor-img__inner"></div>
-	</div>
-</div> -->
-
-<!-- <div class="grid-fill"></div> -->
 
 <section class="modal">
-	<!-- <?php get_template_part('parts/modal-info'); ?> -->
 	@@include('parts/modal-consult.html')
 	@@include('parts/modal-confirm.html')
 	@@include('parts/modal-message.html')
@@ -204,11 +175,4 @@ get_template_part('parts/header');
 </section>
 
 @@include('parts/svg.html')
-
-
-<!-- @@include('parts/#ct.html') -->
-<!-- <div class="template-test-block scroll-lock-item-p"><div class="container">@@include('#templates.html')</div></div> -->
-
-
-<!-- <?php get_template_part('parts/footer'); ?> -->
 @@include('parts/footer.html')

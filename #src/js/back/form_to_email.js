@@ -15,7 +15,7 @@ const formToEmail = {
 		incorrectEmail: 'Incorrect email',
 	},
 	
-	init: function(params = {}){
+	init: async function(params = {}){
 		this.demo = params.demo ? true : false;
 		this.inputs = document.querySelectorAll('form input, form textarea');
 		for (let i = 0; i < this.inputs.length; i++) {

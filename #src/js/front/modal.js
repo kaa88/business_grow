@@ -42,7 +42,7 @@ const modal = {
 		scrlock: scrollLock,
 		header: header.menu
 	},
-	init: function(params = {}){
+	init: async function(params = {}){
 		this.elemName = params.elem || 'modal';
 		this.elem = document.querySelector('.' + this.elemName);
 		if (!this.elem) return;
@@ -121,20 +121,10 @@ const modal = {
 		this.toggleMainWindow(this.check());
 	},
 	check: function(){
-		// let openedWindows = false;
 		for (let i = 0; i < this.windows.length; i++) {
 			if (this.windows[i].classList.contains('_open')) return true;
 		}
 		return false;
-		// if (openedWindows) {
-		// 	this.elem.classList.add('_visible');
-		// 	this.refs.scrlock.lock();
-		// }
-		// else {
-		// 	this.elem.classList.remove('_visible');
-		// 	if (!this.refs.header.menuElem.classList.contains('_active'))
-		// 		this.refs.scrlock.unlock(this.timeout);
-		// }
 	},
 	toggleMainWindow: function(openedWindows) {
 		if (openedWindows) {

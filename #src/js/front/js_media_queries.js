@@ -8,7 +8,7 @@
 	Init params {obj}: breakpoints - {obj}
 */
 const jsMediaQueries = {
-	init: function(params = {}) {
+	init: async function(params = {}) {
 		this.breakpoints = params.breakpoints || null;
 		if (!this.breakpoints) return;
 		this.breakpoints.keys = Object.keys(this.breakpoints);

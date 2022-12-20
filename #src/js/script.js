@@ -1,31 +1,3 @@
-// Developer panel //
-@@include('front/_dev_panel.js')
-// window.addEventListener('load', developer_panel.init);
-
-//////////////////////////////////////////////////
-
-// User Agent
-	// if (navigator.userAgent.toLowerCase().match(/mac|ios|iphone|ipad/)) document.body.classList.add('useragent-safari');
-	// if (navigator.userAgent.toLowerCase().match(/firefox/)) document.body.classList.add('useragent-firefox');
-
-	// console.log(navigator.userAgent)
-	// console.log(navigator.platform)
-	// if (navigator.userAgent.includes('Firefox')) console.log('Firefox');
-
-		// Ключевые слова по браузерам:
-		// Chrome / Safari - Chrome Safari
-		// Firefox - Firefox
-		// Opera - Chrome Safari OPR
-		// Edge - Chrome Safari Edg
-		// Yandex - Chrome Safari YaBrowser Yowser
-
-		// navigator.userAgent в консоли:
-		// chrome - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36
-		// Safari - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/ ... Version/12.1.2. Safari/605.1.15
-		// Firefox - Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0
-
-//////////////////////////////////////////////////
-
 // Constants //
 const mobileSwitchWidth = parseFloat(getComputedStyle(document.body).getPropertyValue('--media-mobile')) || 768;
 
@@ -33,22 +5,6 @@ const mobileSwitchWidth = parseFloat(getComputedStyle(document.body).getProperty
 
 // Random //
 @@include('front/random.js')
-
-//////////////////////////////////////////////////
-
-// Cookies //
-// @ @include('front/cookies.js')
-// let cookies = getCookie();
-// console.log(cookies);
-
-//////////////////////////////////////////////////
-
-// Loadscreen //
-// @ @include('front/loadscreen.js')
-// loadscreen.init({
-// 	timeout: 1000,
-// 	scrollToTop: true
-// })
 
 //////////////////////////////////////////////////
 
@@ -99,8 +55,6 @@ headerMenuOpenButton.addEventListener('click', function() {
 @@include('front/footer.js')
 footer.init()
 
-// console.log(document.querySelector('.header').offsetHeight + ' ' + document.querySelector('.main').offsetHeight + ' ' + document.querySelector('.footer').offsetHeight + ' ' + document.body.offsetHeight)
-
 //////////////////////////////////////////////////
 
 // Modal window //
@@ -124,15 +78,6 @@ for (let i = 0; i < footerCloneContainers.length; i++) {
 
 //////////////////////////////////////////////////
 
-// Popup //
-// @ @include('front/popup.js')
-// let test_popup = new Popup({
-// 	elem: 'test-popup'
-// });
-// Place each popup's code below
-
-//////////////////////////////////////////////////
-
 // Select //
 @@include('front/select.js')
 const select_consult_activity = new Select({
@@ -140,96 +85,6 @@ const select_consult_activity = new Select({
 	firstOptSelected: true,
 	// onselect: (selection) => {console.log(selection)}
 })
-
-//////////////////////////////////////////////////
-
-// Accordion //
-// @ @include('front/accordion_js.js')
-// const accordion = new Accordion({
-// 	elem: '.js__accordion',
-// 	isOpened: true
-// });
-
-//////////////////////////////////////////////////
-
-// Simple counter //
-// @ @include('front/simple_counter.js')
-// const simpleCounter = new SimpleCounter({
-// 	launcher: '.test-counter-button',
-// 	output: '.test-counter',
-// 	goal: 51806,
-// 	timeout: 2,
-// })
-// simpleCounter.start()
-
-//////////////////////////////////////////////////
-
-// Input range colored //
-// @ @include('front/input_range_colored.js')
-// const iRangeClr = new InputRangeColored({
-// 	elem: 'input-range'
-// })
-
-//////////////////////////////////////////////////
-
-// Input range double //
-// @ @include('front/input_range_double.js')
-// const iRangeDbl = new InputRangeDouble({
-// 	elem: 'form__input-range-dbl',
-// 	start: 200,
-// 	end: 492,
-// 	thumbs: [250, 400],
-// 	bubble: true,
-// 	results: ['form__ir-result1', 'form__ir-result2']
-// })
-
-//////////////////////////////////////////////////
-
-// Spoiler //
-// @ @include('front/spoiler.js')
-// spoiler.init();
-
-//////////////////////////////////////////////////
-
-// Tabs //
-// @ @include('front/tabs.js')
-
-//////////////////////////////////////////////////
-
-// Up-button //
-// @ @include('front/up_button.js')
-// upButton.init();
-
-//////////////////////////////////////////////////
-
-// Intersection //
-// @ @include('front/intersection.js')
-
-//////////////////////////////////////////////////
-
-// Parallax //
-// @ @include('front/parallax.js')
-// const parallax = new Parallax({
-// 	parallaxElem: '.parallax',
-// 	scrollElem: '.container',
-// 	start: 500,
-// 	distance: 30,
-// })
-
-//////////////////////////////////////////////////
-
-// Pagination //
-// @ @include('front/pagination.js')
-// const pagination = new Pagination({
-// 	elem: '.pagination',
-// 	maxLength: 8,
-// })
-
-//////////////////////////////////////////////////
-
-// Video player //
-// @ @include('front/video_player.js')
-// videoPlayer.init(80);
 
 //////////////////////////////////////////////////
 
@@ -348,19 +203,9 @@ if (typeof Swiper !== 'undefined') {
 }
 //
 
-// Swiper no-internet version
-else {
-	swipers.settings = {
-		spaceBetween: 30,
-		overflowHidden: true
-	}
-	@@include('front/swiper.js')
-}
-//
-
 // Quiz
 const modalProgressBar = {
-	init: function() {
+	init: async function() {
 		let modalCheck = document.querySelector('#modal-consult');
 		if (!modalCheck) return;
 		this.isLoaded = true;
@@ -387,38 +232,6 @@ for (let i = 0; i < swipers.consultSlideButtons.length; i++) {
 		modalProgressBar.expand();
 	})
 }
-// swipers.callSlideButton = document.querySelector('#modal-call .text-button-simple');
-// swipers.callSlideButton.addEventListener('click', function(e) {
-// 	e.preventDefault();
-// 	if (transitionLock.check( swipers.settings.speed )) return;
-// 	swipers.modal_call.slideNext();
-
-// 	header.headerElem.classList.add('_active-modal-transform');
-// })
-// swipers.msgSlideButton = document.querySelector('#modal-message .text-button-simple');
-// swipers.msgSlideButton.addEventListener('click', function(e) {
-// 	e.preventDefault();
-// 	if (transitionLock.check( swipers.settings.speed )) return;
-// 	swipers.modal_msg.slideNext();
-
-// 	header.headerElem.classList.add('_active-modal-transform');
-// })
-
-// console.log(swipers)
-
-// delete the folowing
-// swipers.slideBackButtons = document.querySelectorAll('.slider-back-button');
-// for (let i = 0; i < swipers.slideBackButtons.length; i++) {
-// 	swipers.slideBackButtons[i].addEventListener('click', function(e) {
-// 		e.preventDefault();
-// 		if (transitionLock.check( 500 )) return;
-// 		swipers.consult_top.slidePrev();
-// 		swipers.consult_bot.slidePrev();
-// 		if (modalProgressBar.i > 0) modalProgressBar.i--;
-// 		modalProgressBar.expand();
-// 	})
-// }
-
 //////////////////////////////////////////////////
 
 // Print version QR-code //
@@ -456,11 +269,6 @@ formToEmail.init({
 
 //////////////////////////////////////////////////
 
-// JSON Load //
-// @ @include('back/json_load.js')
-
-//////////////////////////////////////////////////
-
 // Time select
 const timeSelect = {
 	names: {
@@ -468,7 +276,7 @@ const timeSelect = {
 		selectedClass: '_selected',
 		selectionClass: '_selection',
 	},
-	init: function() {
+	init: async function() {
 		this.elem = document.querySelector('.time-select');
 		if (!this.elem) return;
 
@@ -567,21 +375,6 @@ const timeSelect = {
 			else this.focusInput(false, this.inputH);
 		}
 	},
-	
-	// checkInputHourValue: function(e) {
-	// 	if (this.selection != e.target && e.target.value.length >= 2 && e.key.match(/[0-9]/)) {
-	// 		this.inputM.select();
-	// 	}
-	// },
-	// checkInputMinuteValue: function(e) {
-	// 	if (this.selection != e.target && e.target.value.length >= 2 && e.key.match(/[0-9]/)) {
-	// 		e.preventDefault();
-	// 	}
-	// 	if (e.target.value.length == 0 && e.key == 'Backspace') {
-	// 		e.preventDefault();
-	// 		this.inputH.select();
-	// 	}
-	// },
 	checkInputTimeFormat: function(e) {
 		// this.removeSelection();
 		let maxValue = 23; // hours
@@ -644,7 +437,7 @@ const timeSelect = {
 		}
 	},
 }
-timeSelect.init();
+timeSelect.init()
 
 //////////////////////////////////////////////////
 
@@ -673,13 +466,13 @@ const decorImage = {
 		})
 	}
 }
-decorImage.init();
+decorImage.init()
 
 //////////////////////////////////////////////////
 
 // Mobile background height calculator
 const mobileBackground = {
-	init: function() {
+	init: async function() {
 		this.elem = document.body.querySelector('.mobile-background');
 		this.calcItem = document.body.querySelector('.mob-bg-calc');
 		if (!this.elem || !this.calcItem) return;

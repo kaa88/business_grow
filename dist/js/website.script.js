@@ -1,83 +1,3 @@
-// Developer panel //
-const developer_panel = {
-	init: function() {
-		aspectRatioCalculator.init();
-	}
-	// перенести сюда aspectRatioCalculator, сделать общий бокс
-	// добавить вывод текущего body font size
-	// добавить отслеживание переменной
-	// возможно еще:
-	// кнопки навигации, которые листают сразу все свайперы
-	// координаты мыши
-	// кнопка, которая включает подсветку эл-тов, которые создают гориз прокрутку
-	// размер скроллбара
-}
-
-
-// Aspect ratio (developer use only)
-const aspectRatioCalculator = {
-	init: function() {
-		let newBox = document.createElement('div');
-		document.body.appendChild(newBox);
-		newBox.id = 'aspect-ratio-calculator';
-		let style = '#aspect-ratio-calculator {position: fixed; top: 0; left: 0; z-index: 9999; display: flex; justify-content: center; align-items: center; padding: 15px 30px; background-color: yellow;} #aspect-ratio-calculator span {font-size: 3vmin; font-family: Arial;}'
-		newBox.innerHTML = '<span></span><style>' + style + '</style>';
-		this.box = newBox.children[0];
-		this.calc();
-		window.addEventListener('resize', this.calc.bind(this));
-	},
-	calc: function() {
-		// function gcd (a, b) {return (b == 0) ? a : gcd (b, a%b);} // функция вычисляет минимальный общий делитель для ширины и высоты, потом надо поделить стороны на него и получить соотношение сторон
-		// а у меня проще: всегда беру высоту за 9 и подгоняю ширину через коэффициент
-		let
-			w = window.innerWidth,
-			h = window.innerHeight,
-			wh = Math.round(w / h * 100) / 100,
-			hx = 9,
-			wx = Math.round(hx * wh);
-			
-		if (wx == 9) {wx = 1; hx = 1;}
-		if (wx == 12) {wx = 4; hx = 3;}
-		if (wx == 15) {wx = 5; hx = 3;}
-		this.box.innerHTML = 'aspect ratio: ' + wh + ' = ' + wx + ' / ' + hx;
-	},
-}
-
-//////////////////////////////////////////////////
-
-// Body 'em' checker
-// window.addEventListener('resize', bodyEmCheck);
-// function bodyEmCheck() {
-// 	console.log('Body "em" checker. Current font-size: ' + getComputedStyle(document.body).fontSize);
-// }
-// bodyEmCheck();
-
-// window.addEventListener('load', developer_panel.init);
-
-//////////////////////////////////////////////////
-
-// User Agent
-	// if (navigator.userAgent.toLowerCase().match(/mac|ios|iphone|ipad/)) document.body.classList.add('useragent-safari');
-	// if (navigator.userAgent.toLowerCase().match(/firefox/)) document.body.classList.add('useragent-firefox');
-
-	// console.log(navigator.userAgent)
-	// console.log(navigator.platform)
-	// if (navigator.userAgent.includes('Firefox')) console.log('Firefox');
-
-		// Ключевые слова по браузерам:
-		// Chrome / Safari - Chrome Safari
-		// Firefox - Firefox
-		// Opera - Chrome Safari OPR
-		// Edge - Chrome Safari Edg
-		// Yandex - Chrome Safari YaBrowser Yowser
-
-		// navigator.userAgent в консоли:
-		// chrome - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36
-		// Safari - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/ ... Version/12.1.2. Safari/605.1.15
-		// Firefox - Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0
-
-//////////////////////////////////////////////////
-
 // Constants //
 const mobileSwitchWidth = parseFloat(getComputedStyle(document.body).getPropertyValue('--media-mobile')) || 768;
 
@@ -98,22 +18,6 @@ function getRandomId(length = 10) {
 
 //////////////////////////////////////////////////
 
-// Cookies //
-// @ @include('front/cookies.js')
-// let cookies = getCookie();
-// console.log(cookies);
-
-//////////////////////////////////////////////////
-
-// Loadscreen //
-// @ @include('front/loadscreen.js')
-// loadscreen.init({
-// 	timeout: 1000,
-// 	scrollToTop: true
-// })
-
-//////////////////////////////////////////////////
-
 // JS Media Queries //
 /* 
 	Module checks window resizing and runs funcs on breakpoints.
@@ -125,7 +29,7 @@ function getRandomId(length = 10) {
 	Init params {obj}: breakpoints - {obj}
 */
 const jsMediaQueries = {
-	init: function(params = {}) {
+	init: async function(params = {}) {
 		this.breakpoints = params.breakpoints || null;
 		if (!this.breakpoints) return;
 		this.breakpoints.keys = Object.keys(this.breakpoints);
@@ -193,7 +97,7 @@ const scrollLock = {
 	marginItemClassName: 'scroll-lock-item-m',
 	lockedClassName: '_locked',
 
-	init: function(params = {}) {
+	init: async function(params = {}) {
 		this.paddingItems = document.querySelectorAll('.' + this.paddingItemClassName);
 		this.paddingMenuItems = document.querySelectorAll('.' + this.paddingMenuItemClassName);
 		this.marginItems = document.querySelectorAll('.' + this.marginItemClassName);
@@ -674,8 +578,6 @@ const footer = {
 }
 footer.init()
 
-// console.log(document.querySelector('.header').offsetHeight + ' ' + document.querySelector('.main').offsetHeight + ' ' + document.querySelector('.footer').offsetHeight + ' ' + document.body.offsetHeight)
-
 //////////////////////////////////////////////////
 
 // Modal window //
@@ -723,7 +625,7 @@ const modal = {
 		scrlock: scrollLock,
 		header: header.menu
 	},
-	init: function(params = {}){
+	init: async function(params = {}){
 		this.elemName = params.elem || 'modal';
 		this.elem = document.querySelector('.' + this.elemName);
 		if (!this.elem) return;
@@ -802,20 +704,10 @@ const modal = {
 		this.toggleMainWindow(this.check());
 	},
 	check: function(){
-		// let openedWindows = false;
 		for (let i = 0; i < this.windows.length; i++) {
 			if (this.windows[i].classList.contains('_open')) return true;
 		}
 		return false;
-		// if (openedWindows) {
-		// 	this.elem.classList.add('_visible');
-		// 	this.refs.scrlock.lock();
-		// }
-		// else {
-		// 	this.elem.classList.remove('_visible');
-		// 	if (!this.refs.header.menuElem.classList.contains('_active'))
-		// 		this.refs.scrlock.unlock(this.timeout);
-		// }
 	},
 	toggleMainWindow: function(openedWindows) {
 		if (openedWindows) {
@@ -845,15 +737,6 @@ for (let i = 0; i < footerCloneContainers.length; i++) {
 //
 
 // moved modal.init to the end because of swiper links late loading
-
-//////////////////////////////////////////////////
-
-// Popup //
-// @ @include('front/popup.js')
-// let test_popup = new Popup({
-// 	elem: 'test-popup'
-// });
-// Place each popup's code below
 
 //////////////////////////////////////////////////
 
@@ -947,96 +830,6 @@ const select_consult_activity = new Select({
 	firstOptSelected: true,
 	// onselect: (selection) => {console.log(selection)}
 })
-
-//////////////////////////////////////////////////
-
-// Accordion //
-// @ @include('front/accordion_js.js')
-// const accordion = new Accordion({
-// 	elem: '.js__accordion',
-// 	isOpened: true
-// });
-
-//////////////////////////////////////////////////
-
-// Simple counter //
-// @ @include('front/simple_counter.js')
-// const simpleCounter = new SimpleCounter({
-// 	launcher: '.test-counter-button',
-// 	output: '.test-counter',
-// 	goal: 51806,
-// 	timeout: 2,
-// })
-// simpleCounter.start()
-
-//////////////////////////////////////////////////
-
-// Input range colored //
-// @ @include('front/input_range_colored.js')
-// const iRangeClr = new InputRangeColored({
-// 	elem: 'input-range'
-// })
-
-//////////////////////////////////////////////////
-
-// Input range double //
-// @ @include('front/input_range_double.js')
-// const iRangeDbl = new InputRangeDouble({
-// 	elem: 'form__input-range-dbl',
-// 	start: 200,
-// 	end: 492,
-// 	thumbs: [250, 400],
-// 	bubble: true,
-// 	results: ['form__ir-result1', 'form__ir-result2']
-// })
-
-//////////////////////////////////////////////////
-
-// Spoiler //
-// @ @include('front/spoiler.js')
-// spoiler.init();
-
-//////////////////////////////////////////////////
-
-// Tabs //
-// @ @include('front/tabs.js')
-
-//////////////////////////////////////////////////
-
-// Up-button //
-// @ @include('front/up_button.js')
-// upButton.init();
-
-//////////////////////////////////////////////////
-
-// Intersection //
-// @ @include('front/intersection.js')
-
-//////////////////////////////////////////////////
-
-// Parallax //
-// @ @include('front/parallax.js')
-// const parallax = new Parallax({
-// 	parallaxElem: '.parallax',
-// 	scrollElem: '.container',
-// 	start: 500,
-// 	distance: 30,
-// })
-
-//////////////////////////////////////////////////
-
-// Pagination //
-// @ @include('front/pagination.js')
-// const pagination = new Pagination({
-// 	elem: '.pagination',
-// 	maxLength: 8,
-// })
-
-//////////////////////////////////////////////////
-
-// Video player //
-// @ @include('front/video_player.js')
-// videoPlayer.init(80);
 
 //////////////////////////////////////////////////
 
@@ -1155,75 +948,9 @@ if (typeof Swiper !== 'undefined') {
 }
 //
 
-// Swiper no-internet version
-else {
-	swipers.settings = {
-		spaceBetween: 30,
-		overflowHidden: true
-	}
-	/* 
-	Non-internet Swiper script. 
-	It provides basic Swiper functions (sliding) and styles.
-	Settings:
-	- spaceBetween,
-	- overflowHidden.
-	Only for developers use! Make sure to delete this script from final version.
-*/
-
-console.log('WARN! Swiper reserve "non-internet" script included!');
-
-addSwiperReserveMovingScript = function(elem) {
-	elem.children[0].classList.add('active-slide');
-
-	elem.moveSlide = function(side) {
-		let activeSlide = 0;
-		for (let i = 0; i < this.children.length; i++) {
-			if (this.children[i].classList.contains('active-slide')) {
-				activeSlide = i;
-				break;
-			}
-		}
-		if (side == 'prev') {
-			if (activeSlide == 0) return;
-			this.children[activeSlide].classList.remove('active-slide');
-			activeSlide--;
-		}
-		if (side == 'next') {
-			if (activeSlide == this.children.length-1) return;
-			this.children[activeSlide].classList.remove('active-slide');
-			activeSlide++;
-		}
-		this.children[activeSlide].classList.add('active-slide');
-		this.style.left = 'calc(' + activeSlide * -100 + '% - ' + swipers.settings.spaceBetween * activeSlide + 'px';
-	}
-
-	elem.slidePrev = function() {
-		elem.moveSlide('prev');
-	}
-	elem.slideNext = function() {
-		elem.moveSlide('next');
-	}
-}
-
-for (let swiperElem in swipers.selectors) {
-	let newSwiperSelector = swipers.selectors[swiperElem] + ' .swiper-wrapper';
-	swipers[swiperElem] = document.body.querySelector(newSwiperSelector);
-	if (swipers[swiperElem]) addSwiperReserveMovingScript(swipers[swiperElem]);
-}
-
-let swiperReserveStyles = document.createElement('style');
-document.head.appendChild(swiperReserveStyles);
-swiperReserveStyles.innerHTML =
-	'.swiper {width: 100%; position: relative;' + (swipers.settings.overflowHidden ? ' overflow: hidden;' : '') + '}' +
-	'.swiper-wrapper {position: relative; top: 0; left: 0%; display: flex; transition: left .5s;}' +
-	'.swiper-slide {flex: 0 0 100%;}' +
-	'.swiper-slide:not(:first-child) {margin-left: ' + swipers.settings.spaceBetween + 'px;}}';
-}
-//
-
 // Quiz
 const modalProgressBar = {
-	init: function() {
+	init: async function() {
 		let modalCheck = document.querySelector('#modal-consult');
 		if (!modalCheck) return;
 		this.isLoaded = true;
@@ -1250,38 +977,6 @@ for (let i = 0; i < swipers.consultSlideButtons.length; i++) {
 		modalProgressBar.expand();
 	})
 }
-// swipers.callSlideButton = document.querySelector('#modal-call .text-button-simple');
-// swipers.callSlideButton.addEventListener('click', function(e) {
-// 	e.preventDefault();
-// 	if (transitionLock.check( swipers.settings.speed )) return;
-// 	swipers.modal_call.slideNext();
-
-// 	header.headerElem.classList.add('_active-modal-transform');
-// })
-// swipers.msgSlideButton = document.querySelector('#modal-message .text-button-simple');
-// swipers.msgSlideButton.addEventListener('click', function(e) {
-// 	e.preventDefault();
-// 	if (transitionLock.check( swipers.settings.speed )) return;
-// 	swipers.modal_msg.slideNext();
-
-// 	header.headerElem.classList.add('_active-modal-transform');
-// })
-
-// console.log(swipers)
-
-// delete the folowing
-// swipers.slideBackButtons = document.querySelectorAll('.slider-back-button');
-// for (let i = 0; i < swipers.slideBackButtons.length; i++) {
-// 	swipers.slideBackButtons[i].addEventListener('click', function(e) {
-// 		e.preventDefault();
-// 		if (transitionLock.check( 500 )) return;
-// 		swipers.consult_top.slidePrev();
-// 		swipers.consult_bot.slidePrev();
-// 		if (modalProgressBar.i > 0) modalProgressBar.i--;
-// 		modalProgressBar.expand();
-// 	})
-// }
-
 //////////////////////////////////////////////////
 
 // Print version QR-code //
@@ -1289,7 +984,7 @@ for (let i = 0; i < swipers.consultSlideButtons.length; i++) {
 	Init params:
 	1) QR-code size in 'px' (square) (default = 100)
 */
-function printQRcode(size = 100) {
+async function printQRcode(size = 100) {
 	let elem = document.querySelector('.header__print-address-qr');
 	if (!elem) return;
 	let str = '<img src="https://chart.googleapis.com/chart?cht=qr&chs=' + size + 'x' + size + '&choe=UTF-8&chld=H|0&chl=' + window.location.href + '" alt="">';
@@ -1317,7 +1012,7 @@ const formToEmail = {
 		incorrectEmail: 'Incorrect email',
 	},
 	
-	init: function(params = {}){
+	init: async function(params = {}){
 		this.demo = params.demo ? true : false;
 		this.inputs = document.querySelectorAll('form input, form textarea');
 		for (let i = 0; i < this.inputs.length; i++) {
@@ -1565,11 +1260,6 @@ formToEmail.init({
 
 //////////////////////////////////////////////////
 
-// JSON Load //
-// @ @include('back/json_load.js')
-
-//////////////////////////////////////////////////
-
 // Time select
 const timeSelect = {
 	names: {
@@ -1577,7 +1267,7 @@ const timeSelect = {
 		selectedClass: '_selected',
 		selectionClass: '_selection',
 	},
-	init: function() {
+	init: async function() {
 		this.elem = document.querySelector('.time-select');
 		if (!this.elem) return;
 
@@ -1676,21 +1366,6 @@ const timeSelect = {
 			else this.focusInput(false, this.inputH);
 		}
 	},
-	
-	// checkInputHourValue: function(e) {
-	// 	if (this.selection != e.target && e.target.value.length >= 2 && e.key.match(/[0-9]/)) {
-	// 		this.inputM.select();
-	// 	}
-	// },
-	// checkInputMinuteValue: function(e) {
-	// 	if (this.selection != e.target && e.target.value.length >= 2 && e.key.match(/[0-9]/)) {
-	// 		e.preventDefault();
-	// 	}
-	// 	if (e.target.value.length == 0 && e.key == 'Backspace') {
-	// 		e.preventDefault();
-	// 		this.inputH.select();
-	// 	}
-	// },
 	checkInputTimeFormat: function(e) {
 		// this.removeSelection();
 		let maxValue = 23; // hours
@@ -1753,7 +1428,7 @@ const timeSelect = {
 		}
 	},
 }
-timeSelect.init();
+timeSelect.init()
 
 //////////////////////////////////////////////////
 
@@ -1782,13 +1457,13 @@ const decorImage = {
 		})
 	}
 }
-decorImage.init();
+decorImage.init()
 
 //////////////////////////////////////////////////
 
 // Mobile background height calculator
 const mobileBackground = {
-	init: function() {
+	init: async function() {
 		this.elem = document.body.querySelector('.mobile-background');
 		this.calcItem = document.body.querySelector('.mob-bg-calc');
 		if (!this.elem || !this.calcItem) return;

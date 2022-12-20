@@ -49,11 +49,6 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   margin: 0;
 }
 
-/* WordPress admin-bar force position */
-#wpadminbar {
-  position: fixed !important;
-}
-
 #noscript-alert {
   position: fixed;
   bottom: 0;
